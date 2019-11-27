@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Nov  5 11:48:30 2019
+# Process ID: 95964
+# Current directory: C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/sevenseg/sevenseg.runs/synth_1
+# Command line: vivado.exe -log SEG7.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SEG7.tcl
+# Log file: C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/sevenseg/sevenseg.runs/synth_1/SEG7.vds
+# Journal file: C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/sevenseg/sevenseg.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source SEG7.tcl -notrace

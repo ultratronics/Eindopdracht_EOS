@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Nov 27 10:25:59 2019
+# Process ID: 16060
+# Current directory: D:/Vivado_Projecten/EindOpdracht1/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log WS2812.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source WS2812.tcl
+# Log file: D:/Vivado_Projecten/EindOpdracht1/project_1/project_1.runs/synth_1/WS2812.vds
+# Journal file: D:/Vivado_Projecten/EindOpdracht1/project_1/project_1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source WS2812.tcl -notrace

@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Nov 12 12:44:03 2019
+# Process ID: 86512
+# Current directory: C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/sevenseg
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent87752 C:\EmbeddedOperatingSystems\Oefeningen\IP_REPO\SevenSegment\sevenseg\sevenseg.xpr
+# Log file: C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/sevenseg/vivado.log
+# Journal file: C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/sevenseg\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/sevenseg/sevenseg.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/ip_repo/SevenSegmentDriver_1.0'.
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/SEG7_1.0'.
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/ip_repo/SEG7_1.0'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/ip_repo/SevenSegmentDriver_1.0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/SEG7_1.0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/EmbeddedOperatingSystems/Oefeningen/IP_REPO/SevenSegment/ip_repo/SEG7_1.0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:08 . Memory (MB): peak = 711.609 ; gain = 71.641
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 12 13:37:33 2019...
