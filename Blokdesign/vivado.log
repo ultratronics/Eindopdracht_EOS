@@ -2,10 +2,10 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Wed Nov 27 11:54:24 2019
-# Process ID: 15868
+# Start of session at: Sun Dec  1 10:29:09 2019
+# Process ID: 15192
 # Current directory: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18460 D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\Blokdesign\Blokdesign.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14588 D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\Blokdesign\Blokdesign.xpr
 # Log file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign/vivado.log
 # Journal file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign\vivado.jou
 #-----------------------------------------------------------
@@ -22,7 +22,7 @@ INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.1/dat
 WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:user:NeonIp:1.0'. The one found in IP location 'd:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/ip_repo/NeonIp_1.0' will take precedence over the same IP in location d:/Vivado_Projecten/EindOpdracht1/ip_repo/NeonIp_1.0
 WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:user:SevenSegmentDriver:1.0'. The one found in IP location 'd:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/ip_repo/SevenSegment/SevenSegmentDriver_1.0' will take precedence over the same IP in location d:/Vivado_Projecten/EindOpdracht1/ip_repo/SevenSegment/SevenSegmentDriver_1.0
 WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:user:Ultrasoon:1.0'. The one found in IP location 'd:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/ip_repo/Ultrasoon/Ultrasoon_1.0' will take precedence over the same IP in location d:/Vivado_Projecten/EindOpdracht1/ip_repo/Ultrasoon/Ultrasoon_1.0
-open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.418 ; gain = 145.738
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 827.949 ; gain = 144.656
 update_compile_order -fileset sources_1
 open_bd_design {D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign/Blokdesign.srcs/sources_1/bd/design_1/design_1.bd}
 Adding component instance block -- xilinx.com:user:Ultrasoon:1.0 - Ultrasoon_0
@@ -33,6 +33,30 @@ Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
 Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
 Adding component instance block -- xilinx.com:user:NeonIp:1.0 - NeonIp_0
 Successfully read diagram <design_1> from BD file <D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign/Blokdesign.srcs/sources_1/bd/design_1/design_1.bd>
-open_bd_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.418 ; gain = 0.000
+open_bd_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 1045.191 ; gain = 41.930
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun Dec  1 10:30:54 2019] Launched impl_1...
+Run output will be captured here: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign/Blokdesign.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7z007sclg225-1
+INFO: [Netlist 29-17] Analyzing 64 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.385 . Memory (MB): peak = 1933.781 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.386 . Memory (MB): peak = 1933.781 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1933.781 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:29 ; elapsed = 00:00:22 . Memory (MB): peak = 2098.941 ; gain = 797.203
 exit
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 27 11:56:13 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun Dec  1 10:52:56 2019...

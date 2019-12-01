@@ -1,0 +1,7 @@
+set_property SRC_FILE_INFO {cfile:D:/Vivado_Projecten/EindOpdracht1/BlokDesign2/BlokDesign2.srcs/constrs_1/new/xdc.xdc rfile:../../../BlokDesign2.srcs/constrs_1/new/xdc.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN K13 [get_ports d_out_0]
+set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN L15 [get_ports sonar_trig_0]
+set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN M15 [get_ports sonar_echo_0]
