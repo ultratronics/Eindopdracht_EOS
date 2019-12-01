@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <GenRun Id="impl_1" LaunchPart="xc7z007sclg225-1" LaunchTime="1574851717">
+=======
+<GenRun Id="impl_1" LaunchPart="xc7z007sclg225-1" LaunchTime="1575116867">
+>>>>>>> master
   <File Type="ROUTE-PWR" Name="design_1_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="BITSTR-BMM" Name="design_1_wrapper_bd.bmm"/>
@@ -78,16 +82,15 @@
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
-  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
-    <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../sensor.xdc">
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs">
+    <File Path="$PSRCDIR/constrs/new/project1.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
     <Config>
-      <Option Name="TargetConstrsFile" Val="$PPRDIR/../sensor.xdc"/>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs/new/project1.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
