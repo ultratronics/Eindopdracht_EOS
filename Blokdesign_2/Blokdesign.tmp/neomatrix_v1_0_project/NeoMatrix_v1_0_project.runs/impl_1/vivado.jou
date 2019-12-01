@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Dec  1 19:16:32 2019
+# Process ID: 13068
+# Current directory: c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.tmp/neomatrix_v1_0_project/NeoMatrix_v1_0_project.runs/impl_1
+# Command line: vivado.exe -log NeoMatrix_v1_0.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source NeoMatrix_v1_0.tcl -notrace
+# Log file: c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.tmp/neomatrix_v1_0_project/NeoMatrix_v1_0_project.runs/impl_1/NeoMatrix_v1_0.vdi
+# Journal file: c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.tmp/neomatrix_v1_0_project/NeoMatrix_v1_0_project.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source NeoMatrix_v1_0.tcl -notrace
