@@ -66,8 +66,53 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 2
+<<<<<<< HEAD
   open_checkpoint design_1_wrapper_routed.dcp
   set_property webtalk.parent_dir D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign/Blokdesign.cache/wt [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  catch { write_mem_info -force design_1_wrapper.mmi }
+  write_bitstream -force design_1_wrapper.bit 
+  catch { write_sysdef -hwdef design_1_wrapper.hwdef -bitfile design_1_wrapper.bit -meminfo design_1_wrapper.mmi -file design_1_wrapper.sysdef }
+  catch {write_debug_probes -quiet -force design_1_wrapper}
+  catch {file copy -force design_1_wrapper.ltx debug_nets.ltx}
+  close_msg_db -file write_bitstream.pb
+=======
+  create_project -in_memory -part xc7z007sclg225-1
+  set_property board_part em.avnet.com:minized:part0:1.2 [current_project]
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign/Blokdesign.cache/wt [current_project]
+  set_property parent.project_path C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign/Blokdesign.xpr [current_project]
+  set_property ip_repo_paths C:/Users/admin/Documents/pxl/3dejaar/embedded_os/EindOpdracht1 [current_project]
+  update_ip_catalog
+  set_property ip_output_repo C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign/Blokdesign.cache/ip [current_project]
+  set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  add_files -quiet C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign/Blokdesign.runs/synth_1/design_1_wrapper.dcp
+  set_msg_config -source 4 -id {BD 41-1661} -limit 0
+  set_param project.isImplRun true
+  add_files C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign/Blokdesign.srcs/sources_1/bd/design_1/design_1.bd
+  set_param project.isImplRun false
+  read_xdc C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign/Blokdesign.srcs/constrs/new/project1.xdc
+  set_param project.isImplRun true
+  link_design -top design_1_wrapper -part xc7z007sclg225-1
+  set_param project.isImplRun false
+  write_hwdef -force -file design_1_wrapper.hwdef
+  close_msg_db -file init_design.pb
+>>>>>>> master
+} RESULT]
+if {$rc} {
+  step_failed write_bitstream
+  return -code error $RESULT
+} else {
+  end_step write_bitstream
+  unset ACTIVE_STEP 
+}
+
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
+set rc [catch {
+  create_msg_db write_bitstream.pb
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force design_1_wrapper.mmi }
   write_bitstream -force design_1_wrapper.bit 
