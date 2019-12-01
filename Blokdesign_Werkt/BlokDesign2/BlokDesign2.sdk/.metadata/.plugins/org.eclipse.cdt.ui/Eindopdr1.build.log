@@ -1,0 +1,27 @@
+11:44:52 **** Auto Build of configuration Debug for project Eindopdr1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Eindopdr1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvSensor':
+../src/freertos_hello_world.c:187:6: warning: implicit declaration of function 'usleep_A9' [-Wimplicit-function-declaration]
+      usleep_A9(500000);
+      ^~~~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: Eindopdr1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Eindopdr1_bsp/ps7_cortexa9_0/lib -o "Eindopdr1.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: Eindopdr1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Eindopdr1.elf  |tee "Eindopdr1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78320	   3388	  89424	 171132	  29c7c	Eindopdr1.elf
+'Finished building: Eindopdr1.elf.size'
+' '
+
+11:44:53 Build Finished (took 616ms)
+
