@@ -169,7 +169,11 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>WIZ_DATA_WIDTH</spirit:name>
+<<<<<<< Updated upstream
           <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197">32</spirit:value>
+=======
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ_DATA_WIDTH" spirit:choiceRef="choice_list_ea018de4">32</spirit:value>
+>>>>>>> Stashed changes
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>WIZ_NUM_REG</spirit:name>
@@ -199,7 +203,11 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
+<<<<<<< Updated upstream
           <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXI_RST.POLARITY" spirit:choiceRef="choice_list_74b5137e">ACTIVE_LOW</spirit:value>
+=======
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXI_RST.POLARITY">ACTIVE_LOW</spirit:value>
+>>>>>>> Stashed changes
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -229,6 +237,7 @@
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
+<<<<<<< Updated upstream
     <spirit:busInterface>
       <spirit:name>clk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
@@ -245,6 +254,8 @@
         </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
+=======
+>>>>>>> Stashed changes
   </spirit:busInterfaces>
   <spirit:memoryMaps>
     <spirit:memoryMap>
@@ -279,12 +290,15 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlsynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+<<<<<<< Updated upstream
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
             <spirit:value>57fb6cc9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
+=======
+>>>>>>> Stashed changes
       </spirit:view>
       <spirit:view>
         <spirit:name>xilinx_vhdlbehavioralsimulation</spirit:name>
@@ -295,12 +309,15 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+<<<<<<< Updated upstream
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
             <spirit:value>5a8de23f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
+=======
+>>>>>>> Stashed changes
       </spirit:view>
       <spirit:view>
         <spirit:name>xilinx_softwaredriver</spirit:name>
@@ -309,12 +326,15 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_softwaredriver_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+<<<<<<< Updated upstream
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
             <spirit:value>56ad643b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
+=======
+>>>>>>> Stashed changes
       </spirit:view>
       <spirit:view>
         <spirit:name>xilinx_xpgui</spirit:name>
@@ -323,12 +343,15 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+<<<<<<< Updated upstream
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
             <spirit:value>78b50979</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
+=======
+>>>>>>> Stashed changes
       </spirit:view>
       <spirit:view>
         <spirit:name>bd_tcl</spirit:name>
@@ -337,16 +360,20 @@
         <spirit:fileSetRef>
           <spirit:localName>bd_tcl_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+<<<<<<< Updated upstream
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
             <spirit:value>16328387</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
+=======
+>>>>>>> Stashed changes
       </spirit:view>
     </spirit:views>
     <spirit:ports>
       <spirit:port>
+<<<<<<< Updated upstream
         <spirit:name>clk</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -373,16 +400,26 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+=======
+>>>>>>> Stashed changes
         <spirit:name>s00_axi_awaddr</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
+<<<<<<< Updated upstream
             <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH&apos;)) - 1)">3</spirit:left>
+=======
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH&apos;))-1)">3</spirit:left>
+>>>>>>> Stashed changes
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -399,7 +436,11 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -412,7 +453,11 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -425,7 +470,11 @@
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -437,12 +486,20 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
+<<<<<<< Updated upstream
             <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+=======
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;))-1)">31</spirit:left>
+>>>>>>> Stashed changes
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -454,12 +511,20 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
+<<<<<<< Updated upstream
             <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;)) / 8) - 1)">3</spirit:left>
+=======
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;))/8)-1)">3</spirit:left>
+>>>>>>> Stashed changes
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -472,7 +537,11 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -485,7 +554,11 @@
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -502,7 +575,11 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -515,7 +592,11 @@
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -528,7 +609,11 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -540,12 +625,20 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
+<<<<<<< Updated upstream
             <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH&apos;)) - 1)">3</spirit:left>
+=======
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH&apos;))-1)">3</spirit:left>
+>>>>>>> Stashed changes
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -562,7 +655,11 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -575,7 +672,11 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -588,7 +689,11 @@
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -600,12 +705,20 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
+<<<<<<< Updated upstream
             <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+=======
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;))-1)">31</spirit:left>
+>>>>>>> Stashed changes
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -622,7 +735,11 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic_vector</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -635,7 +752,11 @@
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -648,7 +769,11 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -661,7 +786,11 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -674,7 +803,11 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
+<<<<<<< Updated upstream
               <spirit:typeName>std_logic</spirit:typeName>
+=======
+              <spirit:typeName>wire</spirit:typeName>
+>>>>>>> Stashed changes
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -695,15 +828,19 @@
         <spirit:description>Width of S_AXI address bus</spirit:description>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH" spirit:order="4" spirit:rangeType="long">4</spirit:value>
       </spirit:modelParameter>
+<<<<<<< Updated upstream
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>clock_frequency</spirit:name>
         <spirit:displayName>Clock Frequency</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.clock_frequency">50000000</spirit:value>
       </spirit:modelParameter>
+=======
+>>>>>>> Stashed changes
     </spirit:modelParameters>
   </spirit:model>
   <spirit:choices>
     <spirit:choice>
+<<<<<<< Updated upstream
       <spirit:name>choice_list_6fc15197</spirit:name>
       <spirit:enumeration>32</spirit:enumeration>
     </spirit:choice>
@@ -713,6 +850,12 @@
       <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+=======
+      <spirit:name>choice_list_ea018de4</spirit:name>
+      <spirit:enumeration>32</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+>>>>>>> Stashed changes
       <spirit:name>choice_pairs_ce1226b1</spirit:name>
       <spirit:enumeration spirit:text="true">1</spirit:enumeration>
       <spirit:enumeration spirit:text="false">0</spirit:enumeration>
@@ -722,14 +865,18 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlsynthesis_view_fileset</spirit:name>
       <spirit:file>
+<<<<<<< Updated upstream
         <spirit:name>../../project_1/project_1.srcs/constrs_1/new/Neon.xdc</spirit:name>
         <spirit:userFileType>xdc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+=======
+>>>>>>> Stashed changes
         <spirit:name>hdl/NeonIp_v1_0_S00_AXI.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+<<<<<<< Updated upstream
         <spirit:name>src/NeonPixlel.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -737,6 +884,11 @@
         <spirit:name>hdl/NeonIp_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_3920e793</spirit:userFileType>
+=======
+        <spirit:name>hdl/NeonIp_v1_0.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_1c0695a9</spirit:userFileType>
+>>>>>>> Stashed changes
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -746,10 +898,13 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+<<<<<<< Updated upstream
         <spirit:name>src/NeonPixlel.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+=======
+>>>>>>> Stashed changes
         <spirit:name>hdl/NeonIp_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -791,7 +946,11 @@
       <spirit:file>
         <spirit:name>xgui/NeonIp_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
+<<<<<<< Updated upstream
         <spirit:userFileType>CHECKSUM_78b50979</spirit:userFileType>
+=======
+        <spirit:userFileType>CHECKSUM_dda4df14</spirit:userFileType>
+>>>>>>> Stashed changes
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -809,7 +968,11 @@
       <spirit:name>C_S00_AXI_DATA_WIDTH</spirit:name>
       <spirit:displayName>C S00 AXI DATA WIDTH</spirit:displayName>
       <spirit:description>Width of S_AXI data bus</spirit:description>
+<<<<<<< Updated upstream
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197" spirit:order="3">32</spirit:value>
+=======
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_DATA_WIDTH" spirit:choiceRef="choice_list_ea018de4" spirit:order="3">32</spirit:value>
+>>>>>>> Stashed changes
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -859,11 +1022,14 @@
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">NeonIp_v1_0</spirit:value>
     </spirit:parameter>
+<<<<<<< Updated upstream
     <spirit:parameter>
       <spirit:name>clock_frequency</spirit:name>
       <spirit:displayName>Clock Frequency</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.clock_frequency">50000000</spirit:value>
     </spirit:parameter>
+=======
+>>>>>>> Stashed changes
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
@@ -874,6 +1040,7 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>NeonIp_v1.0</xilinx:displayName>
+<<<<<<< Updated upstream
       <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:coreCreationDateTime>2019-11-27T10:46:55Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
@@ -933,6 +1100,13 @@
       <xilinx:checksum xilinx:scope="ports" xilinx:value="ddb116ad"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="81f99730"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="21fc09d4"/>
+=======
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-11-26T12:59:04Z</xilinx:coreCreationDateTime>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
+>>>>>>> Stashed changes
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
