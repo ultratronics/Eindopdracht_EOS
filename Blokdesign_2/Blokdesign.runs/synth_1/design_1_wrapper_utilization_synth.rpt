@@ -1,8 +1,13 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+<<<<<<< Updated upstream
 | Date         : Sun Dec  1 19:47:42 2019
 | Host         : Dennis running 64-bit major release  (build 9200)
+=======
+| Date         : Wed Dec  4 12:51:48 2019
+| Host         : DESKTOP-5O617LN running 64-bit major release  (build 9200)
+>>>>>>> Stashed changes
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
 | Device       : 7z007sclg225-1

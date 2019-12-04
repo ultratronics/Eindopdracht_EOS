@@ -2,11 +2,17 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+<<<<<<< Updated upstream
 # Start of session at: Sun Dec  1 19:47:52 2019
 # Process ID: 4868
 # Current directory: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1
+=======
+# Start of session at: Wed Dec  4 12:51:55 2019
+# Process ID: 16784
+# Current directory: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1
+>>>>>>> Stashed changes
 # Command line: vivado.exe -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
-# Log file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1/design_1_wrapper.vdi
-# Journal file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1\vivado.jou
+# Log file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1/design_1_wrapper.vdi
+# Journal file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace

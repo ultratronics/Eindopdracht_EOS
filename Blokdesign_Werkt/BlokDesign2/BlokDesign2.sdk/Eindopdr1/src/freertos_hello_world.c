@@ -41,7 +41,7 @@
 #include "Ultrasoon.h"
 #include "NeonIp.h"
 
-
+// De sensor
 #define ULTRASONIC_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
 #define ULTRASONIC_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
 #define ULTRASONIC_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
@@ -161,7 +161,9 @@ int main( void )
 /*-----------------------------------------------------------*/
 static void prvSensor( void *pvParameters)
 {
-    u32 ultrasonic_data = 0u;
+
+
+    /*u32 ultrasonic_data = 0u;
 	while(1)
 	{
 	    ultrasonic_data = 0u;
@@ -185,14 +187,16 @@ static void prvSensor( void *pvParameters)
 
 	    Xil_Out32(ULTRASONIC_ADDR+ULTRASONIC_REG1, 0x00000000);
 	    usleep_A9(500000);
-	}
+	}*/
 }
 /*-----------------------------------------------------------*/
 static void prvNeonPixel( void *pvParameters )
 {
 	u32 Pixel = 0;
 	Pixel = Pixel + 1;
-	// CODE
+
+	// TEST CODE
+
 }
 
 /*-----------------------------------------------------------*/
