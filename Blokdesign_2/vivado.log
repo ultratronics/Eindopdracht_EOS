@@ -2,6 +2,7 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+<<<<<<< HEAD
 # Start of session at: Wed Dec  4 12:48:50 2019
 # Process ID: 1748
 # Current directory: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign_2
@@ -42,3 +43,35 @@ Run output will be captured here: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht
 Run output will be captured here: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1/runme.log
 exit
 INFO: [Common 17-206] Exiting Vivado at Wed Dec  4 12:52:43 2019...
+=======
+# Start of session at: Wed Dec  4 18:17:33 2019
+# Process ID: 18364
+# Current directory: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4940 C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\Blokdesign_2\Blokdesign.xpr
+# Log file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/vivado.log
+# Journal file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo/NeoMatrix_1.0'. The path is contained within another repository.
+WARNING: [IP_Flow 19-395] Problem validating against XML schema: : Not well formed
+CRITICAL WARNING: [IP_Flow 19-1977] Unable to read IP file c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo/NeonIp_1.0/component.xml. This IP will not be included in the IP Catalog.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:32 ; elapsed = 00:00:15 . Memory (MB): peak = 720.980 ; gain = 91.289
+update_compile_order -fileset sources_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Wed Dec  4 18:18:53 2019] Launched impl_1...
+Run output will be captured here: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1/runme.log
+file mkdir C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.sdk
+file copy -force C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.runs/impl_1/design_1_wrapper.sysdef C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.sdk -hwspec C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.sdk -hwspec C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+>>>>>>> neomatrix_random

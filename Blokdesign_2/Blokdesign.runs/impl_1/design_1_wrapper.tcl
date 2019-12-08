@@ -73,10 +73,7 @@ set rc [catch {
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.cache/wt [current_project]
   set_property parent.project_path C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.xpr [current_project]
-  set_property ip_repo_paths {
-  C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo/NeoMatrix_1.0
-  C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo
-} [current_project]
+  set_property ip_repo_paths C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo_blokdesign2 [current_project]
   update_ip_catalog
   set_property ip_output_repo C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
