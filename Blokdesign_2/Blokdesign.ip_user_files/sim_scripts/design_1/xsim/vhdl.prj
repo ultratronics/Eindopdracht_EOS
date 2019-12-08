@@ -1,0 +1,13 @@
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ipshared/3c76/src/HC_SR04.vhd" \
+"../../../bd/design_1/ipshared/3c76/hdl/Ultrasoon_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/3c76/hdl/Ultrasoon_v1_0.vhd" \
+"../../../bd/design_1/ip/design_1_Ultrasoon_0_1/sim/design_1_Ultrasoon_0_1.vhd" \
+"../../../bd/design_1/ip/design_1_rst_ps7_0_50M_1/sim/design_1_rst_ps7_0_50M_1.vhd" \
+"../../../bd/design_1/ipshared/743b/hdl/NeoMatrix_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/743b/src/ws2812.vhdl" \
+"../../../bd/design_1/ipshared/743b/hdl/NeoMatrix_v1_0.vhd" \
+"../../../bd/design_1/ip/design_1_NeoMatrix_0_4/sim/design_1_NeoMatrix_0_4.vhd" \
+"../../../bd/design_1/sim/design_1.vhd" \
+
+nosort

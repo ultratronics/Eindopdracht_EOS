@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param chipscope.maxJobs 2
 create_project -in_memory -part xc7z007sclg225-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -30,10 +29,7 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part em.avnet.com:minized:part0:1.2 [current_project]
-set_property ip_repo_paths {
-  c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo/NeoMatrix_1.0
-  c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo
-} [current_project]
+set_property ip_repo_paths c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo_blokdesign2 [current_project]
 update_ip_catalog
 set_property ip_output_repo c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -44,7 +40,7 @@ set_property used_in_implementation false [get_files -all c:/Users/admin/Documen
 set_property used_in_implementation false [get_files -all c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_1/design_1_rst_ps7_0_50M_1_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_1/design_1_rst_ps7_0_50M_1.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_1/design_1_rst_ps7_0_50M_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/Blokdesign_2/Blokdesign.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
