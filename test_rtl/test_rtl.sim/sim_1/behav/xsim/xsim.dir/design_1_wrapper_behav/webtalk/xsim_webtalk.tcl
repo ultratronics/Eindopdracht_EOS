@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Wed Dec 11 17:08:00 2019" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Wed Dec 11 18:43:44 2019" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2019.1 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2552052" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "c8abd8a57df55878835163bc9abf09f5" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "152d3d8f4f2346a3adf73d8e0305dfa6" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "17" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "23" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Windows Server 2016 or Windows 10" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-3740QM CPU @ 2.70GHz" -context "user_environment"
@@ -25,9 +25,9 @@ webtalk_register_client -client xsim
 webtalk_add_data -client xsim -key runall -value "true" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
-webtalk_add_data -client xsim -key runtime -value "22807880 ns" -context "xsim\\usage"
+webtalk_add_data -client xsim -key runtime -value "179723640 ns" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "2" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "2.20_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "14012_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3041739171 -regid "" -xml C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Time -value "16.34_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "11032_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 690771808 -regid "" -xml C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

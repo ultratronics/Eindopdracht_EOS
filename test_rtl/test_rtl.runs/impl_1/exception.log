@@ -1,0 +1,4 @@
+ERROR: Exception caught trying to open file C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\test_rtl\test_rtl.runs\impl_1/runme.log
+	Exception name: Error
+	Exception error code: 70
+	Exception message: Toegang geweigerd

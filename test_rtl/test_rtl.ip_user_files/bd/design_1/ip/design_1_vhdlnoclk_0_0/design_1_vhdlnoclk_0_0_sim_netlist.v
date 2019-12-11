@@ -1,86 +1,63 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Wed Dec 11 18:44:51 2019
+// Date        : Wed Dec 11 17:09:25 2019
 // Host        : Dennis running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
-//               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_ws2812b_0_0_sim_netlist.v
-// Design      : design_1_ws2812b_0_0
+// Command     : write_verilog -force -mode funcsim
+//               C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.srcs/sources_1/bd/design_1/ip/design_1_vhdlnoclk_0_0/design_1_vhdlnoclk_0_0_sim_netlist.v
+// Design      : design_1_vhdlnoclk_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z007sclg225-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "design_1_ws2812b_0_0,ws2812b,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* ip_definition_source = "module_ref" *) 
-(* x_core_info = "ws2812b,Vivado 2019.1" *) 
+(* CHECK_LICENSE_TYPE = "design_1_vhdlnoclk_0_0,vhdlnoclk,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* ip_definition_source = "module_ref" *) 
+(* x_core_info = "vhdlnoclk,Vivado 2019.1" *) 
 (* NotValidForBitStream *)
-module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
-   (clk,
-    dout);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, PHASE 0.000, INSERT_VIP 0" *) input clk;
-  output dout;
+module design_1_vhdlnoclk_0_0
+   (clk65MHz);
+  output clk65MHz;
 
-  wire clk;
-  wire dout;
+  wire clk65MHz;
 
-  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ws2812b U0
-       (.clk(clk),
-        .dout(dout));
+  design_1_vhdlnoclk_0_0_vhdlnoclk U0
+       (.clk65MHz(clk65MHz));
 endmodule
 
-module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ws2812b
-   (dout,
-    clk);
-  output dout;
-  input clk;
+(* ORIG_REF_NAME = "vhdlnoclk" *) 
+module design_1_vhdlnoclk_0_0_vhdlnoclk
+   (clk65MHz);
+  output clk65MHz;
 
-  wire bitOut;
-  wire clk;
-  wire dout;
-  wire [1:1]state;
-  wire \state[0]_i_1_n_0 ;
-  wire \state[1]_i_1_n_0 ;
+  wire clk65MHz;
+  wire i_clk;
+  wire NLW_STARTUPE2_inst_CFGCLK_UNCONNECTED;
+  wire NLW_STARTUPE2_inst_EOS_UNCONNECTED;
+  wire NLW_STARTUPE2_inst_PREQ_UNCONNECTED;
 
-  FDRE #(
-    .INIT(1'b0)) 
-    bitOut_reg
-       (.C(clk),
-        .CE(1'b1),
-        .D(1'b1),
-        .Q(bitOut),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT2 #(
-    .INIT(4'hD)) 
-    \state[0]_i_1 
-       (.I0(state),
-        .I1(dout),
-        .O(\state[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT3 #(
-    .INIT(8'hCE)) 
-    \state[1]_i_1 
-       (.I0(bitOut),
-        .I1(state),
-        .I2(dout),
-        .O(\state[1]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \state_reg[0] 
-       (.C(clk),
-        .CE(1'b1),
-        .D(\state[0]_i_1_n_0 ),
-        .Q(dout),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \state_reg[1] 
-       (.C(clk),
-        .CE(1'b1),
-        .D(\state[1]_i_1_n_0 ),
-        .Q(state),
-        .R(1'b0));
+  (* box_type = "PRIMITIVE" *) 
+  BUFG BUFG_i
+       (.I(i_clk),
+        .O(clk65MHz));
+  (* box_type = "PRIMITIVE" *) 
+  STARTUPE2 #(
+    .PROG_USR("FALSE"),
+    .SIM_CCLK_FREQ(0.000000)) 
+    STARTUPE2_inst
+       (.CFGCLK(NLW_STARTUPE2_inst_CFGCLK_UNCONNECTED),
+        .CFGMCLK(i_clk),
+        .CLK(1'b0),
+        .EOS(NLW_STARTUPE2_inst_EOS_UNCONNECTED),
+        .GSR(1'b0),
+        .GTS(1'b0),
+        .KEYCLEARB(1'b0),
+        .PACK(1'b0),
+        .PREQ(NLW_STARTUPE2_inst_PREQ_UNCONNECTED),
+        .USRCCLKO(1'b0),
+        .USRCCLKTS(1'b0),
+        .USRDONEO(1'b1),
+        .USRDONETS(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

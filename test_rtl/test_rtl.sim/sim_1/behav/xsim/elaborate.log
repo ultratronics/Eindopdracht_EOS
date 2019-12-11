@@ -3,9 +3,6 @@ Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 152d3d8f4f2346a3adf73d8e0305dfa6 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot design_1_wrapper_behav xil_defaultlib.design_1_wrapper -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-1537] value 5 is out of target constraint range 0 to 2 [C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.srcs/sources_1/imports/test_rtl/ws2812b.vhd:87]
-WARNING: [VRFC 10-1537] value 3 is out of target constraint range 0 to 2 [C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.srcs/sources_1/imports/test_rtl/ws2812b.vhd:95]
-WARNING: [VRFC 10-1537] value 4 is out of target constraint range 0 to 2 [C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.srcs/sources_1/imports/test_rtl/ws2812b.vhd:118]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

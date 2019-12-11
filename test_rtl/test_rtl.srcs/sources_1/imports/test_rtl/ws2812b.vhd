@@ -83,10 +83,6 @@ architecture Behavioral of ws2812b is
 
       if state = 0 then 
         bit_count <= bit_count + 1;
-        if bit_count = striplen*24 then
-        state <= 5;
-        bit_count <= 0;
-        end if;
         
         if bitOut = '0' then
             state <= 1;
@@ -96,6 +92,14 @@ architecture Behavioral of ws2812b is
             count <= 0;
         end if;
         
+        
+        if bit_count = striplen*24 then
+        state <= 5;
+        bit_count <= 0;
+        end if;
+        
+        
+        
         if led_bit > 0 then
             led_bit <= led_bit - 1;
         else
@@ -103,23 +107,23 @@ architecture Behavioral of ws2812b is
         end if;
       elsif state = 1 then
       
-        if count = 26000 then --clk_Hz*t0h/us then
+        if count = 26 then --clk_Hz*t0h/ns then
         state <= 2;
         count <= 0;
         end if;
       
       elsif state = 2 then
-        if count = 55250 then
+        if count = 55 then --clk_Hz*t0l/ns then
         state <= 0;
         count <= 0;
         end if;
       elsif state = 3 then
-        if count = 52000 then --clk_Hz*t1h/us then
+        if count = 52 then --clk_Hz*t1h/ns then
         state <= 4;
         count <= 0;
         end if;
       elsif state = 4 then
-        if count = 29250 then --clk_Hz*t1l/us then
+        if count = 29 then --clk_Hz*t1l/ns then
         state <= 0;
         count <= 0;
         end if;
