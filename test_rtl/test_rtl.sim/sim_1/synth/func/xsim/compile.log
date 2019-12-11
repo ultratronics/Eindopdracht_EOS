@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/synth/func/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/synth/func/xsim/design_1_wrapper_func_synth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz'
+INFO: [VRFC 10-3107] analyzing entity 'design_1_vhdlnoclk_0_0_vhdlnoclk'
+INFO: [VRFC 10-3107] analyzing entity 'design_1_ws2812b_0_0_ws2812b'
+INFO: [VRFC 10-3107] analyzing entity 'design_1_clk_wiz_0'
+INFO: [VRFC 10-3107] analyzing entity 'design_1_vhdlnoclk_0_0'
+INFO: [VRFC 10-3107] analyzing entity 'design_1_ws2812b_0_0'
+INFO: [VRFC 10-3107] analyzing entity 'design_1'
+INFO: [VRFC 10-3107] analyzing entity 'design_1_wrapper'

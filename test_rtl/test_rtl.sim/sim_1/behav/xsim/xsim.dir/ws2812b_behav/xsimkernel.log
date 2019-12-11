@@ -1,0 +1,7 @@
+Running: xsim.dir/ws2812b_behav/xsimk.exe -simmode gui -wdb ws2812b_behav.wdb -simrunnum 0 -socket 2545
+Design successfully loaded
+Design Loading Memory Usage: 5800 KB (Peak: 5800 KB)
+Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 14500 KB (Peak: 14500 KB)
+Simulation CPU Usage: 2031 ms

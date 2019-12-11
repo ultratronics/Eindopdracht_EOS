@@ -1,0 +1,7 @@
+Running: xsim.dir/vhdlnoclk_behav/xsimk.exe -simmode gui -wdb vhdlnoclk_behav.wdb -simrunnum 0 -socket 2452
+Design successfully loaded
+Design Loading Memory Usage: 5816 KB (Peak: 5816 KB)
+Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 6424 KB (Peak: 6424 KB)
+Simulation CPU Usage: 46 ms
