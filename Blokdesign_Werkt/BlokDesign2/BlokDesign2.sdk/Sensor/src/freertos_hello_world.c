@@ -64,6 +64,7 @@
 
 /* The Tx and Rx tasks as described at the top of this file. */
 static void prvSensor( void *pvParameters );
+static void prvKnop(void *pvParameters);
 
 static void prvRxTask( void *pvParameters );
 static void vTimerCallback( TimerHandle_t pxTimer );
@@ -72,6 +73,7 @@ static void vTimerCallback( TimerHandle_t pxTimer );
 /* The queue used by the Tx and Rx tasks, as described at the top of this
 file. */
 static TaskHandle_t xSensor;
+static TaskHandle_t xKnop;
 
 static TaskHandle_t xRxTask;
 static QueueHandle_t xQueue = NULL;
@@ -80,6 +82,8 @@ static TimerHandle_t xTimer = NULL;
 XGpioPs Gpio;
 int Afstand;
 int SegmentValue(int number);
+u32 Input_Pin = 0; /* Switch button */
+int Status;
 
 int main( void )
 {

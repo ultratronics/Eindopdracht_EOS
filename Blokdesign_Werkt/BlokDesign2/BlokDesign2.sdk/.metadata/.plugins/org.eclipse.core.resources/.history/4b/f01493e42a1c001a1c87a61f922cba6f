@@ -1,0 +1,305 @@
+/*
+    Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+    Copyright (C) 2012 - 2018 Xilinx, Inc. All Rights Reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of
+    this software and associated documentation files (the "Software"), to deal in
+    the Software without restriction, including without limitation the rights to
+    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+    the Software, and to permit persons to whom the Software is furnished to do so,
+    subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software. If you wish to use our Amazon
+    FreeRTOS name, please do so in a fair use way that does not cause confusion.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+    http://www.FreeRTOS.org
+    http://aws.amazon.com/freertos
+
+
+    1 tab == 4 spaces!
+*/
+
+/* FreeRTOS includes. */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "timers.h"
+/* Xilinx includes. */
+#include "xil_printf.h"
+#include "xparameters.h"
+
+#include "xgpiops.h"
+#include <stdio.h>
+#include "sleep.h"
+
+#include "Ultrasoon.h"
+#include "xil_io.h"
+/*-----------------------------------------------------------*/
+
+#define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+#define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+#define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+
+#define CHECKBIT(var, pos)  ((var) & (1<<(pos)))
+#define CHECKRDY(var) (CHECKBIT(var, 31))
+#define CHECKOOB(var) (CHECKBIT(var, 30))
+
+#define TIMER_ID	1
+#define DELAY_10_SECONDS	10000UL
+#define DELAY_1_SECOND		1000UL
+#define TIMER_CHECK_THRESHOLD	9
+/*-----------------------------------------------------------*/
+
+/* The Tx and Rx tasks as described at the top of this file. */
+static void prvSensor( void *pvParameters );
+static void prvKnop( void *pvParameters );
+
+static void prvRxTask( void *pvParameters );
+static void vTimerCallback( TimerHandle_t pxTimer );
+/*-----------------------------------------------------------*/
+
+/* The queue used by the Tx and Rx tasks, as described at the top of this
+file. */
+static TaskHandle_t xSensor;
+static TaskHandle_t xKnop;
+
+static TaskHandle_t xRxTask;
+static QueueHandle_t xQueue = NULL;
+static TimerHandle_t xTimer = NULL;
+/*-----------------------------------------------------------*/
+
+XGpioPs Gpio;
+int Afstand;
+int SegmentValue(int number);
+u32 Input_Pin = 0; /* Switch button */
+int Status;
+/*-----------------------------------------------------------*/
+
+int main( void )
+{
+	/* --------------- */
+    /* ULTRASOON CODE
+     * xil_printf("Ultrasonic test.\n\r");
+    int ultrasonic_data = 0u;
+    //while(1){
+    	ultrasonic_data = 0u;
+    	xil_printf("Reading: \r\n");
+    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
+
+    	ultrasonic_data = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
+
+    	if(CHECKOOB(ultrasonic_data)) {
+    		xil_printf("Object is too far away.\r\n");
+    	}
+
+    	xil_printf("Raw data: 0x%08x\r\n", ultrasonic_data);
+    	u32 distance_data = ultrasonic_data & 0x00FFFFFF;
+    	u32 dist_cm = (distance_data / 50) / 58;
+
+    	xil_printf("Distance in cm: %d\r\n", dist_cm);
+
+    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
+    	usleep_A9(500000);
+    //}*/
+	/* --------------- */
+
+
+	const TickType_t x10seconds = pdMS_TO_TICKS( DELAY_10_SECONDS );
+	xil_printf( "Testing Sensor.\r\n" );
+
+
+	/* Set Input Pin van Minized */
+	XGpioPs_SetDirectionPin(&Gpio, Input_Pin, 0);
+
+	/* Create the two tasks.  The Tx task is given a lower priority than the
+	Rx task, so the Rx task will leave the Blocked state and pre-empt the Tx
+	task as soon as the Tx task places an item in the queue. */
+	xTaskCreate( prvSensor, 				// The function that implements the task.
+				( const char * ) "Sensor", 	// Text name for the task, provided to assist debugging only.
+				configMINIMAL_STACK_SIZE, 	// The stack allocated to the task.
+				NULL, 						// The task parameter is not used, so set to NULL.
+				tskIDLE_PRIORITY,			// The task runs at the idle priority.
+				&xSensor );
+
+	xTaskCreate( prvKnop,
+				 ( const char * ) "Knop",
+				 configMINIMAL_STACK_SIZE,
+				 NULL,
+				 tskIDLE_PRIORITY + 1,
+				 &xKnop );
+
+	xTaskCreate( prvRxTask,
+				 ( const char * ) "GB",
+				 configMINIMAL_STACK_SIZE,
+				 NULL,
+				 tskIDLE_PRIORITY + 1,
+				 &xRxTask );
+
+	/* Create the queue used by the tasks.  The Rx task has a higher priority
+	than the Tx task, so will preempt the Tx task and remove values from the
+	queue as soon as the Tx task writes to the queue - therefore the queue can
+	never have more than one item in it. */
+	xQueue = xQueueCreate( 	1,						/* There is only one space in the queue. */
+							sizeof( &Afstand ) );	/* Each space in the queue is large enough to hold a uint32_t. */
+
+	/* Check the queue was created. */
+	configASSERT( xQueue );
+
+	/* Create a timer with a timer expiry of 10 seconds. The timer would expire
+	 after 10 seconds and the timer call back would get called. In the timer call back
+	 checks are done to ensure that the tasks have been running properly till then.
+	 The tasks are deleted in the timer call back and a message is printed to convey that
+	 the example has run successfully.
+	 The timer expiry is set to 10 seconds and the timer set to not auto reload. */
+	xTimer = xTimerCreate( (const char *) "Timer",
+							x10seconds,
+							pdFALSE,
+							(void *) TIMER_ID,
+							vTimerCallback);
+	/* Check the timer was created. */
+	configASSERT( xTimer );
+
+	/* start the timer with a block time of 0 ticks. This means as soon
+	   as the schedule starts the timer will start running and will expire after
+	   10 seconds */
+	xTimerStart( xTimer, 0 );
+
+	/* Start the tasks and timer running. */
+	vTaskStartScheduler();
+
+	/* If all is well, the scheduler will now be running, and the following line
+	will never be reached.  If the following line does execute, then there was
+	insufficient FreeRTOS heap memory available for the idle and/or timer tasks
+	to be created.  See the memory management section on the FreeRTOS web site
+	for more details. */
+	for( ;; );
+}
+
+
+/*-----------------------------------------------------------*/
+static void prvSensor( void *pvParameters )
+{
+	const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+	xil_printf("Ultrasonic test.\n\r");
+
+	for( ;; )
+	{
+		// Delay for 1 second.
+		vTaskDelay( x1second );
+		Afstand = 0u;
+
+		Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
+		Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
+
+    	if(CHECKOOB(Afstand))
+    	{
+    		xil_printf("Object is too far away.\r\n");
+    	}
+
+		//ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 1);
+
+		//Afstand = ULTRASOON_mReadReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET);
+		//xil_printf("Afstand Gemeten: [ %d ] \r\n", Afstand);
+
+    	xil_printf("Raw data: 0x%08x\r\n", Afstand);
+    	u32 distance_data = Afstand & 0x00FFFFFF;
+
+    	u32 dist_cm = (distance_data / 50) / 58;
+    	xil_printf("Distance in cm: %d\r\n", dist_cm);
+
+    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
+
+		// Send the next value on the queue.  The queue should always be
+		// empty at this point so a block time of 0 is used.
+		xQueueSend( xQueue,			// The queue being written to.
+					&Afstand, 		// The address of the data being sent.
+					0UL );			// The block time.
+
+		//ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 0);
+	}
+}
+
+/*-----------------------------------------------------------*/
+static void prvKnop( void *pvParameters)
+{
+	//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+
+	u32 data = 0;
+	for( ;; )
+	{
+		/* Delay for 1 second. */
+		//vTaskDelay( x1second );
+		data = XGpioPs_ReadPin(&Gpio, Input_Pin);
+		/* Send the next value on the queue.  The queue should always be
+		empty at this point so a block time of 0 is used. */
+		xQueueSend( xQueue,			/* The queue being written to. */
+					&data, /* The address of the data being sent. */
+					0UL );			/* The block time. */
+	}
+}
+
+/*-----------------------------------------------------------*/
+static void prvRxTask( void *pvParameters )
+{
+	int AfstandReceived;
+
+	for( ;; )
+	{
+		/* Block to wait for data arriving on the queue. */
+		xQueueReceive( 	xQueue,				/* The queue being read. */
+						&AfstandReceived,	/* Data is read into this address. */
+						portMAX_DELAY );	/* Wait without a timeout for data. */
+
+		AfstandReceived = AfstandReceived % 10;
+
+		/* Print the received data. */
+		xil_printf( "Display Value: %d \r\n", AfstandReceived );
+		//sleep_A9(1);
+		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
+		//RxtaskCntr++;
+	}
+}
+
+/*-----------------------------------------------------------*/
+static void vTimerCallback( TimerHandle_t pxTimer )
+{
+	xil_printf("TEST... \r\n");
+
+	/*long lTimerId;
+	configASSERT( pxTimer );
+
+	lTimerId = ( long ) pvTimerGetTimerID( pxTimer );
+
+	if (lTimerId != TIMER_ID)
+	{
+		xil_printf("FreeRTOS Hello World Example FAILED \r\n");
+	}
+	*/
+
+	/* If the RxtaskCntr is updated every time the Rx task is called. The
+	 Rx task is called every time the Tx task sends a message. The Tx task
+	 sends a message every 1 second.
+	 The timer expires after 10 seconds. We expect the RxtaskCntr to at least
+	 have a value of 9 (TIMER_CHECK_THRESHOLD) when the timer expires. */
+	/*
+	if (RxtaskCntr >= TIMER_CHECK_THRESHOLD)
+	{
+		xil_printf("FreeRTOS Hello World Example PASSED \r\n");
+	}
+	else
+	{
+		xil_printf("FreeRTOS Hello World Example FAILED \r\n");
+	}
+
+	vTaskDelete( xRxTask );
+	vTaskDelete( xSensor );
+	*/
+}
