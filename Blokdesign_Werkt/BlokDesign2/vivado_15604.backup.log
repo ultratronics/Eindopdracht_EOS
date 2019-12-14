@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 12 15:19:42 2019
+# Process ID: 15604
+# Current directory: D:/Vivado_Projecten/EindOpdracht1/BlokDesign2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5656 D:\Vivado_Projecten\EindOpdracht1\BlokDesign2\BlokDesign2.xpr
+# Log file: D:/Vivado_Projecten/EindOpdracht1/BlokDesign2/vivado.log
+# Journal file: D:/Vivado_Projecten/EindOpdracht1/BlokDesign2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_Projecten/EindOpdracht1/BlokDesign2/BlokDesign2.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_Projecten/EindOpdracht1/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 847.629 ; gain = 155.152
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/Vivado_Projecten/EindOpdracht1/BlokDesign2/BlokDesign2.sdk -hwspec D:/Vivado_Projecten/EindOpdracht1/BlokDesign2/BlokDesign2.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/Vivado_Projecten/EindOpdracht1/BlokDesign2/BlokDesign2.sdk -hwspec D:/Vivado_Projecten/EindOpdracht1/BlokDesign2/BlokDesign2.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 15:54:49 2019...
