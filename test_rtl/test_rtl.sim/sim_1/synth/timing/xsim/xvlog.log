@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sim/sim_1/synth/timing/xsim/design_1_wrapper_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1
+INFO: [VRFC 10-311] analyzing module design_1_vhdlnoclk_0_0
+INFO: [VRFC 10-311] analyzing module design_1_vhdlnoclk_0_0_vhdlnoclk
+INFO: [VRFC 10-311] analyzing module design_1_wrapper
+INFO: [VRFC 10-311] analyzing module design_1_ws2812b_0_0
+INFO: [VRFC 10-311] analyzing module design_1_ws2812b_0_0_ws2812b
+INFO: [VRFC 10-311] analyzing module glbl

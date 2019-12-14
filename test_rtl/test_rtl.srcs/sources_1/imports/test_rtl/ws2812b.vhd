@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity ws2812b is
   generic
   (
-    clk_Hz: integer := 65000000; -- Hz
+    clk_Hz: integer := 50000000; -- Hz
     striplen: integer := 64; -- number of LED pixels in the strip
     -- timing setup by datasheet (unequal 0/1)
     --  t0h 400+-150 ns, t0l 850+-150 ns  ----_________
@@ -47,8 +47,8 @@ architecture Behavioral of ws2812b is
   --  return allbits;
   --end function;
 
-  constant sequence_len: integer := 8;
-  type T_sequence_rom is array(0 to sequence_len-1) of std_logic_vector(23 downto 0);
+  --constant sequence_len: integer := 8;
+  type T_sequence_rom is array(0 to 7) of std_logic_vector(23 downto 0);
   constant sequence_rom: T_sequence_rom := 
   (
     -- blue LED is somewhat weaker when running at 3.3V
@@ -65,10 +65,10 @@ architecture Behavioral of ws2812b is
     others => (others => '0')
   );
 
-  signal rom_addr      : integer range 0 to sequence_len*striplen*(bpp/8)-1;
-  signal count         : integer range 0 to clk_Hz*tres/us; -- protocol timer
+  --signal rom_addr      : integer range 0 to sequence_len*striplen*(bpp/8)-1;
+  signal count         : integer range 0 to 2500; -- protocol timer
   signal data          : std_logic_vector(23 downto 0);
-  signal bit_count     : integer range 0 to bpp*striplen-1;
+  signal bit_count     : integer range 0 to 1536; --bpp*striplen-1;
   signal led_bit       : integer range 0 to 23 := 23;
   signal state         : integer range 0 to 5 := 0; -- protocol state
   signal bitOut : std_logic := '0';
@@ -78,7 +78,7 @@ architecture Behavioral of ws2812b is
     if rising_edge(clk) then
       count <= count+1;
       --rom_addr <= to_integer(unsigned(ctrl))*(bpp/8); -- start from n-th sequence
-      data <= sequence_rom(7);
+      data <= sequence_rom(4);
       bitOut <= data(led_bit);
 
       if state = 0 then 
@@ -93,7 +93,7 @@ architecture Behavioral of ws2812b is
         end if;
         
         
-        if bit_count = striplen*24 then
+        if bit_count = 1536 then --striplen*24
         state <= 5;
         bit_count <= 0;
         end if;
@@ -107,28 +107,28 @@ architecture Behavioral of ws2812b is
         end if;
       elsif state = 1 then
       
-        if count = 26 then --clk_Hz*t0h/ns then
+        if count = 20  then --clk_Hz*t0h/ns then
         state <= 2;
         count <= 0;
         end if;
       
       elsif state = 2 then
-        if count = 55 then --clk_Hz*t0l/ns then
+        if count = 43 then --clk_Hz*t0l/ns then
         state <= 0;
         count <= 0;
         end if;
       elsif state = 3 then
-        if count = 52 then --clk_Hz*t1h/ns then
+        if count = 40 then --clk_Hz*t1h/ns then
         state <= 4;
         count <= 0;
         end if;
       elsif state = 4 then
-        if count = 29 then --clk_Hz*t1l/ns then
+        if count = 22 then --clk_Hz*t1l/ns then
         state <= 0;
         count <= 0;
         end if;
       elsif state = 5 then
-        if count = 3900 then --clk_Hz*tres/us then
+        if count = 2500 then --clk_Hz*tres/us then
         state <= 0;
         count <= 0;
         led_bit <= 23;

@@ -1,3 +1,5 @@
 set_property SRC_FILE_INFO {cfile:C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.srcs/constrs_1/new/constraint1.xdc rfile:../../../test_rtl.srcs/constrs_1/new/constraint1.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN M15 [get_ports dout_0]
+set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
+create_clock -period 20.000 -name design_1_i/vhdlnoclk_0/U0/i_clk -waveform {0.000 10.000} [get_pins design_1_i/vhdlnoclk_0/U0/STARTUPE2_inst/CFGMCLK]

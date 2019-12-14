@@ -85,7 +85,7 @@ ARCHITECTURE design_1_ws2812b_0_0_arch OF design_1_ws2812b_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_1_ws2812b_0_0_arch : ARCHITECTURE IS "design_1_ws2812b_0_0,ws2812b,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_1_ws2812b_0_0_arch: ARCHITECTURE IS "design_1_ws2812b_0_0,ws2812b,{x_ipProduct=Vivado 2019.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=ws2812b,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,clk_Hz=65000000,striplen=64,t0h=400,t1h=800,t0l=850,t1l=450,tbit=1250,tres=60,bpp=24}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_1_ws2812b_0_0_arch: ARCHITECTURE IS "design_1_ws2812b_0_0,ws2812b,{x_ipProduct=Vivado 2019.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=ws2812b,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,clk_Hz=50000000,striplen=64,t0h=400,t1h=800,t0l=850,t1l=450,tbit=1250,tres=60,bpp=24}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF design_1_ws2812b_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -95,7 +95,7 @@ ARCHITECTURE design_1_ws2812b_0_0_arch OF design_1_ws2812b_0_0 IS
 BEGIN
   U0 : ws2812b
     GENERIC MAP (
-      clk_Hz => 65000000,
+      clk_Hz => 50000000,
       striplen => 64,
       t0h => 400,
       t1h => 800,

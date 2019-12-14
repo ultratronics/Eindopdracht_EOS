@@ -1,0 +1,6 @@
+20:11:33 INFO  : Registering command handlers for SDK TCF services
+20:11:36 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\test_rtl\test_rtl.sdk\temp_xsdb_launch_script.tcl
+20:11:46 INFO  : XSCT server has started successfully.
+20:11:51 INFO  : Processing command line option -hwspec C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/test_rtl/test_rtl.sdk/design_1_wrapper.hdf.
+20:11:51 INFO  : Successfully done setting XSCT server connection channel  
+20:11:51 INFO  : Successfully done setting SDK workspace  

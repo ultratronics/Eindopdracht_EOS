@@ -1,0 +1,365 @@
+(DELAYFILE 
+(SDFVERSION "3.0" )
+(DESIGN "design_1_wrapper")
+(DATE "Sat Dec 14 18:40:31 2019")
+(VENDOR "XILINX")
+(PROGRAM "Vivado")
+(VERSION "2019.1")
+(DIVIDER /)
+(TIMESCALE 1ps)
+(CELL 
+  (CELLTYPE "BUFG")
+  (INSTANCE design_1_i/vhdlnoclk_0/U0/BUFG_i)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I O (91.0:101.0:101.0) (91.0:101.0:101.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT2")
+  (INSTANCE design_1_i/ws2812b_0/U0/bitOut_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I1 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "FDRE")
+  (INSTANCE design_1_i/ws2812b_0/U0/bitOut_reg)
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "LUT1")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[0\]_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT2")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[1\]_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I1 O (95.0:118.0:118.0) (95.0:118.0:118.0))
+      (IOPATH I0 O (121.0:150.0:150.0) (121.0:150.0:150.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT3")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[2\]_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I2 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I1 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT4")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[3\]_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I3 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I2 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I1 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT2")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I1 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT2")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I1 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT5")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[4\]_i_3)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I4 O (95.0:118.0:118.0) (95.0:118.0:118.0))
+      (IOPATH I3 O (121.0:150.0:150.0) (121.0:150.0:150.0))
+      (IOPATH I2 O (121.0:150.0:150.0) (121.0:150.0:150.0))
+      (IOPATH I1 O (122.0:152.0:152.0) (122.0:152.0:152.0))
+      (IOPATH I0 O (122.0:152.0:152.0) (122.0:152.0:152.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT6")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I5 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I4 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I3 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I2 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I1 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "FDSE")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit_reg\[0\])
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "FDSE")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit_reg\[1\])
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "FDSE")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit_reg\[2\])
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "FDRE")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit_reg\[3\])
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "FDSE")
+  (INSTANCE design_1_i/ws2812b_0/U0/led_bit_reg\[4\])
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge S) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "LUT2")
+  (INSTANCE design_1_i/ws2812b_0/U0/state\[0\]_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I1 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT3")
+  (INSTANCE design_1_i/ws2812b_0/U0/state\[1\]_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I2 O (95.0:118.0:118.0) (95.0:118.0:118.0))
+      (IOPATH I1 O (121.0:150.0:150.0) (121.0:150.0:150.0))
+      (IOPATH I0 O (121.0:150.0:150.0) (121.0:150.0:150.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "FDRE")
+  (INSTANCE design_1_i/ws2812b_0/U0/state_reg\[0\])
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "FDRE")
+  (INSTANCE design_1_i/ws2812b_0/U0/state_reg\[1\])
+  (DELAY 
+    (ABSOLUTE 
+      (IOPATH C Q (274.0:340.0:340.0) (274.0:340.0:340.0))
+    )
+  )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (negedge CE) (posedge C) (88.0:109.0:109.0) (-9.0:-9.0:-9.0))
+      (SETUPHOLD (posedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (negedge D) (posedge C) (-55.0:-45.0:-45.0) (241.0:241.0:241.0))
+      (SETUPHOLD (posedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+      (SETUPHOLD (negedge R) (posedge C) (345.0:428.0:428.0) (-60.0:-60.0:-60.0))
+    )
+)
+(CELL 
+  (CELLTYPE "OBUF")
+  (INSTANCE dout_0_OBUF_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I O (3328.3:3530.5:3530.5) (3328.3:3530.5:3530.5))
+    )
+  )
+)
+(CELL 
+    (CELLTYPE "design_1_wrapper")
+    (INSTANCE )
+    (DELAY
+      (ABSOLUTE
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/bitOut_reg/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/led_bit_reg\[4\]/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/state_reg\[0\]/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/BUFG_i/O design_1_i/ws2812b_0/U0/state_reg\[1\]/C (439.0:584.0:584.0) (439.0:584.0:584.0))
+      (INTERCONNECT design_1_i/vhdlnoclk_0/U0/STARTUPE2_inst/CFGMCLK design_1_i/vhdlnoclk_0/U0/BUFG_i/I (0.0:0.0:0.0) (0.0:0.0:0.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/bitOut_i_1/O design_1_i/ws2812b_0/U0/bitOut_reg/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/bitOut_reg/Q design_1_i/ws2812b_0/U0/state\[1\]_i_1/I0 (842.0:912.0:912.0) (842.0:912.0:912.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[0\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[1\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[2\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[3\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/R (816.2:874.0:874.0) (816.2:874.0:874.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/S (816.2:874.0:874.0) (816.2:874.0:874.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/S (816.2:874.0:874.0) (816.2:874.0:874.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/S (816.2:874.0:874.0) (816.2:874.0:874.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1/O design_1_i/ws2812b_0/U0/led_bit_reg\[4\]/S (816.2:874.0:874.0) (816.2:874.0:874.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2/O design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/CE (599.4:659.0:659.0) (599.4:659.0:659.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2/O design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/CE (599.4:659.0:659.0) (599.4:659.0:659.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2/O design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/CE (599.4:659.0:659.0) (599.4:659.0:659.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2/O design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/CE (599.4:659.0:659.0) (599.4:659.0:659.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2/O design_1_i/ws2812b_0/U0/led_bit_reg\[4\]/CE (599.4:659.0:659.0) (599.4:659.0:659.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_3/O design_1_i/ws2812b_0/U0/led_bit_reg\[4\]/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4/O design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1/I1 (426.5:449.0:449.0) (426.5:449.0:449.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[0\]_i_1/I0 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[1\]_i_1/I0 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[2\]_i_1/I1 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[3\]_i_1/I1 (842.0:912.0:912.0) (842.0:912.0:912.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_3/I2 (842.0:912.0:912.0) (842.0:912.0:912.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4/I3 (842.0:912.0:912.0) (842.0:912.0:912.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/Q design_1_i/ws2812b_0/U0/led_bit\[2\]_i_1/I0 (842.0:912.0:912.0) (842.0:912.0:912.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/Q design_1_i/ws2812b_0/U0/led_bit\[1\]_i_1/I1 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_3/I1 (770.7:837.0:837.0) (770.7:837.0:837.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/Q design_1_i/ws2812b_0/U0/led_bit\[3\]_i_1/I2 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[1\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4/I5 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/Q design_1_i/ws2812b_0/U0/led_bit\[3\]_i_1/I0 (770.7:837.0:837.0) (770.7:837.0:837.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/Q design_1_i/ws2812b_0/U0/led_bit\[2\]_i_1/I2 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4/I2 (770.7:837.0:837.0) (770.7:837.0:837.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[2\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_3/I3 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_3/I0 (903.7:977.0:977.0) (903.7:977.0:977.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/Q design_1_i/ws2812b_0/U0/bitOut_i_1/I1 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4/I1 (903.7:977.0:977.0) (903.7:977.0:977.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[3\]/Q design_1_i/ws2812b_0/U0/led_bit\[3\]_i_1/I3 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[4\]/Q design_1_i/ws2812b_0/U0/bitOut_i_1/I0 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[4\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_3/I4 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/led_bit_reg\[4\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4/I4 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state\[0\]_i_1/O design_1_i/ws2812b_0/U0/state_reg\[0\]/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state\[1\]_i_1/O design_1_i/ws2812b_0/U0/state_reg\[1\]/D (88.0:109.0:109.0) (88.0:109.0:109.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[0\]/Q dout_0_OBUF_inst/I (901.7:975.7:975.7) (901.7:975.7:975.7))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_1/I0 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[0\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2/I1 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[0\]/Q design_1_i/ws2812b_0/U0/state\[0\]_i_1/I1 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[0\]/Q design_1_i/ws2812b_0/U0/state\[1\]_i_1/I2 (433.5:482.0:482.0) (433.5:482.0:482.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[1\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_2/I0 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[1\]/Q design_1_i/ws2812b_0/U0/led_bit\[4\]_i_4/I0 (1054.8:1136.0:1136.0) (1054.8:1136.0:1136.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[1\]/Q design_1_i/ws2812b_0/U0/state\[0\]_i_1/I0 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      (INTERCONNECT design_1_i/ws2812b_0/U0/state_reg\[1\]/Q design_1_i/ws2812b_0/U0/state\[1\]_i_1/I1 (584.5:641.0:641.0) (584.5:641.0:641.0))
+      )
+    )
+)
+)

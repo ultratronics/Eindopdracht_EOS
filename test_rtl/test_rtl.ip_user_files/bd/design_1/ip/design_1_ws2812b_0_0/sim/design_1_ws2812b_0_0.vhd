@@ -89,7 +89,7 @@ ARCHITECTURE design_1_ws2812b_0_0_arch OF design_1_ws2812b_0_0 IS
 BEGIN
   U0 : ws2812b
     GENERIC MAP (
-      clk_Hz => 65000000,
+      clk_Hz => 50000000,
       striplen => 64,
       t0h => 400,
       t1h => 800,
