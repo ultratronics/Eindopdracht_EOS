@@ -41,12 +41,21 @@
 #include "sleep.h"
 
 #include "Ultrasoon.h"
+#include "NeonIp.h"
 #include "xil_io.h"
 /*-----------------------------------------------------------*/
+
+#define LED1 52
+#define LED2 53
+u8 LED1_DATA = 0x00;
+u8 LED2_DATA = 0x00;
 
 #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
 #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
 #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+
+#define NEON_ADDR XPAR_NEONIP_0_S00_AXI_BASEADDR
+#define NEON_REG0 NEONIP_S00_AXI_SLV_REG0_OFFSET
 
 /*
  Pin layout
@@ -55,7 +64,6 @@
  Trig: F13 (AD1)
  Echo: F14 (AD0)
 */
-
 
 #define CHECKBIT(var, pos)  ((var) & (1<<(pos)))
 #define CHECKRDY(var) (CHECKBIT(var, 31))
@@ -92,6 +100,23 @@ int Status;
 
 int main( void )
 {
+
+	/* ---LEDS MINIZED AANSTUREN--- */
+	XGpioPs_Config *GPIOConfigPtr;
+	GPIOConfigPtr = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
+	XGpioPs_CfgInitialize(&Gpio, GPIOConfigPtr, GPIOConfigPtr -> BaseAddr);
+
+	XGpioPs_SetDirectionPin(&Gpio, LED1, 1);
+	XGpioPs_SetOutputEnablePin(&Gpio, LED1, 1);
+
+	XGpioPs_SetDirectionPin(&Gpio, LED2, 1);
+	XGpioPs_SetOutputEnablePin(&Gpio, LED2, 1);
+
+	XGpioPs_WritePin(&Gpio, LED1, 0x00);
+	XGpioPs_WritePin(&Gpio, LED2, 0x00);
+	/* --------------- */
+
+
 	/* ---ULTRASOON CODE--- */
     /* xil_printf("Ultrasonic test.\n\r");
     int ultrasonic_data = 0u;
@@ -189,6 +214,7 @@ int main( void )
 
 
 /*-----------------------------------------------------------*/
+
 static void prvSensor( void *pvParameters )
 {
 	const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
@@ -229,26 +255,22 @@ static void prvSensor( void *pvParameters )
 
 static void prvUartRead( void *pvParameters )
 {
-	u8 TestChar = 0;
+
 	xil_printf("In UartRead. \r\n");
 
 	for(;;)
 	{
+		/* Block to wait for data arriving on the queue. */
+		xQueueReceive( 	xQueue,				/* The queue being read. */
+						&Afstand,	/* Data is read into this address. */
+						portMAX_DELAY );	/* Wait without a timeout for data. */
+
+
+		int TestChar = Afstand;
+
 		TestChar = getchar();
 		putchar(TestChar);
-
-		if(TestChar >= 48 && TestChar <= 57)
-		{
-			xil_printf("Number\r\n");
-			u8 writeNumber = TestChar - 48;
-			xQueueSend( xQueue,			/* The queue being written to. */
-						&writeNumber, /* The address of the data being sent. */
-						0UL );			/* The block time. */
-		}
-		else
-		{
-			xil_printf("Not a number\r\n");
-		}
+		xil_printf("UART READ: %s \r\n", TestChar);
 	}
 }
 /*-----------------------------------------------------------*/
@@ -256,6 +278,11 @@ static void prvUartRead( void *pvParameters )
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
+	int Temp;
+
+	char rood = 255;
+	char blauw =255;
+	char groen = 255;
 
 	for( ;; )
 	{
@@ -269,6 +296,33 @@ static void prvRxTask( void *pvParameters )
 		/* Print the received data. */
 		xil_printf( "Display Value: %d \r\n", AfstandReceived );
 
+		NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
+		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);
+
+		if(AfstandReceived <= 7)
+		{
+			LED1_DATA ^= 0x01;
+			XGpioPs_WritePin(&Gpio, LED1, LED1_DATA);
+			xil_printf("LED1_DATA: %d \r\n", LED1_DATA);
+
+			Temp = Temp && !(0b11111111 << 1);
+			Temp = Temp || (rood << 1);
+			NEONIP_mWriteReg(0x43c10000, NEON_REG0, Temp);
+		}
+		else if(AfstandReceived >= 8)
+		{
+			LED2_DATA ^= 0x01;
+			XGpioPs_WritePin(&Gpio, LED2, LED2_DATA);
+			xil_printf("LED2_DATA: %d \r\n", LED2_DATA);
+
+			Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);
+			Temp = Temp && !(0b11111111 << 17);
+			Temp = Temp || (blauw << 17);
+			NEONIP_mWriteReg(0x43c10000, NEON_REG0, Temp);
+
+		}
+
+
 	    /*int distance_data = AfstandReceived & 0x00FFFFFF;
 	    int dist_cm = (distance_data / 50) / 58;
 	    xil_printf("Distance in cm: %d\r\n", dist_cm);*/
@@ -278,8 +332,8 @@ static void prvRxTask( void *pvParameters )
 		//RxtaskCntr++;
 	}
 }
-
 /*-----------------------------------------------------------*/
+
 static void vTimerCallback( TimerHandle_t pxTimer )
 {
 	xil_printf("TEST... \r\n");

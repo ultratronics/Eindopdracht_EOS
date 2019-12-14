@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<webTalkData  fileName='usage_statistics_ext_sdk.xml'  majorVersion='1' minorVersion='0' timeStamp='Thu Dec 12 13:51:17 2019'>
+<webTalkData  fileName='usage_statistics_ext_sdk.xml'  majorVersion='1' minorVersion='0' timeStamp='Thu Dec 12 13:47:54 2019'>
 <section name="__ROOT__" level="0" order="1" description="">
  <section name="software_version_and_target_device" level="1" order="1" description="">
   <keyValuePair key="beta" value="false" description="" />
   <keyValuePair key="build_version" value="2019.1" description="" />
-  <keyValuePair key="date_generated" value="2019-12-12 13:51:12" description="" />
+  <keyValuePair key="date_generated" value="2019-12-12 13:47:50" description="" />
   <keyValuePair key="os_platform" value="amd64" description="" />
   <keyValuePair key="product_version" value="SDK v2019.1" description="" />
-  <keyValuePair key="project_id" value="2019.1_49" description="" />
-  <keyValuePair key="project_iteration" value="49" description="" />
-  <keyValuePair key="random_id" value="vrtu79il4pj97evgvdu2f8mldl" description="" />
-  <keyValuePair key="registration_id" value="vrtu79il4pj97evgvdu2f8mldl" description="" />
+  <keyValuePair key="project_id" value="2019.1_48" description="" />
+  <keyValuePair key="project_iteration" value="48" description="" />
+  <keyValuePair key="random_id" value="ivs6q4c94bsn3d0man67n6j1ug" description="" />
+  <keyValuePair key="registration_id" value="ivs6q4c94bsn3d0man67n6j1ug" description="" />
   <keyValuePair key="route_design" value="NA" description="" />
   <keyValuePair key="target_device" value="NA" description="" />
   <keyValuePair key="target_family" value="NA" description="" />
@@ -27,7 +27,25 @@
   <keyValuePair key="total_processors" value="1" description="" />
  </section>
  <section name="sdk" level="1" order="3" description="">
-  <section name="bsp/1576155072909" level="2" order="1" description="">
+  <section name="application/1576153439683" level="2" order="1" description="">
+   <keyValuePair key="apptemplate" value="freertos_hello_world" description="" />
+   <keyValuePair key="bspid" value="1576153438237" description="" />
+   <keyValuePair key="hwid" value="1575460737872" description="" />
+   <keyValuePair key="langused" value="C" description="" />
+   <keyValuePair key="newbsp" value="true" description="" />
+   <keyValuePair key="os" value="freertos10_xilinx" description="" />
+   <keyValuePair key="procused" value="ps7_cortexa9" description="" />
+   <keyValuePair key="recordtype" value="APPCreation" description="" />
+   <keyValuePair key="uid" value="1576153439683" description="" />
+  </section>
+  <section name="bsp/1576153438237" level="2" order="2" description="">
+   <keyValuePair key="apptemplate" value="freertos_hello_world" description="" />
+   <keyValuePair key="hwid" value="1575460737872" description="" />
+   <keyValuePair key="os" value="freertos10_xilinx" description="" />
+   <keyValuePair key="recordtype" value="BSPCreation" description="" />
+   <keyValuePair key="uid" value="1576153438237" description="" />
+  </section>
+  <section name="bsp/1576154870491" level="2" order="3" description="">
    <keyValuePair key="bootgencount" value="0" description="" />
    <keyValuePair key="crosstriggcount" value="0" description="" />
    <keyValuePair key="debugcount" value="0" description="" />
@@ -36,19 +54,6 @@
    <keyValuePair key="qemudebugcount" value="0" description="" />
    <keyValuePair key="recordtype" value="ToolUsage" description="" />
    <keyValuePair key="uid" value="NA" description="" />
-  </section>
-  <section name="hardware/1576154990284" level="2" order="2" description="">
-   <keyValuePair key="apptemplate" value="NA" description="" />
-   <keyValuePair key="arch" value="zynq" description="" />
-   <keyValuePair key="device" value="7z007s" description="" />
-   <keyValuePair key="ishandoff" value="true" description="" />
-   <keyValuePair key="iszynq" value="true" description="" />
-   <keyValuePair key="iszynqmp" value="false" description="" />
-   <keyValuePair key="os" value="NA" description="" />
-   <keyValuePair key="processors" value="1" description="" />
-   <keyValuePair key="recordtype" value="HWCreation" description="" />
-   <keyValuePair key="uid" value="1576154990284" description="" />
-   <keyValuePair key="vivadoversion" value="2019.1" description="" />
   </section>
  </section>
  <section name="vivado_usage" level="1" order="4" description="">

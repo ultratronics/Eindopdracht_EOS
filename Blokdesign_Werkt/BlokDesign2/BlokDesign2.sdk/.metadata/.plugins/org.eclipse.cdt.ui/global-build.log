@@ -4076,7 +4076,7 @@ arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_wor
           ^~~~~~~~~~~~
 compilation terminated.
 make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
-13:49:26 **** Auto Build of project EindOef_bsp ****
+14:51:19 **** Auto Build of project EindOef_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
 make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -4192,7 +4192,7 @@ make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-
 make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Compiling xadcps"
 'Finished building libraries'
-13:49:50 **** Auto Build of configuration Debug for project EindOef ****
+14:51:50 **** Auto Build of configuration Debug for project EindOef ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -4212,7 +4212,393 @@ arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
   81376	   3368	  89456	 174200	  2a878	EindOef.elf
 'Finished building: EindOef.elf.size'
 ' '
-13:50:41 **** Incremental Build of configuration Debug for project EindOef ****
+14:52:18 **** Incremental Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+14:58:39 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81376	   3368	  89456	 174200	  2a878	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+15:53:05 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:242:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81304	   3368	  89456	 174128	  2a830	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+15:53:25 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:242:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81304	   3368	  89456	 174128	  2a830	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+15:53:48 **** Incremental Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+11:06:58 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:105:33: error: 'LED_1' undeclared (first use in this function); did you mean 'LED1'?
+  XGpioPs_SetDirectionPin(&Gpio, LED_1, 1);
+                                 ^~~~~
+                                 LED1
+../src/freertos_hello_world.c:105:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c:108:33: error: 'LED_2' undeclared (first use in this function); did you mean 'LED2'?
+  XGpioPs_SetDirectionPin(&Gpio, LED_2, 1);
+                                 ^~~~~
+                                 LED2
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:264:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+11:07:14 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:264:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88388	   3380	  89472	 181240	  2c3f8	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+11:13:11 **** Incremental Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+11:14:52 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:264:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:291:4: error: 'Led1_data' undeclared (first use in this function)
+    Led1_data ^= 0x01;
+    ^~~~~~~~~
+../src/freertos_hello_world.c:291:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c:292:34: error: 'Led_1data' undeclared (first use in this function)
+    XGpioPs_WritePin(&Gpio, LED1, Led_1data);
+                                  ^~~~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+11:15:19 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:264:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88468	   3380	  89472	 181320	  2c448	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+11:17:08 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:264:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88620	   3380	  89472	 181472	  2c4e0	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+11:17:38 **** Incremental Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:264:18: warning: initialization of 'int' from 'int *' makes integer from pointer without a cast [-Wint-conversion]
+   int TestChar = &Afstand;
+                  ^
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88620	   3380	  89472	 181472	  2c4e0	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+11:58:31 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88620	   3380	  89472	 181472	  2c4e0	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+11:58:46 **** Incremental Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+13:16:04 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88620	   3380	  89472	 181472	  2c4e0	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+13:35:51 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:299:3: warning: implicit declaration of function 'NEOMATRIX_mWriteReg'; did you mean 'NEONIP_mWriteReg'? [-Wimplicit-function-declaration]
+   NEOMATRIX_mWriteReg(0x43c10000, NEON_REG0, 0b0);
+   ^~~~~~~~~~~~~~~~~~~
+   NEONIP_mWriteReg
+../src/freertos_hello_world.c:285:7: warning: unused variable 'groen' [-Wunused-variable]
+  char groen = 255;
+       ^~~~~
+../src/freertos_hello_world.c:284:7: warning: unused variable 'blauw' [-Wunused-variable]
+  char blauw =255;
+       ^~~~~
+../src/freertos_hello_world.c:283:7: warning: unused variable 'rood' [-Wunused-variable]
+  char rood = 255;
+       ^~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+d:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `prvRxTask':
+D:\Vivado_Projecten\EindOpdracht1\BlokDesign2\BlokDesign2.sdk\EindOef\Debug/../src/freertos_hello_world.c:299: undefined reference to `NEOMATRIX_mWriteReg'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: EindOef.elf] Error 1
+13:36:03 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:285:7: warning: unused variable 'groen' [-Wunused-variable]
+  char groen = 255;
+       ^~~~~
+../src/freertos_hello_world.c:284:7: warning: unused variable 'blauw' [-Wunused-variable]
+  char blauw =255;
+       ^~~~~
+../src/freertos_hello_world.c:283:7: warning: unused variable 'rood' [-Wunused-variable]
+  char rood = 255;
+       ^~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88684	   3380	  89472	 181536	  2c520	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+13:36:32 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:309:25: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    Temp = Temp || (rood << 1);
+                   ~~~~~~^~~~~
+../src/freertos_hello_world.c:285:7: warning: unused variable 'groen' [-Wunused-variable]
+  char groen = 255;
+       ^~~~~
+../src/freertos_hello_world.c:284:7: warning: unused variable 'blauw' [-Wunused-variable]
+  char blauw =255;
+       ^~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88748	   3380	  89472	 181600	  2c560	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+13:37:41 **** Auto Build of configuration Debug for project EindOef ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../EindOef_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:309:25: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    Temp = Temp || (rood << 1);
+                   ~~~~~~^~~~~
+../src/freertos_hello_world.c:320:26: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    Temp = Temp || (blauw << 17);
+                   ~~~~~~~^~~~~~
+../src/freertos_hello_world.c:285:7: warning: unused variable 'groen' [-Wunused-variable]
+  char groen = 255;
+       ^~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: EindOef.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../EindOef_bsp/ps7_cortexa9_0/lib -o "EindOef.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: EindOef.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size EindOef.elf  |tee "EindOef.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88812	   3380	  89472	 181664	  2c5a0	EindOef.elf
+'Finished building: EindOef.elf.size'
+' '
+13:38:06 **** Incremental Build of configuration Debug for project EindOef ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '

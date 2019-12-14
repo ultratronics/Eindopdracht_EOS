@@ -30,6 +30,7 @@ src/freertos_hello_world.o src/freertos_hello_world.o: \
  ../../EindOef_bsp/ps7_cortexa9_0/include/xplatform_info.h \
  ../../EindOef_bsp/ps7_cortexa9_0/include/sleep.h \
  ../../EindOef_bsp/ps7_cortexa9_0/include/Ultrasoon.h \
+ ../../EindOef_bsp/ps7_cortexa9_0/include/NeonIp.h \
  ../../EindOef_bsp/ps7_cortexa9_0/include/xil_io.h
 
 ../../EindOef_bsp/ps7_cortexa9_0/include/FreeRTOS.h:
@@ -91,5 +92,7 @@ src/freertos_hello_world.o src/freertos_hello_world.o: \
 ../../EindOef_bsp/ps7_cortexa9_0/include/sleep.h:
 
 ../../EindOef_bsp/ps7_cortexa9_0/include/Ultrasoon.h:
+
+../../EindOef_bsp/ps7_cortexa9_0/include/NeonIp.h:
 
 ../../EindOef_bsp/ps7_cortexa9_0/include/xil_io.h:
