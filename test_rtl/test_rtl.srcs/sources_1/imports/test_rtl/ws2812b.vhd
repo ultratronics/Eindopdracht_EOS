@@ -22,12 +22,19 @@ entity ws2812b is
   );
   port
   (
+    nLed: in STD_LOGIC_VECTOR(5 downto 0);
+    color: in STD_logic_vector(2 downto 0);
+    stage_write: in STD_LOGIC;
+    overwrite: in STD_LOGIC;
     clk: in STD_Logic;
     dout: out  STD_LOGIC
   );
 end ws2812b;
 
 architecture Behavioral of ws2812b is
+  --signal nLed: STD_LOGIC_VECTOR(5 downto 0) := B"000000";
+  --signal color: STD_logic_vector(2 downto 0):= B"111";
+  
   --constant ctrl: std_logic_vector(2 downto 0) := B"111";
 
   -- constants to convert nanoseconds, microseconds
@@ -47,6 +54,16 @@ architecture Behavioral of ws2812b is
   --  return allbits;
   --end function;
 
+ type T_leds_ram is array (0 to 63) of std_logic_vector(2 downto 0);
+ signal leds_ram: T_leds_ram :=
+ (
+ others => (others => '0')
+ );
+
+signal stage_leds_ram : T_leds_ram :=
+ (
+ others => (others => '0')
+ );
   --constant sequence_len: integer := 8;
   type T_sequence_rom is array(0 to 7) of std_logic_vector(23 downto 0);
   constant sequence_rom: T_sequence_rom := 
@@ -67,18 +84,50 @@ architecture Behavioral of ws2812b is
 
   --signal rom_addr      : integer range 0 to sequence_len*striplen*(bpp/8)-1;
   signal count         : integer range 0 to 2500; -- protocol timer
-  signal data          : std_logic_vector(23 downto 0);
+  signal data_ram          : std_logic_vector(2 downto 0);
+  signal data :             std_logic_vector (23 downto 0);
   signal bit_count     : integer range 0 to 1536; --bpp*striplen-1;
   signal led_bit       : integer range 0 to 23 := 23;
   signal state         : integer range 0 to 5 := 0; -- protocol state
+  --signal led_array_i :integer range 0 to 63 := 0;
   signal bitOut : std_logic := '0';
+  signal nLedi : integer range 0 to 63;
+  --signal timerOverwrite : integer range 0 to 63;
+  signal extract_n_led : integer range 0 to 63;
  begin
+ 
+ 
+ 
+  process(stage_write)
+  begin
+  if (rising_edge(stage_write)) then
+      nLedi <= to_integer(unsigned(nLed));
+      stage_leds_ram(nLedi) <= color;
+      end if;
+ 
+ 
+  end process;
+  
+  process(overwrite)
+  begin 
+  if (rising_edge(overwrite)) then
+      --timerOverwrite <= 0;
+      leds_ram <= stage_leds_ram;
+      end if;
+  end process;
+  
+  
   process(clk)
   begin
     if rising_edge(clk) then
       count <= count+1;
       --rom_addr <= to_integer(unsigned(ctrl))*(bpp/8); -- start from n-th sequence
-      data <= sequence_rom(4);
+      
+      
+      
+      data_ram <= leds_ram(extract_n_led);
+      data <= sequence_rom(to_integer(unsigned(data_ram)));
+      
       bitOut <= data(led_bit);
 
       if state = 0 then 
@@ -104,6 +153,11 @@ architecture Behavioral of ws2812b is
             led_bit <= led_bit - 1;
         else
             led_bit <= 23;
+            if extract_n_led = 63 then
+                extract_n_led <= 0;
+            else
+                extract_n_led <= extract_n_led +1;
+            end if;
         end if;
       elsif state = 1 then
       

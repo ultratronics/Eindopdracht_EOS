@@ -2,13 +2,13 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port dout_0 -pg 1 -lvl 3 -x 420 -y 60 -defaultsOSRD
-preplace inst vhdlnoclk_0 -pg 1 -lvl 1 -x 110 -y 60 -defaultsOSRD
-preplace inst ws2812b_0 -pg 1 -lvl 2 -x 310 -y 60 -defaultsOSRD
-preplace netloc ws2812b_0_dout 1 2 1 NJ 60
-preplace netloc vhdlnoclk_0_clk65MHz 1 1 1 NJ 60
-levelinfo -pg 1 0 110 310 420
-pagesize -pg 1 -db -bbox -sgen 0 0 520 120
+preplace port dout_0 -pg 1 -lvl 3 -x 460 -y 100 -defaultsOSRD
+preplace inst vhdlnoclk_0 -pg 1 -lvl 1 -x 110 -y 140 -defaultsOSRD
+preplace inst ws2812b_0 -pg 1 -lvl 2 -x 330 -y 100 -defaultsOSRD
+preplace netloc ws2812b_0_dout 1 2 1 NJ 100
+preplace netloc vhdlnoclk_0_clk65MHz 1 1 1 NJ 140
+levelinfo -pg 1 0 110 330 460
+pagesize -pg 1 -db -bbox -sgen 0 0 560 200
 "
 }
 {

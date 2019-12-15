@@ -55,6 +55,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY design_1_ws2812b_0_0 IS
   PORT (
+    stage_write : IN STD_LOGIC;
+    overwrite : IN STD_LOGIC;
     clk : IN STD_LOGIC;
     dout : OUT STD_LOGIC
   );
@@ -76,6 +78,8 @@ ARCHITECTURE design_1_ws2812b_0_0_arch OF design_1_ws2812b_0_0 IS
       bpp : INTEGER
     );
     PORT (
+      stage_write : IN STD_LOGIC;
+      overwrite : IN STD_LOGIC;
       clk : IN STD_LOGIC;
       dout : OUT STD_LOGIC
     );
@@ -100,6 +104,8 @@ BEGIN
       bpp => 24
     )
     PORT MAP (
+      stage_write => stage_write,
+      overwrite => overwrite,
       clk => clk,
       dout => dout
     );
