@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Dec 31 12:08:14 2019
+# Process ID: 3812
+# Current directory: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11296 D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\digi_Neopixel\digi_Neopixel.xpr
+# Log file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel/vivado.log
+# Journal file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.xpr
+update_compile_order -fileset sources_1
