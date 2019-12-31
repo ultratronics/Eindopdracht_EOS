@@ -170,9 +170,14 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set dout_0 [ create_bd_port -dir O dout_0 ]
+  set sonar_echo_0 [ create_bd_port -dir I sonar_echo_0 ]
+  set sonar_trig_0 [ create_bd_port -dir O sonar_trig_0 ]
 
   # Create instance: NeoMatix64_0, and set properties
   set NeoMatix64_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:NeoMatix64:1.0 NeoMatix64_0 ]
+
+  # Create instance: Ultrasoon_0, and set properties
+  set Ultrasoon_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:Ultrasoon:1.0 Ultrasoon_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -700,7 +705,7 @@ proc create_root_design { parentCell } {
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
-   CONFIG.NUM_MI {1} \
+   CONFIG.NUM_MI {2} \
    CONFIG.NUM_SI {2} \
  ] $ps7_0_axi_periph
 
@@ -723,16 +728,20 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP1 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S01_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins NeoMatix64_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins Ultrasoon_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
 
   # Create port connections
   connect_bd_net -net NeoMatix64_0_dout [get_bd_ports dout_0] [get_bd_pins NeoMatix64_0/dout]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins NeoMatix64_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
+  connect_bd_net -net Ultrasoon_0_sonar_trig [get_bd_ports sonar_trig_0] [get_bd_pins Ultrasoon_0/sonar_trig]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins NeoMatix64_0/s00_axi_aclk] [get_bd_pins Ultrasoon_0/clk] [get_bd_pins Ultrasoon_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]
-  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins NeoMatix64_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins NeoMatix64_0/s00_axi_aresetn] [get_bd_pins Ultrasoon_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
+  connect_bd_net -net sonar_echo_0_1 [get_bd_ports sonar_echo_0] [get_bd_pins Ultrasoon_0/sonar_echo]
   connect_bd_net -net vhdlnoclk_0_clk65MHz [get_bd_pins NeoMatix64_0/clk] [get_bd_pins vhdlnoclk_0/clk65MHz]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs NeoMatix64_0/S00_AXI/S00_AXI_reg] SEG_NeoMatix64_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs Ultrasoon_0/S00_AXI/S00_AXI_reg] SEG_Ultrasoon_0_S00_AXI_reg
 
 
   # Restore current instance

@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date                      : Sun Dec 15 17:46:10 2019
-| Host                      : Dennis running 64-bit major release  (build 9200)
+| Date                      : Tue Dec 31 11:29:28 2019
+| Host                      : DESKTOP-5O617LN running 64-bit major release  (build 9200)
 | Command                   : report_io -file design_1_wrapper_io_placed.rpt
 | Design                    : design_1_wrapper
 | Device                    : xc7z007s
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            87 |
+|            89 |
 +---------------+
 
 
@@ -120,10 +120,10 @@ Table of Contents
 | F8         |                   | Dedicated  | GNDADC_0                | XADC        |                    |       0 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | F9         |                   |            | VCCINT                  | VCCINT      |                    |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | F10        |                   |            | GND                     | GND         |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
-| F11        |                   | High Range | VCCO_35                 | VCCO        |                    |      35 |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
+| F11        |                   | High Range | VCCO_35                 | VCCO        |                    |      35 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
 | F12        |                   | High Range | IO_L1P_T0_AD0P_35       | User IO     |                    |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| F13        |                   | High Range | IO_L3P_T0_DQS_AD1P_35   | User IO     |                    |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| F14        |                   | High Range | IO_L3N_T0_DQS_AD1N_35   | User IO     |                    |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| F13        | sonar_trig_0      | High Range | IO_L3P_T0_DQS_AD1P_35   | OUTPUT      | LVCMOS33           |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| F14        | sonar_echo_0      | High Range | IO_L3N_T0_DQS_AD1N_35   | INPUT       | LVCMOS33           |      35 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | F15        |                   | High Range | IO_L5N_T0_AD9N_35       | User IO     |                    |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | G1         | DDR_dq[13]        |            | PS_DDR_DQ13_502         | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |              |                   |              |
 | G2         | DDR_dqs_p[1]      |            | PS_DDR_DQS_P1_502       | INOUT       | DIFF_SSTL135_T_DCI |         |            | FAST |                     |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |              |                   |              |
@@ -154,7 +154,7 @@ Table of Contents
 | H12        |                   | High Range | IO_L1N_T0_34            | User IO     |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | H13        |                   | High Range | IO_L2N_T0_34            | User IO     |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | H14        |                   | High Range | IO_L3N_T0_DQS_34        | User IO     |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| H15        |                   | High Range | VCCO_35                 | VCCO        |                    |      35 |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
+| H15        |                   | High Range | VCCO_35                 | VCCO        |                    |      35 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
 | J1         | DDR_addr[10]      |            | PS_DDR_A10_502          | OUT         | SSTL135            |         |            | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | J2         |                   |            | VCCO_DDR_502            | VCCO        |                    |         |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
 | J3         | FIXED_IO_ddr_vrn  |            | PS_DDR_VRN_502          | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |              |                   |              |

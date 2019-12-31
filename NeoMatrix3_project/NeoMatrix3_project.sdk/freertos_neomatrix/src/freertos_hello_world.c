@@ -27,6 +27,15 @@
     1 tab == 4 spaces!
 */
 
+/*
+ Pin layout
+ VCC:  5V Pin
+ GND:  GND Pin
+ Trig: F13 (AD1)
+ Echo: F14 (AD0)
+*/
+
+
 /* FreeRTOS includes. */
 #include "FreeRTOS.h"
 #include "task.h"
@@ -35,21 +44,38 @@
 /* Xilinx includes. */
 #include "xil_printf.h"
 #include "xparameters.h"
+#include "xgpiops.h"
 
-
-
+// #include "Ultrasoon.h"
 #include "NeoMatix64.h"
 #include "xil_io.h"
+/*-----------------------------------------------------------*/
 
 #define TIMER_ID	1
 #define DELAY_10_SECONDS	10000UL
 #define DELAY_1_SECOND		1000UL
 #define TIMER_CHECK_THRESHOLD	9
+
+#define CHECKBIT(var, pos)  ((var) & (1<<(pos)))
+#define CHECKRDY(var) (CHECKBIT(var, 31))
+#define CHECKOOB(var) (CHECKBIT(var, 30))
+
+#define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+#define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+#define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+
+#define NEON_ADDR XPAR_NEOMATIX64_0_S00_AXI_BASEADDR
+#define NEON_REG0 NEOMATIX64_S00_AXI_SLV_REG0_OFFSET
+#define NEON__REG1 NEOMATIX64_S00_AXI_SLV_REG1_OFFSET
 /*-----------------------------------------------------------*/
 
 /* The Tx and Rx tasks as described at the top of this file. */
 static void prvTxTask( void *pvParameters );
 static void prvRxTask( void *pvParameters );
+
+static void prvSensor( void *pvParameters );
+static void prvUartRead( void *pvParameters );
+
 static void vTimerCallback( TimerHandle_t pxTimer );
 /*-----------------------------------------------------------*/
 
@@ -57,15 +83,23 @@ static void vTimerCallback( TimerHandle_t pxTimer );
 file. */
 static TaskHandle_t xTxTask;
 static TaskHandle_t xRxTask;
+static TaskHandle_t xSensor;
+static TaskHandle_t xUartRead;
+
 static QueueHandle_t xQueue = NULL;
 static TimerHandle_t xTimer = NULL;
+
 char HWstring[15] = "Hello World";
 long RxtaskCntr = 0;
+
+XGpioPs Gpio;
+int Afstand;
+int SegmentValue(int number);
+int Status;
 
 int main( void )
 {
 	const TickType_t x10seconds = pdMS_TO_TICKS( DELAY_10_SECONDS );
-
 	xil_printf( "Hello from Freertos example main\r\n" );
 
 	/* Create the two tasks.  The Tx task is given a lower priority than the
@@ -84,6 +118,28 @@ int main( void )
 				 NULL,
 				 tskIDLE_PRIORITY + 1,
 				 &xRxTask );
+
+	xTaskCreate( prvSensor,
+				 ( const char * ) "Sensor",
+				 configMINIMAL_STACK_SIZE,
+				 NULL,
+				 tskIDLE_PRIORITY,
+				 &xUartRead );
+
+	xTaskCreate( prvUartRead,
+				 ( const char * ) "UART",
+				 configMINIMAL_STACK_SIZE,
+				 NULL,
+				 tskIDLE_PRIORITY + 1,
+				 &xUartRead );
+
+
+
+
+
+
+
+
 
 	/* Create the queue used by the tasks.  The Rx task has a higher priority
 	than the Tx task, so will preempt the Tx task and remove values from the
@@ -124,9 +180,67 @@ int main( void )
 	for more details. */
 	for( ;; );
 }
-
-
 /*-----------------------------------------------------------*/
+
+static void prvSensor( void *pvParameters )
+{
+	const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+	xil_printf("Ultrasonic test.\n\r");
+
+	for( ;; )
+	{
+		// Delay for 1 second.
+		vTaskDelay( x1second );
+		Afstand = 0u;
+
+		//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
+		//Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
+
+    	if(CHECKOOB(Afstand))
+    	{
+    		xil_printf("Object is too far away.\r\n");
+    	}
+
+		/* ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 1);
+		Afstand = ULTRASOON_mReadReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET);
+		xil_printf("Afstand Gemeten: [ %d ] \r\n", Afstand); */
+
+    	//xil_printf("Raw data: 0x%08x\r\n", Afstand);
+    	//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
+
+		// Send the next value on the queue.  The queue should always be
+		// empty at this point so a block time of 0 is used.
+		xQueueSend( xQueue,			// The queue being written to.
+					&Afstand, 		// The address of the data being sent.
+					0UL );			// The block time.
+
+		//ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 0);
+	}
+}
+/*-----------------------------------------------------------*/
+
+static void prvUartRead( void *pvParameters )
+{
+
+	xil_printf("In UartRead. \r\n");
+
+	for(;;)
+	{
+		/* Block to wait for data arriving on the queue. */
+		xQueueReceive( 	xQueue,				/* The queue being read. */
+						&Afstand,	/* Data is read into this address. */
+						portMAX_DELAY );	/* Wait without a timeout for data. */
+
+
+		int TestChar = Afstand;
+
+		TestChar = getchar();
+		putchar(TestChar);
+		xil_printf("UART READ: %s \r\n", TestChar);
+	}
+}
+/*-----------------------------------------------------------*/
+
 static void prvTxTask( void *pvParameters )
 {
 const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
@@ -181,26 +295,60 @@ const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 					0UL );			/* The block time. */
 	}
 }
-
 /*-----------------------------------------------------------*/
+
 static void prvRxTask( void *pvParameters )
 {
-char Recdstring[15] = "";
+	int AfstandReceived;
+	/*int Temp;
+	char rood = 255;
+	char blauw =255;
+	char groen = 255;*/
 
 	for( ;; )
 	{
 		/* Block to wait for data arriving on the queue. */
 		xQueueReceive( 	xQueue,				/* The queue being read. */
-						Recdstring,	/* Data is read into this address. */
+						&AfstandReceived,	/* Data is read into this address. */
 						portMAX_DELAY );	/* Wait without a timeout for data. */
 
+		AfstandReceived = AfstandReceived % 10;
+
 		/* Print the received data. */
-		xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
-		RxtaskCntr++;
+		xil_printf( "Display Value: %d \r\n", AfstandReceived );
+
+		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
+		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
+
+		if(AfstandReceived <= 7)
+		{
+			xil_printf("Afstand <= 7");
+		}
+		else if(AfstandReceived >= 8)
+		{
+			//groen in derde led
+			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+			//klaarzetten in stage
+			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
+			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+			//buffer overschrijven
+			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b10010000010);
+			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+
+		}
+
+
+	    /*int distance_data = AfstandReceived & 0x00FFFFFF;
+	    int dist_cm = (distance_data / 50) / 58;
+	    xil_printf("Distance in cm: %d\r\n", dist_cm);*/
+
+		//sleep_A9(1);
+		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
+		//RxtaskCntr++;
 	}
 }
-
 /*-----------------------------------------------------------*/
+
 static void vTimerCallback( TimerHandle_t pxTimer )
 {
 	long lTimerId;

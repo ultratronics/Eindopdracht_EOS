@@ -2,11 +2,11 @@
 # Webtalk v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # 
-# Start of session at: Sun Dec 15 18:36:05 2019
-# Process ID: 9484
-# Current directory: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/webtalk
+# Start of session at: Tue Dec 31 12:02:01 2019
+# Process ID: 2300
+# Current directory: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/webtalk
 # Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
-# Log file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/webtalk/webtalk.log
-# Journal file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/webtalk\webtalk.jou
+# Log file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/webtalk/webtalk.log
+# Journal file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/webtalk\webtalk.jou
 #-----------------------------------------------------------
 source sdk_webtalk.tcl

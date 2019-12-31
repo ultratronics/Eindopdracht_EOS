@@ -439,3 +439,671 @@ arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
   77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
 Finished building: freertos_neomatrix.elf.size
  
+11:31:12 **** Auto Build of project freertos_neomatrix_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"include"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+"Compiling FreeRTOS"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling iicps"
+"Running Make libs in ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling NeoMatix64..."
+NeoMatix64_selftest.c: In function 'NEOMATIX64_Reg_SelfTest':
+NeoMatix64_selftest.c:52:59: warning: comparison of integer expressions of different signedness: 'u32' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+    if ( NEOMATIX64_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                           ^~
+NeoMatix64_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+11:31:39 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:35:23 **** Auto Build of project freertos_neomatrix_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"include"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+"Compiling FreeRTOS"
+arm-none-eabi-ar: creating ../../../lib/libfreertos.a
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling iicps"
+"Running Make libs in ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/NeoMatix64_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling NeoMatix64..."
+NeoMatix64_selftest.c: In function 'NEOMATIX64_Reg_SelfTest':
+NeoMatix64_selftest.c:52:59: warning: comparison of integer expressions of different signedness: 'u32' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+    if ( NEOMATIX64_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                           ^~
+NeoMatix64_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+11:35:45 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:36:44 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:38:28 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:40:10: fatal error: Ultrasoon.h: No such file or directory
+ #include "Ultrasoon.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+11:38:38 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:40:44 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:42:06 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:53:53 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:76:13: warning: 'prvSensor' declared 'static' but never defined [-Wunused-function]
+ static void prvSensor( void *pvParameters );
+             ^~~~~~~~~
+../src/freertos_hello_world.c:77:13: warning: 'prvUartRead' declared 'static' but never defined [-Wunused-function]
+ static void prvUartRead( void *pvParameters );
+             ^~~~~~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77836	   3388	  89424	 170648	  29a98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:58:10 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:95:1: error: unknown type name 'XGpioPs'
+ XGpioPs Gpio;
+ ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvSensor':
+../src/freertos_hello_world.c:63:24: error: 'XPAR_ULTRASOON_0_S00_AXI_BASEADDR' undeclared (first use in this function); did you mean 'XPAR_NEOMATIX64_0_S00_AXI_BASEADDR'?
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: in definition of macro 'ULTRASOON_ADDR'
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: each undeclared identifier is reported only once for each function it appears in
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: in definition of macro 'ULTRASOON_ADDR'
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:65:24: error: 'ULTRASOON_S00_AXI_SLV_REG1_OFFSET' undeclared (first use in this function); did you mean 'NEOMATIX64_S00_AXI_SLV_REG1_OFFSET'?
+ #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:65:24: note: in definition of macro 'ULTRASOON_REG1'
+ #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:64:24: error: 'ULTRASOON_S00_AXI_SLV_REG0_OFFSET' undeclared (first use in this function); did you mean 'NEOMATIX64_S00_AXI_SLV_REG0_OFFSET'?
+ #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:64:24: note: in definition of macro 'ULTRASOON_REG0'
+ #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:77:13: warning: 'prvUartRead' used but never defined
+ static void prvUartRead( void *pvParameters );
+             ^~~~~~~~~~~
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:00:00 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:95:1: error: unknown type name 'XGpioPs'
+ XGpioPs Gpio;
+ ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvSensor':
+../src/freertos_hello_world.c:63:24: error: 'XPAR_ULTRASOON_0_S00_AXI_BASEADDR' undeclared (first use in this function); did you mean 'XPAR_NEOMATIX64_0_S00_AXI_BASEADDR'?
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: in definition of macro 'ULTRASOON_ADDR'
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: each undeclared identifier is reported only once for each function it appears in
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: in definition of macro 'ULTRASOON_ADDR'
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:65:24: error: 'ULTRASOON_S00_AXI_SLV_REG1_OFFSET' undeclared (first use in this function); did you mean 'NEOMATIX64_S00_AXI_SLV_REG1_OFFSET'?
+ #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:65:24: note: in definition of macro 'ULTRASOON_REG1'
+ #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:64:24: error: 'ULTRASOON_S00_AXI_SLV_REG0_OFFSET' undeclared (first use in this function); did you mean 'NEOMATIX64_S00_AXI_SLV_REG0_OFFSET'?
+ #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:64:24: note: in definition of macro 'ULTRASOON_REG0'
+ #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:237:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:237:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:237:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:330:4: warning: implicit declaration of function 'NEONIP_mWriteReg'; did you mean 'NEOMATIX64_mWriteReg'? [-Wimplicit-function-declaration]
+    NEONIP_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+    ^~~~~~~~~~~~~~~~
+    NEOMATIX64_mWriteReg
+At top level:
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:00:11 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:95:1: error: unknown type name 'XGpioPs'
+ XGpioPs Gpio;
+ ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvSensor':
+../src/freertos_hello_world.c:63:24: error: 'XPAR_ULTRASOON_0_S00_AXI_BASEADDR' undeclared (first use in this function); did you mean 'XPAR_NEOMATIX64_0_S00_AXI_BASEADDR'?
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: in definition of macro 'ULTRASOON_ADDR'
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: each undeclared identifier is reported only once for each function it appears in
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:63:24: note: in definition of macro 'ULTRASOON_ADDR'
+ #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:65:24: error: 'ULTRASOON_S00_AXI_SLV_REG1_OFFSET' undeclared (first use in this function); did you mean 'NEOMATIX64_S00_AXI_SLV_REG1_OFFSET'?
+ #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:65:24: note: in definition of macro 'ULTRASOON_REG1'
+ #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:64:24: error: 'ULTRASOON_S00_AXI_SLV_REG0_OFFSET' undeclared (first use in this function); did you mean 'NEOMATIX64_S00_AXI_SLV_REG0_OFFSET'?
+ #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:64:24: note: in definition of macro 'ULTRASOON_REG0'
+ #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:237:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:237:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:237:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:330:4: warning: implicit declaration of function 'NEONIP_mWriteReg'; did you mean 'NEOMATIX64_mWriteReg'? [-Wimplicit-function-declaration]
+    NEONIP_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+    ^~~~~~~~~~~~~~~~
+    NEOMATIX64_mWriteReg
+At top level:
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:00:58 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:95:1: error: unknown type name 'XGpioPs'
+ XGpioPs Gpio;
+ ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:237:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:237:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:237:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:330:4: warning: implicit declaration of function 'NEONIP_mWriteReg'; did you mean 'NEOMATIX64_mWriteReg'? [-Wimplicit-function-declaration]
+    NEONIP_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+    ^~~~~~~~~~~~~~~~
+    NEOMATIX64_mWriteReg
+At top level:
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:01:14 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:237:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:237:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:237:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:330:4: warning: implicit declaration of function 'NEONIP_mWriteReg'; did you mean 'NEOMATIX64_mWriteReg'? [-Wimplicit-function-declaration]
+    NEONIP_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+    ^~~~~~~~~~~~~~~~
+    NEOMATIX64_mWriteReg
+At top level:
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+d:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `prvRxTask':
+D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:330: undefined reference to `NEONIP_mWriteReg'
+d:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:332: undefined reference to `NEONIP_mWriteReg'
+d:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:333: undefined reference to `NEONIP_mWriteReg'
+d:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:335: undefined reference to `NEONIP_mWriteReg'
+d:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:336: undefined reference to `NEONIP_mWriteReg'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+12:01:50 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:237:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:237:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:237:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+At top level:
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81696	   3384	  89472	 174552	  2a9d8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:01:54 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:237:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:237:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:237:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+At top level:
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81696	   3384	  89472	 174552	  2a9d8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '

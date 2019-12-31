@@ -70,19 +70,22 @@ set rc [catch {
   set_property board_part em.avnet.com:minized:part0:1.2 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.cache/wt [current_project]
-  set_property parent.project_path C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.xpr [current_project]
-  set_property ip_repo_paths C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo/NeoMatix64_1.0 [current_project]
+  set_property webtalk.parent_dir D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.cache/wt [current_project]
+  set_property parent.project_path D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.xpr [current_project]
+  set_property ip_repo_paths {
+  d:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/ip_repo/NeoMatix64_1.0
+  D:/Vivado_Projecten/EOS/ip_repo2
+} [current_project]
   update_ip_catalog
-  set_property ip_output_repo C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.cache/ip [current_project]
+  set_property ip_output_repo D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.runs/synth_1/design_1_wrapper.dcp
+  add_files -quiet D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.runs/synth_1/design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.srcs/sources_1/bd/design_1/design_1.bd
+  add_files D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
-  read_xdc C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.srcs/constrs_1/new/constraint1.xdc
+  read_xdc D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.srcs/constrs_1/new/constraint1.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z007sclg225-1
   set_param project.isImplRun false
