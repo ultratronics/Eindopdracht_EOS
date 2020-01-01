@@ -308,7 +308,7 @@ static void prvRxTask( void *pvParameters )
 
 	int cars[64];
 	int Value;
-	int NeonData;
+	int NeonData = 0b00010000010;
 	char Led = 0b000100;
 	char kleur = 000;
 
@@ -336,7 +336,7 @@ static void prvRxTask( void *pvParameters )
 			cars[Value] = Value;
 			xil_printf("values: %d", cars[Value]);
 		}
-		NeonData = Led + kleur + 00;
+
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
@@ -345,7 +345,8 @@ static void prvRxTask( void *pvParameters )
 		if(AfstandReceived <= 7)
 		{
 			//groen in derde led
-			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, NeonData);
+			NEOMATIX64_mWriteReg()
+			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, Led + kleur + 00);
 			//klaarzetten in stage
 			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
 			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);

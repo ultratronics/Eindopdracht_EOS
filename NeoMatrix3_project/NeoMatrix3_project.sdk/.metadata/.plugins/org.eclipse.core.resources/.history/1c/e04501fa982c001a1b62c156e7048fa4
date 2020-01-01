@@ -99,6 +99,18 @@ int Status;
 
 int main( void )
 {
+	string[] cars;
+	for(int yy = 0; yy < 63; yy++)
+	{
+		cars[yy] = yy;
+		xil_printf("valus: %d", cars[yy]);
+	}
+
+
+
+
+
+
 
 	const TickType_t x10seconds = pdMS_TO_TICKS( DELAY_10_SECONDS );
 	xil_printf( "Hello from Freertos example main\r\n" );
@@ -260,7 +272,7 @@ const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 		//b8 - b6 -> kleur
 		//b5 -> b0 -> welke led
 		//
-		//0b 000100 000 1 0
+		//
 		/*
 		 *
 		 *  x"000000", -- 0: black
@@ -306,19 +318,6 @@ static void prvRxTask( void *pvParameters )
 	char blauw =255;
 	char groen = 255;*/
 
-	int cars[64];
-	int Value;
-	int NeonData;
-	char Led = 0b000100;
-	char kleur = 000;
-
-	//b10 -> 	overschrijven
-	//b9 -> stage klaarzetten
-	//b8 - b6 -> kleur
-	//b5 -> b0 -> welke led
-	//
-	//0b 000100 000 1 0
-
 	for( ;; )
 	{
 		/* Block to wait for data arriving on the queue. */
@@ -331,21 +330,13 @@ static void prvRxTask( void *pvParameters )
 		/* Print the received data. */
 		xil_printf( "Display Value: %d \r\n", AfstandReceived );
 
-		for(Value = 0; Value < 63; Value++)
-		{
-			cars[Value] = Value;
-			xil_printf("values: %d", cars[Value]);
-		}
-		NeonData = Led + kleur + 00;
-
-
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 
 		if(AfstandReceived <= 7)
 		{
 			//groen in derde led
-			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, NeonData);
+			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 			//klaarzetten in stage
 			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
 			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
