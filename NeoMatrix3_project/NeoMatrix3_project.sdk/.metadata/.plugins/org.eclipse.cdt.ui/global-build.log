@@ -1521,3 +1521,41 @@ arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
   81824	   3384	  89472	 174680	  2aa58	freertos_neomatrix.elf
 'Finished building: freertos_neomatrix.elf.size'
 ' '
+14:51:32 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:238:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:238:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:239:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+At top level:
+../src/freertos_hello_world.c:86:21: warning: 'xSensor' defined but not used [-Wunused-variable]
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81824	   3384	  89472	 174680	  2aa58	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '

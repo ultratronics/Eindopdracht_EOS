@@ -1,4 +1,4 @@
-14:42:50 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+14:51:32 **** Auto Build of configuration Debug for project freertos_neomatrix ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -37,5 +37,5 @@ arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
 'Finished building: freertos_neomatrix.elf.size'
 ' '
 
-14:42:50 Build Finished (took 670ms)
+14:51:32 Build Finished (took 798ms)
 

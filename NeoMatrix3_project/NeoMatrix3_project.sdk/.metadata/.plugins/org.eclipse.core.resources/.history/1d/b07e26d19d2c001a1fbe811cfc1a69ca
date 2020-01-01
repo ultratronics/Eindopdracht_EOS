@@ -331,13 +331,13 @@ static void prvRxTask( void *pvParameters )
 		/* Print the received data. */
 		xil_printf( "Display Value: %d \r\n", AfstandReceived );
 
-
-		NeonData = Led + kleur + 00;
 		for(Value = 0; Value < 63; Value++)
 		{
-			cars[Value] = NeonData;
+			cars[Value] = Value;
 			xil_printf("values: %d", cars[Value]);
 		}
+		NeonData = Led + kleur + 00;
+
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/

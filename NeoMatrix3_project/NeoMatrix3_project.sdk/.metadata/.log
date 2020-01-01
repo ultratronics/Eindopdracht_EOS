@@ -12027,3 +12027,58 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:/Vivado_Projec
 
 !ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:01:43.045
 !MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_1/system.hdf], Result: [null, ]. Thread: main
+!SESSION 2020-01-01 14:50:11.183 -----------------------------------------------
+eclipse.buildId=2019.1
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=nl_BE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk
+
+!ENTRY org.eclipse.ui 2 0 2020-01-01 14:50:13.258
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2020-01-01 14:50:13.258
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2020-01-01 14:50:13.894
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2020-01-01 14:50:13.894
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY com.percepio.tracealyzer.core 1 0 2020-01-01 14:50:19.534
+!MESSAGE Activator.start(): Called from com.percepio.tracealyzer.core, version: 1.1.4.v201906041456
+
+!ENTRY com.percepio.tracealyzer.core 2 0 2020-01-01 14:50:19.561
+!MESSAGE ContextManager.reportWarning(): No debug context found
+
+!ENTRY com.percepio.tracealyzer.ui 1 0 2020-01-01 14:50:19.565
+!MESSAGE Activator.start(): Called from com.percepio.tracealyzer.ui, version: 1.1.4.v201906041456
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:22.561
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:22.562
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-17
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:22.719
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:22.720
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-17
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:22.721
+!MESSAGE XSCT Command: [setws D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk], Thread: Thread-17
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:22.728
+!MESSAGE XSCT command with result: [setws D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk], Result: [null, ]. Thread: Thread-17
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:22.744
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:26.498
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:26.499
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_1/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2020-01-01 14:50:28.233
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_1/system.hdf], Result: [null, ]. Thread: main
