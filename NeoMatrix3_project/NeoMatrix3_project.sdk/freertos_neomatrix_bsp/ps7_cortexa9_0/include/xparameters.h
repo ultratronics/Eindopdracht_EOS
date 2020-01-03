@@ -38,6 +38,17 @@
 
 /******************************************************************/
 
+/* Definitions for driver ULTRASOON */
+#define XPAR_ULTRASOON_NUM_INSTANCES 1
+
+/* Definitions for peripheral ULTRASOON_0 */
+#define XPAR_ULTRASOON_0_DEVICE_ID 0
+#define XPAR_ULTRASOON_0_S00_AXI_BASEADDR 0x43C10000
+#define XPAR_ULTRASOON_0_S00_AXI_HIGHADDR 0x43C1FFFF
+
+
+/******************************************************************/
+
 
 /* Definitions for peripheral PS7_DDR_0 */
 #define XPAR_PS7_DDR_0_S_AXI_BASEADDR 0x00100000

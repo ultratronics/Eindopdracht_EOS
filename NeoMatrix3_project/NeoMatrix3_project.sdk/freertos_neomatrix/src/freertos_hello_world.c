@@ -33,7 +33,10 @@
  GND:  GND Pin
  Trig: F13 (AD1)
  Echo: F14 (AD0)
-*/
+ Neomatrix : pin 2 van PMOD 1
+ Vcc -> Pin 6/12 van PMOD 1
+ GND -> pin 5/11 van PMOD 1
+ */
 
 
 /* FreeRTOS includes. */
@@ -46,7 +49,7 @@
 #include "xparameters.h"
 #include "xgpiops.h"
 
-//#include "Ultrasoon.h"
+#include "Ultrasoon.h"
 #include "NeoMatix64.h"
 #include "xil_io.h"
 /*-----------------------------------------------------------*/
@@ -70,7 +73,7 @@
 /*-----------------------------------------------------------*/
 
 /* The Tx and Rx tasks as described at the top of this file. */
-static void prvTxTask( void *pvParameters );
+//static void prvTxTask( void *pvParameters );
 static void prvRxTask( void *pvParameters );
 
 static void prvSensor( void *pvParameters );
@@ -113,17 +116,17 @@ int main( void )
 {
 
 	const TickType_t x10seconds = pdMS_TO_TICKS( DELAY_10_SECONDS );
-	xil_printf( "Hello from Freertos example main\r\n" );
+	xil_printf( "Welkom in het spel.\r\n" );
 
 	/* Create the two tasks.  The Tx task is given a lower priority than the
 	Rx task, so the Rx task will leave the Blocked state and pre-empt the Tx
 	task as soon as the Tx task places an item in the queue. */
-	xTaskCreate( 	prvTxTask, 					/* The function that implements the task. */
-					( const char * ) "Tx", 		/* Text name for the task, provided to assist debugging only. */
-					configMINIMAL_STACK_SIZE, 	/* The stack allocated to the task. */
-					NULL, 						/* The task parameter is not used, so set to NULL. */
-					tskIDLE_PRIORITY,			/* The task runs at the idle priority. */
-					&xTxTask );
+	//xTaskCreate( 	prvTxTask, 					/* The function that implements the task. */
+	//				( const char * ) "Tx", 		/* Text name for the task, provided to assist debugging only. */
+	//				configMINIMAL_STACK_SIZE, 	/* The stack allocated to the task. */
+	//				NULL, 						/* The task parameter is not used, so set to NULL. */
+	//				tskIDLE_PRIORITY,			/* The task runs at the idle priority. */
+	//				&xTxTask );
 
 	xTaskCreate( prvRxTask,
 				 ( const char * ) "GB",
@@ -203,8 +206,8 @@ static void prvSensor( void *pvParameters )
 		Afstand = 0u;
 
 		// Lees de gemeten afstand van de sensor in.
-		/*Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
-		Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);*/
+		Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
+		Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
 
 		// Controleer of de afstand meetbaar is of niet.
     	if(CHECKOOB(Afstand))
@@ -213,8 +216,8 @@ static void prvSensor( void *pvParameters )
     	}
 
     	// controle om de gemeten waarde te zien.
-    	/*xil_printf("Raw data: 0x%08x\r\n", Afstand);
-    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);*/
+    	xil_printf("Raw data: 0x%08x\r\n", Afstand);
+    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
 
 		// Send the next value on the queue.  The queue should always be
 		// empty at this point so a block time of 0 is used.
@@ -245,7 +248,7 @@ static void prvUartRead( void *pvParameters )
 		for(i = 0; i < 63; i++)
 		{
 			ArrayRGB[i] = NeonData;
-			xil_printf("RGB positie[%d]: RGB value(%s)",i , ArrayRGB[i]);
+			xil_printf("LED positie[%d]: Color value(%s)",i , ArrayRGB[i]);
 		}
 
 
@@ -257,14 +260,14 @@ static void prvUartRead( void *pvParameters )
 }
 /*-----------------------------------------------------------*/
 
-static void prvTxTask( void *pvParameters )
-{
-const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+//static void prvTxTask( void *pvParameters )
+//{
+//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 
-	for( ;; )
-	{
+	//for( ;; )
+	//{
 		/* Delay for 1 second. */
-		vTaskDelay( x1second );
+		//vTaskDelay( x1second );
 
 
 
@@ -293,30 +296,30 @@ const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 
 
 		//groen in derde led
-		NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//klaarzetten in stage
-		NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
-		NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//buffer overschrijven
-		NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b10010000010);
-		NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b10010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
 		//
 
 
 
 		/* Send the next value on the queue.  The queue should always be
 		empty at this point so a block time of 0 is used. */
-		xQueueSend( xQueue,			/* The queue being written to. */
-					HWstring, /* The address of the data being sent. */
-					0UL );			/* The block time. */
-	}
-}
+		//xQueueSend( xQueue,			/* The queue being written to. */
+		//			HWstring, /* The address of the data being sent. */
+		//			0UL );			/* The block time. */
+	//}
+//}
 /*-----------------------------------------------------------*/
 
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
-	char RGBvalue;
+	//char RGBvalue;
 	/*int Temp;
 	char rood = 255;
 	char blauw =255;
@@ -340,7 +343,7 @@ static void prvRxTask( void *pvParameters )
 		AfstandReceived = AfstandReceived % 10;
 
 		/* Print the received data. */
-		xil_printf( "Display Value: %d \r\n", AfstandReceived );
+		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
@@ -364,12 +367,12 @@ static void prvRxTask( void *pvParameters )
 
 
 		// Leest de RGB value in.
-		RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
+		//RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
 
 		// schrijf de RGB values weg naar UART.
-		xQueueSend( xQueue2,		// The queue being written to.
-					&RGBvalue, 		// The address of the data being sent.
-					0UL );			// The block time.
+		//xQueueSend( xQueue2,		// The queue being written to.
+		//			&RGBvalue, 		// The address of the data being sent.
+		//			0UL );			// The block time.
 
 
 	    /*int distance_data = AfstandReceived & 0x00FFFFFF;
@@ -379,6 +382,8 @@ static void prvRxTask( void *pvParameters )
 		//sleep_A9(1);
 		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
 		//RxtaskCntr++;
+		next_frame();
+		//get_player_position();
 	}
 }
 /*-----------------------------------------------------------*/
@@ -400,7 +405,7 @@ static void vTimerCallback( TimerHandle_t pxTimer )
 	 The timer expires after 10 seconds. We expect the RxtaskCntr to at least
 	 have a value of 9 (TIMER_CHECK_THRESHOLD) when the timer expires. */
 	if (RxtaskCntr >= TIMER_CHECK_THRESHOLD) {
-		xil_printf("FreeRTOS Hello World Example PASSED");
+		xil_printf("10 sec counter finished");
 	} else {
 		xil_printf("FreeRTOS Hello World Example FAILED");
 	}
@@ -464,13 +469,26 @@ void next_frame()
 		for(u32 i = 8; i == 0; i--)
 		{
 			// updates the position on the matrix
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0)));
+			int kleurtmp = 0b00011000000 && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int klaarzettentmp1 = 0b01011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int klaarzettentmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int overschrijventmp1 = 0b10011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int kleur_extracted_tmp = (kleurtmp && 0b00111000000) >> 6;
+			xil_printf("%s",kleur_extracted_tmp);
+			xQueueSend( xQueue2,		// The queue being written to.
+						&kleur_extracted_tmp, 		// The address of the data being sent.
+						0UL );			// The block time.
 
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0)));
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0)));
 
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0)));
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0)));
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, kleurtmp);
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, klaarzettentmp1);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, klaarzettentmp2);
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, overschrijventmp1);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, overschrijventmp2);
 
 		}
 
@@ -483,6 +501,7 @@ int get_player_position()
 	int position;
 
 	// player pos 0
+	//y 0 x 0
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
 
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000);
@@ -495,6 +514,7 @@ int get_player_position()
 	position = 0;
 
 	//player pos 1
+	//y1 x0
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
 
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011001000);
@@ -507,6 +527,7 @@ int get_player_position()
 	position = 1;
 
 	//player pos 2
+	//y2 x0
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
 
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011010000);
@@ -519,6 +540,7 @@ int get_player_position()
 	position = 2;
 
 	//player pos 3
+	//y3 x0
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
 
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011011000);
@@ -531,6 +553,7 @@ int get_player_position()
 	position = 3;
 
 	//player pos 4
+
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
 
 	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011100000);

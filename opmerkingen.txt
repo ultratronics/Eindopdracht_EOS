@@ -1,0 +1,4 @@
+Je wilt hetgeen je uitstuurt naar de Neomatrix terug inlezen 
+om deze dan via uart op de pc te laten zien , 
+waarom niet gewoon een buffer bijhouden in de c code van hetgeen dat je naar de matrix stuurt.
+

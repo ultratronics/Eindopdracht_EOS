@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.srcs/constrs_1/new/constraint1.xdc rfile:../../../NeoMatrix3_project.srcs/constrs_1/new/constraint1.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.srcs/constrs_1/new/constraint1.xdc rfile:../../../NeoMatrix3_project.srcs/constrs_1/new/constraint1.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN M15 [get_ports dout_0]
 set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
