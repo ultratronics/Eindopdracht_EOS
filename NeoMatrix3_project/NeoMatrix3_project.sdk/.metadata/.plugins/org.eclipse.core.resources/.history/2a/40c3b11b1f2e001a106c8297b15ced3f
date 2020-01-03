@@ -352,13 +352,14 @@ static void prvRxTask( void *pvParameters )
 		}
 
 
-		// Leest de RGB value in.
-		RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
-
-		// schrijf de RGB values weg naar UART.
+		// schrijf de RGB values weg naar uart.
 		xQueueSend( xQueue2,		// The queue being written to.
 					&RGBvalue, 		// The address of the data being sent.
 					0UL );			// The block time.
+
+
+		RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
+
 
 
 	    /*int distance_data = AfstandReceived & 0x00FFFFFF;

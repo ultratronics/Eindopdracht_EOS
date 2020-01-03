@@ -1559,3 +1559,471 @@ arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
   81824	   3384	  89472	 174680	  2aa58	freertos_neomatrix.elf
 'Finished building: freertos_neomatrix.elf.size'
 ' '
+12:29:22 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:238:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:238:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:239:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81824	   3384	  89472	 174680	  2aa58	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:35:57 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:238:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:238:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:238:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:239:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81824	   3384	  89472	 174680	  2aa58	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:30:14 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:240:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:240:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:240:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:241:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81888	   3384	  89472	 174744	  2aa98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:31:07 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:49:10: fatal error: Ultrasoon.h: No such file or directory
+ #include "Ultrasoon.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:31:17 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:242:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:242:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:242:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:243:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  81888	   3384	  89472	 174744	  2aa98	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:37:00 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:227:6: error: 'Value' undeclared (first use in this function); did you mean '_glue'?
+  for(Value = 0; Value < 63; Value++)
+      ^~~~~
+      _glue
+../src/freertos_hello_world.c:227:6: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c:229:3: error: 'cars' undeclared (first use in this function); did you mean 'char8'?
+   cars[Value] = NeonData;
+   ^~~~
+   char8
+../src/freertos_hello_world.c:244:7: warning: passing argument 2 of 'xQueueReceive' makes pointer from integer without a cast [-Wint-conversion]
+       NeonData, /* Data is read into this address. */
+       ^~~~~~~~
+In file included from ../src/freertos_hello_world.c:42:
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/queue.h:868:62: note: expected 'void * const' but argument is of type 'int'
+ BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+                                                 ~~~~~~~~~~~~~^~~~~~~~
+../src/freertos_hello_world.c:248:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:248:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:248:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:249:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c:221:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+../src/freertos_hello_world.c:220:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:37:18 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:229:3: error: 'cars' undeclared (first use in this function); did you mean 'char8'?
+   cars[i] = NeonData;
+   ^~~~
+   char8
+../src/freertos_hello_world.c:229:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c:230:33: error: 'Value' undeclared (first use in this function); did you mean '_glue'?
+   xil_printf("values: %d", cars[Value]);
+                                 ^~~~~
+                                 _glue
+../src/freertos_hello_world.c:244:7: warning: passing argument 2 of 'xQueueReceive' makes pointer from integer without a cast [-Wint-conversion]
+       NeonData, /* Data is read into this address. */
+       ^~~~~~~~
+In file included from ../src/freertos_hello_world.c:42:
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/queue.h:868:62: note: expected 'void * const' but argument is of type 'int'
+ BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+                                                 ~~~~~~~~~~~~~^~~~~~~~
+../src/freertos_hello_world.c:248:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:248:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:248:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:249:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c:220:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:37:23 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:229:3: error: 'cars' undeclared (first use in this function); did you mean 'char8'?
+   cars[i] = NeonData;
+   ^~~~
+   char8
+../src/freertos_hello_world.c:229:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c:244:7: warning: passing argument 2 of 'xQueueReceive' makes pointer from integer without a cast [-Wint-conversion]
+       NeonData, /* Data is read into this address. */
+       ^~~~~~~~
+In file included from ../src/freertos_hello_world.c:42:
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/queue.h:868:62: note: expected 'void * const' but argument is of type 'int'
+ BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+                                                 ~~~~~~~~~~~~~^~~~~~~~
+../src/freertos_hello_world.c:248:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:248:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:248:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:249:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c:220:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:37:30 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:230:28: error: 'cars' undeclared (first use in this function); did you mean 'char8'?
+   xil_printf("values: %d", cars[i]);
+                            ^~~~
+                            char8
+../src/freertos_hello_world.c:230:28: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c:244:7: warning: passing argument 2 of 'xQueueReceive' makes pointer from integer without a cast [-Wint-conversion]
+       NeonData, /* Data is read into this address. */
+       ^~~~~~~~
+In file included from ../src/freertos_hello_world.c:42:
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/queue.h:868:62: note: expected 'void * const' but argument is of type 'int'
+ BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+                                                 ~~~~~~~~~~~~~^~~~~~~~
+../src/freertos_hello_world.c:248:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:248:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:248:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:249:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+../src/freertos_hello_world.c:220:6: warning: variable 'ArrayRGB' set but not used [-Wunused-but-set-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+12:37:33 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:244:7: warning: passing argument 2 of 'xQueueReceive' makes pointer from integer without a cast [-Wint-conversion]
+       NeonData, /* Data is read into this address. */
+       ^~~~~~~~
+In file included from ../src/freertos_hello_world.c:42:
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/queue.h:868:62: note: expected 'void * const' but argument is of type 'int'
+ BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+                                                 ~~~~~~~~~~~~~^~~~~~~~
+../src/freertos_hello_world.c:248:14: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:248:14: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+../src/freertos_hello_world.c:52:1:
++#include <stdio.h>
+ /*-----------------------------------------------------------*/
+../src/freertos_hello_world.c:248:14:
+   TestChar = getchar();
+              ^~~~~~~
+../src/freertos_hello_world.c:249:3: warning: implicit declaration of function 'putchar' [-Wimplicit-function-declaration]
+   putchar(TestChar);
+   ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82080	   3384	  89472	 174936	  2ab58	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:38:48 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78620	   3388	  89472	 171480	  29dd8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:39:01 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78620	   3388	  89472	 171480	  29dd8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:40:17 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78716	   3388	  89472	 171576	  29e38	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:40:33 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78716	   3388	  89472	 171576	  29e38	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:48:14 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78572	   3388	  89472	 171432	  29da8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:49:33 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78572	   3388	  89472	 171432	  29da8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '

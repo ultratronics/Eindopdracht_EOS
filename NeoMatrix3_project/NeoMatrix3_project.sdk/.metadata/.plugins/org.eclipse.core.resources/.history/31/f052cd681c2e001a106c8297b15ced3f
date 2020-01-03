@@ -46,7 +46,7 @@
 #include "xparameters.h"
 #include "xgpiops.h"
 
-//#include "Ultrasoon.h"
+// #include "Ultrasoon.h"
 #include "NeoMatix64.h"
 #include "xil_io.h"
 /*-----------------------------------------------------------*/
@@ -87,7 +87,6 @@ static TaskHandle_t xSensor;
 static TaskHandle_t xUartRead;
 
 static QueueHandle_t xQueue = NULL;
-static QueueHandle_t xQueue2 = NULL;
 static TimerHandle_t xTimer = NULL;
 
 char HWstring[15] = "Hello World";
@@ -136,6 +135,13 @@ int main( void )
 				 &xUartRead );
 
 
+
+
+
+
+
+
+
 	/* Create the queue used by the tasks.  The Rx task has a higher priority
 	than the Tx task, so will preempt the Tx task and remove values from the
 	queue as soon as the Tx task writes to the queue - therefore the queue can
@@ -143,11 +149,8 @@ int main( void )
 	xQueue = xQueueCreate( 	1,						/* There is only one space in the queue. */
 							sizeof( HWstring ) );	/* Each space in the queue is large enough to hold a uint32_t. */
 
-	xQueue2 = xQueueCreate(1, sizeof( HWstring ));
 	/* Check the queue was created. */
 	configASSERT( xQueue );
-	configASSERT( xQueue2 );
-
 
 	/* Create a timer with a timer expiry of 10 seconds. The timer would expire
 	 after 10 seconds and the timer call back would get called. In the timer call back
@@ -191,57 +194,50 @@ static void prvSensor( void *pvParameters )
 		vTaskDelay( x1second );
 		Afstand = 0u;
 
-		// Lees de gemeten afstand van de sensor in.
-		/*Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
-		Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);*/
+		//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
+		//Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
 
-		// Controleer of de afstand meetbaar is of niet.
     	if(CHECKOOB(Afstand))
     	{
     		xil_printf("Object is too far away.\r\n");
     	}
 
-    	// controle om de gemeten waarde te zien.
-    	/*xil_printf("Raw data: 0x%08x\r\n", Afstand);
-    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);*/
+		/* ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 1);
+		Afstand = ULTRASOON_mReadReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET);
+		xil_printf("Afstand Gemeten: [ %d ] \r\n", Afstand); */
+
+    	//xil_printf("Raw data: 0x%08x\r\n", Afstand);
+    	//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
 
 		// Send the next value on the queue.  The queue should always be
 		// empty at this point so a block time of 0 is used.
 		xQueueSend( xQueue,			// The queue being written to.
 					&Afstand, 		// The address of the data being sent.
 					0UL );			// The block time.
+
+		//ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 0);
 	}
 }
 /*-----------------------------------------------------------*/
 
 static void prvUartRead( void *pvParameters )
 {
-	int ArrayRGB[64];
-	int i;
-	char NeonData;
-
 
 	xil_printf("In UartRead. \r\n");
 
 	for(;;)
 	{
 		/* Block to wait for data arriving on the queue. */
-		xQueueReceive( 	xQueue2,			/* The queue being read. */
-						&NeonData,			/* Data is read into this address. */
+		xQueueReceive( 	xQueue,				/* The queue being read. */
+						&Afstand,	/* Data is read into this address. */
 						portMAX_DELAY );	/* Wait without a timeout for data. */
 
 
-		for(i = 0; i < 63; i++)
-		{
-			ArrayRGB[i] = NeonData;
-			xil_printf("RGB positie[%d]: RGB value(%s)",i , ArrayRGB[i]);
-		}
+		int TestChar = Afstand;
 
-
-		/*int TestChar = NeonData;
 		TestChar = getchar();
 		putchar(TestChar);
-		xil_printf("UART READ: %s \r\n", TestChar);*/
+		xil_printf("UART READ: %s \r\n", TestChar);
 	}
 }
 /*-----------------------------------------------------------*/
@@ -305,12 +301,16 @@ const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
-	char RGBvalue;
 	/*int Temp;
 	char rood = 255;
 	char blauw =255;
 	char groen = 255;*/
 
+	int cars[64];
+	int Value;
+	int NeonData;
+	char Led = 0b000100;
+	char kleur = 000;
 
 	//b10 -> 	overschrijven
 	//b9 -> stage klaarzetten
@@ -332,13 +332,20 @@ static void prvRxTask( void *pvParameters )
 		xil_printf( "Display Value: %d \r\n", AfstandReceived );
 
 
+		NeonData = Led + kleur + 00;
+		for(Value = 0; Value < 63; Value++)
+		{
+			cars[Value] = NeonData;
+			xil_printf("values: %d", cars[Value]);
+		}
+
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 
 		if(AfstandReceived <= 7)
 		{
 			//groen in derde led
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, NeonData);
 			//klaarzetten in stage
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01010000010);
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
@@ -350,15 +357,6 @@ static void prvRxTask( void *pvParameters )
 		{
 			xil_printf("-1");
 		}
-
-
-		// Leest de RGB value in.
-		RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
-
-		// schrijf de RGB values weg naar UART.
-		xQueueSend( xQueue2,		// The queue being written to.
-					&RGBvalue, 		// The address of the data being sent.
-					0UL );			// The block time.
 
 
 	    /*int distance_data = AfstandReceived & 0x00FFFFFF;

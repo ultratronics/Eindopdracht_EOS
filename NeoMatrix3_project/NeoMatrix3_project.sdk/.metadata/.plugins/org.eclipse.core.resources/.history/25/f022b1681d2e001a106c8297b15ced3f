@@ -192,8 +192,8 @@ static void prvSensor( void *pvParameters )
 		Afstand = 0u;
 
 		// Lees de gemeten afstand van de sensor in.
-		/*Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
-		Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);*/
+		//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
+		//Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
 
 		// Controleer of de afstand meetbaar is of niet.
     	if(CHECKOOB(Afstand))
@@ -201,15 +201,16 @@ static void prvSensor( void *pvParameters )
     		xil_printf("Object is too far away.\r\n");
     	}
 
-    	// controle om de gemeten waarde te zien.
-    	/*xil_printf("Raw data: 0x%08x\r\n", Afstand);
-    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);*/
+    	//xil_printf("Raw data: 0x%08x\r\n", Afstand);
+    	//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
 
 		// Send the next value on the queue.  The queue should always be
 		// empty at this point so a block time of 0 is used.
 		xQueueSend( xQueue,			// The queue being written to.
 					&Afstand, 		// The address of the data being sent.
 					0UL );			// The block time.
+
+		//ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 0);
 	}
 }
 /*-----------------------------------------------------------*/
@@ -218,7 +219,16 @@ static void prvUartRead( void *pvParameters )
 {
 	int ArrayRGB[64];
 	int i;
-	char NeonData;
+	int NeonData;
+	char Led = 0b000100;
+	char kleur = 000;
+
+	NeonData = Led + kleur + 00;
+	for(i = 0; i < 63; i++)
+	{
+		cars[i] = NeonData;
+		xil_printf("values: %d", cars[Value]);
+	}
 
 
 	xil_printf("In UartRead. \r\n");
@@ -226,22 +236,18 @@ static void prvUartRead( void *pvParameters )
 	for(;;)
 	{
 		/* Block to wait for data arriving on the queue. */
-		xQueueReceive( 	xQueue2,			/* The queue being read. */
-						&NeonData,			/* Data is read into this address. */
+		xQueueReceive( 	xQueue,				/* The queue being read. */
+						&Afstand,	/* Data is read into this address. */
 						portMAX_DELAY );	/* Wait without a timeout for data. */
 
+		xQueueReceive( 	xQueue2,				/* The queue being read. */
+						NeonData,	/* Data is read into this address. */
+						portMAX_DELAY );	/* Wait without a timeout for data. */
+		int TestChar = NeonData;
 
-		for(i = 0; i < 63; i++)
-		{
-			ArrayRGB[i] = NeonData;
-			xil_printf("RGB positie[%d]: RGB value(%s)",i , ArrayRGB[i]);
-		}
-
-
-		/*int TestChar = NeonData;
 		TestChar = getchar();
 		putchar(TestChar);
-		xil_printf("UART READ: %s \r\n", TestChar);*/
+		xil_printf("UART READ: %s \r\n", TestChar);
 	}
 }
 /*-----------------------------------------------------------*/
@@ -305,12 +311,16 @@ const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
-	char RGBvalue;
 	/*int Temp;
 	char rood = 255;
 	char blauw =255;
 	char groen = 255;*/
 
+	int cars[64];
+	int Value;
+	int NeonData;
+	char Led = 0b000100;
+	char kleur = 000;
 
 	//b10 -> 	overschrijven
 	//b9 -> stage klaarzetten
@@ -332,13 +342,20 @@ static void prvRxTask( void *pvParameters )
 		xil_printf( "Display Value: %d \r\n", AfstandReceived );
 
 
+		NeonData = Led + kleur + 00;
+		for(Value = 0; Value < 63; Value++)
+		{
+			cars[Value] = NeonData;
+			xil_printf("values: %d", cars[Value]);
+		}
+
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 
 		if(AfstandReceived <= 7)
 		{
 			//groen in derde led
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, NeonData);
 			//klaarzetten in stage
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01010000010);
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
@@ -350,15 +367,6 @@ static void prvRxTask( void *pvParameters )
 		{
 			xil_printf("-1");
 		}
-
-
-		// Leest de RGB value in.
-		RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
-
-		// schrijf de RGB values weg naar UART.
-		xQueueSend( xQueue2,		// The queue being written to.
-					&RGBvalue, 		// The address of the data being sent.
-					0UL );			// The block time.
 
 
 	    /*int distance_data = AfstandReceived & 0x00FFFFFF;
