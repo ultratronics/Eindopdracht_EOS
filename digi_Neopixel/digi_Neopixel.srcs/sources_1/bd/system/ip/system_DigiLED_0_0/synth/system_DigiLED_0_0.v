@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -131,7 +131,7 @@ input wire s00_axi_aresetn;
     .C_S00_AXI_ADDR_WIDTH(9),  // Width of S_AXI address bus
     .NUMBER_OF_LEDS(64),
     .REFRESH_DELAY(2000),
-    .COLOR_MODE("RGB")
+    .COLOR_MODE("HSV")
   ) inst (
     .led_out(led_out),
     .s00_axi_awaddr(s00_axi_awaddr),

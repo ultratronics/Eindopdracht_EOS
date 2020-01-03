@@ -585,7 +585,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:22f19060</spirit:value>
+            <spirit:value>9:85930f92</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -596,7 +596,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:22f19060</spirit:value>
+            <spirit:value>9:85930f92</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -612,11 +612,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 08 16:04:43 UTC 2019</spirit:value>
+            <spirit:value>Fri Jan 03 13:50:44 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:22f19060</spirit:value>
+            <spirit:value>9:85930f92</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -636,7 +636,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:4608ba5e</spirit:value>
+            <spirit:value>9:d171ed23</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -652,11 +652,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 08 16:04:43 UTC 2019</spirit:value>
+            <spirit:value>Fri Jan 03 13:50:44 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:4608ba5e</spirit:value>
+            <spirit:value>9:d171ed23</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -670,11 +670,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 08 16:07:33 UTC 2019</spirit:value>
+            <spirit:value>Fri Jan 03 13:52:52 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:22f19060</spirit:value>
+            <spirit:value>9:85930f92</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1029,7 +1029,7 @@
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>COLOR_MODE</spirit:name>
         <spirit:displayName>Color Mode</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.COLOR_MODE">RGB</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.COLOR_MODE">HSV</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1215,7 +1215,7 @@
     <spirit:parameter>
       <spirit:name>COLOR_MODE</spirit:name>
       <spirit:displayName>Color Mode</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.COLOR_MODE" spirit:choiceRef="choice_list_4c529093">RGB</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.COLOR_MODE" spirit:choiceRef="choice_list_4c529093">HSV</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1254,6 +1254,7 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.WUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_CLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_CLK.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.COLOR_MODE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_S00_AXI_ADDR_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.NUMBER_OF_LEDS" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>

@@ -167,6 +167,7 @@ proc create_root_design { parentCell } {
   # Create instance: DigiLED_0, and set properties
   set DigiLED_0 [ create_bd_cell -type ip -vlnv user.org:user:DigiLED:1.0 DigiLED_0 ]
   set_property -dict [ list \
+   CONFIG.COLOR_MODE {HSV} \
    CONFIG.C_S00_AXI_ADDR_WIDTH {9} \
    CONFIG.NUMBER_OF_LEDS {64} \
  ] $DigiLED_0

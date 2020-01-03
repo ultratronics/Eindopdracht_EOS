@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Sun Dec  8 17:07:33 2019
+-- Date        : Fri Jan  3 14:52:51 2020
 -- Host        : Dennis running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ip/system_DigiLED_0_0/system_DigiLED_0_0_sim_netlist.vhdl
+--               C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ip/system_DigiLED_0_0/system_DigiLED_0_0_sim_netlist.vhdl
 -- Design      : system_DigiLED_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,14 +14,5044 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
+entity system_DigiLED_0_0_HSV_to_RGB is
+  port (
+    led_data_reg : out STD_LOGIC;
+    led_data_reg_0 : out STD_LOGIC;
+    led_data_reg_1 : out STD_LOGIC;
+    led_data_reg_2 : out STD_LOGIC;
+    led_data_reg_3 : out STD_LOGIC;
+    led_data_reg_4 : out STD_LOGIC;
+    D : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    led_data_reg_5 : out STD_LOGIC;
+    led_data_reg_6 : out STD_LOGIC;
+    led_data_reg_7 : out STD_LOGIC;
+    led_data_reg_8 : out STD_LOGIC;
+    led_data_reg_9 : out STD_LOGIC;
+    led_data_reg_10 : out STD_LOGIC;
+    led_data_reg_11 : out STD_LOGIC;
+    led_data_reg_12 : out STD_LOGIC;
+    led_data_reg_13 : out STD_LOGIC;
+    led_data_reg_14 : out STD_LOGIC;
+    preconvert_reg : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \internal_color_reg[9]\ : in STD_LOGIC;
+    \internal_color_reg[9]_0\ : in STD_LOGIC;
+    \internal_color_reg[12]\ : in STD_LOGIC;
+    \internal_color_reg[12]_0\ : in STD_LOGIC;
+    \internal_color_reg[5]\ : in STD_LOGIC;
+    \internal_color_reg[9]_1\ : in STD_LOGIC;
+    \internal_color_reg[1]\ : in STD_LOGIC;
+    \internal_color_reg[1]_0\ : in STD_LOGIC;
+    \internal_color_reg[16]\ : in STD_LOGIC
+  );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_DigiLED_0_0_HSV_to_RGB : entity is "HSV_to_RGB";
+end system_DigiLED_0_0_HSV_to_RGB;
+
+architecture STRUCTURE of system_DigiLED_0_0_HSV_to_RGB is
+  signal B : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \i__carry__0_i_1__0_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_1__1_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_1__2_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_1__3_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_1__4_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_1__5_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_2__0_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_2__1_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_2__2_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_2__3_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_2__4_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_2__5_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_3__0_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_3__1_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_3__2_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_3__3_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_3__4_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_3__5_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_4__0_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_4__1_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_4__2_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_4__3_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_4__4_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_4__5_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_5_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_6_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_7_n_0\ : STD_LOGIC;
+  signal \i__carry__0_i_8_n_0\ : STD_LOGIC;
+  signal \i__carry_i_1__0_n_0\ : STD_LOGIC;
+  signal \i__carry_i_1__1_n_0\ : STD_LOGIC;
+  signal \i__carry_i_1__2_n_0\ : STD_LOGIC;
+  signal \i__carry_i_1__3_n_0\ : STD_LOGIC;
+  signal \i__carry_i_1__4_n_0\ : STD_LOGIC;
+  signal \i__carry_i_1__5_n_0\ : STD_LOGIC;
+  signal \i__carry_i_2__0_n_0\ : STD_LOGIC;
+  signal \i__carry_i_2__1_n_0\ : STD_LOGIC;
+  signal \i__carry_i_2__2_n_0\ : STD_LOGIC;
+  signal \i__carry_i_2__3_n_0\ : STD_LOGIC;
+  signal \i__carry_i_2__4_n_0\ : STD_LOGIC;
+  signal \i__carry_i_2__5_n_0\ : STD_LOGIC;
+  signal \i__carry_i_3__0_n_0\ : STD_LOGIC;
+  signal \i__carry_i_3__1_n_0\ : STD_LOGIC;
+  signal \i__carry_i_3__2_n_0\ : STD_LOGIC;
+  signal \i__carry_i_3__3_n_0\ : STD_LOGIC;
+  signal \i__carry_i_3__4_n_0\ : STD_LOGIC;
+  signal \i__carry_i_3__5_n_0\ : STD_LOGIC;
+  signal \i__carry_i_4__0_n_0\ : STD_LOGIC;
+  signal \i__carry_i_4__1_n_0\ : STD_LOGIC;
+  signal \i__carry_i_4__2_n_0\ : STD_LOGIC;
+  signal \i__carry_i_4__3_n_0\ : STD_LOGIC;
+  signal \i__carry_i_4__4_n_0\ : STD_LOGIC;
+  signal \i__carry_i_4__5_n_0\ : STD_LOGIC;
+  signal \i__carry_i_5__0_n_0\ : STD_LOGIC;
+  signal \i__carry_i_6__0_n_0\ : STD_LOGIC;
+  signal \internal_color[0]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[10]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[10]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[10]_i_4_n_0\ : STD_LOGIC;
+  signal \internal_color[11]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[11]_i_4_n_0\ : STD_LOGIC;
+  signal \internal_color[11]_i_5_n_0\ : STD_LOGIC;
+  signal \internal_color[12]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[12]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[13]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[13]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[14]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[14]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[15]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[15]_i_5_n_0\ : STD_LOGIC;
+  signal \internal_color[16]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[17]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[18]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[19]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[1]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[20]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[21]_i_4_n_0\ : STD_LOGIC;
+  signal \internal_color[22]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[23]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[2]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[3]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[3]_i_4_n_0\ : STD_LOGIC;
+  signal \internal_color[3]_i_5_n_0\ : STD_LOGIC;
+  signal \internal_color[3]_i_6_n_0\ : STD_LOGIC;
+  signal \internal_color[3]_i_7_n_0\ : STD_LOGIC;
+  signal \internal_color[4]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[4]_i_6_n_0\ : STD_LOGIC;
+  signal \internal_color[4]_i_7_n_0\ : STD_LOGIC;
+  signal \internal_color[4]_i_8_n_0\ : STD_LOGIC;
+  signal \internal_color[4]_i_9_n_0\ : STD_LOGIC;
+  signal \internal_color[5]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[6]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[7]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[8]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[8]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[8]_i_4_n_0\ : STD_LOGIC;
+  signal \internal_color[9]_i_2_n_0\ : STD_LOGIC;
+  signal \internal_color[9]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color[9]_i_4_n_0\ : STD_LOGIC;
+  signal \internal_color_reg[3]_i_3_n_0\ : STD_LOGIC;
+  signal \internal_color_reg[3]_i_3_n_1\ : STD_LOGIC;
+  signal \internal_color_reg[3]_i_3_n_2\ : STD_LOGIC;
+  signal \internal_color_reg[3]_i_3_n_3\ : STD_LOGIC;
+  signal \internal_color_reg[4]_i_5_n_1\ : STD_LOGIC;
+  signal \internal_color_reg[4]_i_5_n_2\ : STD_LOGIC;
+  signal \internal_color_reg[4]_i_5_n_3\ : STD_LOGIC;
+  signal p_14_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out0 : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out00_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out010_out : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out013_out : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out016_out : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out04_out : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out07_out : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \rgb_data_out0_carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_carry__0_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_carry__0_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_carry__0_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_carry__0_n_3\ : STD_LOGIC;
+  signal rgb_data_out0_carry_i_1_n_0 : STD_LOGIC;
+  signal rgb_data_out0_carry_i_2_n_0 : STD_LOGIC;
+  signal rgb_data_out0_carry_i_3_n_0 : STD_LOGIC;
+  signal rgb_data_out0_carry_i_4_n_0 : STD_LOGIC;
+  signal rgb_data_out0_carry_n_0 : STD_LOGIC;
+  signal rgb_data_out0_carry_n_1 : STD_LOGIC;
+  signal rgb_data_out0_carry_n_2 : STD_LOGIC;
+  signal rgb_data_out0_carry_n_3 : STD_LOGIC;
+  signal \rgb_data_out0_inferred__0/i__carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__0/i__carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__0/i__carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__0/i__carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__0/i__carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__0/i__carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__0/i__carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__1/i__carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__1/i__carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__1/i__carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__1/i__carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__1/i__carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__1/i__carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__1/i__carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__2/i__carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__2/i__carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__2/i__carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__2/i__carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__2/i__carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__2/i__carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__2/i__carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__3/i__carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__3/i__carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__3/i__carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__3/i__carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__3/i__carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__3/i__carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__3/i__carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__4/i__carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__4/i__carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__4/i__carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__4/i__carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__4/i__carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__4/i__carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__4/i__carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__5/i__carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__5/i__carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__5/i__carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__5/i__carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__5/i__carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__5/i__carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out0_inferred__5/i__carry_n_3\ : STD_LOGIC;
+  signal rgb_data_out1 : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out112_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out115_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out13_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out16_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal rgb_data_out19_in : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \rgb_data_out2__0_i_1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_1_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_1_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_1_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_1_n_7\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_1\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_4\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_2_n_7\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__0_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_100\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_101\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_102\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_103\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_104\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_105\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_82\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_83\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_84\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_85\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_86\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_87\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_88\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_89\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_98\ : STD_LOGIC;
+  signal \rgb_data_out2__0_n_99\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_10_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_1_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_1_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_1_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_1_n_7\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_1\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_4\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_2_n_7\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_i_9_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_100\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_101\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_102\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_103\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_104\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_105\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_82\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_83\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_84\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_85\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_86\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_87\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_88\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_89\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_98\ : STD_LOGIC;
+  signal \rgb_data_out2__1_n_99\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_1_n_1\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_1_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_1_n_4\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_1_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_1_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_1_n_7\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_1\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_4\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_2_n_7\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_i_9_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_100\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_101\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_102\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_103\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_104\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_105\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_82\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_83\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_84\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_85\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_86\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_87\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_88\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_89\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_98\ : STD_LOGIC;
+  signal \rgb_data_out2__2_n_99\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_10_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_1_n_1\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_1_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_1_n_4\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_1_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_1_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_1_n_7\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_2_n_1\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_2_n_2\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_2_n_3\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_2_n_4\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_2_n_5\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_2_n_6\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_i_9_n_0\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_100\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_101\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_102\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_103\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_104\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_105\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_82\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_83\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_84\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_85\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_86\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_87\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_88\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_89\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_98\ : STD_LOGIC;
+  signal \rgb_data_out2__3_n_99\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_100\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_101\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_102\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_103\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_104\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_105\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_82\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_83\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_84\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_85\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_86\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_87\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_88\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_89\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_98\ : STD_LOGIC;
+  signal \rgb_data_out2__4_n_99\ : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_1 : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_2 : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_3 : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_4 : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_5 : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_6 : STD_LOGIC;
+  signal rgb_data_out2_i_10_n_7 : STD_LOGIC;
+  signal rgb_data_out2_i_11_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_12_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_13_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_14_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_15_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_16_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_17_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_18_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_19_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_20_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_21_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_22_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_23_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_24_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_25_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_26_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_27_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_4_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_5_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_6_n_0 : STD_LOGIC;
+  signal rgb_data_out2_i_9_n_1 : STD_LOGIC;
+  signal rgb_data_out2_i_9_n_2 : STD_LOGIC;
+  signal rgb_data_out2_i_9_n_3 : STD_LOGIC;
+  signal rgb_data_out2_i_9_n_4 : STD_LOGIC;
+  signal rgb_data_out2_i_9_n_5 : STD_LOGIC;
+  signal rgb_data_out2_i_9_n_6 : STD_LOGIC;
+  signal rgb_data_out2_i_9_n_7 : STD_LOGIC;
+  signal rgb_data_out2_n_100 : STD_LOGIC;
+  signal rgb_data_out2_n_101 : STD_LOGIC;
+  signal rgb_data_out2_n_102 : STD_LOGIC;
+  signal rgb_data_out2_n_103 : STD_LOGIC;
+  signal rgb_data_out2_n_104 : STD_LOGIC;
+  signal rgb_data_out2_n_105 : STD_LOGIC;
+  signal rgb_data_out2_n_82 : STD_LOGIC;
+  signal rgb_data_out2_n_83 : STD_LOGIC;
+  signal rgb_data_out2_n_84 : STD_LOGIC;
+  signal rgb_data_out2_n_85 : STD_LOGIC;
+  signal rgb_data_out2_n_86 : STD_LOGIC;
+  signal rgb_data_out2_n_87 : STD_LOGIC;
+  signal rgb_data_out2_n_88 : STD_LOGIC;
+  signal rgb_data_out2_n_89 : STD_LOGIC;
+  signal rgb_data_out2_n_98 : STD_LOGIC;
+  signal rgb_data_out2_n_99 : STD_LOGIC;
+  signal rgb_data_out3 : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \rgb_data_out4__0_carry__0_i_10_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_11_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_12_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_i_9_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_4\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_5\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_6\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__0_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_n_5\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_n_6\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry__1_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__0_carry_n_4\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_10_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_11_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_12_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_i_9_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_4\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_5\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_6\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__0_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_n_5\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_n_6\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry__1_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_4\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_5\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_6\ : STD_LOGIC;
+  signal \rgb_data_out4__29_carry_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_4\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_5\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_6\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__0_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__1_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__1_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry__1_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_4\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_5\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_6\ : STD_LOGIC;
+  signal \rgb_data_out4__60_carry_n_7\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__0_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_8_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_i_9_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__1_n_3\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry__2_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_i_1_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_i_2_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_i_3_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_i_4_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_i_5_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_i_6_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_i_7_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_n_0\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_n_1\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_n_2\ : STD_LOGIC;
+  signal \rgb_data_out4__88_carry_n_3\ : STD_LOGIC;
+  signal \NLW_internal_color_reg[4]_i_5_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out0_carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out0_inferred__0/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out0_inferred__1/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out0_inferred__2/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out0_inferred__3/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out0_inferred__4/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out0_inferred__5/i__carry__0_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal NLW_rgb_data_out2_CARRYCASCOUT_UNCONNECTED : STD_LOGIC;
+  signal NLW_rgb_data_out2_MULTSIGNOUT_UNCONNECTED : STD_LOGIC;
+  signal NLW_rgb_data_out2_OVERFLOW_UNCONNECTED : STD_LOGIC;
+  signal NLW_rgb_data_out2_PATTERNBDETECT_UNCONNECTED : STD_LOGIC;
+  signal NLW_rgb_data_out2_PATTERNDETECT_UNCONNECTED : STD_LOGIC;
+  signal NLW_rgb_data_out2_UNDERFLOW_UNCONNECTED : STD_LOGIC;
+  signal NLW_rgb_data_out2_ACOUT_UNCONNECTED : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal NLW_rgb_data_out2_BCOUT_UNCONNECTED : STD_LOGIC_VECTOR ( 17 downto 0 );
+  signal NLW_rgb_data_out2_CARRYOUT_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_rgb_data_out2_P_UNCONNECTED : STD_LOGIC_VECTOR ( 47 downto 24 );
+  signal NLW_rgb_data_out2_PCOUT_UNCONNECTED : STD_LOGIC_VECTOR ( 47 downto 0 );
+  signal \NLW_rgb_data_out2__0_CARRYCASCOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__0_MULTSIGNOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__0_OVERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__0_PATTERNBDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__0_PATTERNDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__0_UNDERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__0_ACOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal \NLW_rgb_data_out2__0_BCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 17 downto 0 );
+  signal \NLW_rgb_data_out2__0_CARRYOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out2__0_P_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 24 );
+  signal \NLW_rgb_data_out2__0_PCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 0 );
+  signal \NLW_rgb_data_out2__0_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  signal \NLW_rgb_data_out2__0_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out2__1_CARRYCASCOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__1_MULTSIGNOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__1_OVERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__1_PATTERNBDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__1_PATTERNDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__1_UNDERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__1_ACOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal \NLW_rgb_data_out2__1_BCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 17 downto 0 );
+  signal \NLW_rgb_data_out2__1_CARRYOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out2__1_P_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 24 );
+  signal \NLW_rgb_data_out2__1_PCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 0 );
+  signal \NLW_rgb_data_out2__1_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  signal \NLW_rgb_data_out2__1_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out2__2_CARRYCASCOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__2_MULTSIGNOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__2_OVERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__2_PATTERNBDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__2_PATTERNDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__2_UNDERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__2_ACOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal \NLW_rgb_data_out2__2_BCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 17 downto 0 );
+  signal \NLW_rgb_data_out2__2_CARRYOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out2__2_P_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 24 );
+  signal \NLW_rgb_data_out2__2_PCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 0 );
+  signal \NLW_rgb_data_out2__2_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out2__3_CARRYCASCOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__3_MULTSIGNOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__3_OVERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__3_PATTERNBDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__3_PATTERNDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__3_UNDERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__3_ACOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal \NLW_rgb_data_out2__3_BCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 17 downto 0 );
+  signal \NLW_rgb_data_out2__3_CARRYOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out2__3_P_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 24 );
+  signal \NLW_rgb_data_out2__3_PCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 0 );
+  signal \NLW_rgb_data_out2__3_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out2__3_i_2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \NLW_rgb_data_out2__4_CARRYCASCOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__4_MULTSIGNOUT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__4_OVERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__4_PATTERNBDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__4_PATTERNDETECT_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__4_UNDERFLOW_UNCONNECTED\ : STD_LOGIC;
+  signal \NLW_rgb_data_out2__4_ACOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 29 downto 0 );
+  signal \NLW_rgb_data_out2__4_BCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 17 downto 0 );
+  signal \NLW_rgb_data_out2__4_CARRYOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out2__4_P_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 24 );
+  signal \NLW_rgb_data_out2__4_PCOUT_UNCONNECTED\ : STD_LOGIC_VECTOR ( 47 downto 0 );
+  signal NLW_rgb_data_out2_i_9_CO_UNCONNECTED : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out4__0_carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal \NLW_rgb_data_out4__0_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 to 2 );
+  signal \NLW_rgb_data_out4__0_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out4__29_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 to 2 );
+  signal \NLW_rgb_data_out4__29_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \NLW_rgb_data_out4__60_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out4__60_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \NLW_rgb_data_out4__88_carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out4__88_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \NLW_rgb_data_out4__88_carry__2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rgb_data_out4__88_carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  attribute HLUTNM : string;
+  attribute HLUTNM of \i__carry__0_i_1__5\ : label is "lutpair2";
+  attribute HLUTNM of \i__carry__0_i_6\ : label is "lutpair2";
+  attribute HLUTNM of \i__carry_i_1__5\ : label is "lutpair1";
+  attribute HLUTNM of \i__carry_i_2__5\ : label is "lutpair0";
+  attribute HLUTNM of \i__carry_i_3__5\ : label is "lutpair3";
+  attribute HLUTNM of \i__carry_i_5__0\ : label is "lutpair1";
+  attribute HLUTNM of \i__carry_i_6__0\ : label is "lutpair0";
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \internal_color[10]_i_4\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \internal_color[11]_i_3\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \internal_color[12]_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \internal_color[13]_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \internal_color[14]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \internal_color[15]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \internal_color[8]_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \internal_color[9]_i_4\ : label is "soft_lutpair2";
+  attribute METHODOLOGY_DRC_VIOS : string;
+  attribute METHODOLOGY_DRC_VIOS of rgb_data_out2 : label is "{SYNTH-13 {cell *THIS*}}";
+  attribute METHODOLOGY_DRC_VIOS of \rgb_data_out2__0\ : label is "{SYNTH-13 {cell *THIS*}}";
+  attribute METHODOLOGY_DRC_VIOS of \rgb_data_out2__1\ : label is "{SYNTH-13 {cell *THIS*}}";
+  attribute METHODOLOGY_DRC_VIOS of \rgb_data_out2__2\ : label is "{SYNTH-13 {cell *THIS*}}";
+  attribute METHODOLOGY_DRC_VIOS of \rgb_data_out2__3\ : label is "{SYNTH-13 {cell *THIS*}}";
+  attribute METHODOLOGY_DRC_VIOS of \rgb_data_out2__4\ : label is "{SYNTH-13 {cell *THIS*}}";
+  attribute SOFT_HLUTNM of \rgb_data_out4__0_carry__0_i_10\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \rgb_data_out4__0_carry__0_i_11\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \rgb_data_out4__0_carry__0_i_12\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \rgb_data_out4__0_carry__0_i_9\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \rgb_data_out4__0_carry_i_8\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \rgb_data_out4__29_carry__0_i_10\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \rgb_data_out4__29_carry__0_i_11\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \rgb_data_out4__29_carry__0_i_12\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \rgb_data_out4__29_carry__0_i_9\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \rgb_data_out4__29_carry_i_8\ : label is "soft_lutpair7";
+begin
+\i__carry__0_i_1__0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => p_14_in(7),
+      I1 => rgb_data_out13_in(7),
+      O => \i__carry__0_i_1__0_n_0\
+    );
+\i__carry__0_i_1__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => p_14_in(7),
+      I1 => rgb_data_out16_in(7),
+      O => \i__carry__0_i_1__1_n_0\
+    );
+\i__carry__0_i_1__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => p_14_in(7),
+      I1 => rgb_data_out19_in(7),
+      O => \i__carry__0_i_1__2_n_0\
+    );
+\i__carry__0_i_1__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => p_14_in(7),
+      I1 => rgb_data_out112_in(7),
+      O => \i__carry__0_i_1__3_n_0\
+    );
+\i__carry__0_i_1__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => p_14_in(7),
+      I1 => rgb_data_out115_in(7),
+      O => \i__carry__0_i_1__4_n_0\
+    );
+\i__carry__0_i_1__5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => \i__carry__0_i_8_n_0\,
+      I2 => rgb_data_out3(5),
+      O => \i__carry__0_i_1__5_n_0\
+    );
+\i__carry__0_i_2__0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"EAAAAAAA2AAAAAAA"
+    )
+        port map (
+      I0 => preconvert_reg(4),
+      I1 => rgb_data_out3(2),
+      I2 => rgb_data_out3(0),
+      I3 => rgb_data_out3(1),
+      I4 => rgb_data_out3(3),
+      I5 => rgb_data_out3(4),
+      O => \i__carry__0_i_2__0_n_0\
+    );
+\i__carry__0_i_2__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out13_in(6),
+      I1 => p_14_in(6),
+      O => \i__carry__0_i_2__1_n_0\
+    );
+\i__carry__0_i_2__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out16_in(6),
+      I1 => p_14_in(6),
+      O => \i__carry__0_i_2__2_n_0\
+    );
+\i__carry__0_i_2__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out19_in(6),
+      I1 => p_14_in(6),
+      O => \i__carry__0_i_2__3_n_0\
+    );
+\i__carry__0_i_2__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out112_in(6),
+      I1 => p_14_in(6),
+      O => \i__carry__0_i_2__4_n_0\
+    );
+\i__carry__0_i_2__5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out115_in(6),
+      I1 => p_14_in(6),
+      O => \i__carry__0_i_2__5_n_0\
+    );
+\i__carry__0_i_3__0\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"EAAA2AAA"
+    )
+        port map (
+      I0 => preconvert_reg(3),
+      I1 => rgb_data_out3(1),
+      I2 => rgb_data_out3(0),
+      I3 => rgb_data_out3(2),
+      I4 => rgb_data_out3(3),
+      O => \i__carry__0_i_3__0_n_0\
+    );
+\i__carry__0_i_3__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out13_in(5),
+      I1 => p_14_in(5),
+      O => \i__carry__0_i_3__1_n_0\
+    );
+\i__carry__0_i_3__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out16_in(5),
+      I1 => p_14_in(5),
+      O => \i__carry__0_i_3__2_n_0\
+    );
+\i__carry__0_i_3__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out19_in(5),
+      I1 => p_14_in(5),
+      O => \i__carry__0_i_3__3_n_0\
+    );
+\i__carry__0_i_3__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out112_in(5),
+      I1 => p_14_in(5),
+      O => \i__carry__0_i_3__4_n_0\
+    );
+\i__carry__0_i_3__5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out115_in(5),
+      I1 => p_14_in(5),
+      O => \i__carry__0_i_3__5_n_0\
+    );
+\i__carry__0_i_4__0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out13_in(4),
+      I1 => p_14_in(4),
+      O => \i__carry__0_i_4__0_n_0\
+    );
+\i__carry__0_i_4__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out16_in(4),
+      I1 => p_14_in(4),
+      O => \i__carry__0_i_4__1_n_0\
+    );
+\i__carry__0_i_4__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out19_in(4),
+      I1 => p_14_in(4),
+      O => \i__carry__0_i_4__2_n_0\
+    );
+\i__carry__0_i_4__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out112_in(4),
+      I1 => p_14_in(4),
+      O => \i__carry__0_i_4__3_n_0\
+    );
+\i__carry__0_i_4__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out115_in(4),
+      I1 => p_14_in(4),
+      O => \i__carry__0_i_4__4_n_0\
+    );
+\i__carry__0_i_4__5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"65"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => rgb_data_out2_i_19_n_0,
+      I2 => preconvert_reg(6),
+      O => \i__carry__0_i_4__5_n_0\
+    );
+\i__carry__0_i_5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"69"
+    )
+        port map (
+      I0 => rgb_data_out2_i_19_n_0,
+      I1 => \i__carry__0_i_1__5_n_0\,
+      I2 => preconvert_reg(6),
+      O => \i__carry__0_i_5_n_0\
+    );
+\i__carry__0_i_6\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"96"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => \i__carry__0_i_8_n_0\,
+      I2 => \i__carry__0_i_2__0_n_0\,
+      O => \i__carry__0_i_6_n_0\
+    );
+\i__carry__0_i_7\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9669"
+    )
+        port map (
+      I0 => \i__carry__0_i_3__0_n_0\,
+      I1 => rgb_data_out3(4),
+      I2 => preconvert_reg(4),
+      I3 => rgb_data_out2_i_4_n_0,
+      O => \i__carry__0_i_7_n_0\
+    );
+\i__carry__0_i_8\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"7FFFFFFF"
+    )
+        port map (
+      I0 => rgb_data_out3(3),
+      I1 => rgb_data_out3(1),
+      I2 => rgb_data_out3(0),
+      I3 => rgb_data_out3(2),
+      I4 => rgb_data_out3(4),
+      O => \i__carry__0_i_8_n_0\
+    );
+\i__carry_i_1__0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out13_in(3),
+      I1 => p_14_in(3),
+      O => \i__carry_i_1__0_n_0\
+    );
+\i__carry_i_1__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out16_in(3),
+      I1 => p_14_in(3),
+      O => \i__carry_i_1__1_n_0\
+    );
+\i__carry_i_1__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out19_in(3),
+      I1 => p_14_in(3),
+      O => \i__carry_i_1__2_n_0\
+    );
+\i__carry_i_1__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out112_in(3),
+      I1 => p_14_in(3),
+      O => \i__carry_i_1__3_n_0\
+    );
+\i__carry_i_1__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out115_in(3),
+      I1 => p_14_in(3),
+      O => \i__carry_i_1__4_n_0\
+    );
+\i__carry_i_1__5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"EA2A"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => rgb_data_out3(0),
+      I2 => rgb_data_out3(1),
+      I3 => rgb_data_out3(2),
+      O => \i__carry_i_1__5_n_0\
+    );
+\i__carry_i_2__0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out13_in(2),
+      I1 => p_14_in(2),
+      O => \i__carry_i_2__0_n_0\
+    );
+\i__carry_i_2__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out16_in(2),
+      I1 => p_14_in(2),
+      O => \i__carry_i_2__1_n_0\
+    );
+\i__carry_i_2__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out19_in(2),
+      I1 => p_14_in(2),
+      O => \i__carry_i_2__2_n_0\
+    );
+\i__carry_i_2__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out112_in(2),
+      I1 => p_14_in(2),
+      O => \i__carry_i_2__3_n_0\
+    );
+\i__carry_i_2__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out115_in(2),
+      I1 => p_14_in(2),
+      O => \i__carry_i_2__4_n_0\
+    );
+\i__carry_i_2__5\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => rgb_data_out3(1),
+      I1 => rgb_data_out3(0),
+      I2 => preconvert_reg(1),
+      O => \i__carry_i_2__5_n_0\
+    );
+\i__carry_i_3__0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out13_in(1),
+      I1 => p_14_in(1),
+      O => \i__carry_i_3__0_n_0\
+    );
+\i__carry_i_3__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out16_in(1),
+      I1 => p_14_in(1),
+      O => \i__carry_i_3__1_n_0\
+    );
+\i__carry_i_3__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out19_in(1),
+      I1 => p_14_in(1),
+      O => \i__carry_i_3__2_n_0\
+    );
+\i__carry_i_3__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out112_in(1),
+      I1 => p_14_in(1),
+      O => \i__carry_i_3__3_n_0\
+    );
+\i__carry_i_3__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out115_in(1),
+      I1 => p_14_in(1),
+      O => \i__carry_i_3__4_n_0\
+    );
+\i__carry_i_3__5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => preconvert_reg(0),
+      I1 => rgb_data_out3(0),
+      O => \i__carry_i_3__5_n_0\
+    );
+\i__carry_i_4__0\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out13_in(0),
+      I1 => p_14_in(0),
+      O => \i__carry_i_4__0_n_0\
+    );
+\i__carry_i_4__1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out16_in(0),
+      I1 => p_14_in(0),
+      O => \i__carry_i_4__1_n_0\
+    );
+\i__carry_i_4__2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out19_in(0),
+      I1 => p_14_in(0),
+      O => \i__carry_i_4__2_n_0\
+    );
+\i__carry_i_4__3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out112_in(0),
+      I1 => p_14_in(0),
+      O => \i__carry_i_4__3_n_0\
+    );
+\i__carry_i_4__4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out115_in(0),
+      I1 => p_14_in(0),
+      O => \i__carry_i_4__4_n_0\
+    );
+\i__carry_i_4__5\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"69999999"
+    )
+        port map (
+      I0 => \i__carry_i_1__5_n_0\,
+      I1 => preconvert_reg(3),
+      I2 => rgb_data_out3(1),
+      I3 => rgb_data_out3(0),
+      I4 => rgb_data_out3(2),
+      O => \i__carry_i_4__5_n_0\
+    );
+\i__carry_i_5__0\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6A95"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => rgb_data_out3(0),
+      I2 => rgb_data_out3(1),
+      I3 => \i__carry_i_2__5_n_0\,
+      O => \i__carry_i_5__0_n_0\
+    );
+\i__carry_i_6__0\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"69"
+    )
+        port map (
+      I0 => rgb_data_out3(0),
+      I1 => preconvert_reg(1),
+      I2 => \i__carry_i_3__5_n_0\,
+      O => \i__carry_i_6__0_n_0\
+    );
+\internal_color[0]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FF0D000D"
+    )
+        port map (
+      I0 => \internal_color_reg[1]\,
+      I1 => rgb_data_out010_out(0),
+      I2 => \internal_color[0]_i_2_n_0\,
+      I3 => \internal_color_reg[9]_0\,
+      I4 => p_14_in(0),
+      I5 => \internal_color_reg[1]_0\,
+      O => D(0)
+    );
+\internal_color[0]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFF30FFFF5300"
+    )
+        port map (
+      I0 => rgb_data_out0(0),
+      I1 => rgb_data_out00_in(0),
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[0]_i_2_n_0\
+    );
+\internal_color[10]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FF0E000E"
+    )
+        port map (
+      I0 => \internal_color[10]_i_2_n_0\,
+      I1 => \internal_color[10]_i_3_n_0\,
+      I2 => \internal_color[10]_i_4_n_0\,
+      I3 => \internal_color_reg[9]\,
+      I4 => rgb_data_out00_in(2),
+      I5 => \internal_color_reg[1]_0\,
+      O => D(6)
+    );
+\internal_color[10]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000F0000022FF"
+    )
+        port map (
+      I0 => rgb_data_out04_out(2),
+      I1 => preconvert_reg(24),
+      I2 => p_14_in(2),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[10]_i_2_n_0\
+    );
+\internal_color[10]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00080000"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      I1 => rgb_data_out00_in(2),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(25),
+      I4 => preconvert_reg(26),
+      O => \internal_color[10]_i_3_n_0\
+    );
+\internal_color[10]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"01"
+    )
+        port map (
+      I0 => \internal_color_reg[5]\,
+      I1 => preconvert_reg(25),
+      I2 => rgb_data_out013_out(2),
+      O => \internal_color[10]_i_4_n_0\
+    );
+\internal_color[11]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FF8A008A"
+    )
+        port map (
+      I0 => \internal_color[11]_i_3_n_0\,
+      I1 => \internal_color[11]_i_4_n_0\,
+      I2 => \internal_color[11]_i_5_n_0\,
+      I3 => \internal_color_reg[9]\,
+      I4 => rgb_data_out00_in(3),
+      I5 => \internal_color_reg[1]_0\,
+      O => D(7)
+    );
+\internal_color[11]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"FE"
+    )
+        port map (
+      I0 => rgb_data_out013_out(3),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[5]\,
+      O => \internal_color[11]_i_3_n_0\
+    );
+\internal_color[11]_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000F0000088FF"
+    )
+        port map (
+      I0 => rgb_data_out00_in(3),
+      I1 => preconvert_reg(24),
+      I2 => p_14_in(3),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[11]_i_4_n_0\
+    );
+\internal_color[11]_i_5\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FEFFFFFF"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(26),
+      I4 => rgb_data_out04_out(3),
+      O => \internal_color[11]_i_5_n_0\
+    );
+\internal_color[12]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BB33BB33AA00AB00"
+    )
+        port map (
+      I0 => \internal_color_reg[9]\,
+      I1 => \internal_color[12]_i_2_n_0\,
+      I2 => \internal_color_reg[12]\,
+      I3 => rgb_data_out00_in(4),
+      I4 => \internal_color_reg[12]_0\,
+      I5 => \internal_color[12]_i_3_n_0\,
+      O => led_data_reg_0
+    );
+\internal_color[12]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0111"
+    )
+        port map (
+      I0 => \internal_color_reg[5]\,
+      I1 => preconvert_reg(25),
+      I2 => rgb_data_out013_out(4),
+      I3 => preconvert_reg(24),
+      O => \internal_color[12]_i_2_n_0\
+    );
+\internal_color[12]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000F0000020F020F"
+    )
+        port map (
+      I0 => rgb_data_out04_out(4),
+      I1 => preconvert_reg(24),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(26),
+      I4 => p_14_in(4),
+      I5 => preconvert_reg(25),
+      O => \internal_color[12]_i_3_n_0\
+    );
+\internal_color[13]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BB33BB33AA00AB00"
+    )
+        port map (
+      I0 => \internal_color_reg[9]\,
+      I1 => \internal_color[13]_i_2_n_0\,
+      I2 => \internal_color_reg[12]\,
+      I3 => rgb_data_out00_in(5),
+      I4 => \internal_color_reg[12]_0\,
+      I5 => \internal_color[13]_i_3_n_0\,
+      O => led_data_reg_2
+    );
+\internal_color[13]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0111"
+    )
+        port map (
+      I0 => \internal_color_reg[5]\,
+      I1 => preconvert_reg(25),
+      I2 => rgb_data_out013_out(5),
+      I3 => preconvert_reg(24),
+      O => \internal_color[13]_i_2_n_0\
+    );
+\internal_color[13]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000F0000022FF"
+    )
+        port map (
+      I0 => rgb_data_out04_out(5),
+      I1 => preconvert_reg(24),
+      I2 => p_14_in(5),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[13]_i_3_n_0\
+    );
+\internal_color[14]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BB33BB33AA00AB00"
+    )
+        port map (
+      I0 => \internal_color_reg[9]\,
+      I1 => \internal_color[14]_i_2_n_0\,
+      I2 => \internal_color_reg[12]\,
+      I3 => rgb_data_out00_in(6),
+      I4 => \internal_color_reg[12]_0\,
+      I5 => \internal_color[14]_i_3_n_0\,
+      O => led_data_reg_3
+    );
+\internal_color[14]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0111"
+    )
+        port map (
+      I0 => \internal_color_reg[5]\,
+      I1 => preconvert_reg(25),
+      I2 => rgb_data_out013_out(6),
+      I3 => preconvert_reg(24),
+      O => \internal_color[14]_i_2_n_0\
+    );
+\internal_color[14]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000F0000022FF"
+    )
+        port map (
+      I0 => rgb_data_out04_out(6),
+      I1 => preconvert_reg(24),
+      I2 => p_14_in(6),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[14]_i_3_n_0\
+    );
+\internal_color[15]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BB33BB33AA00AB00"
+    )
+        port map (
+      I0 => \internal_color_reg[9]\,
+      I1 => \internal_color[15]_i_2_n_0\,
+      I2 => \internal_color_reg[12]\,
+      I3 => rgb_data_out00_in(7),
+      I4 => \internal_color_reg[12]_0\,
+      I5 => \internal_color[15]_i_5_n_0\,
+      O => led_data_reg_4
+    );
+\internal_color[15]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0111"
+    )
+        port map (
+      I0 => \internal_color_reg[5]\,
+      I1 => preconvert_reg(25),
+      I2 => rgb_data_out013_out(7),
+      I3 => preconvert_reg(24),
+      O => \internal_color[15]_i_2_n_0\
+    );
+\internal_color[15]_i_5\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000F0000022FF"
+    )
+        port map (
+      I0 => rgb_data_out04_out(7),
+      I1 => preconvert_reg(24),
+      I2 => p_14_in(7),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[15]_i_5_n_0\
+    );
+\internal_color[16]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFBF33B0CC80008"
+    )
+        port map (
+      I0 => rgb_data_out016_out(0),
+      I1 => \internal_color_reg[16]\,
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(25),
+      I4 => rgb_data_out00_in(0),
+      I5 => \internal_color[16]_i_2_n_0\,
+      O => led_data_reg_7
+    );
+\internal_color[16]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"02020E02"
+    )
+        port map (
+      I0 => rgb_data_out07_out(0),
+      I1 => preconvert_reg(26),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => p_14_in(0),
+      I4 => preconvert_reg(25),
+      O => \internal_color[16]_i_2_n_0\
+    );
+\internal_color[17]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFBF33B0CC80008"
+    )
+        port map (
+      I0 => rgb_data_out016_out(1),
+      I1 => \internal_color_reg[16]\,
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(25),
+      I4 => rgb_data_out00_in(1),
+      I5 => \internal_color[17]_i_2_n_0\,
+      O => led_data_reg_8
+    );
+\internal_color[17]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"02020E02"
+    )
+        port map (
+      I0 => rgb_data_out07_out(1),
+      I1 => preconvert_reg(26),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => p_14_in(1),
+      I4 => preconvert_reg(25),
+      O => \internal_color[17]_i_2_n_0\
+    );
+\internal_color[18]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFBF33B0CC80008"
+    )
+        port map (
+      I0 => rgb_data_out016_out(2),
+      I1 => \internal_color_reg[16]\,
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(25),
+      I4 => rgb_data_out00_in(2),
+      I5 => \internal_color[18]_i_2_n_0\,
+      O => led_data_reg_9
+    );
+\internal_color[18]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"02020E02"
+    )
+        port map (
+      I0 => rgb_data_out07_out(2),
+      I1 => preconvert_reg(26),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => p_14_in(2),
+      I4 => preconvert_reg(25),
+      O => \internal_color[18]_i_2_n_0\
+    );
+\internal_color[19]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5CCF55555CC05555"
+    )
+        port map (
+      I0 => \internal_color[19]_i_2_n_0\,
+      I1 => rgb_data_out00_in(3),
+      I2 => preconvert_reg(25),
+      I3 => preconvert_reg(24),
+      I4 => \internal_color_reg[16]\,
+      I5 => rgb_data_out016_out(3),
+      O => led_data_reg_10
+    );
+\internal_color[19]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FDF0FDFF"
+    )
+        port map (
+      I0 => p_14_in(3),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(26),
+      I4 => rgb_data_out07_out(3),
+      O => \internal_color[19]_i_2_n_0\
+    );
+\internal_color[1]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00FF00F8000000F8"
+    )
+        port map (
+      I0 => \internal_color_reg[1]\,
+      I1 => rgb_data_out010_out(1),
+      I2 => \internal_color[1]_i_2_n_0\,
+      I3 => \internal_color_reg[1]_0\,
+      I4 => \internal_color_reg[9]_0\,
+      I5 => p_14_in(1),
+      O => D(1)
+    );
+\internal_color[1]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000D0A0000080000"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      I1 => rgb_data_out0(1),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(25),
+      I4 => preconvert_reg(26),
+      I5 => rgb_data_out00_in(1),
+      O => \internal_color[1]_i_2_n_0\
+    );
+\internal_color[20]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5CCF55555CC05555"
+    )
+        port map (
+      I0 => \internal_color[20]_i_2_n_0\,
+      I1 => rgb_data_out00_in(4),
+      I2 => preconvert_reg(25),
+      I3 => preconvert_reg(24),
+      I4 => \internal_color_reg[16]\,
+      I5 => rgb_data_out016_out(4),
+      O => led_data_reg_11
+    );
+\internal_color[20]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FDF0FDFF"
+    )
+        port map (
+      I0 => p_14_in(4),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(26),
+      I4 => rgb_data_out07_out(4),
+      O => \internal_color[20]_i_2_n_0\
+    );
+\internal_color[21]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFBF33B0CC80008"
+    )
+        port map (
+      I0 => rgb_data_out016_out(5),
+      I1 => \internal_color_reg[16]\,
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(25),
+      I4 => rgb_data_out00_in(5),
+      I5 => \internal_color[21]_i_4_n_0\,
+      O => led_data_reg_12
+    );
+\internal_color[21]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"02020E02"
+    )
+        port map (
+      I0 => rgb_data_out07_out(5),
+      I1 => preconvert_reg(26),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => p_14_in(5),
+      I4 => preconvert_reg(25),
+      O => \internal_color[21]_i_4_n_0\
+    );
+\internal_color[22]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5CCF55555CC05555"
+    )
+        port map (
+      I0 => \internal_color[22]_i_2_n_0\,
+      I1 => rgb_data_out00_in(6),
+      I2 => preconvert_reg(25),
+      I3 => preconvert_reg(24),
+      I4 => \internal_color_reg[16]\,
+      I5 => rgb_data_out016_out(6),
+      O => led_data_reg_13
+    );
+\internal_color[22]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FDF0FDFF"
+    )
+        port map (
+      I0 => p_14_in(6),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(26),
+      I4 => rgb_data_out07_out(6),
+      O => \internal_color[22]_i_2_n_0\
+    );
+\internal_color[23]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5CCF55555CC05555"
+    )
+        port map (
+      I0 => \internal_color[23]_i_2_n_0\,
+      I1 => rgb_data_out00_in(7),
+      I2 => preconvert_reg(25),
+      I3 => preconvert_reg(24),
+      I4 => \internal_color_reg[16]\,
+      I5 => rgb_data_out016_out(7),
+      O => led_data_reg_14
+    );
+\internal_color[23]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FDF0FDFF"
+    )
+        port map (
+      I0 => p_14_in(7),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(26),
+      I4 => rgb_data_out07_out(7),
+      O => \internal_color[23]_i_2_n_0\
+    );
+\internal_color[2]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FF0D000D"
+    )
+        port map (
+      I0 => \internal_color_reg[1]\,
+      I1 => rgb_data_out010_out(2),
+      I2 => \internal_color[2]_i_2_n_0\,
+      I3 => \internal_color_reg[9]_0\,
+      I4 => p_14_in(2),
+      I5 => \internal_color_reg[1]_0\,
+      O => D(2)
+    );
+\internal_color[2]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFF30FFFF5300"
+    )
+        port map (
+      I0 => rgb_data_out0(2),
+      I1 => rgb_data_out00_in(2),
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[2]_i_2_n_0\
+    );
+\internal_color[3]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FF0D000D"
+    )
+        port map (
+      I0 => \internal_color_reg[1]\,
+      I1 => rgb_data_out010_out(3),
+      I2 => \internal_color[3]_i_2_n_0\,
+      I3 => \internal_color_reg[9]_0\,
+      I4 => p_14_in(3),
+      I5 => \internal_color_reg[1]_0\,
+      O => D(3)
+    );
+\internal_color[3]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFF30FFFF5300"
+    )
+        port map (
+      I0 => rgb_data_out0(3),
+      I1 => rgb_data_out00_in(3),
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[3]_i_2_n_0\
+    );
+\internal_color[3]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"6AAA9555"
+    )
+        port map (
+      I0 => preconvert_reg(3),
+      I1 => rgb_data_out3(1),
+      I2 => rgb_data_out3(0),
+      I3 => rgb_data_out3(2),
+      I4 => rgb_data_out3(3),
+      O => \internal_color[3]_i_4_n_0\
+    );
+\internal_color[3]_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6A95"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => rgb_data_out3(0),
+      I2 => rgb_data_out3(1),
+      I3 => rgb_data_out3(2),
+      O => \internal_color[3]_i_5_n_0\
+    );
+\internal_color[3]_i_6\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"69"
+    )
+        port map (
+      I0 => preconvert_reg(1),
+      I1 => rgb_data_out3(1),
+      I2 => rgb_data_out3(0),
+      O => \internal_color[3]_i_6_n_0\
+    );
+\internal_color[3]_i_7\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => preconvert_reg(0),
+      I1 => rgb_data_out3(0),
+      O => \internal_color[3]_i_7_n_0\
+    );
+\internal_color[4]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FF0D000D"
+    )
+        port map (
+      I0 => \internal_color_reg[1]\,
+      I1 => rgb_data_out010_out(4),
+      I2 => \internal_color[4]_i_3_n_0\,
+      I3 => \internal_color_reg[9]_0\,
+      I4 => p_14_in(4),
+      I5 => \internal_color_reg[1]_0\,
+      O => D(4)
+    );
+\internal_color[4]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFF30FFFF5300"
+    )
+        port map (
+      I0 => rgb_data_out0(4),
+      I1 => rgb_data_out00_in(4),
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[4]_i_3_n_0\
+    );
+\internal_color[4]_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6A95"
+    )
+        port map (
+      I0 => rgb_data_out3(7),
+      I1 => rgb_data_out2_i_19_n_0,
+      I2 => rgb_data_out3(6),
+      I3 => preconvert_reg(7),
+      O => \internal_color[4]_i_6_n_0\
+    );
+\internal_color[4]_i_7\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"69"
+    )
+        port map (
+      I0 => rgb_data_out3(6),
+      I1 => rgb_data_out2_i_19_n_0,
+      I2 => preconvert_reg(6),
+      O => \internal_color[4]_i_7_n_0\
+    );
+\internal_color[4]_i_8\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"96"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => \i__carry__0_i_8_n_0\,
+      I2 => rgb_data_out3(5),
+      O => \internal_color[4]_i_8_n_0\
+    );
+\internal_color[4]_i_9\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6AAAAAAA95555555"
+    )
+        port map (
+      I0 => preconvert_reg(4),
+      I1 => rgb_data_out3(2),
+      I2 => rgb_data_out3(0),
+      I3 => rgb_data_out3(1),
+      I4 => rgb_data_out3(3),
+      I5 => rgb_data_out3(4),
+      O => \internal_color[4]_i_9_n_0\
+    );
+\internal_color[5]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000A000AFFFAFFCA"
+    )
+        port map (
+      I0 => p_14_in(5),
+      I1 => rgb_data_out010_out(5),
+      I2 => preconvert_reg(25),
+      I3 => \internal_color_reg[5]\,
+      I4 => preconvert_reg(24),
+      I5 => \internal_color[5]_i_2_n_0\,
+      O => led_data_reg_1
+    );
+\internal_color[5]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFF50FFFF3500"
+    )
+        port map (
+      I0 => rgb_data_out00_in(5),
+      I1 => rgb_data_out0(5),
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[5]_i_2_n_0\
+    );
+\internal_color[6]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0F2F0FFF0F2F0F00"
+    )
+        port map (
+      I0 => rgb_data_out010_out(6),
+      I1 => preconvert_reg(24),
+      I2 => \internal_color[6]_i_2_n_0\,
+      I3 => \internal_color_reg[5]\,
+      I4 => preconvert_reg(25),
+      I5 => p_14_in(6),
+      O => led_data_reg_5
+    );
+\internal_color[6]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFDCCFFFFFDFFFFF"
+    )
+        port map (
+      I0 => rgb_data_out0(6),
+      I1 => \internal_color_reg[9]_1\,
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(25),
+      I4 => preconvert_reg(26),
+      I5 => rgb_data_out00_in(6),
+      O => \internal_color[6]_i_2_n_0\
+    );
+\internal_color[7]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0F2F0FFF0F2F0F00"
+    )
+        port map (
+      I0 => rgb_data_out010_out(7),
+      I1 => preconvert_reg(24),
+      I2 => \internal_color[7]_i_2_n_0\,
+      I3 => \internal_color_reg[5]\,
+      I4 => preconvert_reg(25),
+      I5 => p_14_in(7),
+      O => led_data_reg_6
+    );
+\internal_color[7]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFDCCFFFFFDFFFFF"
+    )
+        port map (
+      I0 => rgb_data_out0(7),
+      I1 => \internal_color_reg[9]_1\,
+      I2 => preconvert_reg(24),
+      I3 => preconvert_reg(25),
+      I4 => preconvert_reg(26),
+      I5 => rgb_data_out00_in(7),
+      O => \internal_color[7]_i_2_n_0\
+    );
+\internal_color[8]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FF8A008A"
+    )
+        port map (
+      I0 => \internal_color[8]_i_2_n_0\,
+      I1 => \internal_color[8]_i_3_n_0\,
+      I2 => \internal_color[8]_i_4_n_0\,
+      I3 => \internal_color_reg[9]\,
+      I4 => rgb_data_out00_in(0),
+      I5 => \internal_color_reg[1]_0\,
+      O => D(5)
+    );
+\internal_color[8]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"FE"
+    )
+        port map (
+      I0 => rgb_data_out013_out(0),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[5]\,
+      O => \internal_color[8]_i_2_n_0\
+    );
+\internal_color[8]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000F0000088FF"
+    )
+        port map (
+      I0 => rgb_data_out00_in(0),
+      I1 => preconvert_reg(24),
+      I2 => p_14_in(0),
+      I3 => preconvert_reg(26),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(25),
+      O => \internal_color[8]_i_3_n_0\
+    );
+\internal_color[8]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FEFFFFFF"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      I1 => preconvert_reg(25),
+      I2 => \internal_color_reg[9]_1\,
+      I3 => preconvert_reg(26),
+      I4 => rgb_data_out04_out(0),
+      O => \internal_color[8]_i_4_n_0\
+    );
+\internal_color[9]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FF8FFF8F8888FF8F"
+    )
+        port map (
+      I0 => \internal_color_reg[9]\,
+      I1 => rgb_data_out00_in(1),
+      I2 => \internal_color_reg[9]_0\,
+      I3 => \internal_color[9]_i_2_n_0\,
+      I4 => \internal_color[9]_i_3_n_0\,
+      I5 => \internal_color[9]_i_4_n_0\,
+      O => led_data_reg
+    );
+\internal_color[9]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      I1 => rgb_data_out013_out(1),
+      O => \internal_color[9]_i_2_n_0\
+    );
+\internal_color[9]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFF3FFFFFFF5F"
+    )
+        port map (
+      I0 => rgb_data_out04_out(1),
+      I1 => rgb_data_out00_in(1),
+      I2 => preconvert_reg(26),
+      I3 => preconvert_reg(25),
+      I4 => \internal_color_reg[9]_1\,
+      I5 => preconvert_reg(24),
+      O => \internal_color[9]_i_3_n_0\
+    );
+\internal_color[9]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"31"
+    )
+        port map (
+      I0 => preconvert_reg(25),
+      I1 => \internal_color_reg[5]\,
+      I2 => p_14_in(1),
+      O => \internal_color[9]_i_4_n_0\
+    );
+\internal_color_reg[3]_i_3\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \internal_color_reg[3]_i_3_n_0\,
+      CO(2) => \internal_color_reg[3]_i_3_n_1\,
+      CO(1) => \internal_color_reg[3]_i_3_n_2\,
+      CO(0) => \internal_color_reg[3]_i_3_n_3\,
+      CYINIT => '1',
+      DI(3 downto 0) => preconvert_reg(3 downto 0),
+      O(3 downto 0) => p_14_in(3 downto 0),
+      S(3) => \internal_color[3]_i_4_n_0\,
+      S(2) => \internal_color[3]_i_5_n_0\,
+      S(1) => \internal_color[3]_i_6_n_0\,
+      S(0) => \internal_color[3]_i_7_n_0\
+    );
+\internal_color_reg[4]_i_5\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \internal_color_reg[3]_i_3_n_0\,
+      CO(3) => \NLW_internal_color_reg[4]_i_5_CO_UNCONNECTED\(3),
+      CO(2) => \internal_color_reg[4]_i_5_n_1\,
+      CO(1) => \internal_color_reg[4]_i_5_n_2\,
+      CO(0) => \internal_color_reg[4]_i_5_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => preconvert_reg(6 downto 4),
+      O(3 downto 0) => p_14_in(7 downto 4),
+      S(3) => \internal_color[4]_i_6_n_0\,
+      S(2) => \internal_color[4]_i_7_n_0\,
+      S(1) => \internal_color[4]_i_8_n_0\,
+      S(0) => \internal_color[4]_i_9_n_0\
+    );
+rgb_data_out0_carry: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => rgb_data_out0_carry_n_0,
+      CO(2) => rgb_data_out0_carry_n_1,
+      CO(1) => rgb_data_out0_carry_n_2,
+      CO(0) => rgb_data_out0_carry_n_3,
+      CYINIT => '0',
+      DI(3 downto 0) => rgb_data_out1(3 downto 0),
+      O(3 downto 0) => rgb_data_out0(3 downto 0),
+      S(3) => rgb_data_out0_carry_i_1_n_0,
+      S(2) => rgb_data_out0_carry_i_2_n_0,
+      S(1) => rgb_data_out0_carry_i_3_n_0,
+      S(0) => rgb_data_out0_carry_i_4_n_0
+    );
+\rgb_data_out0_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => rgb_data_out0_carry_n_0,
+      CO(3) => \NLW_rgb_data_out0_carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out0_carry__0_n_1\,
+      CO(1) => \rgb_data_out0_carry__0_n_2\,
+      CO(0) => \rgb_data_out0_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => rgb_data_out1(6 downto 4),
+      O(3 downto 0) => rgb_data_out0(7 downto 4),
+      S(3) => \rgb_data_out0_carry__0_i_1_n_0\,
+      S(2) => \rgb_data_out0_carry__0_i_2_n_0\,
+      S(1) => \rgb_data_out0_carry__0_i_3_n_0\,
+      S(0) => \rgb_data_out0_carry__0_i_4_n_0\
+    );
+\rgb_data_out0_carry__0_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => p_14_in(7),
+      I1 => rgb_data_out1(7),
+      O => \rgb_data_out0_carry__0_i_1_n_0\
+    );
+\rgb_data_out0_carry__0_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out1(6),
+      I1 => p_14_in(6),
+      O => \rgb_data_out0_carry__0_i_2_n_0\
+    );
+\rgb_data_out0_carry__0_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out1(5),
+      I1 => p_14_in(5),
+      O => \rgb_data_out0_carry__0_i_3_n_0\
+    );
+\rgb_data_out0_carry__0_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out1(4),
+      I1 => p_14_in(4),
+      O => \rgb_data_out0_carry__0_i_4_n_0\
+    );
+rgb_data_out0_carry_i_1: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out1(3),
+      I1 => p_14_in(3),
+      O => rgb_data_out0_carry_i_1_n_0
+    );
+rgb_data_out0_carry_i_2: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out1(2),
+      I1 => p_14_in(2),
+      O => rgb_data_out0_carry_i_2_n_0
+    );
+rgb_data_out0_carry_i_3: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out1(1),
+      I1 => p_14_in(1),
+      O => rgb_data_out0_carry_i_3_n_0
+    );
+rgb_data_out0_carry_i_4: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out1(0),
+      I1 => p_14_in(0),
+      O => rgb_data_out0_carry_i_4_n_0
+    );
+\rgb_data_out0_inferred__0/i__carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out0_inferred__0/i__carry_n_0\,
+      CO(2) => \rgb_data_out0_inferred__0/i__carry_n_1\,
+      CO(1) => \rgb_data_out0_inferred__0/i__carry_n_2\,
+      CO(0) => \rgb_data_out0_inferred__0/i__carry_n_3\,
+      CYINIT => '0',
+      DI(3) => \i__carry_i_1__5_n_0\,
+      DI(2) => \i__carry_i_2__5_n_0\,
+      DI(1) => \i__carry_i_3__5_n_0\,
+      DI(0) => rgb_data_out3(0),
+      O(3 downto 0) => rgb_data_out00_in(3 downto 0),
+      S(3) => \i__carry_i_4__5_n_0\,
+      S(2) => \i__carry_i_5__0_n_0\,
+      S(1) => \i__carry_i_6__0_n_0\,
+      S(0) => S(0)
+    );
+\rgb_data_out0_inferred__0/i__carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out0_inferred__0/i__carry_n_0\,
+      CO(3) => \NLW_rgb_data_out0_inferred__0/i__carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out0_inferred__0/i__carry__0_n_1\,
+      CO(1) => \rgb_data_out0_inferred__0/i__carry__0_n_2\,
+      CO(0) => \rgb_data_out0_inferred__0/i__carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2) => \i__carry__0_i_1__5_n_0\,
+      DI(1) => \i__carry__0_i_2__0_n_0\,
+      DI(0) => \i__carry__0_i_3__0_n_0\,
+      O(3 downto 0) => rgb_data_out00_in(7 downto 4),
+      S(3) => \i__carry__0_i_4__5_n_0\,
+      S(2) => \i__carry__0_i_5_n_0\,
+      S(1) => \i__carry__0_i_6_n_0\,
+      S(0) => \i__carry__0_i_7_n_0\
+    );
+\rgb_data_out0_inferred__1/i__carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out0_inferred__1/i__carry_n_0\,
+      CO(2) => \rgb_data_out0_inferred__1/i__carry_n_1\,
+      CO(1) => \rgb_data_out0_inferred__1/i__carry_n_2\,
+      CO(0) => \rgb_data_out0_inferred__1/i__carry_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => rgb_data_out13_in(3 downto 0),
+      O(3 downto 0) => rgb_data_out04_out(3 downto 0),
+      S(3) => \i__carry_i_1__0_n_0\,
+      S(2) => \i__carry_i_2__0_n_0\,
+      S(1) => \i__carry_i_3__0_n_0\,
+      S(0) => \i__carry_i_4__0_n_0\
+    );
+\rgb_data_out0_inferred__1/i__carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out0_inferred__1/i__carry_n_0\,
+      CO(3) => \NLW_rgb_data_out0_inferred__1/i__carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out0_inferred__1/i__carry__0_n_1\,
+      CO(1) => \rgb_data_out0_inferred__1/i__carry__0_n_2\,
+      CO(0) => \rgb_data_out0_inferred__1/i__carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => rgb_data_out13_in(6 downto 4),
+      O(3 downto 0) => rgb_data_out04_out(7 downto 4),
+      S(3) => \i__carry__0_i_1__0_n_0\,
+      S(2) => \i__carry__0_i_2__1_n_0\,
+      S(1) => \i__carry__0_i_3__1_n_0\,
+      S(0) => \i__carry__0_i_4__0_n_0\
+    );
+\rgb_data_out0_inferred__2/i__carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out0_inferred__2/i__carry_n_0\,
+      CO(2) => \rgb_data_out0_inferred__2/i__carry_n_1\,
+      CO(1) => \rgb_data_out0_inferred__2/i__carry_n_2\,
+      CO(0) => \rgb_data_out0_inferred__2/i__carry_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => rgb_data_out16_in(3 downto 0),
+      O(3 downto 0) => rgb_data_out07_out(3 downto 0),
+      S(3) => \i__carry_i_1__1_n_0\,
+      S(2) => \i__carry_i_2__1_n_0\,
+      S(1) => \i__carry_i_3__1_n_0\,
+      S(0) => \i__carry_i_4__1_n_0\
+    );
+\rgb_data_out0_inferred__2/i__carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out0_inferred__2/i__carry_n_0\,
+      CO(3) => \NLW_rgb_data_out0_inferred__2/i__carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out0_inferred__2/i__carry__0_n_1\,
+      CO(1) => \rgb_data_out0_inferred__2/i__carry__0_n_2\,
+      CO(0) => \rgb_data_out0_inferred__2/i__carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => rgb_data_out16_in(6 downto 4),
+      O(3 downto 0) => rgb_data_out07_out(7 downto 4),
+      S(3) => \i__carry__0_i_1__1_n_0\,
+      S(2) => \i__carry__0_i_2__2_n_0\,
+      S(1) => \i__carry__0_i_3__2_n_0\,
+      S(0) => \i__carry__0_i_4__1_n_0\
+    );
+\rgb_data_out0_inferred__3/i__carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out0_inferred__3/i__carry_n_0\,
+      CO(2) => \rgb_data_out0_inferred__3/i__carry_n_1\,
+      CO(1) => \rgb_data_out0_inferred__3/i__carry_n_2\,
+      CO(0) => \rgb_data_out0_inferred__3/i__carry_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => rgb_data_out19_in(3 downto 0),
+      O(3 downto 0) => rgb_data_out010_out(3 downto 0),
+      S(3) => \i__carry_i_1__2_n_0\,
+      S(2) => \i__carry_i_2__2_n_0\,
+      S(1) => \i__carry_i_3__2_n_0\,
+      S(0) => \i__carry_i_4__2_n_0\
+    );
+\rgb_data_out0_inferred__3/i__carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out0_inferred__3/i__carry_n_0\,
+      CO(3) => \NLW_rgb_data_out0_inferred__3/i__carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out0_inferred__3/i__carry__0_n_1\,
+      CO(1) => \rgb_data_out0_inferred__3/i__carry__0_n_2\,
+      CO(0) => \rgb_data_out0_inferred__3/i__carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => rgb_data_out19_in(6 downto 4),
+      O(3 downto 0) => rgb_data_out010_out(7 downto 4),
+      S(3) => \i__carry__0_i_1__2_n_0\,
+      S(2) => \i__carry__0_i_2__3_n_0\,
+      S(1) => \i__carry__0_i_3__3_n_0\,
+      S(0) => \i__carry__0_i_4__2_n_0\
+    );
+\rgb_data_out0_inferred__4/i__carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out0_inferred__4/i__carry_n_0\,
+      CO(2) => \rgb_data_out0_inferred__4/i__carry_n_1\,
+      CO(1) => \rgb_data_out0_inferred__4/i__carry_n_2\,
+      CO(0) => \rgb_data_out0_inferred__4/i__carry_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => rgb_data_out112_in(3 downto 0),
+      O(3 downto 0) => rgb_data_out013_out(3 downto 0),
+      S(3) => \i__carry_i_1__3_n_0\,
+      S(2) => \i__carry_i_2__3_n_0\,
+      S(1) => \i__carry_i_3__3_n_0\,
+      S(0) => \i__carry_i_4__3_n_0\
+    );
+\rgb_data_out0_inferred__4/i__carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out0_inferred__4/i__carry_n_0\,
+      CO(3) => \NLW_rgb_data_out0_inferred__4/i__carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out0_inferred__4/i__carry__0_n_1\,
+      CO(1) => \rgb_data_out0_inferred__4/i__carry__0_n_2\,
+      CO(0) => \rgb_data_out0_inferred__4/i__carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => rgb_data_out112_in(6 downto 4),
+      O(3 downto 0) => rgb_data_out013_out(7 downto 4),
+      S(3) => \i__carry__0_i_1__3_n_0\,
+      S(2) => \i__carry__0_i_2__4_n_0\,
+      S(1) => \i__carry__0_i_3__4_n_0\,
+      S(0) => \i__carry__0_i_4__3_n_0\
+    );
+\rgb_data_out0_inferred__5/i__carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out0_inferred__5/i__carry_n_0\,
+      CO(2) => \rgb_data_out0_inferred__5/i__carry_n_1\,
+      CO(1) => \rgb_data_out0_inferred__5/i__carry_n_2\,
+      CO(0) => \rgb_data_out0_inferred__5/i__carry_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => rgb_data_out115_in(3 downto 0),
+      O(3 downto 0) => rgb_data_out016_out(3 downto 0),
+      S(3) => \i__carry_i_1__4_n_0\,
+      S(2) => \i__carry_i_2__4_n_0\,
+      S(1) => \i__carry_i_3__4_n_0\,
+      S(0) => \i__carry_i_4__4_n_0\
+    );
+\rgb_data_out0_inferred__5/i__carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out0_inferred__5/i__carry_n_0\,
+      CO(3) => \NLW_rgb_data_out0_inferred__5/i__carry__0_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out0_inferred__5/i__carry__0_n_1\,
+      CO(1) => \rgb_data_out0_inferred__5/i__carry__0_n_2\,
+      CO(0) => \rgb_data_out0_inferred__5/i__carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => rgb_data_out115_in(6 downto 4),
+      O(3 downto 0) => rgb_data_out016_out(7 downto 4),
+      S(3) => \i__carry__0_i_1__4_n_0\,
+      S(2) => \i__carry__0_i_2__5_n_0\,
+      S(1) => \i__carry__0_i_3__5_n_0\,
+      S(0) => \i__carry__0_i_4__4_n_0\
+    );
+rgb_data_out2: unisim.vcomponents.DSP48E1
+    generic map(
+      ACASCREG => 0,
+      ADREG => 1,
+      ALUMODEREG => 0,
+      AREG => 0,
+      AUTORESET_PATDET => "NO_RESET",
+      A_INPUT => "DIRECT",
+      BCASCREG => 0,
+      BREG => 0,
+      B_INPUT => "DIRECT",
+      CARRYINREG => 0,
+      CARRYINSELREG => 0,
+      CREG => 1,
+      DREG => 1,
+      INMODEREG => 0,
+      MASK => X"3FFFFFFFFFFF",
+      MREG => 0,
+      OPMODEREG => 0,
+      PATTERN => X"000000000000",
+      PREG => 0,
+      SEL_MASK => "MASK",
+      SEL_PATTERN => "PATTERN",
+      USE_DPORT => false,
+      USE_MULT => "MULTIPLY",
+      USE_PATTERN_DETECT => "NO_PATDET",
+      USE_SIMD => "ONE48"
+    )
+        port map (
+      A(29 downto 16) => B"00000000000000",
+      A(15) => rgb_data_out2_i_9_n_4,
+      A(14) => rgb_data_out2_i_9_n_5,
+      A(13) => rgb_data_out2_i_9_n_6,
+      A(12) => rgb_data_out2_i_9_n_7,
+      A(11) => rgb_data_out2_i_10_n_4,
+      A(10) => rgb_data_out2_i_10_n_5,
+      A(9) => rgb_data_out2_i_10_n_6,
+      A(8) => rgb_data_out2_i_10_n_7,
+      A(7) => rgb_data_out2_i_11_n_0,
+      A(6) => rgb_data_out2_i_12_n_0,
+      A(5) => rgb_data_out2_i_13_n_0,
+      A(4) => rgb_data_out2_i_14_n_0,
+      A(3) => rgb_data_out2_i_15_n_0,
+      A(2) => rgb_data_out2_i_16_n_0,
+      A(1) => rgb_data_out2_i_17_n_0,
+      A(0) => rgb_data_out2_i_18_n_0,
+      ACIN(29 downto 0) => B"000000000000000000000000000000",
+      ACOUT(29 downto 0) => NLW_rgb_data_out2_ACOUT_UNCONNECTED(29 downto 0),
+      ALUMODE(3 downto 0) => B"0000",
+      B(17 downto 8) => B"0000000000",
+      B(7 downto 5) => B(7 downto 5),
+      B(4) => rgb_data_out2_i_4_n_0,
+      B(3) => rgb_data_out2_i_5_n_0,
+      B(2) => rgb_data_out2_i_6_n_0,
+      B(1 downto 0) => B(1 downto 0),
+      BCIN(17 downto 0) => B"000000000000000000",
+      BCOUT(17 downto 0) => NLW_rgb_data_out2_BCOUT_UNCONNECTED(17 downto 0),
+      C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
+      CARRYCASCIN => '0',
+      CARRYCASCOUT => NLW_rgb_data_out2_CARRYCASCOUT_UNCONNECTED,
+      CARRYIN => '0',
+      CARRYINSEL(2 downto 0) => B"000",
+      CARRYOUT(3 downto 0) => NLW_rgb_data_out2_CARRYOUT_UNCONNECTED(3 downto 0),
+      CEA1 => '0',
+      CEA2 => '0',
+      CEAD => '0',
+      CEALUMODE => '0',
+      CEB1 => '0',
+      CEB2 => '0',
+      CEC => '0',
+      CECARRYIN => '0',
+      CECTRL => '0',
+      CED => '0',
+      CEINMODE => '0',
+      CEM => '0',
+      CEP => '0',
+      CLK => '0',
+      D(24 downto 0) => B"0000000000000000000000000",
+      INMODE(4 downto 0) => B"00000",
+      MULTSIGNIN => '0',
+      MULTSIGNOUT => NLW_rgb_data_out2_MULTSIGNOUT_UNCONNECTED,
+      OPMODE(6 downto 0) => B"0000101",
+      OVERFLOW => NLW_rgb_data_out2_OVERFLOW_UNCONNECTED,
+      P(47 downto 24) => NLW_rgb_data_out2_P_UNCONNECTED(47 downto 24),
+      P(23) => rgb_data_out2_n_82,
+      P(22) => rgb_data_out2_n_83,
+      P(21) => rgb_data_out2_n_84,
+      P(20) => rgb_data_out2_n_85,
+      P(19) => rgb_data_out2_n_86,
+      P(18) => rgb_data_out2_n_87,
+      P(17) => rgb_data_out2_n_88,
+      P(16) => rgb_data_out2_n_89,
+      P(15 downto 8) => rgb_data_out1(7 downto 0),
+      P(7) => rgb_data_out2_n_98,
+      P(6) => rgb_data_out2_n_99,
+      P(5) => rgb_data_out2_n_100,
+      P(4) => rgb_data_out2_n_101,
+      P(3) => rgb_data_out2_n_102,
+      P(2) => rgb_data_out2_n_103,
+      P(1) => rgb_data_out2_n_104,
+      P(0) => rgb_data_out2_n_105,
+      PATTERNBDETECT => NLW_rgb_data_out2_PATTERNBDETECT_UNCONNECTED,
+      PATTERNDETECT => NLW_rgb_data_out2_PATTERNDETECT_UNCONNECTED,
+      PCIN(47 downto 0) => B"000000000000000000000000000000000000000000000000",
+      PCOUT(47 downto 0) => NLW_rgb_data_out2_PCOUT_UNCONNECTED(47 downto 0),
+      RSTA => '0',
+      RSTALLCARRYIN => '0',
+      RSTALUMODE => '0',
+      RSTB => '0',
+      RSTC => '0',
+      RSTCTRL => '0',
+      RSTD => '0',
+      RSTINMODE => '0',
+      RSTM => '0',
+      RSTP => '0',
+      UNDERFLOW => NLW_rgb_data_out2_UNDERFLOW_UNCONNECTED
+    );
+\rgb_data_out2__0\: unisim.vcomponents.DSP48E1
+    generic map(
+      ACASCREG => 0,
+      ADREG => 1,
+      ALUMODEREG => 0,
+      AREG => 0,
+      AUTORESET_PATDET => "NO_RESET",
+      A_INPUT => "DIRECT",
+      BCASCREG => 0,
+      BREG => 0,
+      B_INPUT => "DIRECT",
+      CARRYINREG => 0,
+      CARRYINSELREG => 0,
+      CREG => 1,
+      DREG => 1,
+      INMODEREG => 0,
+      MASK => X"3FFFFFFFFFFF",
+      MREG => 0,
+      OPMODEREG => 0,
+      PATTERN => X"000000000000",
+      PREG => 0,
+      SEL_MASK => "MASK",
+      SEL_PATTERN => "PATTERN",
+      USE_DPORT => false,
+      USE_MULT => "MULTIPLY",
+      USE_PATTERN_DETECT => "NO_PATDET",
+      USE_SIMD => "ONE48"
+    )
+        port map (
+      A(29 downto 16) => B"00000000000000",
+      A(15) => \rgb_data_out2__0_i_1_n_5\,
+      A(14) => \rgb_data_out2__0_i_1_n_6\,
+      A(13) => \rgb_data_out2__0_i_1_n_7\,
+      A(12) => \rgb_data_out2__0_i_2_n_4\,
+      A(11) => \rgb_data_out2__0_i_2_n_5\,
+      A(10) => \rgb_data_out2__0_i_2_n_6\,
+      A(9) => \rgb_data_out2__0_i_2_n_7\,
+      A(8 downto 0) => preconvert_reg(24 downto 16),
+      ACIN(29 downto 0) => B"000000000000000000000000000000",
+      ACOUT(29 downto 0) => \NLW_rgb_data_out2__0_ACOUT_UNCONNECTED\(29 downto 0),
+      ALUMODE(3 downto 0) => B"0000",
+      B(17 downto 8) => B"0000000000",
+      B(7 downto 5) => B(7 downto 5),
+      B(4) => rgb_data_out2_i_4_n_0,
+      B(3) => rgb_data_out2_i_5_n_0,
+      B(2) => rgb_data_out2_i_6_n_0,
+      B(1 downto 0) => B(1 downto 0),
+      BCIN(17 downto 0) => B"000000000000000000",
+      BCOUT(17 downto 0) => \NLW_rgb_data_out2__0_BCOUT_UNCONNECTED\(17 downto 0),
+      C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
+      CARRYCASCIN => '0',
+      CARRYCASCOUT => \NLW_rgb_data_out2__0_CARRYCASCOUT_UNCONNECTED\,
+      CARRYIN => '0',
+      CARRYINSEL(2 downto 0) => B"000",
+      CARRYOUT(3 downto 0) => \NLW_rgb_data_out2__0_CARRYOUT_UNCONNECTED\(3 downto 0),
+      CEA1 => '0',
+      CEA2 => '0',
+      CEAD => '0',
+      CEALUMODE => '0',
+      CEB1 => '0',
+      CEB2 => '0',
+      CEC => '0',
+      CECARRYIN => '0',
+      CECTRL => '0',
+      CED => '0',
+      CEINMODE => '0',
+      CEM => '0',
+      CEP => '0',
+      CLK => '0',
+      D(24 downto 0) => B"0000000000000000000000000",
+      INMODE(4 downto 0) => B"00000",
+      MULTSIGNIN => '0',
+      MULTSIGNOUT => \NLW_rgb_data_out2__0_MULTSIGNOUT_UNCONNECTED\,
+      OPMODE(6 downto 0) => B"0000101",
+      OVERFLOW => \NLW_rgb_data_out2__0_OVERFLOW_UNCONNECTED\,
+      P(47 downto 24) => \NLW_rgb_data_out2__0_P_UNCONNECTED\(47 downto 24),
+      P(23) => \rgb_data_out2__0_n_82\,
+      P(22) => \rgb_data_out2__0_n_83\,
+      P(21) => \rgb_data_out2__0_n_84\,
+      P(20) => \rgb_data_out2__0_n_85\,
+      P(19) => \rgb_data_out2__0_n_86\,
+      P(18) => \rgb_data_out2__0_n_87\,
+      P(17) => \rgb_data_out2__0_n_88\,
+      P(16) => \rgb_data_out2__0_n_89\,
+      P(15 downto 8) => rgb_data_out13_in(7 downto 0),
+      P(7) => \rgb_data_out2__0_n_98\,
+      P(6) => \rgb_data_out2__0_n_99\,
+      P(5) => \rgb_data_out2__0_n_100\,
+      P(4) => \rgb_data_out2__0_n_101\,
+      P(3) => \rgb_data_out2__0_n_102\,
+      P(2) => \rgb_data_out2__0_n_103\,
+      P(1) => \rgb_data_out2__0_n_104\,
+      P(0) => \rgb_data_out2__0_n_105\,
+      PATTERNBDETECT => \NLW_rgb_data_out2__0_PATTERNBDETECT_UNCONNECTED\,
+      PATTERNDETECT => \NLW_rgb_data_out2__0_PATTERNDETECT_UNCONNECTED\,
+      PCIN(47 downto 0) => B"000000000000000000000000000000000000000000000000",
+      PCOUT(47 downto 0) => \NLW_rgb_data_out2__0_PCOUT_UNCONNECTED\(47 downto 0),
+      RSTA => '0',
+      RSTALLCARRYIN => '0',
+      RSTALUMODE => '0',
+      RSTB => '0',
+      RSTC => '0',
+      RSTCTRL => '0',
+      RSTD => '0',
+      RSTINMODE => '0',
+      RSTM => '0',
+      RSTP => '0',
+      UNDERFLOW => \NLW_rgb_data_out2__0_UNDERFLOW_UNCONNECTED\
+    );
+\rgb_data_out2__0_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out2__0_i_2_n_0\,
+      CO(3 downto 2) => \NLW_rgb_data_out2__0_i_1_CO_UNCONNECTED\(3 downto 2),
+      CO(1) => \rgb_data_out2__0_i_1_n_2\,
+      CO(0) => \rgb_data_out2__0_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 2) => B"00",
+      DI(1 downto 0) => preconvert_reg(30 downto 29),
+      O(3) => \NLW_rgb_data_out2__0_i_1_O_UNCONNECTED\(3),
+      O(2) => \rgb_data_out2__0_i_1_n_5\,
+      O(1) => \rgb_data_out2__0_i_1_n_6\,
+      O(0) => \rgb_data_out2__0_i_1_n_7\,
+      S(3) => '0',
+      S(2) => \rgb_data_out2__0_i_3_n_0\,
+      S(1) => \rgb_data_out2__0_i_4_n_0\,
+      S(0) => \rgb_data_out2__0_i_5_n_0\
+    );
+\rgb_data_out2__0_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out2__0_i_2_n_0\,
+      CO(2) => \rgb_data_out2__0_i_2_n_1\,
+      CO(1) => \rgb_data_out2__0_i_2_n_2\,
+      CO(0) => \rgb_data_out2__0_i_2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 1) => preconvert_reg(28 downto 26),
+      DI(0) => '0',
+      O(3) => \rgb_data_out2__0_i_2_n_4\,
+      O(2) => \rgb_data_out2__0_i_2_n_5\,
+      O(1) => \rgb_data_out2__0_i_2_n_6\,
+      O(0) => \rgb_data_out2__0_i_2_n_7\,
+      S(3) => \rgb_data_out2__0_i_6_n_0\,
+      S(2) => \rgb_data_out2__0_i_7_n_0\,
+      S(1) => \rgb_data_out2__0_i_8_n_0\,
+      S(0) => preconvert_reg(25)
+    );
+\rgb_data_out2__0_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(31),
+      O => \rgb_data_out2__0_i_3_n_0\
+    );
+\rgb_data_out2__0_i_4\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(30),
+      O => \rgb_data_out2__0_i_4_n_0\
+    );
+\rgb_data_out2__0_i_5\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(29),
+      O => \rgb_data_out2__0_i_5_n_0\
+    );
+\rgb_data_out2__0_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(28),
+      O => \rgb_data_out2__0_i_6_n_0\
+    );
+\rgb_data_out2__0_i_7\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(27),
+      O => \rgb_data_out2__0_i_7_n_0\
+    );
+\rgb_data_out2__0_i_8\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(26),
+      O => \rgb_data_out2__0_i_8_n_0\
+    );
+\rgb_data_out2__1\: unisim.vcomponents.DSP48E1
+    generic map(
+      ACASCREG => 0,
+      ADREG => 1,
+      ALUMODEREG => 0,
+      AREG => 0,
+      AUTORESET_PATDET => "NO_RESET",
+      A_INPUT => "DIRECT",
+      BCASCREG => 0,
+      BREG => 0,
+      B_INPUT => "DIRECT",
+      CARRYINREG => 0,
+      CARRYINSELREG => 0,
+      CREG => 1,
+      DREG => 1,
+      INMODEREG => 0,
+      MASK => X"3FFFFFFFFFFF",
+      MREG => 0,
+      OPMODEREG => 0,
+      PATTERN => X"000000000000",
+      PREG => 0,
+      SEL_MASK => "MASK",
+      SEL_PATTERN => "PATTERN",
+      USE_DPORT => false,
+      USE_MULT => "MULTIPLY",
+      USE_PATTERN_DETECT => "NO_PATDET",
+      USE_SIMD => "ONE48"
+    )
+        port map (
+      A(29 downto 16) => B"00000000000000",
+      A(15) => \rgb_data_out2__1_i_1_n_5\,
+      A(14) => \rgb_data_out2__1_i_1_n_6\,
+      A(13) => \rgb_data_out2__1_i_1_n_7\,
+      A(12) => \rgb_data_out2__1_i_2_n_4\,
+      A(11) => \rgb_data_out2__1_i_2_n_5\,
+      A(10) => \rgb_data_out2__1_i_2_n_6\,
+      A(9) => \rgb_data_out2__1_i_2_n_7\,
+      A(8) => \rgb_data_out2__1_i_3_n_0\,
+      A(7) => rgb_data_out2_i_11_n_0,
+      A(6) => rgb_data_out2_i_12_n_0,
+      A(5) => rgb_data_out2_i_13_n_0,
+      A(4) => rgb_data_out2_i_14_n_0,
+      A(3) => rgb_data_out2_i_15_n_0,
+      A(2) => rgb_data_out2_i_16_n_0,
+      A(1) => rgb_data_out2_i_17_n_0,
+      A(0) => rgb_data_out2_i_18_n_0,
+      ACIN(29 downto 0) => B"000000000000000000000000000000",
+      ACOUT(29 downto 0) => \NLW_rgb_data_out2__1_ACOUT_UNCONNECTED\(29 downto 0),
+      ALUMODE(3 downto 0) => B"0000",
+      B(17 downto 8) => B"0000000000",
+      B(7 downto 5) => B(7 downto 5),
+      B(4) => rgb_data_out2_i_4_n_0,
+      B(3) => rgb_data_out2_i_5_n_0,
+      B(2) => rgb_data_out2_i_6_n_0,
+      B(1 downto 0) => B(1 downto 0),
+      BCIN(17 downto 0) => B"000000000000000000",
+      BCOUT(17 downto 0) => \NLW_rgb_data_out2__1_BCOUT_UNCONNECTED\(17 downto 0),
+      C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
+      CARRYCASCIN => '0',
+      CARRYCASCOUT => \NLW_rgb_data_out2__1_CARRYCASCOUT_UNCONNECTED\,
+      CARRYIN => '0',
+      CARRYINSEL(2 downto 0) => B"000",
+      CARRYOUT(3 downto 0) => \NLW_rgb_data_out2__1_CARRYOUT_UNCONNECTED\(3 downto 0),
+      CEA1 => '0',
+      CEA2 => '0',
+      CEAD => '0',
+      CEALUMODE => '0',
+      CEB1 => '0',
+      CEB2 => '0',
+      CEC => '0',
+      CECARRYIN => '0',
+      CECTRL => '0',
+      CED => '0',
+      CEINMODE => '0',
+      CEM => '0',
+      CEP => '0',
+      CLK => '0',
+      D(24 downto 0) => B"0000000000000000000000000",
+      INMODE(4 downto 0) => B"00000",
+      MULTSIGNIN => '0',
+      MULTSIGNOUT => \NLW_rgb_data_out2__1_MULTSIGNOUT_UNCONNECTED\,
+      OPMODE(6 downto 0) => B"0000101",
+      OVERFLOW => \NLW_rgb_data_out2__1_OVERFLOW_UNCONNECTED\,
+      P(47 downto 24) => \NLW_rgb_data_out2__1_P_UNCONNECTED\(47 downto 24),
+      P(23) => \rgb_data_out2__1_n_82\,
+      P(22) => \rgb_data_out2__1_n_83\,
+      P(21) => \rgb_data_out2__1_n_84\,
+      P(20) => \rgb_data_out2__1_n_85\,
+      P(19) => \rgb_data_out2__1_n_86\,
+      P(18) => \rgb_data_out2__1_n_87\,
+      P(17) => \rgb_data_out2__1_n_88\,
+      P(16) => \rgb_data_out2__1_n_89\,
+      P(15 downto 8) => rgb_data_out16_in(7 downto 0),
+      P(7) => \rgb_data_out2__1_n_98\,
+      P(6) => \rgb_data_out2__1_n_99\,
+      P(5) => \rgb_data_out2__1_n_100\,
+      P(4) => \rgb_data_out2__1_n_101\,
+      P(3) => \rgb_data_out2__1_n_102\,
+      P(2) => \rgb_data_out2__1_n_103\,
+      P(1) => \rgb_data_out2__1_n_104\,
+      P(0) => \rgb_data_out2__1_n_105\,
+      PATTERNBDETECT => \NLW_rgb_data_out2__1_PATTERNBDETECT_UNCONNECTED\,
+      PATTERNDETECT => \NLW_rgb_data_out2__1_PATTERNDETECT_UNCONNECTED\,
+      PCIN(47 downto 0) => B"000000000000000000000000000000000000000000000000",
+      PCOUT(47 downto 0) => \NLW_rgb_data_out2__1_PCOUT_UNCONNECTED\(47 downto 0),
+      RSTA => '0',
+      RSTALLCARRYIN => '0',
+      RSTALUMODE => '0',
+      RSTB => '0',
+      RSTC => '0',
+      RSTCTRL => '0',
+      RSTD => '0',
+      RSTINMODE => '0',
+      RSTM => '0',
+      RSTP => '0',
+      UNDERFLOW => \NLW_rgb_data_out2__1_UNDERFLOW_UNCONNECTED\
+    );
+\rgb_data_out2__1_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out2__1_i_2_n_0\,
+      CO(3 downto 2) => \NLW_rgb_data_out2__1_i_1_CO_UNCONNECTED\(3 downto 2),
+      CO(1) => \rgb_data_out2__1_i_1_n_2\,
+      CO(0) => \rgb_data_out2__1_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3) => \NLW_rgb_data_out2__1_i_1_O_UNCONNECTED\(3),
+      O(2) => \rgb_data_out2__1_i_1_n_5\,
+      O(1) => \rgb_data_out2__1_i_1_n_6\,
+      O(0) => \rgb_data_out2__1_i_1_n_7\,
+      S(3) => '0',
+      S(2) => \rgb_data_out2__1_i_4_n_0\,
+      S(1) => \rgb_data_out2__1_i_5_n_0\,
+      S(0) => \rgb_data_out2__1_i_6_n_0\
+    );
+\rgb_data_out2__1_i_10\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(25),
+      O => \rgb_data_out2__1_i_10_n_0\
+    );
+\rgb_data_out2__1_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out2__1_i_2_n_0\,
+      CO(2) => \rgb_data_out2__1_i_2_n_1\,
+      CO(1) => \rgb_data_out2__1_i_2_n_2\,
+      CO(0) => \rgb_data_out2__1_i_2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 2) => B"00",
+      DI(1) => \rgb_data_out2__1_i_7_n_0\,
+      DI(0) => '0',
+      O(3) => \rgb_data_out2__1_i_2_n_4\,
+      O(2) => \rgb_data_out2__1_i_2_n_5\,
+      O(1) => \rgb_data_out2__1_i_2_n_6\,
+      O(0) => \rgb_data_out2__1_i_2_n_7\,
+      S(3) => \rgb_data_out2__1_i_8_n_0\,
+      S(2) => \rgb_data_out2__1_i_9_n_0\,
+      S(1) => preconvert_reg(26),
+      S(0) => \rgb_data_out2__1_i_10_n_0\
+    );
+\rgb_data_out2__1_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      O => \rgb_data_out2__1_i_3_n_0\
+    );
+\rgb_data_out2__1_i_4\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(31),
+      O => \rgb_data_out2__1_i_4_n_0\
+    );
+\rgb_data_out2__1_i_5\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(30),
+      O => \rgb_data_out2__1_i_5_n_0\
+    );
+\rgb_data_out2__1_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(29),
+      O => \rgb_data_out2__1_i_6_n_0\
+    );
+\rgb_data_out2__1_i_7\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(26),
+      O => \rgb_data_out2__1_i_7_n_0\
+    );
+\rgb_data_out2__1_i_8\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(28),
+      O => \rgb_data_out2__1_i_8_n_0\
+    );
+\rgb_data_out2__1_i_9\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(27),
+      O => \rgb_data_out2__1_i_9_n_0\
+    );
+\rgb_data_out2__2\: unisim.vcomponents.DSP48E1
+    generic map(
+      ACASCREG => 0,
+      ADREG => 1,
+      ALUMODEREG => 0,
+      AREG => 0,
+      AUTORESET_PATDET => "NO_RESET",
+      A_INPUT => "DIRECT",
+      BCASCREG => 0,
+      BREG => 0,
+      B_INPUT => "DIRECT",
+      CARRYINREG => 0,
+      CARRYINSELREG => 0,
+      CREG => 1,
+      DREG => 1,
+      INMODEREG => 0,
+      MASK => X"3FFFFFFFFFFF",
+      MREG => 0,
+      OPMODEREG => 0,
+      PATTERN => X"000000000000",
+      PREG => 0,
+      SEL_MASK => "MASK",
+      SEL_PATTERN => "PATTERN",
+      USE_DPORT => false,
+      USE_MULT => "MULTIPLY",
+      USE_PATTERN_DETECT => "NO_PATDET",
+      USE_SIMD => "ONE48"
+    )
+        port map (
+      A(29 downto 16) => B"00000000000000",
+      A(15) => \rgb_data_out2__2_i_1_n_4\,
+      A(14) => \rgb_data_out2__2_i_1_n_5\,
+      A(13) => \rgb_data_out2__2_i_1_n_6\,
+      A(12) => \rgb_data_out2__2_i_1_n_7\,
+      A(11) => \rgb_data_out2__2_i_2_n_4\,
+      A(10) => \rgb_data_out2__2_i_2_n_5\,
+      A(9) => \rgb_data_out2__2_i_2_n_6\,
+      A(8) => \rgb_data_out2__2_i_2_n_7\,
+      A(7 downto 0) => preconvert_reg(23 downto 16),
+      ACIN(29 downto 0) => B"000000000000000000000000000000",
+      ACOUT(29 downto 0) => \NLW_rgb_data_out2__2_ACOUT_UNCONNECTED\(29 downto 0),
+      ALUMODE(3 downto 0) => B"0000",
+      B(17 downto 8) => B"0000000000",
+      B(7 downto 5) => B(7 downto 5),
+      B(4) => rgb_data_out2_i_4_n_0,
+      B(3) => rgb_data_out2_i_5_n_0,
+      B(2) => rgb_data_out2_i_6_n_0,
+      B(1 downto 0) => B(1 downto 0),
+      BCIN(17 downto 0) => B"000000000000000000",
+      BCOUT(17 downto 0) => \NLW_rgb_data_out2__2_BCOUT_UNCONNECTED\(17 downto 0),
+      C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
+      CARRYCASCIN => '0',
+      CARRYCASCOUT => \NLW_rgb_data_out2__2_CARRYCASCOUT_UNCONNECTED\,
+      CARRYIN => '0',
+      CARRYINSEL(2 downto 0) => B"000",
+      CARRYOUT(3 downto 0) => \NLW_rgb_data_out2__2_CARRYOUT_UNCONNECTED\(3 downto 0),
+      CEA1 => '0',
+      CEA2 => '0',
+      CEAD => '0',
+      CEALUMODE => '0',
+      CEB1 => '0',
+      CEB2 => '0',
+      CEC => '0',
+      CECARRYIN => '0',
+      CECTRL => '0',
+      CED => '0',
+      CEINMODE => '0',
+      CEM => '0',
+      CEP => '0',
+      CLK => '0',
+      D(24 downto 0) => B"0000000000000000000000000",
+      INMODE(4 downto 0) => B"00000",
+      MULTSIGNIN => '0',
+      MULTSIGNOUT => \NLW_rgb_data_out2__2_MULTSIGNOUT_UNCONNECTED\,
+      OPMODE(6 downto 0) => B"0000101",
+      OVERFLOW => \NLW_rgb_data_out2__2_OVERFLOW_UNCONNECTED\,
+      P(47 downto 24) => \NLW_rgb_data_out2__2_P_UNCONNECTED\(47 downto 24),
+      P(23) => \rgb_data_out2__2_n_82\,
+      P(22) => \rgb_data_out2__2_n_83\,
+      P(21) => \rgb_data_out2__2_n_84\,
+      P(20) => \rgb_data_out2__2_n_85\,
+      P(19) => \rgb_data_out2__2_n_86\,
+      P(18) => \rgb_data_out2__2_n_87\,
+      P(17) => \rgb_data_out2__2_n_88\,
+      P(16) => \rgb_data_out2__2_n_89\,
+      P(15 downto 8) => rgb_data_out19_in(7 downto 0),
+      P(7) => \rgb_data_out2__2_n_98\,
+      P(6) => \rgb_data_out2__2_n_99\,
+      P(5) => \rgb_data_out2__2_n_100\,
+      P(4) => \rgb_data_out2__2_n_101\,
+      P(3) => \rgb_data_out2__2_n_102\,
+      P(2) => \rgb_data_out2__2_n_103\,
+      P(1) => \rgb_data_out2__2_n_104\,
+      P(0) => \rgb_data_out2__2_n_105\,
+      PATTERNBDETECT => \NLW_rgb_data_out2__2_PATTERNBDETECT_UNCONNECTED\,
+      PATTERNDETECT => \NLW_rgb_data_out2__2_PATTERNDETECT_UNCONNECTED\,
+      PCIN(47 downto 0) => B"000000000000000000000000000000000000000000000000",
+      PCOUT(47 downto 0) => \NLW_rgb_data_out2__2_PCOUT_UNCONNECTED\(47 downto 0),
+      RSTA => '0',
+      RSTALLCARRYIN => '0',
+      RSTALUMODE => '0',
+      RSTB => '0',
+      RSTC => '0',
+      RSTCTRL => '0',
+      RSTD => '0',
+      RSTINMODE => '0',
+      RSTM => '0',
+      RSTP => '0',
+      UNDERFLOW => \NLW_rgb_data_out2__2_UNDERFLOW_UNCONNECTED\
+    );
+\rgb_data_out2__2_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out2__2_i_2_n_0\,
+      CO(3) => \NLW_rgb_data_out2__2_i_1_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out2__2_i_1_n_1\,
+      CO(1) => \rgb_data_out2__2_i_1_n_2\,
+      CO(0) => \rgb_data_out2__2_i_1_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2 downto 0) => preconvert_reg(30 downto 28),
+      O(3) => \rgb_data_out2__2_i_1_n_4\,
+      O(2) => \rgb_data_out2__2_i_1_n_5\,
+      O(1) => \rgb_data_out2__2_i_1_n_6\,
+      O(0) => \rgb_data_out2__2_i_1_n_7\,
+      S(3) => \rgb_data_out2__2_i_3_n_0\,
+      S(2) => \rgb_data_out2__2_i_4_n_0\,
+      S(1) => \rgb_data_out2__2_i_5_n_0\,
+      S(0) => \rgb_data_out2__2_i_6_n_0\
+    );
+\rgb_data_out2__2_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out2__2_i_2_n_0\,
+      CO(2) => \rgb_data_out2__2_i_2_n_1\,
+      CO(1) => \rgb_data_out2__2_i_2_n_2\,
+      CO(0) => \rgb_data_out2__2_i_2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 1) => preconvert_reg(27 downto 25),
+      DI(0) => '0',
+      O(3) => \rgb_data_out2__2_i_2_n_4\,
+      O(2) => \rgb_data_out2__2_i_2_n_5\,
+      O(1) => \rgb_data_out2__2_i_2_n_6\,
+      O(0) => \rgb_data_out2__2_i_2_n_7\,
+      S(3) => \rgb_data_out2__2_i_7_n_0\,
+      S(2) => \rgb_data_out2__2_i_8_n_0\,
+      S(1) => \rgb_data_out2__2_i_9_n_0\,
+      S(0) => preconvert_reg(24)
+    );
+\rgb_data_out2__2_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(31),
+      O => \rgb_data_out2__2_i_3_n_0\
+    );
+\rgb_data_out2__2_i_4\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(30),
+      O => \rgb_data_out2__2_i_4_n_0\
+    );
+\rgb_data_out2__2_i_5\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(29),
+      O => \rgb_data_out2__2_i_5_n_0\
+    );
+\rgb_data_out2__2_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(28),
+      O => \rgb_data_out2__2_i_6_n_0\
+    );
+\rgb_data_out2__2_i_7\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(27),
+      O => \rgb_data_out2__2_i_7_n_0\
+    );
+\rgb_data_out2__2_i_8\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(26),
+      O => \rgb_data_out2__2_i_8_n_0\
+    );
+\rgb_data_out2__2_i_9\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(25),
+      O => \rgb_data_out2__2_i_9_n_0\
+    );
+\rgb_data_out2__3\: unisim.vcomponents.DSP48E1
+    generic map(
+      ACASCREG => 0,
+      ADREG => 1,
+      ALUMODEREG => 0,
+      AREG => 0,
+      AUTORESET_PATDET => "NO_RESET",
+      A_INPUT => "DIRECT",
+      BCASCREG => 0,
+      BREG => 0,
+      B_INPUT => "DIRECT",
+      CARRYINREG => 0,
+      CARRYINSELREG => 0,
+      CREG => 1,
+      DREG => 1,
+      INMODEREG => 0,
+      MASK => X"3FFFFFFFFFFF",
+      MREG => 0,
+      OPMODEREG => 0,
+      PATTERN => X"000000000000",
+      PREG => 0,
+      SEL_MASK => "MASK",
+      SEL_PATTERN => "PATTERN",
+      USE_DPORT => false,
+      USE_MULT => "MULTIPLY",
+      USE_PATTERN_DETECT => "NO_PATDET",
+      USE_SIMD => "ONE48"
+    )
+        port map (
+      A(29 downto 16) => B"00000000000000",
+      A(15) => \rgb_data_out2__3_i_1_n_4\,
+      A(14) => \rgb_data_out2__3_i_1_n_5\,
+      A(13) => \rgb_data_out2__3_i_1_n_6\,
+      A(12) => \rgb_data_out2__3_i_1_n_7\,
+      A(11) => \rgb_data_out2__3_i_2_n_4\,
+      A(10) => \rgb_data_out2__3_i_2_n_5\,
+      A(9) => \rgb_data_out2__3_i_2_n_6\,
+      A(8) => \rgb_data_out2__1_i_3_n_0\,
+      A(7) => rgb_data_out2_i_11_n_0,
+      A(6) => rgb_data_out2_i_12_n_0,
+      A(5) => rgb_data_out2_i_13_n_0,
+      A(4) => rgb_data_out2_i_14_n_0,
+      A(3) => rgb_data_out2_i_15_n_0,
+      A(2) => rgb_data_out2_i_16_n_0,
+      A(1) => rgb_data_out2_i_17_n_0,
+      A(0) => rgb_data_out2_i_18_n_0,
+      ACIN(29 downto 0) => B"000000000000000000000000000000",
+      ACOUT(29 downto 0) => \NLW_rgb_data_out2__3_ACOUT_UNCONNECTED\(29 downto 0),
+      ALUMODE(3 downto 0) => B"0000",
+      B(17 downto 8) => B"0000000000",
+      B(7 downto 5) => B(7 downto 5),
+      B(4) => rgb_data_out2_i_4_n_0,
+      B(3) => rgb_data_out2_i_5_n_0,
+      B(2) => rgb_data_out2_i_6_n_0,
+      B(1 downto 0) => B(1 downto 0),
+      BCIN(17 downto 0) => B"000000000000000000",
+      BCOUT(17 downto 0) => \NLW_rgb_data_out2__3_BCOUT_UNCONNECTED\(17 downto 0),
+      C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
+      CARRYCASCIN => '0',
+      CARRYCASCOUT => \NLW_rgb_data_out2__3_CARRYCASCOUT_UNCONNECTED\,
+      CARRYIN => '0',
+      CARRYINSEL(2 downto 0) => B"000",
+      CARRYOUT(3 downto 0) => \NLW_rgb_data_out2__3_CARRYOUT_UNCONNECTED\(3 downto 0),
+      CEA1 => '0',
+      CEA2 => '0',
+      CEAD => '0',
+      CEALUMODE => '0',
+      CEB1 => '0',
+      CEB2 => '0',
+      CEC => '0',
+      CECARRYIN => '0',
+      CECTRL => '0',
+      CED => '0',
+      CEINMODE => '0',
+      CEM => '0',
+      CEP => '0',
+      CLK => '0',
+      D(24 downto 0) => B"0000000000000000000000000",
+      INMODE(4 downto 0) => B"00000",
+      MULTSIGNIN => '0',
+      MULTSIGNOUT => \NLW_rgb_data_out2__3_MULTSIGNOUT_UNCONNECTED\,
+      OPMODE(6 downto 0) => B"0000101",
+      OVERFLOW => \NLW_rgb_data_out2__3_OVERFLOW_UNCONNECTED\,
+      P(47 downto 24) => \NLW_rgb_data_out2__3_P_UNCONNECTED\(47 downto 24),
+      P(23) => \rgb_data_out2__3_n_82\,
+      P(22) => \rgb_data_out2__3_n_83\,
+      P(21) => \rgb_data_out2__3_n_84\,
+      P(20) => \rgb_data_out2__3_n_85\,
+      P(19) => \rgb_data_out2__3_n_86\,
+      P(18) => \rgb_data_out2__3_n_87\,
+      P(17) => \rgb_data_out2__3_n_88\,
+      P(16) => \rgb_data_out2__3_n_89\,
+      P(15 downto 8) => rgb_data_out112_in(7 downto 0),
+      P(7) => \rgb_data_out2__3_n_98\,
+      P(6) => \rgb_data_out2__3_n_99\,
+      P(5) => \rgb_data_out2__3_n_100\,
+      P(4) => \rgb_data_out2__3_n_101\,
+      P(3) => \rgb_data_out2__3_n_102\,
+      P(2) => \rgb_data_out2__3_n_103\,
+      P(1) => \rgb_data_out2__3_n_104\,
+      P(0) => \rgb_data_out2__3_n_105\,
+      PATTERNBDETECT => \NLW_rgb_data_out2__3_PATTERNBDETECT_UNCONNECTED\,
+      PATTERNDETECT => \NLW_rgb_data_out2__3_PATTERNDETECT_UNCONNECTED\,
+      PCIN(47 downto 0) => B"000000000000000000000000000000000000000000000000",
+      PCOUT(47 downto 0) => \NLW_rgb_data_out2__3_PCOUT_UNCONNECTED\(47 downto 0),
+      RSTA => '0',
+      RSTALLCARRYIN => '0',
+      RSTALUMODE => '0',
+      RSTB => '0',
+      RSTC => '0',
+      RSTCTRL => '0',
+      RSTD => '0',
+      RSTINMODE => '0',
+      RSTM => '0',
+      RSTP => '0',
+      UNDERFLOW => \NLW_rgb_data_out2__3_UNDERFLOW_UNCONNECTED\
+    );
+\rgb_data_out2__3_i_1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out2__3_i_2_n_0\,
+      CO(3) => \NLW_rgb_data_out2__3_i_1_CO_UNCONNECTED\(3),
+      CO(2) => \rgb_data_out2__3_i_1_n_1\,
+      CO(1) => \rgb_data_out2__3_i_1_n_2\,
+      CO(0) => \rgb_data_out2__3_i_1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3) => \rgb_data_out2__3_i_1_n_4\,
+      O(2) => \rgb_data_out2__3_i_1_n_5\,
+      O(1) => \rgb_data_out2__3_i_1_n_6\,
+      O(0) => \rgb_data_out2__3_i_1_n_7\,
+      S(3) => \rgb_data_out2__3_i_3_n_0\,
+      S(2) => \rgb_data_out2__3_i_4_n_0\,
+      S(1) => \rgb_data_out2__3_i_5_n_0\,
+      S(0) => \rgb_data_out2__3_i_6_n_0\
+    );
+\rgb_data_out2__3_i_10\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      O => \rgb_data_out2__3_i_10_n_0\
+    );
+\rgb_data_out2__3_i_2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out2__3_i_2_n_0\,
+      CO(2) => \rgb_data_out2__3_i_2_n_1\,
+      CO(1) => \rgb_data_out2__3_i_2_n_2\,
+      CO(0) => \rgb_data_out2__3_i_2_n_3\,
+      CYINIT => '0',
+      DI(3 downto 2) => B"00",
+      DI(1) => \rgb_data_out2__3_i_7_n_0\,
+      DI(0) => '0',
+      O(3) => \rgb_data_out2__3_i_2_n_4\,
+      O(2) => \rgb_data_out2__3_i_2_n_5\,
+      O(1) => \rgb_data_out2__3_i_2_n_6\,
+      O(0) => \NLW_rgb_data_out2__3_i_2_O_UNCONNECTED\(0),
+      S(3) => \rgb_data_out2__3_i_8_n_0\,
+      S(2) => \rgb_data_out2__3_i_9_n_0\,
+      S(1) => preconvert_reg(25),
+      S(0) => \rgb_data_out2__3_i_10_n_0\
+    );
+\rgb_data_out2__3_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(31),
+      O => \rgb_data_out2__3_i_3_n_0\
+    );
+\rgb_data_out2__3_i_4\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(30),
+      O => \rgb_data_out2__3_i_4_n_0\
+    );
+\rgb_data_out2__3_i_5\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(29),
+      O => \rgb_data_out2__3_i_5_n_0\
+    );
+\rgb_data_out2__3_i_6\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(28),
+      O => \rgb_data_out2__3_i_6_n_0\
+    );
+\rgb_data_out2__3_i_7\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(25),
+      O => \rgb_data_out2__3_i_7_n_0\
+    );
+\rgb_data_out2__3_i_8\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(27),
+      O => \rgb_data_out2__3_i_8_n_0\
+    );
+\rgb_data_out2__3_i_9\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(26),
+      O => \rgb_data_out2__3_i_9_n_0\
+    );
+\rgb_data_out2__4\: unisim.vcomponents.DSP48E1
+    generic map(
+      ACASCREG => 0,
+      ADREG => 1,
+      ALUMODEREG => 0,
+      AREG => 0,
+      AUTORESET_PATDET => "NO_RESET",
+      A_INPUT => "DIRECT",
+      BCASCREG => 0,
+      BREG => 0,
+      B_INPUT => "DIRECT",
+      CARRYINREG => 0,
+      CARRYINSELREG => 0,
+      CREG => 1,
+      DREG => 1,
+      INMODEREG => 0,
+      MASK => X"3FFFFFFFFFFF",
+      MREG => 0,
+      OPMODEREG => 0,
+      PATTERN => X"000000000000",
+      PREG => 0,
+      SEL_MASK => "MASK",
+      SEL_PATTERN => "PATTERN",
+      USE_DPORT => false,
+      USE_MULT => "MULTIPLY",
+      USE_PATTERN_DETECT => "NO_PATDET",
+      USE_SIMD => "ONE48"
+    )
+        port map (
+      A(29 downto 16) => B"00000000000000",
+      A(15 downto 0) => preconvert_reg(31 downto 16),
+      ACIN(29 downto 0) => B"000000000000000000000000000000",
+      ACOUT(29 downto 0) => \NLW_rgb_data_out2__4_ACOUT_UNCONNECTED\(29 downto 0),
+      ALUMODE(3 downto 0) => B"0000",
+      B(17 downto 8) => B"0000000000",
+      B(7 downto 5) => B(7 downto 5),
+      B(4) => rgb_data_out2_i_4_n_0,
+      B(3) => rgb_data_out2_i_5_n_0,
+      B(2) => rgb_data_out2_i_6_n_0,
+      B(1 downto 0) => B(1 downto 0),
+      BCIN(17 downto 0) => B"000000000000000000",
+      BCOUT(17 downto 0) => \NLW_rgb_data_out2__4_BCOUT_UNCONNECTED\(17 downto 0),
+      C(47 downto 0) => B"111111111111111111111111111111111111111111111111",
+      CARRYCASCIN => '0',
+      CARRYCASCOUT => \NLW_rgb_data_out2__4_CARRYCASCOUT_UNCONNECTED\,
+      CARRYIN => '0',
+      CARRYINSEL(2 downto 0) => B"000",
+      CARRYOUT(3 downto 0) => \NLW_rgb_data_out2__4_CARRYOUT_UNCONNECTED\(3 downto 0),
+      CEA1 => '0',
+      CEA2 => '0',
+      CEAD => '0',
+      CEALUMODE => '0',
+      CEB1 => '0',
+      CEB2 => '0',
+      CEC => '0',
+      CECARRYIN => '0',
+      CECTRL => '0',
+      CED => '0',
+      CEINMODE => '0',
+      CEM => '0',
+      CEP => '0',
+      CLK => '0',
+      D(24 downto 0) => B"0000000000000000000000000",
+      INMODE(4 downto 0) => B"00000",
+      MULTSIGNIN => '0',
+      MULTSIGNOUT => \NLW_rgb_data_out2__4_MULTSIGNOUT_UNCONNECTED\,
+      OPMODE(6 downto 0) => B"0000101",
+      OVERFLOW => \NLW_rgb_data_out2__4_OVERFLOW_UNCONNECTED\,
+      P(47 downto 24) => \NLW_rgb_data_out2__4_P_UNCONNECTED\(47 downto 24),
+      P(23) => \rgb_data_out2__4_n_82\,
+      P(22) => \rgb_data_out2__4_n_83\,
+      P(21) => \rgb_data_out2__4_n_84\,
+      P(20) => \rgb_data_out2__4_n_85\,
+      P(19) => \rgb_data_out2__4_n_86\,
+      P(18) => \rgb_data_out2__4_n_87\,
+      P(17) => \rgb_data_out2__4_n_88\,
+      P(16) => \rgb_data_out2__4_n_89\,
+      P(15 downto 8) => rgb_data_out115_in(7 downto 0),
+      P(7) => \rgb_data_out2__4_n_98\,
+      P(6) => \rgb_data_out2__4_n_99\,
+      P(5) => \rgb_data_out2__4_n_100\,
+      P(4) => \rgb_data_out2__4_n_101\,
+      P(3) => \rgb_data_out2__4_n_102\,
+      P(2) => \rgb_data_out2__4_n_103\,
+      P(1) => \rgb_data_out2__4_n_104\,
+      P(0) => \rgb_data_out2__4_n_105\,
+      PATTERNBDETECT => \NLW_rgb_data_out2__4_PATTERNBDETECT_UNCONNECTED\,
+      PATTERNDETECT => \NLW_rgb_data_out2__4_PATTERNDETECT_UNCONNECTED\,
+      PCIN(47 downto 0) => B"000000000000000000000000000000000000000000000000",
+      PCOUT(47 downto 0) => \NLW_rgb_data_out2__4_PCOUT_UNCONNECTED\(47 downto 0),
+      RSTA => '0',
+      RSTALLCARRYIN => '0',
+      RSTALUMODE => '0',
+      RSTB => '0',
+      RSTC => '0',
+      RSTCTRL => '0',
+      RSTD => '0',
+      RSTINMODE => '0',
+      RSTM => '0',
+      RSTP => '0',
+      UNDERFLOW => \NLW_rgb_data_out2__4_UNDERFLOW_UNCONNECTED\
+    );
+rgb_data_out2_i_1: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => rgb_data_out3(7),
+      I1 => rgb_data_out2_i_19_n_0,
+      I2 => rgb_data_out3(6),
+      O => B(7)
+    );
+rgb_data_out2_i_10: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => rgb_data_out2_i_10_n_0,
+      CO(2) => rgb_data_out2_i_10_n_1,
+      CO(1) => rgb_data_out2_i_10_n_2,
+      CO(0) => rgb_data_out2_i_10_n_3,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2) => rgb_data_out2_i_24_n_0,
+      DI(1) => rgb_data_out2_i_25_n_0,
+      DI(0) => '0',
+      O(3) => rgb_data_out2_i_10_n_4,
+      O(2) => rgb_data_out2_i_10_n_5,
+      O(1) => rgb_data_out2_i_10_n_6,
+      O(0) => rgb_data_out2_i_10_n_7,
+      S(3) => rgb_data_out2_i_26_n_0,
+      S(2 downto 1) => preconvert_reg(26 downto 25),
+      S(0) => rgb_data_out2_i_27_n_0
+    );
+rgb_data_out2_i_11: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(23),
+      O => rgb_data_out2_i_11_n_0
+    );
+rgb_data_out2_i_12: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(22),
+      O => rgb_data_out2_i_12_n_0
+    );
+rgb_data_out2_i_13: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(21),
+      O => rgb_data_out2_i_13_n_0
+    );
+rgb_data_out2_i_14: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(20),
+      O => rgb_data_out2_i_14_n_0
+    );
+rgb_data_out2_i_15: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(19),
+      O => rgb_data_out2_i_15_n_0
+    );
+rgb_data_out2_i_16: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(18),
+      O => rgb_data_out2_i_16_n_0
+    );
+rgb_data_out2_i_17: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(17),
+      O => rgb_data_out2_i_17_n_0
+    );
+rgb_data_out2_i_18: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(16),
+      O => rgb_data_out2_i_18_n_0
+    );
+rgb_data_out2_i_19: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8000000000000000"
+    )
+        port map (
+      I0 => rgb_data_out3(5),
+      I1 => rgb_data_out3(4),
+      I2 => rgb_data_out3(2),
+      I3 => rgb_data_out3(0),
+      I4 => rgb_data_out3(1),
+      I5 => rgb_data_out3(3),
+      O => rgb_data_out2_i_19_n_0
+    );
+rgb_data_out2_i_2: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out3(6),
+      I1 => rgb_data_out2_i_19_n_0,
+      O => B(6)
+    );
+rgb_data_out2_i_20: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(31),
+      O => rgb_data_out2_i_20_n_0
+    );
+rgb_data_out2_i_21: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(30),
+      O => rgb_data_out2_i_21_n_0
+    );
+rgb_data_out2_i_22: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(29),
+      O => rgb_data_out2_i_22_n_0
+    );
+rgb_data_out2_i_23: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(28),
+      O => rgb_data_out2_i_23_n_0
+    );
+rgb_data_out2_i_24: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(26),
+      O => rgb_data_out2_i_24_n_0
+    );
+rgb_data_out2_i_25: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(25),
+      O => rgb_data_out2_i_25_n_0
+    );
+rgb_data_out2_i_26: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(27),
+      O => rgb_data_out2_i_26_n_0
+    );
+rgb_data_out2_i_27: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(24),
+      O => rgb_data_out2_i_27_n_0
+    );
+rgb_data_out2_i_3: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"7FFFFFFF80000000"
+    )
+        port map (
+      I0 => rgb_data_out3(3),
+      I1 => rgb_data_out3(1),
+      I2 => rgb_data_out3(0),
+      I3 => rgb_data_out3(2),
+      I4 => rgb_data_out3(4),
+      I5 => rgb_data_out3(5),
+      O => B(5)
+    );
+rgb_data_out2_i_4: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"6AAAAAAA"
+    )
+        port map (
+      I0 => rgb_data_out3(4),
+      I1 => rgb_data_out3(3),
+      I2 => rgb_data_out3(1),
+      I3 => rgb_data_out3(0),
+      I4 => rgb_data_out3(2),
+      O => rgb_data_out2_i_4_n_0
+    );
+rgb_data_out2_i_5: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6AAA"
+    )
+        port map (
+      I0 => rgb_data_out3(3),
+      I1 => rgb_data_out3(2),
+      I2 => rgb_data_out3(0),
+      I3 => rgb_data_out3(1),
+      O => rgb_data_out2_i_5_n_0
+    );
+rgb_data_out2_i_6: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => rgb_data_out3(2),
+      I1 => rgb_data_out3(1),
+      I2 => rgb_data_out3(0),
+      O => rgb_data_out2_i_6_n_0
+    );
+rgb_data_out2_i_7: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => rgb_data_out3(1),
+      I1 => rgb_data_out3(0),
+      O => B(1)
+    );
+rgb_data_out2_i_8: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => rgb_data_out3(0),
+      O => B(0)
+    );
+rgb_data_out2_i_9: unisim.vcomponents.CARRY4
+     port map (
+      CI => rgb_data_out2_i_10_n_0,
+      CO(3) => NLW_rgb_data_out2_i_9_CO_UNCONNECTED(3),
+      CO(2) => rgb_data_out2_i_9_n_1,
+      CO(1) => rgb_data_out2_i_9_n_2,
+      CO(0) => rgb_data_out2_i_9_n_3,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3) => rgb_data_out2_i_9_n_4,
+      O(2) => rgb_data_out2_i_9_n_5,
+      O(1) => rgb_data_out2_i_9_n_6,
+      O(0) => rgb_data_out2_i_9_n_7,
+      S(3) => rgb_data_out2_i_20_n_0,
+      S(2) => rgb_data_out2_i_21_n_0,
+      S(1) => rgb_data_out2_i_22_n_0,
+      S(0) => rgb_data_out2_i_23_n_0
+    );
+\rgb_data_out4__0_carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out4__0_carry_n_0\,
+      CO(2) => \rgb_data_out4__0_carry_n_1\,
+      CO(1) => \rgb_data_out4__0_carry_n_2\,
+      CO(0) => \rgb_data_out4__0_carry_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__0_carry_i_1_n_0\,
+      DI(2) => \rgb_data_out4__0_carry_i_2_n_0\,
+      DI(1) => \rgb_data_out4__0_carry_i_3_n_0\,
+      DI(0) => '0',
+      O(3) => \rgb_data_out4__0_carry_n_4\,
+      O(2 downto 0) => \NLW_rgb_data_out4__0_carry_O_UNCONNECTED\(2 downto 0),
+      S(3) => \rgb_data_out4__0_carry_i_4_n_0\,
+      S(2) => \rgb_data_out4__0_carry_i_5_n_0\,
+      S(1) => \rgb_data_out4__0_carry_i_6_n_0\,
+      S(0) => \rgb_data_out4__0_carry_i_7_n_0\
+    );
+\rgb_data_out4__0_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__0_carry_n_0\,
+      CO(3) => \rgb_data_out4__0_carry__0_n_0\,
+      CO(2) => \rgb_data_out4__0_carry__0_n_1\,
+      CO(1) => \rgb_data_out4__0_carry__0_n_2\,
+      CO(0) => \rgb_data_out4__0_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__0_carry__0_i_1_n_0\,
+      DI(2) => \rgb_data_out4__0_carry__0_i_2_n_0\,
+      DI(1) => \rgb_data_out4__0_carry__0_i_3_n_0\,
+      DI(0) => \rgb_data_out4__0_carry__0_i_4_n_0\,
+      O(3) => \rgb_data_out4__0_carry__0_n_4\,
+      O(2) => \rgb_data_out4__0_carry__0_n_5\,
+      O(1) => \rgb_data_out4__0_carry__0_n_6\,
+      O(0) => \rgb_data_out4__0_carry__0_n_7\,
+      S(3) => \rgb_data_out4__0_carry__0_i_5_n_0\,
+      S(2) => \rgb_data_out4__0_carry__0_i_6_n_0\,
+      S(1) => \rgb_data_out4__0_carry__0_i_7_n_0\,
+      S(0) => \rgb_data_out4__0_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(12),
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(13),
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(14),
+      O => \rgb_data_out4__0_carry__0_i_1_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_10\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(13),
+      I1 => preconvert_reg(1),
+      O => \rgb_data_out4__0_carry__0_i_10_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_11\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(12),
+      I1 => preconvert_reg(1),
+      O => \rgb_data_out4__0_carry__0_i_11_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_12\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(11),
+      I1 => preconvert_reg(1),
+      O => \rgb_data_out4__0_carry__0_i_12_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(11),
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(12),
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(13),
+      O => \rgb_data_out4__0_carry__0_i_2_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(10),
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(11),
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(12),
+      O => \rgb_data_out4__0_carry__0_i_3_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(10),
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(11),
+      O => \rgb_data_out4__0_carry__0_i_4_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_5\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6999966696669666"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry__0_i_1_n_0\,
+      I1 => \rgb_data_out4__0_carry__0_i_9_n_0\,
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(14),
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(15),
+      O => \rgb_data_out4__0_carry__0_i_5_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A95956A956A956A"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry__0_i_2_n_0\,
+      I1 => preconvert_reg(2),
+      I2 => preconvert_reg(12),
+      I3 => \rgb_data_out4__0_carry__0_i_10_n_0\,
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(14),
+      O => \rgb_data_out4__0_carry__0_i_6_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_7\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A95956A956A956A"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry__0_i_3_n_0\,
+      I1 => preconvert_reg(2),
+      I2 => preconvert_reg(11),
+      I3 => \rgb_data_out4__0_carry__0_i_11_n_0\,
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(13),
+      O => \rgb_data_out4__0_carry__0_i_7_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_8\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A95956A956A956A"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry__0_i_4_n_0\,
+      I1 => preconvert_reg(2),
+      I2 => preconvert_reg(10),
+      I3 => \rgb_data_out4__0_carry__0_i_12_n_0\,
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(12),
+      O => \rgb_data_out4__0_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__0_carry__0_i_9\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(13),
+      I1 => preconvert_reg(2),
+      O => \rgb_data_out4__0_carry__0_i_9_n_0\
+    );
+\rgb_data_out4__0_carry__1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__0_carry__0_n_0\,
+      CO(3) => \rgb_data_out4__0_carry__1_n_0\,
+      CO(2) => \NLW_rgb_data_out4__0_carry__1_CO_UNCONNECTED\(2),
+      CO(1) => \rgb_data_out4__0_carry__1_n_2\,
+      CO(0) => \rgb_data_out4__0_carry__1_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2) => \rgb_data_out4__0_carry__1_i_1_n_0\,
+      DI(1) => \rgb_data_out4__0_carry__1_i_2_n_0\,
+      DI(0) => \rgb_data_out4__0_carry__1_i_3_n_0\,
+      O(3) => \NLW_rgb_data_out4__0_carry__1_O_UNCONNECTED\(3),
+      O(2) => \rgb_data_out4__0_carry__1_n_5\,
+      O(1) => \rgb_data_out4__0_carry__1_n_6\,
+      O(0) => \rgb_data_out4__0_carry__1_n_7\,
+      S(3) => '1',
+      S(2) => \rgb_data_out4__0_carry__1_i_4_n_0\,
+      S(1) => \rgb_data_out4__0_carry__1_i_5_n_0\,
+      S(0) => \rgb_data_out4__0_carry__1_i_6_n_0\
+    );
+\rgb_data_out4__0_carry__1_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(15),
+      I1 => preconvert_reg(2),
+      O => \rgb_data_out4__0_carry__1_i_1_n_0\
+    );
+\rgb_data_out4__0_carry__1_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(14),
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(15),
+      O => \rgb_data_out4__0_carry__1_i_2_n_0\
+    );
+\rgb_data_out4__0_carry__1_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(13),
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(14),
+      I4 => preconvert_reg(0),
+      I5 => preconvert_reg(15),
+      O => \rgb_data_out4__0_carry__1_i_3_n_0\
+    );
+\rgb_data_out4__0_carry__1_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(15),
+      O => \rgb_data_out4__0_carry__1_i_4_n_0\
+    );
+\rgb_data_out4__0_carry__1_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"E53F"
+    )
+        port map (
+      I0 => preconvert_reg(1),
+      I1 => preconvert_reg(14),
+      I2 => preconvert_reg(2),
+      I3 => preconvert_reg(15),
+      O => \rgb_data_out4__0_carry__1_i_5_n_0\
+    );
+\rgb_data_out4__0_carry__1_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"1A808F7FCFFF0FFF"
+    )
+        port map (
+      I0 => preconvert_reg(0),
+      I1 => preconvert_reg(13),
+      I2 => preconvert_reg(2),
+      I3 => preconvert_reg(14),
+      I4 => preconvert_reg(1),
+      I5 => preconvert_reg(15),
+      O => \rgb_data_out4__0_carry__1_i_6_n_0\
+    );
+\rgb_data_out4__0_carry_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8777788878887888"
+    )
+        port map (
+      I0 => preconvert_reg(11),
+      I1 => preconvert_reg(0),
+      I2 => preconvert_reg(10),
+      I3 => preconvert_reg(1),
+      I4 => preconvert_reg(9),
+      I5 => preconvert_reg(2),
+      O => \rgb_data_out4__0_carry_i_1_n_0\
+    );
+\rgb_data_out4__0_carry_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7888"
+    )
+        port map (
+      I0 => preconvert_reg(1),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(2),
+      I3 => preconvert_reg(8),
+      O => \rgb_data_out4__0_carry_i_2_n_0\
+    );
+\rgb_data_out4__0_carry_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(8),
+      I1 => preconvert_reg(1),
+      O => \rgb_data_out4__0_carry_i_3_n_0\
+    );
+\rgb_data_out4__0_carry_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A953F3F6A6AC0C0"
+    )
+        port map (
+      I0 => preconvert_reg(10),
+      I1 => preconvert_reg(0),
+      I2 => preconvert_reg(11),
+      I3 => preconvert_reg(8),
+      I4 => preconvert_reg(1),
+      I5 => \rgb_data_out4__0_carry_i_8_n_0\,
+      O => \rgb_data_out4__0_carry_i_4_n_0\
+    );
+\rgb_data_out4__0_carry_i_5\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8777788878887888"
+    )
+        port map (
+      I0 => preconvert_reg(8),
+      I1 => preconvert_reg(2),
+      I2 => preconvert_reg(9),
+      I3 => preconvert_reg(1),
+      I4 => preconvert_reg(10),
+      I5 => preconvert_reg(0),
+      O => \rgb_data_out4__0_carry_i_5_n_0\
+    );
+\rgb_data_out4__0_carry_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7888"
+    )
+        port map (
+      I0 => preconvert_reg(9),
+      I1 => preconvert_reg(0),
+      I2 => preconvert_reg(1),
+      I3 => preconvert_reg(8),
+      O => \rgb_data_out4__0_carry_i_6_n_0\
+    );
+\rgb_data_out4__0_carry_i_7\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(0),
+      I1 => preconvert_reg(8),
+      O => \rgb_data_out4__0_carry_i_7_n_0\
+    );
+\rgb_data_out4__0_carry_i_8\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(9),
+      I1 => preconvert_reg(2),
+      O => \rgb_data_out4__0_carry_i_8_n_0\
+    );
+\rgb_data_out4__29_carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out4__29_carry_n_0\,
+      CO(2) => \rgb_data_out4__29_carry_n_1\,
+      CO(1) => \rgb_data_out4__29_carry_n_2\,
+      CO(0) => \rgb_data_out4__29_carry_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__29_carry_i_1_n_0\,
+      DI(2) => \rgb_data_out4__29_carry_i_2_n_0\,
+      DI(1) => \rgb_data_out4__29_carry_i_3_n_0\,
+      DI(0) => '0',
+      O(3) => \rgb_data_out4__29_carry_n_4\,
+      O(2) => \rgb_data_out4__29_carry_n_5\,
+      O(1) => \rgb_data_out4__29_carry_n_6\,
+      O(0) => \rgb_data_out4__29_carry_n_7\,
+      S(3) => \rgb_data_out4__29_carry_i_4_n_0\,
+      S(2) => \rgb_data_out4__29_carry_i_5_n_0\,
+      S(1) => \rgb_data_out4__29_carry_i_6_n_0\,
+      S(0) => \rgb_data_out4__29_carry_i_7_n_0\
+    );
+\rgb_data_out4__29_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__29_carry_n_0\,
+      CO(3) => \rgb_data_out4__29_carry__0_n_0\,
+      CO(2) => \rgb_data_out4__29_carry__0_n_1\,
+      CO(1) => \rgb_data_out4__29_carry__0_n_2\,
+      CO(0) => \rgb_data_out4__29_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__29_carry__0_i_1_n_0\,
+      DI(2) => \rgb_data_out4__29_carry__0_i_2_n_0\,
+      DI(1) => \rgb_data_out4__29_carry__0_i_3_n_0\,
+      DI(0) => \rgb_data_out4__29_carry__0_i_4_n_0\,
+      O(3) => \rgb_data_out4__29_carry__0_n_4\,
+      O(2) => \rgb_data_out4__29_carry__0_n_5\,
+      O(1) => \rgb_data_out4__29_carry__0_n_6\,
+      O(0) => \rgb_data_out4__29_carry__0_n_7\,
+      S(3) => \rgb_data_out4__29_carry__0_i_5_n_0\,
+      S(2) => \rgb_data_out4__29_carry__0_i_6_n_0\,
+      S(1) => \rgb_data_out4__29_carry__0_i_7_n_0\,
+      S(0) => \rgb_data_out4__29_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(12),
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(13),
+      I4 => preconvert_reg(14),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_1_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_10\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(13),
+      I1 => preconvert_reg(4),
+      O => \rgb_data_out4__29_carry__0_i_10_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_11\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(12),
+      I1 => preconvert_reg(4),
+      O => \rgb_data_out4__29_carry__0_i_11_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_12\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(11),
+      I1 => preconvert_reg(4),
+      O => \rgb_data_out4__29_carry__0_i_12_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(11),
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(12),
+      I4 => preconvert_reg(13),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_2_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(10),
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(11),
+      I4 => preconvert_reg(12),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_3_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(10),
+      I4 => preconvert_reg(11),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_4_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_5\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6999966696669666"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__0_i_1_n_0\,
+      I1 => \rgb_data_out4__29_carry__0_i_9_n_0\,
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(14),
+      I4 => preconvert_reg(15),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_5_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A95956A956A956A"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__0_i_2_n_0\,
+      I1 => preconvert_reg(5),
+      I2 => preconvert_reg(12),
+      I3 => \rgb_data_out4__29_carry__0_i_10_n_0\,
+      I4 => preconvert_reg(14),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_6_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_7\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A95956A956A956A"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__0_i_3_n_0\,
+      I1 => preconvert_reg(5),
+      I2 => preconvert_reg(11),
+      I3 => \rgb_data_out4__29_carry__0_i_11_n_0\,
+      I4 => preconvert_reg(13),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_7_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_8\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A95956A956A956A"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__0_i_4_n_0\,
+      I1 => preconvert_reg(5),
+      I2 => preconvert_reg(10),
+      I3 => \rgb_data_out4__29_carry__0_i_12_n_0\,
+      I4 => preconvert_reg(12),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__29_carry__0_i_9\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(13),
+      I1 => preconvert_reg(5),
+      O => \rgb_data_out4__29_carry__0_i_9_n_0\
+    );
+\rgb_data_out4__29_carry__1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__29_carry__0_n_0\,
+      CO(3) => \rgb_data_out4__29_carry__1_n_0\,
+      CO(2) => \NLW_rgb_data_out4__29_carry__1_CO_UNCONNECTED\(2),
+      CO(1) => \rgb_data_out4__29_carry__1_n_2\,
+      CO(0) => \rgb_data_out4__29_carry__1_n_3\,
+      CYINIT => '0',
+      DI(3) => '0',
+      DI(2) => \rgb_data_out4__29_carry__1_i_1_n_0\,
+      DI(1) => \rgb_data_out4__29_carry__1_i_2_n_0\,
+      DI(0) => \rgb_data_out4__29_carry__1_i_3_n_0\,
+      O(3) => \NLW_rgb_data_out4__29_carry__1_O_UNCONNECTED\(3),
+      O(2) => \rgb_data_out4__29_carry__1_n_5\,
+      O(1) => \rgb_data_out4__29_carry__1_n_6\,
+      O(0) => \rgb_data_out4__29_carry__1_n_7\,
+      S(3) => '1',
+      S(2) => \rgb_data_out4__29_carry__1_i_4_n_0\,
+      S(1) => \rgb_data_out4__29_carry__1_i_5_n_0\,
+      S(0) => \rgb_data_out4__29_carry__1_i_6_n_0\
+    );
+\rgb_data_out4__29_carry__1_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(15),
+      I1 => preconvert_reg(5),
+      O => \rgb_data_out4__29_carry__1_i_1_n_0\
+    );
+\rgb_data_out4__29_carry__1_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(14),
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(15),
+      O => \rgb_data_out4__29_carry__1_i_2_n_0\
+    );
+\rgb_data_out4__29_carry__1_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"F888800080008000"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(13),
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(14),
+      I4 => preconvert_reg(15),
+      I5 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry__1_i_3_n_0\
+    );
+\rgb_data_out4__29_carry__1_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(15),
+      O => \rgb_data_out4__29_carry__1_i_4_n_0\
+    );
+\rgb_data_out4__29_carry__1_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"E53F"
+    )
+        port map (
+      I0 => preconvert_reg(4),
+      I1 => preconvert_reg(14),
+      I2 => preconvert_reg(5),
+      I3 => preconvert_reg(15),
+      O => \rgb_data_out4__29_carry__1_i_5_n_0\
+    );
+\rgb_data_out4__29_carry__1_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"1A808F7FCFFF0FFF"
+    )
+        port map (
+      I0 => preconvert_reg(3),
+      I1 => preconvert_reg(13),
+      I2 => preconvert_reg(5),
+      I3 => preconvert_reg(14),
+      I4 => preconvert_reg(4),
+      I5 => preconvert_reg(15),
+      O => \rgb_data_out4__29_carry__1_i_6_n_0\
+    );
+\rgb_data_out4__29_carry_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8777788878887888"
+    )
+        port map (
+      I0 => preconvert_reg(3),
+      I1 => preconvert_reg(11),
+      I2 => preconvert_reg(10),
+      I3 => preconvert_reg(4),
+      I4 => preconvert_reg(9),
+      I5 => preconvert_reg(5),
+      O => \rgb_data_out4__29_carry_i_1_n_0\
+    );
+\rgb_data_out4__29_carry_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7888"
+    )
+        port map (
+      I0 => preconvert_reg(4),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(5),
+      I3 => preconvert_reg(8),
+      O => \rgb_data_out4__29_carry_i_2_n_0\
+    );
+\rgb_data_out4__29_carry_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(8),
+      I1 => preconvert_reg(4),
+      O => \rgb_data_out4__29_carry_i_3_n_0\
+    );
+\rgb_data_out4__29_carry_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6A953F3F6A6AC0C0"
+    )
+        port map (
+      I0 => preconvert_reg(10),
+      I1 => preconvert_reg(11),
+      I2 => preconvert_reg(3),
+      I3 => preconvert_reg(8),
+      I4 => preconvert_reg(4),
+      I5 => \rgb_data_out4__29_carry_i_8_n_0\,
+      O => \rgb_data_out4__29_carry_i_4_n_0\
+    );
+\rgb_data_out4__29_carry_i_5\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8777788878887888"
+    )
+        port map (
+      I0 => preconvert_reg(8),
+      I1 => preconvert_reg(5),
+      I2 => preconvert_reg(9),
+      I3 => preconvert_reg(4),
+      I4 => preconvert_reg(3),
+      I5 => preconvert_reg(10),
+      O => \rgb_data_out4__29_carry_i_5_n_0\
+    );
+\rgb_data_out4__29_carry_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7888"
+    )
+        port map (
+      I0 => preconvert_reg(3),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(4),
+      I3 => preconvert_reg(8),
+      O => \rgb_data_out4__29_carry_i_6_n_0\
+    );
+\rgb_data_out4__29_carry_i_7\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(8),
+      I1 => preconvert_reg(3),
+      O => \rgb_data_out4__29_carry_i_7_n_0\
+    );
+\rgb_data_out4__29_carry_i_8\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(9),
+      I1 => preconvert_reg(5),
+      O => \rgb_data_out4__29_carry_i_8_n_0\
+    );
+\rgb_data_out4__60_carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out4__60_carry_n_0\,
+      CO(2) => \rgb_data_out4__60_carry_n_1\,
+      CO(1) => \rgb_data_out4__60_carry_n_2\,
+      CO(0) => \rgb_data_out4__60_carry_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__60_carry_i_1_n_0\,
+      DI(2) => \rgb_data_out4__60_carry_i_2_n_0\,
+      DI(1) => \rgb_data_out4__60_carry_i_3_n_0\,
+      DI(0) => '0',
+      O(3) => \rgb_data_out4__60_carry_n_4\,
+      O(2) => \rgb_data_out4__60_carry_n_5\,
+      O(1) => \rgb_data_out4__60_carry_n_6\,
+      O(0) => \rgb_data_out4__60_carry_n_7\,
+      S(3) => \rgb_data_out4__60_carry_i_4_n_0\,
+      S(2) => \rgb_data_out4__60_carry_i_5_n_0\,
+      S(1) => \rgb_data_out4__60_carry_i_6_n_0\,
+      S(0) => \rgb_data_out4__60_carry_i_7_n_0\
+    );
+\rgb_data_out4__60_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__60_carry_n_0\,
+      CO(3) => \rgb_data_out4__60_carry__0_n_0\,
+      CO(2) => \rgb_data_out4__60_carry__0_n_1\,
+      CO(1) => \rgb_data_out4__60_carry__0_n_2\,
+      CO(0) => \rgb_data_out4__60_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__60_carry__0_i_1_n_0\,
+      DI(2) => \rgb_data_out4__60_carry__0_i_2_n_0\,
+      DI(1) => \rgb_data_out4__60_carry__0_i_3_n_0\,
+      DI(0) => \rgb_data_out4__60_carry__0_i_4_n_0\,
+      O(3) => \rgb_data_out4__60_carry__0_n_4\,
+      O(2) => \rgb_data_out4__60_carry__0_n_5\,
+      O(1) => \rgb_data_out4__60_carry__0_n_6\,
+      O(0) => \rgb_data_out4__60_carry__0_n_7\,
+      S(3) => \rgb_data_out4__60_carry__0_i_5_n_0\,
+      S(2) => \rgb_data_out4__60_carry__0_i_6_n_0\,
+      S(1) => \rgb_data_out4__60_carry__0_i_7_n_0\,
+      S(0) => \rgb_data_out4__60_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => preconvert_reg(13),
+      I2 => preconvert_reg(6),
+      I3 => preconvert_reg(14),
+      O => \rgb_data_out4__60_carry__0_i_1_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => preconvert_reg(12),
+      I2 => preconvert_reg(6),
+      I3 => preconvert_reg(13),
+      O => \rgb_data_out4__60_carry__0_i_2_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => preconvert_reg(11),
+      I2 => preconvert_reg(6),
+      I3 => preconvert_reg(12),
+      O => \rgb_data_out4__60_carry__0_i_3_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_4\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => preconvert_reg(10),
+      I2 => preconvert_reg(6),
+      I3 => preconvert_reg(11),
+      O => \rgb_data_out4__60_carry__0_i_4_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_5\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"38B7C7B7"
+    )
+        port map (
+      I0 => preconvert_reg(13),
+      I1 => preconvert_reg(7),
+      I2 => preconvert_reg(14),
+      I3 => preconvert_reg(6),
+      I4 => preconvert_reg(15),
+      O => \rgb_data_out4__60_carry__0_i_5_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_6\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"38B7C7B7"
+    )
+        port map (
+      I0 => preconvert_reg(12),
+      I1 => preconvert_reg(7),
+      I2 => preconvert_reg(13),
+      I3 => preconvert_reg(6),
+      I4 => preconvert_reg(14),
+      O => \rgb_data_out4__60_carry__0_i_6_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_7\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"38B7C7B7"
+    )
+        port map (
+      I0 => preconvert_reg(11),
+      I1 => preconvert_reg(7),
+      I2 => preconvert_reg(12),
+      I3 => preconvert_reg(6),
+      I4 => preconvert_reg(13),
+      O => \rgb_data_out4__60_carry__0_i_7_n_0\
+    );
+\rgb_data_out4__60_carry__0_i_8\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"38B7C7B7"
+    )
+        port map (
+      I0 => preconvert_reg(10),
+      I1 => preconvert_reg(7),
+      I2 => preconvert_reg(11),
+      I3 => preconvert_reg(6),
+      I4 => preconvert_reg(12),
+      O => \rgb_data_out4__60_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__60_carry__1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__60_carry__0_n_0\,
+      CO(3 downto 2) => \NLW_rgb_data_out4__60_carry__1_CO_UNCONNECTED\(3 downto 2),
+      CO(1) => \rgb_data_out4__60_carry__1_n_2\,
+      CO(0) => \NLW_rgb_data_out4__60_carry__1_CO_UNCONNECTED\(0),
+      CYINIT => '0',
+      DI(3 downto 1) => B"000",
+      DI(0) => \rgb_data_out4__60_carry__1_i_1_n_0\,
+      O(3 downto 1) => \NLW_rgb_data_out4__60_carry__1_O_UNCONNECTED\(3 downto 1),
+      O(0) => \rgb_data_out4__60_carry__1_n_7\,
+      S(3 downto 1) => B"001",
+      S(0) => \rgb_data_out4__60_carry__1_i_2_n_0\
+    );
+\rgb_data_out4__60_carry__1_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F888"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => preconvert_reg(14),
+      I2 => preconvert_reg(6),
+      I3 => preconvert_reg(15),
+      O => \rgb_data_out4__60_carry__1_i_1_n_0\
+    );
+\rgb_data_out4__60_carry__1_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"1AC0"
+    )
+        port map (
+      I0 => preconvert_reg(6),
+      I1 => preconvert_reg(14),
+      I2 => preconvert_reg(7),
+      I3 => preconvert_reg(15),
+      O => \rgb_data_out4__60_carry__1_i_2_n_0\
+    );
+\rgb_data_out4__60_carry_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(9),
+      I1 => preconvert_reg(7),
+      O => \rgb_data_out4__60_carry_i_1_n_0\
+    );
+\rgb_data_out4__60_carry_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => preconvert_reg(9),
+      O => \rgb_data_out4__60_carry_i_2_n_0\
+    );
+\rgb_data_out4__60_carry_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(9),
+      I1 => preconvert_reg(6),
+      O => \rgb_data_out4__60_carry_i_3_n_0\
+    );
+\rgb_data_out4__60_carry_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"6A3F953F"
+    )
+        port map (
+      I0 => preconvert_reg(10),
+      I1 => preconvert_reg(6),
+      I2 => preconvert_reg(11),
+      I3 => preconvert_reg(7),
+      I4 => preconvert_reg(9),
+      O => \rgb_data_out4__60_carry_i_4_n_0\
+    );
+\rgb_data_out4__60_carry_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8777"
+    )
+        port map (
+      I0 => preconvert_reg(7),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(6),
+      I3 => preconvert_reg(10),
+      O => \rgb_data_out4__60_carry_i_5_n_0\
+    );
+\rgb_data_out4__60_carry_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7888"
+    )
+        port map (
+      I0 => preconvert_reg(6),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(7),
+      I3 => preconvert_reg(8),
+      O => \rgb_data_out4__60_carry_i_6_n_0\
+    );
+\rgb_data_out4__60_carry_i_7\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => preconvert_reg(8),
+      I1 => preconvert_reg(6),
+      O => \rgb_data_out4__60_carry_i_7_n_0\
+    );
+\rgb_data_out4__88_carry\: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => \rgb_data_out4__88_carry_n_0\,
+      CO(2) => \rgb_data_out4__88_carry_n_1\,
+      CO(1) => \rgb_data_out4__88_carry_n_2\,
+      CO(0) => \rgb_data_out4__88_carry_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__88_carry_i_1_n_0\,
+      DI(2) => \rgb_data_out4__88_carry_i_2_n_0\,
+      DI(1) => \rgb_data_out4__88_carry_i_3_n_0\,
+      DI(0) => '0',
+      O(3 downto 0) => \NLW_rgb_data_out4__88_carry_O_UNCONNECTED\(3 downto 0),
+      S(3) => \rgb_data_out4__88_carry_i_4_n_0\,
+      S(2) => \rgb_data_out4__88_carry_i_5_n_0\,
+      S(1) => \rgb_data_out4__88_carry_i_6_n_0\,
+      S(0) => \rgb_data_out4__88_carry_i_7_n_0\
+    );
+\rgb_data_out4__88_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__88_carry_n_0\,
+      CO(3) => \rgb_data_out4__88_carry__0_n_0\,
+      CO(2) => \rgb_data_out4__88_carry__0_n_1\,
+      CO(1) => \rgb_data_out4__88_carry__0_n_2\,
+      CO(0) => \rgb_data_out4__88_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__88_carry__0_i_1_n_0\,
+      DI(2) => \rgb_data_out4__88_carry__0_i_2_n_0\,
+      DI(1) => \rgb_data_out4__88_carry__0_i_3_n_0\,
+      DI(0) => \rgb_data_out4__88_carry__0_i_4_n_0\,
+      O(3 downto 1) => rgb_data_out3(2 downto 0),
+      O(0) => \NLW_rgb_data_out4__88_carry__0_O_UNCONNECTED\(0),
+      S(3) => \rgb_data_out4__88_carry__0_i_5_n_0\,
+      S(2) => \rgb_data_out4__88_carry__0_i_6_n_0\,
+      S(1) => \rgb_data_out4__88_carry__0_i_7_n_0\,
+      S(0) => \rgb_data_out4__88_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"82"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry__1_n_6\,
+      I1 => \rgb_data_out4__29_carry__0_n_5\,
+      I2 => \rgb_data_out4__60_carry_n_4\,
+      O => \rgb_data_out4__88_carry__0_i_1_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"69"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__0_n_5\,
+      I1 => \rgb_data_out4__60_carry_n_4\,
+      I2 => \rgb_data_out4__0_carry__1_n_6\,
+      O => \rgb_data_out4__88_carry__0_i_2_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"E8"
+    )
+        port map (
+      I0 => \rgb_data_out4__60_carry_n_6\,
+      I1 => \rgb_data_out4__0_carry__0_n_4\,
+      I2 => \rgb_data_out4__29_carry__0_n_7\,
+      O => \rgb_data_out4__88_carry__0_i_3_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"E8"
+    )
+        port map (
+      I0 => \rgb_data_out4__60_carry_n_7\,
+      I1 => \rgb_data_out4__0_carry__0_n_5\,
+      I2 => \rgb_data_out4__29_carry_n_4\,
+      O => \rgb_data_out4__88_carry__0_i_4_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_5\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"9669966996696996"
+    )
+        port map (
+      I0 => \rgb_data_out4__88_carry__0_i_1_n_0\,
+      I1 => \rgb_data_out4__29_carry__0_n_4\,
+      I2 => \rgb_data_out4__60_carry__0_n_7\,
+      I3 => \rgb_data_out4__0_carry__1_n_5\,
+      I4 => \rgb_data_out4__60_carry_n_4\,
+      I5 => \rgb_data_out4__29_carry__0_n_5\,
+      O => \rgb_data_out4__88_carry__0_i_5_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"9696966996696969"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry__1_n_6\,
+      I1 => \rgb_data_out4__60_carry_n_4\,
+      I2 => \rgb_data_out4__29_carry__0_n_5\,
+      I3 => \rgb_data_out4__29_carry__0_n_6\,
+      I4 => \rgb_data_out4__0_carry__1_n_7\,
+      I5 => \rgb_data_out4__60_carry_n_5\,
+      O => \rgb_data_out4__88_carry__0_i_6_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_7\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6996"
+    )
+        port map (
+      I0 => \rgb_data_out4__88_carry__0_i_3_n_0\,
+      I1 => \rgb_data_out4__60_carry_n_5\,
+      I2 => \rgb_data_out4__0_carry__1_n_7\,
+      I3 => \rgb_data_out4__29_carry__0_n_6\,
+      O => \rgb_data_out4__88_carry__0_i_7_n_0\
+    );
+\rgb_data_out4__88_carry__0_i_8\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6996"
+    )
+        port map (
+      I0 => \rgb_data_out4__60_carry_n_6\,
+      I1 => \rgb_data_out4__0_carry__0_n_4\,
+      I2 => \rgb_data_out4__29_carry__0_n_7\,
+      I3 => \rgb_data_out4__88_carry__0_i_4_n_0\,
+      O => \rgb_data_out4__88_carry__0_i_8_n_0\
+    );
+\rgb_data_out4__88_carry__1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__88_carry__0_n_0\,
+      CO(3) => \rgb_data_out4__88_carry__1_n_0\,
+      CO(2) => \rgb_data_out4__88_carry__1_n_1\,
+      CO(1) => \rgb_data_out4__88_carry__1_n_2\,
+      CO(0) => \rgb_data_out4__88_carry__1_n_3\,
+      CYINIT => '0',
+      DI(3) => \rgb_data_out4__88_carry__1_i_1_n_0\,
+      DI(2) => \rgb_data_out4__88_carry__1_i_2_n_0\,
+      DI(1) => \rgb_data_out4__88_carry__1_i_3_n_0\,
+      DI(0) => \rgb_data_out4__88_carry__1_i_4_n_0\,
+      O(3 downto 0) => rgb_data_out3(6 downto 3),
+      S(3) => \rgb_data_out4__88_carry__1_i_5_n_0\,
+      S(2) => \rgb_data_out4__88_carry__1_i_6_n_0\,
+      S(1) => \rgb_data_out4__88_carry__1_i_7_n_0\,
+      S(0) => \rgb_data_out4__88_carry__1_i_8_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0880"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__1_n_6\,
+      I1 => \rgb_data_out4__60_carry__0_n_5\,
+      I2 => \rgb_data_out4__29_carry__1_n_5\,
+      I3 => \rgb_data_out4__60_carry__0_n_4\,
+      O => \rgb_data_out4__88_carry__1_i_1_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"66606000"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__1_n_6\,
+      I1 => \rgb_data_out4__60_carry__0_n_5\,
+      I2 => \rgb_data_out4__29_carry__1_n_7\,
+      I3 => \rgb_data_out4__0_carry__1_n_0\,
+      I4 => \rgb_data_out4__60_carry__0_n_6\,
+      O => \rgb_data_out4__88_carry__1_i_2_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"E80000E800E8E800"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__0_n_4\,
+      I1 => \rgb_data_out4__0_carry__1_n_5\,
+      I2 => \rgb_data_out4__60_carry__0_n_7\,
+      I3 => \rgb_data_out4__0_carry__1_n_0\,
+      I4 => \rgb_data_out4__60_carry__0_n_6\,
+      I5 => \rgb_data_out4__29_carry__1_n_7\,
+      O => \rgb_data_out4__88_carry__1_i_3_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"E00E0EE0"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__0_n_5\,
+      I1 => \rgb_data_out4__60_carry_n_4\,
+      I2 => \rgb_data_out4__0_carry__1_n_5\,
+      I3 => \rgb_data_out4__60_carry__0_n_7\,
+      I4 => \rgb_data_out4__29_carry__0_n_4\,
+      O => \rgb_data_out4__88_carry__1_i_4_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_5\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"69969696"
+    )
+        port map (
+      I0 => \rgb_data_out4__88_carry__1_i_1_n_0\,
+      I1 => \rgb_data_out4__60_carry__1_n_7\,
+      I2 => \rgb_data_out4__29_carry__1_n_0\,
+      I3 => \rgb_data_out4__60_carry__0_n_4\,
+      I4 => \rgb_data_out4__29_carry__1_n_5\,
+      O => \rgb_data_out4__88_carry__1_i_5_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_6\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"78878778"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__1_n_6\,
+      I1 => \rgb_data_out4__60_carry__0_n_5\,
+      I2 => \rgb_data_out4__29_carry__1_n_5\,
+      I3 => \rgb_data_out4__60_carry__0_n_4\,
+      I4 => \rgb_data_out4__88_carry__1_i_2_n_0\,
+      O => \rgb_data_out4__88_carry__1_i_6_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_7\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"566AA995A995566A"
+    )
+        port map (
+      I0 => \rgb_data_out4__88_carry__1_i_3_n_0\,
+      I1 => \rgb_data_out4__29_carry__1_n_7\,
+      I2 => \rgb_data_out4__0_carry__1_n_0\,
+      I3 => \rgb_data_out4__60_carry__0_n_6\,
+      I4 => \rgb_data_out4__29_carry__1_n_6\,
+      I5 => \rgb_data_out4__60_carry__0_n_5\,
+      O => \rgb_data_out4__88_carry__1_i_7_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_8\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"66696999"
+    )
+        port map (
+      I0 => \rgb_data_out4__88_carry__1_i_4_n_0\,
+      I1 => \rgb_data_out4__88_carry__1_i_9_n_0\,
+      I2 => \rgb_data_out4__60_carry__0_n_7\,
+      I3 => \rgb_data_out4__0_carry__1_n_5\,
+      I4 => \rgb_data_out4__29_carry__0_n_4\,
+      O => \rgb_data_out4__88_carry__1_i_8_n_0\
+    );
+\rgb_data_out4__88_carry__1_i_9\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"69"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry__1_n_7\,
+      I1 => \rgb_data_out4__60_carry__0_n_6\,
+      I2 => \rgb_data_out4__0_carry__1_n_0\,
+      O => \rgb_data_out4__88_carry__1_i_9_n_0\
+    );
+\rgb_data_out4__88_carry__2\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \rgb_data_out4__88_carry__1_n_0\,
+      CO(3 downto 0) => \NLW_rgb_data_out4__88_carry__2_CO_UNCONNECTED\(3 downto 0),
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 1) => \NLW_rgb_data_out4__88_carry__2_O_UNCONNECTED\(3 downto 1),
+      O(0) => rgb_data_out3(7),
+      S(3 downto 1) => B"000",
+      S(0) => \rgb_data_out4__88_carry__2_i_1_n_0\
+    );
+\rgb_data_out4__88_carry__2_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"F880077F"
+    )
+        port map (
+      I0 => \rgb_data_out4__60_carry__0_n_4\,
+      I1 => \rgb_data_out4__29_carry__1_n_5\,
+      I2 => \rgb_data_out4__60_carry__1_n_7\,
+      I3 => \rgb_data_out4__29_carry__1_n_0\,
+      I4 => \rgb_data_out4__60_carry__1_n_2\,
+      O => \rgb_data_out4__88_carry__2_i_1_n_0\
+    );
+\rgb_data_out4__88_carry_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry_n_5\,
+      I1 => \rgb_data_out4__0_carry__0_n_6\,
+      O => \rgb_data_out4__88_carry_i_1_n_0\
+    );
+\rgb_data_out4__88_carry_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry_n_6\,
+      I1 => \rgb_data_out4__0_carry__0_n_7\,
+      O => \rgb_data_out4__88_carry_i_2_n_0\
+    );
+\rgb_data_out4__88_carry_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry_n_4\,
+      I1 => \rgb_data_out4__29_carry_n_7\,
+      O => \rgb_data_out4__88_carry_i_3_n_0\
+    );
+\rgb_data_out4__88_carry_i_4\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6996"
+    )
+        port map (
+      I0 => \rgb_data_out4__60_carry_n_7\,
+      I1 => \rgb_data_out4__0_carry__0_n_5\,
+      I2 => \rgb_data_out4__29_carry_n_4\,
+      I3 => \rgb_data_out4__88_carry_i_1_n_0\,
+      O => \rgb_data_out4__88_carry_i_4_n_0\
+    );
+\rgb_data_out4__88_carry_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9666"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry_n_5\,
+      I1 => \rgb_data_out4__0_carry__0_n_6\,
+      I2 => \rgb_data_out4__0_carry__0_n_7\,
+      I3 => \rgb_data_out4__29_carry_n_6\,
+      O => \rgb_data_out4__88_carry_i_5_n_0\
+    );
+\rgb_data_out4__88_carry_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8778"
+    )
+        port map (
+      I0 => \rgb_data_out4__29_carry_n_7\,
+      I1 => \rgb_data_out4__0_carry_n_4\,
+      I2 => \rgb_data_out4__0_carry__0_n_7\,
+      I3 => \rgb_data_out4__29_carry_n_6\,
+      O => \rgb_data_out4__88_carry_i_6_n_0\
+    );
+\rgb_data_out4__88_carry_i_7\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \rgb_data_out4__0_carry_n_4\,
+      I1 => \rgb_data_out4__29_carry_n_7\,
+      O => \rgb_data_out4__88_carry_i_7_n_0\
+    );
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
 entity system_DigiLED_0_0_led_driver is
   port (
+    led_data_reg : out STD_LOGIC;
+    led_data_reg_0 : out STD_LOGIC;
+    led_data_reg_1 : out STD_LOGIC;
+    led_data_reg_2 : out STD_LOGIC;
     Q : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    S : out STD_LOGIC_VECTOR ( 0 to 0 );
     led_out : out STD_LOGIC;
-    \FSM_onehot_state_reg[0]_0\ : out STD_LOGIC;
+    read_data_flag : out STD_LOGIC;
+    led_data_reg_3 : out STD_LOGIC;
+    led_data_reg_4 : out STD_LOGIC;
+    led_data_reg_5 : out STD_LOGIC;
+    led_data_reg_6 : out STD_LOGIC;
+    led_data_reg_7 : out STD_LOGIC;
     s00_axi_aclk : in STD_LOGIC;
-    \frame_counter_div_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    rgb_temp : in STD_LOGIC_VECTOR ( 23 downto 0 )
+    preconvert_reg : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    \internal_color_reg[21]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    D : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    \internal_color_reg[21]_1\ : in STD_LOGIC;
+    \internal_color_reg[18]_0\ : in STD_LOGIC;
+    \internal_color_reg[17]_0\ : in STD_LOGIC;
+    \internal_color_reg[16]_0\ : in STD_LOGIC;
+    \internal_color_reg[23]_0\ : in STD_LOGIC;
+    \internal_color_reg[22]_0\ : in STD_LOGIC;
+    \internal_color_reg[20]_0\ : in STD_LOGIC;
+    \internal_color_reg[19]_0\ : in STD_LOGIC;
+    \internal_color_reg[15]_0\ : in STD_LOGIC;
+    \internal_color_reg[14]_0\ : in STD_LOGIC;
+    \internal_color_reg[13]_0\ : in STD_LOGIC;
+    \internal_color_reg[12]_0\ : in STD_LOGIC;
+    \internal_color_reg[9]_0\ : in STD_LOGIC;
+    \internal_color_reg[7]_0\ : in STD_LOGIC;
+    \internal_color_reg[6]_0\ : in STD_LOGIC;
+    \internal_color_reg[5]_0\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_DigiLED_0_0_led_driver : entity is "led_driver";
@@ -30,10 +5060,6 @@ end system_DigiLED_0_0_led_driver;
 architecture STRUCTURE of system_DigiLED_0_0_led_driver is
   signal \FSM_onehot_state[0]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[1]_i_1_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[1]_i_2_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[1]_i_3_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[1]_i_4_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[1]_i_5_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_10_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_11_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_12_n_0\ : STD_LOGIC;
@@ -44,9 +5070,6 @@ architecture STRUCTURE of system_DigiLED_0_0_led_driver is
   signal \FSM_onehot_state[2]_i_17_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_18_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_19_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[2]_i_20_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[2]_i_21_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[2]_i_22_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_2_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_3_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_4_n_0\ : STD_LOGIC;
@@ -173,7 +5196,6 @@ architecture STRUCTURE of system_DigiLED_0_0_led_driver is
   signal frame_counter2_carry_n_2 : STD_LOGIC;
   signal frame_counter2_carry_n_3 : STD_LOGIC;
   signal \frame_counter[0]_i_4_n_0\ : STD_LOGIC;
-  signal \frame_counter[0]_i_5_n_0\ : STD_LOGIC;
   signal frame_counter_div30_in : STD_LOGIC;
   signal \frame_counter_div3_inferred__0/i__carry__0_n_0\ : STD_LOGIC;
   signal \frame_counter_div3_inferred__0/i__carry__0_n_1\ : STD_LOGIC;
@@ -339,9 +5361,40 @@ architecture STRUCTURE of system_DigiLED_0_0_led_driver is
   signal \i__carry_i_5_n_0\ : STD_LOGIC;
   signal \i__carry_i_6_n_0\ : STD_LOGIC;
   signal internal_color : STD_LOGIC;
+  signal \internal_color[11]_i_1_n_0\ : STD_LOGIC;
+  signal \internal_color[11]_i_9_n_0\ : STD_LOGIC;
+  signal \internal_color[21]_i_1_n_0\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[0]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[10]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[11]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[12]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[13]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[14]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[15]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[16]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[17]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[18]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[19]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[1]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[20]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[21]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[22]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[23]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[2]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[3]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[4]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[5]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[6]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[7]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[8]\ : STD_LOGIC;
+  signal \internal_color_reg_n_0_[9]\ : STD_LOGIC;
   signal internal_reset : STD_LOGIC;
   signal led_counter : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal \led_counter[5]_i_1_n_0\ : STD_LOGIC;
+  signal \^led_data_reg_0\ : STD_LOGIC;
+  signal \^led_data_reg_2\ : STD_LOGIC;
+  signal \^led_data_reg_4\ : STD_LOGIC;
+  signal \^led_data_reg_7\ : STD_LOGIC;
   signal led_out_INST_0_i_10_n_0 : STD_LOGIC;
   signal led_out_INST_0_i_11_n_0 : STD_LOGIC;
   signal led_out_INST_0_i_1_n_0 : STD_LOGIC;
@@ -377,107 +5430,58 @@ architecture STRUCTURE of system_DigiLED_0_0_led_driver is
   signal \NLW_frame_counter_div_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_frame_counter_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_state[1]_i_2\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[1]_i_3\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[1]_i_4\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[1]_i_5\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_10\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_12\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_14\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_8\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[1]_i_1\ : label is "soft_lutpair15";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[0]\ : label is "iSTATE:11,iSTATE0:010,iSTATE1:100,iSTATE2:001";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[1]\ : label is "iSTATE:11,iSTATE0:010,iSTATE1:100,iSTATE2:001";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[2]\ : label is "iSTATE:11,iSTATE0:010,iSTATE1:100,iSTATE2:001";
-  attribute SOFT_HLUTNM of \delay_counter[0]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \delay_counter[10]_i_3\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \delay_counter[1]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \delay_counter[2]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \delay_counter[3]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \delay_counter[4]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \delay_counter[7]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \delay_counter[8]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \delay_counter[9]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of delay_done_flag_i_2 : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \led_counter[1]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \led_counter[2]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \led_counter[3]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \led_counter[4]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \delay_counter[10]_i_3\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \delay_counter[1]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \delay_counter[2]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \delay_counter[3]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \delay_counter[4]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \delay_counter[7]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \delay_counter[8]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \delay_counter[9]_i_1\ : label is "soft_lutpair11";
+  attribute HLUTNM : string;
+  attribute HLUTNM of \i__carry_i_7\ : label is "lutpair3";
+  attribute SOFT_HLUTNM of \internal_color[11]_i_6\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \internal_color[15]_i_3\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \internal_color[15]_i_4\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \internal_color[4]_i_2\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \led_counter[1]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \led_counter[2]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \led_counter[3]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \led_counter[4]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \state[0]_i_1\ : label is "soft_lutpair15";
 begin
   Q(5 downto 0) <= \^q\(5 downto 0);
+  led_data_reg_0 <= \^led_data_reg_0\;
+  led_data_reg_2 <= \^led_data_reg_2\;
+  led_data_reg_4 <= \^led_data_reg_4\;
+  led_data_reg_7 <= \^led_data_reg_7\;
 \FSM_onehot_state[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000000002"
+      INIT => X"0002000000000000"
     )
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[2]\,
       I1 => \FSM_onehot_state[2]_i_6_n_0\,
       I2 => \FSM_onehot_state[2]_i_5_n_0\,
-      I3 => \FSM_onehot_state[1]_i_2_n_0\,
-      I4 => \FSM_onehot_state[1]_i_3_n_0\,
-      I5 => \FSM_onehot_state[2]_i_3_n_0\,
+      I3 => \FSM_onehot_state[2]_i_4_n_0\,
+      I4 => frame_counter_reg(0),
+      I5 => frame_counter_reg(1),
       O => \FSM_onehot_state[0]_i_1_n_0\
     );
-\FSM_onehot_state[1]_i_1\: unisim.vcomponents.LUT6
+\FSM_onehot_state[1]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FFFFFFFFAAAAAAA8"
+      INIT => X"F8"
     )
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[1]\,
-      I1 => \FSM_onehot_state[1]_i_2_n_0\,
-      I2 => \FSM_onehot_state[1]_i_3_n_0\,
-      I3 => \FSM_onehot_state[1]_i_4_n_0\,
-      I4 => \FSM_onehot_state[1]_i_5_n_0\,
-      I5 => internal_color,
+      I1 => \FSM_onehot_state[2]_i_6_n_0\,
+      I2 => internal_color,
       O => \FSM_onehot_state[1]_i_1_n_0\
-    );
-\FSM_onehot_state[1]_i_2\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => frame_counter_div_reg(9),
-      I1 => frame_counter_div_reg(8),
-      I2 => frame_counter_div_reg(25),
-      I3 => frame_counter_div_reg(24),
-      I4 => \FSM_onehot_state[2]_i_13_n_0\,
-      O => \FSM_onehot_state[1]_i_2_n_0\
-    );
-\FSM_onehot_state[1]_i_3\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => frame_counter_div_reg(5),
-      I1 => frame_counter_div_reg(4),
-      I2 => frame_counter_div_reg(11),
-      I3 => frame_counter_div_reg(10),
-      I4 => \FSM_onehot_state[2]_i_11_n_0\,
-      O => \FSM_onehot_state[1]_i_3_n_0\
-    );
-\FSM_onehot_state[1]_i_4\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => frame_counter_div_reg(19),
-      I1 => frame_counter_div_reg(18),
-      I2 => frame_counter_div_reg(13),
-      I3 => frame_counter_div_reg(12),
-      I4 => \FSM_onehot_state[2]_i_9_n_0\,
-      O => \FSM_onehot_state[1]_i_4_n_0\
-    );
-\FSM_onehot_state[1]_i_5\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => frame_counter_div_reg(29),
-      I1 => frame_counter_div_reg(28),
-      I2 => frame_counter_div_reg(2),
-      I3 => frame_counter_div_reg(3),
-      I4 => \FSM_onehot_state[2]_i_7_n_0\,
-      O => \FSM_onehot_state[1]_i_5_n_0\
     );
 \FSM_onehot_state[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -489,57 +5493,61 @@ begin
       I2 => internal_color,
       O => state
     );
-\FSM_onehot_state[2]_i_10\: unisim.vcomponents.LUT4
+\FSM_onehot_state[2]_i_10\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFE"
+      INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => frame_counter_div_reg(12),
-      I1 => frame_counter_div_reg(13),
-      I2 => frame_counter_div_reg(18),
-      I3 => frame_counter_div_reg(19),
+      I0 => frame_counter_reg(9),
+      I1 => frame_counter_reg(8),
+      I2 => frame_counter_reg(23),
+      I3 => frame_counter_reg(22),
+      I4 => \FSM_onehot_state[2]_i_15_n_0\,
       O => \FSM_onehot_state[2]_i_10_n_0\
     );
-\FSM_onehot_state[2]_i_11\: unisim.vcomponents.LUT4
+\FSM_onehot_state[2]_i_11\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFE"
+      INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => frame_counter_div_reg(26),
-      I1 => frame_counter_div_reg(27),
-      I2 => frame_counter_div_reg(14),
-      I3 => frame_counter_div_reg(15),
+      I0 => frame_counter_div_reg(27),
+      I1 => frame_counter_div_reg(26),
+      I2 => frame_counter_div_reg(9),
+      I3 => frame_counter_div_reg(8),
+      I4 => \FSM_onehot_state[2]_i_16_n_0\,
       O => \FSM_onehot_state[2]_i_11_n_0\
     );
 \FSM_onehot_state[2]_i_12\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"E"
+      INIT => X"1"
     )
         port map (
-      I0 => frame_counter_div_reg(5),
-      I1 => frame_counter_div_reg(4),
+      I0 => frame_counter_div_reg(15),
+      I1 => frame_counter_div_reg(14),
       O => \FSM_onehot_state[2]_i_12_n_0\
     );
 \FSM_onehot_state[2]_i_13\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFEF"
-    )
-        port map (
-      I0 => frame_counter_div_reg(20),
-      I1 => frame_counter_div_reg(21),
-      I2 => frame_counter_div_reg(0),
-      I3 => frame_counter_div_reg(1),
-      O => \FSM_onehot_state[2]_i_13_n_0\
-    );
-\FSM_onehot_state[2]_i_14\: unisim.vcomponents.LUT4
-    generic map(
       INIT => X"FFFE"
     )
         port map (
-      I0 => frame_counter_div_reg(24),
-      I1 => frame_counter_div_reg(25),
-      I2 => frame_counter_div_reg(8),
-      I3 => frame_counter_div_reg(9),
+      I0 => frame_counter_div_reg(3),
+      I1 => frame_counter_div_reg(2),
+      I2 => frame_counter_div_reg(18),
+      I3 => frame_counter_div_reg(19),
+      O => \FSM_onehot_state[2]_i_13_n_0\
+    );
+\FSM_onehot_state[2]_i_14\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFEFF"
+    )
+        port map (
+      I0 => \FSM_onehot_state[2]_i_17_n_0\,
+      I1 => frame_counter_div_reg(10),
+      I2 => frame_counter_div_reg(11),
+      I3 => frame_counter_div_reg(7),
+      I4 => frame_counter_div_reg(6),
+      I5 => \FSM_onehot_state[2]_i_18_n_0\,
       O => \FSM_onehot_state[2]_i_14_n_0\
     );
 \FSM_onehot_state[2]_i_15\: unisim.vcomponents.LUT4
@@ -547,41 +5555,44 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => frame_counter_reg(20),
-      I1 => frame_counter_reg(21),
-      I2 => frame_counter_reg(28),
-      I3 => frame_counter_reg(29),
+      I0 => frame_counter_reg(18),
+      I1 => frame_counter_reg(19),
+      I2 => frame_counter_reg(10),
+      I3 => frame_counter_reg(11),
       O => \FSM_onehot_state[2]_i_15_n_0\
     );
-\FSM_onehot_state[2]_i_16\: unisim.vcomponents.LUT2
+\FSM_onehot_state[2]_i_16\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"7"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => frame_counter_reg(1),
-      I1 => frame_counter_reg(0),
+      I0 => frame_counter_div_reg(30),
+      I1 => frame_counter_div_reg(31),
+      I2 => frame_counter_div_reg(16),
+      I3 => frame_counter_div_reg(17),
       O => \FSM_onehot_state[2]_i_16_n_0\
     );
 \FSM_onehot_state[2]_i_17\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFE"
+      INIT => X"FFEF"
     )
         port map (
-      I0 => frame_counter_reg(8),
-      I1 => frame_counter_reg(9),
-      I2 => frame_counter_reg(24),
-      I3 => frame_counter_reg(25),
+      I0 => frame_counter_div_reg(4),
+      I1 => frame_counter_div_reg(5),
+      I2 => frame_counter_div_reg(0),
+      I3 => frame_counter_div_reg(1),
       O => \FSM_onehot_state[2]_i_17_n_0\
     );
-\FSM_onehot_state[2]_i_18\: unisim.vcomponents.LUT4
+\FSM_onehot_state[2]_i_18\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFE"
+      INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => frame_counter_reg(10),
-      I1 => frame_counter_reg(11),
-      I2 => frame_counter_reg(18),
-      I3 => frame_counter_reg(19),
+      I0 => frame_counter_div_reg(25),
+      I1 => frame_counter_div_reg(24),
+      I2 => frame_counter_div_reg(29),
+      I3 => frame_counter_div_reg(28),
+      I4 => \FSM_onehot_state[2]_i_19_n_0\,
       O => \FSM_onehot_state[2]_i_18_n_0\
     );
 \FSM_onehot_state[2]_i_19\: unisim.vcomponents.LUT4
@@ -589,15 +5600,15 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => frame_counter_reg(14),
-      I1 => frame_counter_reg(15),
-      I2 => frame_counter_reg(16),
-      I3 => frame_counter_reg(17),
+      I0 => frame_counter_div_reg(22),
+      I1 => frame_counter_div_reg(23),
+      I2 => frame_counter_div_reg(12),
+      I3 => frame_counter_div_reg(13),
       O => \FSM_onehot_state[2]_i_19_n_0\
     );
 \FSM_onehot_state[2]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE02020202"
+      INIT => X"FFFFFFFB0000AAAA"
     )
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[1]\,
@@ -608,61 +5619,26 @@ begin
       I5 => \FSM_onehot_state_reg_n_0_[2]\,
       O => \FSM_onehot_state[2]_i_2_n_0\
     );
-\FSM_onehot_state[2]_i_20\: unisim.vcomponents.LUT2
+\FSM_onehot_state[2]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"E"
+      INIT => X"8"
     )
         port map (
-      I0 => frame_counter_reg(23),
-      I1 => frame_counter_reg(22),
-      O => \FSM_onehot_state[2]_i_20_n_0\
-    );
-\FSM_onehot_state[2]_i_21\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFD"
-    )
-        port map (
-      I0 => frame_counter_reg(2),
-      I1 => frame_counter_reg(3),
-      I2 => frame_counter_reg(6),
-      I3 => frame_counter_reg(7),
-      O => \FSM_onehot_state[2]_i_21_n_0\
-    );
-\FSM_onehot_state[2]_i_22\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => frame_counter_reg(26),
-      I1 => frame_counter_reg(27),
-      I2 => frame_counter_reg(30),
-      I3 => frame_counter_reg(31),
-      O => \FSM_onehot_state[2]_i_22_n_0\
-    );
-\FSM_onehot_state[2]_i_3\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
-    )
-        port map (
-      I0 => \FSM_onehot_state[2]_i_7_n_0\,
-      I1 => frame_counter_div_reg(3),
-      I2 => frame_counter_div_reg(2),
-      I3 => \FSM_onehot_state[2]_i_8_n_0\,
-      I4 => \FSM_onehot_state[2]_i_9_n_0\,
-      I5 => \FSM_onehot_state[2]_i_10_n_0\,
+      I0 => frame_counter_reg(1),
+      I1 => frame_counter_reg(0),
       O => \FSM_onehot_state[2]_i_3_n_0\
     );
 \FSM_onehot_state[2]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FFFFFFFFFFFFFEFF"
     )
         port map (
-      I0 => \FSM_onehot_state[2]_i_11_n_0\,
-      I1 => frame_counter_div_reg(10),
-      I2 => frame_counter_div_reg(11),
-      I3 => \FSM_onehot_state[2]_i_12_n_0\,
-      I4 => \FSM_onehot_state[2]_i_13_n_0\,
-      I5 => \FSM_onehot_state[2]_i_14_n_0\,
+      I0 => frame_counter_reg(31),
+      I1 => frame_counter_reg(30),
+      I2 => frame_counter_reg(5),
+      I3 => frame_counter_reg(4),
+      I4 => \FSM_onehot_state[2]_i_7_n_0\,
+      I5 => \FSM_onehot_state[2]_i_8_n_0\,
       O => \FSM_onehot_state[2]_i_4_n_0\
     );
 \FSM_onehot_state[2]_i_5\: unisim.vcomponents.LUT6
@@ -670,12 +5646,12 @@ begin
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => \FSM_onehot_state[2]_i_15_n_0\,
-      I1 => \FSM_onehot_state[2]_i_16_n_0\,
-      I2 => frame_counter_reg(12),
-      I3 => frame_counter_reg(13),
-      I4 => \FSM_onehot_state[2]_i_17_n_0\,
-      I5 => \FSM_onehot_state[2]_i_18_n_0\,
+      I0 => \FSM_onehot_state[2]_i_9_n_0\,
+      I1 => \FSM_onehot_state[2]_i_10_n_0\,
+      I2 => frame_counter_reg(14),
+      I3 => frame_counter_reg(15),
+      I4 => frame_counter_reg(6),
+      I5 => frame_counter_reg(7),
       O => \FSM_onehot_state[2]_i_5_n_0\
     );
 \FSM_onehot_state[2]_i_6\: unisim.vcomponents.LUT6
@@ -683,12 +5659,12 @@ begin
       INIT => X"FFFFFFFFFFFFFFFB"
     )
         port map (
-      I0 => \FSM_onehot_state[2]_i_19_n_0\,
-      I1 => frame_counter_reg(4),
-      I2 => frame_counter_reg(5),
-      I3 => \FSM_onehot_state[2]_i_20_n_0\,
-      I4 => \FSM_onehot_state[2]_i_21_n_0\,
-      I5 => \FSM_onehot_state[2]_i_22_n_0\,
+      I0 => \FSM_onehot_state[2]_i_11_n_0\,
+      I1 => \FSM_onehot_state[2]_i_12_n_0\,
+      I2 => frame_counter_div_reg(21),
+      I3 => frame_counter_div_reg(20),
+      I4 => \FSM_onehot_state[2]_i_13_n_0\,
+      I5 => \FSM_onehot_state[2]_i_14_n_0\,
       O => \FSM_onehot_state[2]_i_6_n_0\
     );
 \FSM_onehot_state[2]_i_7\: unisim.vcomponents.LUT4
@@ -696,30 +5672,34 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => frame_counter_div_reg(16),
-      I1 => frame_counter_div_reg(17),
-      I2 => frame_counter_div_reg(30),
-      I3 => frame_counter_div_reg(31),
+      I0 => frame_counter_reg(28),
+      I1 => frame_counter_reg(29),
+      I2 => frame_counter_reg(26),
+      I3 => frame_counter_reg(27),
       O => \FSM_onehot_state[2]_i_7_n_0\
     );
-\FSM_onehot_state[2]_i_8\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => frame_counter_div_reg(29),
-      I1 => frame_counter_div_reg(28),
-      O => \FSM_onehot_state[2]_i_8_n_0\
-    );
-\FSM_onehot_state[2]_i_9\: unisim.vcomponents.LUT4
+\FSM_onehot_state[2]_i_8\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFEF"
     )
         port map (
-      I0 => frame_counter_div_reg(22),
-      I1 => frame_counter_div_reg(23),
-      I2 => frame_counter_div_reg(7),
-      I3 => frame_counter_div_reg(6),
+      I0 => frame_counter_reg(24),
+      I1 => frame_counter_reg(25),
+      I2 => frame_counter_reg(2),
+      I3 => frame_counter_reg(3),
+      O => \FSM_onehot_state[2]_i_8_n_0\
+    );
+\FSM_onehot_state[2]_i_9\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFFFE"
+    )
+        port map (
+      I0 => frame_counter_reg(12),
+      I1 => frame_counter_reg(13),
+      I2 => frame_counter_reg(17),
+      I3 => frame_counter_reg(16),
+      I4 => frame_counter_reg(21),
+      I5 => frame_counter_reg(20),
       O => \FSM_onehot_state[2]_i_9_n_0\
     );
 \FSM_onehot_state_reg[0]\: unisim.vcomponents.FDPE
@@ -793,8 +5773,8 @@ PWM0_out1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => frame_counter_div_reg(14),
-      I1 => frame_counter_div_reg(15),
+      I0 => frame_counter_div_reg(15),
+      I1 => frame_counter_div_reg(14),
       O => \PWM0_out1_carry__0_i_1_n_0\
     );
 \PWM0_out1_carry__0_i_2\: unisim.vcomponents.LUT2
@@ -1018,8 +5998,8 @@ PWM1_out1_carry: unisim.vcomponents.CARRY4
       INIT => X"1"
     )
         port map (
-      I0 => frame_counter_div_reg(14),
-      I1 => frame_counter_div_reg(15),
+      I0 => frame_counter_div_reg(15),
+      I1 => frame_counter_div_reg(14),
       O => \PWM1_out1_carry__0_i_1_n_0\
     );
 \PWM1_out1_carry__0_i_2\: unisim.vcomponents.LUT2
@@ -1243,8 +6223,8 @@ PWM1_out1_carry_i_7: unisim.vcomponents.LUT2
       I0 => delay_counter_reg(10),
       I1 => delay_counter_reg(9),
       I2 => delay_counter_reg(8),
-      I3 => \delay_counter[10]_i_4_n_0\,
-      I4 => delay_counter_reg(6),
+      I3 => delay_counter_reg(6),
+      I4 => \delay_counter[10]_i_4_n_0\,
       I5 => delay_counter_reg(7),
       O => p_0_in(10)
     );
@@ -1352,9 +6332,9 @@ PWM1_out1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       I0 => delay_counter_reg(8),
-      I1 => delay_counter_reg(7),
-      I2 => delay_counter_reg(6),
-      I3 => \delay_counter[10]_i_4_n_0\,
+      I1 => delay_counter_reg(6),
+      I2 => \delay_counter[10]_i_4_n_0\,
+      I3 => delay_counter_reg(7),
       O => p_0_in(8)
     );
 \delay_counter[9]_i_1\: unisim.vcomponents.LUT5
@@ -1364,8 +6344,8 @@ PWM1_out1_carry_i_7: unisim.vcomponents.LUT2
         port map (
       I0 => delay_counter_reg(9),
       I1 => delay_counter_reg(7),
-      I2 => delay_counter_reg(6),
-      I3 => \delay_counter[10]_i_4_n_0\,
+      I2 => \delay_counter[10]_i_4_n_0\,
+      I3 => delay_counter_reg(6),
       I4 => delay_counter_reg(8),
       O => p_0_in(9)
     );
@@ -1504,25 +6484,25 @@ delay_done_flag_i_1: unisim.vcomponents.LUT5
     );
 delay_done_flag_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"01"
+      INIT => X"02"
     )
         port map (
-      I0 => delay_counter_reg(3),
+      I0 => delay_counter_reg(9),
       I1 => delay_counter_reg(5),
       I2 => delay_counter_reg(2),
       O => delay_done_flag_i_2_n_0
     );
 delay_done_flag_i_3: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000008000"
+      INIT => X"0010000000000000"
     )
         port map (
-      I0 => \state_reg_n_0_[1]\,
-      I1 => \state_reg_n_0_[0]\,
+      I0 => delay_counter_reg(1),
+      I1 => delay_counter_reg(0),
       I2 => delay_counter_reg(4),
-      I3 => delay_counter_reg(9),
-      I4 => delay_counter_reg(0),
-      I5 => delay_counter_reg(1),
+      I3 => delay_counter_reg(3),
+      I4 => \state_reg_n_0_[0]\,
+      I5 => \state_reg_n_0_[1]\,
       O => delay_done_flag_i_3_n_0
     );
 delay_done_flag_reg: unisim.vcomponents.FDRE
@@ -1731,8 +6711,8 @@ frame_counter2_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"7"
     )
         port map (
-      I0 => frame_counter_reg(1),
-      I1 => frame_counter_reg(0),
+      I0 => frame_counter_reg(0),
+      I1 => frame_counter_reg(1),
       O => frame_counter2_carry_i_3_n_0
     );
 frame_counter2_carry_i_4: unisim.vcomponents.LUT2
@@ -1767,52 +6747,39 @@ frame_counter2_carry_i_7: unisim.vcomponents.LUT2
       INIT => X"8"
     )
         port map (
-      I0 => frame_counter_reg(0),
-      I1 => frame_counter_reg(1),
+      I0 => frame_counter_reg(1),
+      I1 => frame_counter_reg(0),
       O => frame_counter2_carry_i_7_n_0
     );
-\frame_counter[0]_i_1\: unisim.vcomponents.LUT6
+\frame_counter[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0001000000010001"
+      INIT => X"4055"
     )
         port map (
-      I0 => \FSM_onehot_state[1]_i_5_n_0\,
-      I1 => \FSM_onehot_state[1]_i_4_n_0\,
-      I2 => \FSM_onehot_state[1]_i_3_n_0\,
-      I3 => \FSM_onehot_state[1]_i_2_n_0\,
-      I4 => \frame_counter[0]_i_4_n_0\,
-      I5 => frame_counter2,
+      I0 => \FSM_onehot_state[2]_i_6_n_0\,
+      I1 => \state_reg_n_0_[0]\,
+      I2 => \state_reg_n_0_[1]\,
+      I3 => frame_counter2,
       O => frame_counter
     );
-\frame_counter[0]_i_2\: unisim.vcomponents.LUT6
+\frame_counter[0]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0000000000000004"
-    )
-        port map (
-      I0 => \frame_counter[0]_i_4_n_0\,
-      I1 => frame_counter2,
-      I2 => \FSM_onehot_state[1]_i_5_n_0\,
-      I3 => \FSM_onehot_state[1]_i_4_n_0\,
-      I4 => \FSM_onehot_state[1]_i_3_n_0\,
-      I5 => \FSM_onehot_state[1]_i_2_n_0\,
-      O => frame_counter0
-    );
-\frame_counter[0]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
+      INIT => X"0070"
     )
         port map (
       I0 => \state_reg_n_0_[0]\,
       I1 => \state_reg_n_0_[1]\,
-      O => \frame_counter[0]_i_4_n_0\
+      I2 => frame_counter2,
+      I3 => \FSM_onehot_state[2]_i_6_n_0\,
+      O => frame_counter0
     );
-\frame_counter[0]_i_5\: unisim.vcomponents.LUT1
+\frame_counter[0]_i_4\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => frame_counter_reg(0),
-      O => \frame_counter[0]_i_5_n_0\
+      O => \frame_counter[0]_i_4_n_0\
     );
 \frame_counter_div3_inferred__0/i__carry\: unisim.vcomponents.CARRY4
      port map (
@@ -1883,7 +6850,7 @@ frame_counter2_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       I0 => delay_done_flag_reg_n_0,
-      I1 => \frame_counter_div_reg[0]_0\(0),
+      I1 => \internal_color_reg[21]_0\(0),
       I2 => \state_reg_n_0_[0]\,
       I3 => \state_reg_n_0_[1]\,
       I4 => frame_counter_div30_in,
@@ -2395,7 +7362,7 @@ frame_counter2_carry_i_7: unisim.vcomponents.LUT2
       O(1) => \frame_counter_reg[0]_i_3_n_6\,
       O(0) => \frame_counter_reg[0]_i_3_n_7\,
       S(3 downto 1) => frame_counter_reg(3 downto 1),
-      S(0) => \frame_counter[0]_i_5_n_0\
+      S(0) => \frame_counter[0]_i_4_n_0\
     );
 \frame_counter_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -2848,8 +7815,8 @@ frame_counter2_carry_i_7: unisim.vcomponents.LUT2
       INIT => X"1"
     )
         port map (
-      I0 => frame_counter_div_reg(14),
-      I1 => frame_counter_div_reg(15),
+      I0 => frame_counter_div_reg(15),
+      I1 => frame_counter_div_reg(14),
       O => \i__carry__0_i_1_n_0\
     );
 \i__carry__0_i_2\: unisim.vcomponents.LUT2
@@ -3004,6 +7971,409 @@ frame_counter2_carry_i_7: unisim.vcomponents.LUT2
       I1 => frame_counter_div_reg(1),
       O => \i__carry_i_6_n_0\
     );
+\i__carry_i_7\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(0),
+      O => S(0)
+    );
+\internal_color[11]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"08"
+    )
+        port map (
+      I0 => internal_color,
+      I1 => \internal_color_reg[21]_0\(0),
+      I2 => delay_done_flag_reg_n_0,
+      O => \internal_color[11]_i_1_n_0\
+    );
+\internal_color[11]_i_6\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"02"
+    )
+        port map (
+      I0 => \^led_data_reg_2\,
+      I1 => preconvert_reg(8),
+      I2 => preconvert_reg(9),
+      O => led_data_reg_5
+    );
+\internal_color[11]_i_7\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000001"
+    )
+        port map (
+      I0 => preconvert_reg(2),
+      I1 => preconvert_reg(3),
+      I2 => preconvert_reg(0),
+      I3 => preconvert_reg(1),
+      I4 => \internal_color[11]_i_9_n_0\,
+      O => \^led_data_reg_7\
+    );
+\internal_color[11]_i_8\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => preconvert_reg(11),
+      I1 => preconvert_reg(13),
+      I2 => preconvert_reg(12),
+      I3 => preconvert_reg(15),
+      I4 => preconvert_reg(14),
+      O => \^led_data_reg_4\
+    );
+\internal_color[11]_i_9\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => preconvert_reg(5),
+      I1 => preconvert_reg(4),
+      I2 => preconvert_reg(7),
+      I3 => preconvert_reg(6),
+      O => \internal_color[11]_i_9_n_0\
+    );
+\internal_color[15]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"EA"
+    )
+        port map (
+      I0 => \^led_data_reg_4\,
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(10),
+      O => led_data_reg_6
+    );
+\internal_color[15]_i_4\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0057"
+    )
+        port map (
+      I0 => preconvert_reg(10),
+      I1 => preconvert_reg(9),
+      I2 => preconvert_reg(8),
+      I3 => \^led_data_reg_4\,
+      O => led_data_reg_3
+    );
+\internal_color[21]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"2000"
+    )
+        port map (
+      I0 => \^led_data_reg_7\,
+      I1 => delay_done_flag_reg_n_0,
+      I2 => \internal_color_reg[21]_0\(0),
+      I3 => internal_color,
+      O => \internal_color[21]_i_1_n_0\
+    );
+\internal_color[21]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000000001"
+    )
+        port map (
+      I0 => preconvert_reg(10),
+      I1 => preconvert_reg(14),
+      I2 => preconvert_reg(15),
+      I3 => preconvert_reg(12),
+      I4 => preconvert_reg(13),
+      I5 => preconvert_reg(11),
+      O => \^led_data_reg_2\
+    );
+\internal_color[4]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(8),
+      I1 => \^led_data_reg_0\,
+      O => led_data_reg_1
+    );
+\internal_color[4]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => preconvert_reg(9),
+      I1 => \^led_data_reg_0\,
+      O => led_data_reg
+    );
+\internal_color[7]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFFFE"
+    )
+        port map (
+      I0 => preconvert_reg(11),
+      I1 => preconvert_reg(13),
+      I2 => preconvert_reg(12),
+      I3 => preconvert_reg(15),
+      I4 => preconvert_reg(14),
+      I5 => preconvert_reg(10),
+      O => \^led_data_reg_0\
+    );
+\internal_color_reg[0]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(0),
+      Q => \internal_color_reg_n_0_[0]\,
+      R => '0'
+    );
+\internal_color_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(6),
+      Q => \internal_color_reg_n_0_[10]\,
+      R => '0'
+    );
+\internal_color_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(7),
+      Q => \internal_color_reg_n_0_[11]\,
+      R => '0'
+    );
+\internal_color_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[12]_0\,
+      Q => \internal_color_reg_n_0_[12]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[13]_0\,
+      Q => \internal_color_reg_n_0_[13]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[14]_0\,
+      Q => \internal_color_reg_n_0_[14]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[15]_0\,
+      Q => \internal_color_reg_n_0_[15]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[16]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[16]_0\,
+      Q => \internal_color_reg_n_0_[16]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[17]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[17]_0\,
+      Q => \internal_color_reg_n_0_[17]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[18]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[18]_0\,
+      Q => \internal_color_reg_n_0_[18]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[19]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[19]_0\,
+      Q => \internal_color_reg_n_0_[19]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[1]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(1),
+      Q => \internal_color_reg_n_0_[1]\,
+      R => '0'
+    );
+\internal_color_reg[20]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[20]_0\,
+      Q => \internal_color_reg_n_0_[20]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[21]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[21]_1\,
+      Q => \internal_color_reg_n_0_[21]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[22]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[22]_0\,
+      Q => \internal_color_reg_n_0_[22]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[23]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[23]_0\,
+      Q => \internal_color_reg_n_0_[23]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[2]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(2),
+      Q => \internal_color_reg_n_0_[2]\,
+      R => '0'
+    );
+\internal_color_reg[3]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(3),
+      Q => \internal_color_reg_n_0_[3]\,
+      R => '0'
+    );
+\internal_color_reg[4]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(4),
+      Q => \internal_color_reg_n_0_[4]\,
+      R => '0'
+    );
+\internal_color_reg[5]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[5]_0\,
+      Q => \internal_color_reg_n_0_[5]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[6]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[6]_0\,
+      Q => \internal_color_reg_n_0_[6]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[7]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[7]_0\,
+      Q => \internal_color_reg_n_0_[7]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
+\internal_color_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => D(5),
+      Q => \internal_color_reg_n_0_[8]\,
+      R => '0'
+    );
+\internal_color_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s00_axi_aclk,
+      CE => \internal_color[11]_i_1_n_0\,
+      D => \internal_color_reg[9]_0\,
+      Q => \internal_color_reg_n_0_[9]\,
+      R => \internal_color[21]_i_1_n_0\
+    );
 \led_counter[0]_i_1\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
@@ -3054,16 +8424,13 @@ frame_counter2_carry_i_7: unisim.vcomponents.LUT2
       I4 => \^q\(4),
       O => led_counter(4)
     );
-\led_counter[5]_i_1\: unisim.vcomponents.LUT5
+\led_counter[5]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"00000002"
+      INIT => X"2"
     )
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[1]\,
-      I1 => \FSM_onehot_state[1]_i_5_n_0\,
-      I2 => \FSM_onehot_state[1]_i_4_n_0\,
-      I3 => \FSM_onehot_state[1]_i_3_n_0\,
-      I4 => \FSM_onehot_state[1]_i_2_n_0\,
+      I1 => \FSM_onehot_state[2]_i_6_n_0\,
       O => \led_counter[5]_i_1_n_0\
     );
 \led_counter[5]_i_2\: unisim.vcomponents.LUT6
@@ -3145,15 +8512,17 @@ frame_counter2_carry_i_7: unisim.vcomponents.LUT2
       D => led_counter(5),
       Q => \^q\(5)
     );
-led_data_reg_i_2: unisim.vcomponents.LUT3
+led_data_reg_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"08"
+      INIT => X"00010000"
     )
         port map (
-      I0 => internal_color,
-      I1 => \frame_counter_div_reg[0]_0\(0),
-      I2 => delay_done_flag_reg_n_0,
-      O => \FSM_onehot_state_reg[0]_0\
+      I0 => \FSM_onehot_state[2]_i_5_n_0\,
+      I1 => \FSM_onehot_state[2]_i_6_n_0\,
+      I2 => \FSM_onehot_state[2]_i_4_n_0\,
+      I3 => frame_counter_reg(0),
+      I4 => frame_counter_reg(1),
+      O => read_data_flag
     );
 led_out_INST_0: unisim.vcomponents.LUT6
     generic map(
@@ -3173,7 +8542,7 @@ led_out_INST_0_i_1: unisim.vcomponents.LUT6
       INIT => X"75577F5775F77FF7"
     )
         port map (
-      I0 => \frame_counter_div_reg[0]_0\(0),
+      I0 => \internal_color_reg[21]_0\(0),
       I1 => led_out_INST_0_i_3_n_0,
       I2 => frame_counter_reg(3),
       I3 => frame_counter_reg(4),
@@ -3186,12 +8555,12 @@ led_out_INST_0_i_10: unisim.vcomponents.LUT6
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => rgb_temp(20),
-      I1 => rgb_temp(21),
+      I0 => \internal_color_reg_n_0_[12]\,
+      I1 => \internal_color_reg_n_0_[13]\,
       I2 => frame_counter_reg(1),
-      I3 => rgb_temp(22),
+      I3 => \internal_color_reg_n_0_[14]\,
       I4 => frame_counter_reg(0),
-      I5 => rgb_temp(23),
+      I5 => \internal_color_reg_n_0_[15]\,
       O => led_out_INST_0_i_10_n_0
     );
 led_out_INST_0_i_11: unisim.vcomponents.LUT6
@@ -3199,12 +8568,12 @@ led_out_INST_0_i_11: unisim.vcomponents.LUT6
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => rgb_temp(16),
-      I1 => rgb_temp(17),
+      I0 => \internal_color_reg_n_0_[8]\,
+      I1 => \internal_color_reg_n_0_[9]\,
       I2 => frame_counter_reg(1),
-      I3 => rgb_temp(18),
+      I3 => \internal_color_reg_n_0_[10]\,
       I4 => frame_counter_reg(0),
-      I5 => rgb_temp(19),
+      I5 => \internal_color_reg_n_0_[11]\,
       O => led_out_INST_0_i_11_n_0
     );
 led_out_INST_0_i_2: unisim.vcomponents.LUT2
@@ -3213,7 +8582,7 @@ led_out_INST_0_i_2: unisim.vcomponents.LUT2
     )
         port map (
       I0 => delay_done_flag_reg_n_0,
-      I1 => \frame_counter_div_reg[0]_0\(0),
+      I1 => \internal_color_reg[21]_0\(0),
       O => internal_reset
     );
 led_out_INST_0_i_3: unisim.vcomponents.MUXF7
@@ -3242,12 +8611,12 @@ led_out_INST_0_i_6: unisim.vcomponents.LUT6
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => rgb_temp(12),
-      I1 => rgb_temp(13),
+      I0 => \internal_color_reg_n_0_[20]\,
+      I1 => \internal_color_reg_n_0_[21]\,
       I2 => frame_counter_reg(1),
-      I3 => rgb_temp(14),
+      I3 => \internal_color_reg_n_0_[22]\,
       I4 => frame_counter_reg(0),
-      I5 => rgb_temp(15),
+      I5 => \internal_color_reg_n_0_[23]\,
       O => led_out_INST_0_i_6_n_0
     );
 led_out_INST_0_i_7: unisim.vcomponents.LUT6
@@ -3255,12 +8624,12 @@ led_out_INST_0_i_7: unisim.vcomponents.LUT6
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => rgb_temp(8),
-      I1 => rgb_temp(9),
+      I0 => \internal_color_reg_n_0_[16]\,
+      I1 => \internal_color_reg_n_0_[17]\,
       I2 => frame_counter_reg(1),
-      I3 => rgb_temp(10),
+      I3 => \internal_color_reg_n_0_[18]\,
       I4 => frame_counter_reg(0),
-      I5 => rgb_temp(11),
+      I5 => \internal_color_reg_n_0_[19]\,
       O => led_out_INST_0_i_7_n_0
     );
 led_out_INST_0_i_8: unisim.vcomponents.LUT6
@@ -3268,12 +8637,12 @@ led_out_INST_0_i_8: unisim.vcomponents.LUT6
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => rgb_temp(4),
-      I1 => rgb_temp(5),
+      I0 => \internal_color_reg_n_0_[4]\,
+      I1 => \internal_color_reg_n_0_[5]\,
       I2 => frame_counter_reg(1),
-      I3 => rgb_temp(6),
+      I3 => \internal_color_reg_n_0_[6]\,
       I4 => frame_counter_reg(0),
-      I5 => rgb_temp(7),
+      I5 => \internal_color_reg_n_0_[7]\,
       O => led_out_INST_0_i_8_n_0
     );
 led_out_INST_0_i_9: unisim.vcomponents.LUT6
@@ -3281,37 +8650,34 @@ led_out_INST_0_i_9: unisim.vcomponents.LUT6
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => rgb_temp(0),
-      I1 => rgb_temp(1),
+      I0 => \internal_color_reg_n_0_[0]\,
+      I1 => \internal_color_reg_n_0_[1]\,
       I2 => frame_counter_reg(1),
-      I3 => rgb_temp(2),
+      I3 => \internal_color_reg_n_0_[2]\,
       I4 => frame_counter_reg(0),
-      I5 => rgb_temp(3),
+      I5 => \internal_color_reg_n_0_[3]\,
       O => led_out_INST_0_i_9_n_0
     );
-\state[0]_i_1\: unisim.vcomponents.LUT6
+\state[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"5555555455555555"
+      INIT => X"45"
     )
         port map (
       I0 => \state_reg_n_0_[1]\,
-      I1 => \FSM_onehot_state[1]_i_2_n_0\,
-      I2 => \FSM_onehot_state[1]_i_3_n_0\,
-      I3 => \FSM_onehot_state[1]_i_4_n_0\,
-      I4 => \FSM_onehot_state[1]_i_5_n_0\,
-      I5 => \state_reg_n_0_[0]\,
+      I1 => \FSM_onehot_state[2]_i_6_n_0\,
+      I2 => \state_reg_n_0_[0]\,
       O => \state[0]_i_1_n_0\
     );
 \state[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE000000F0"
+      INIT => X"FFFFFFFD0000FF00"
     )
         port map (
-      I0 => \FSM_onehot_state[2]_i_5_n_0\,
-      I1 => \FSM_onehot_state[2]_i_6_n_0\,
-      I2 => \state_reg_n_0_[0]\,
-      I3 => \FSM_onehot_state[2]_i_3_n_0\,
-      I4 => \FSM_onehot_state[2]_i_4_n_0\,
+      I0 => \FSM_onehot_state[2]_i_3_n_0\,
+      I1 => \FSM_onehot_state[2]_i_4_n_0\,
+      I2 => \FSM_onehot_state[2]_i_5_n_0\,
+      I3 => \state_reg_n_0_[0]\,
+      I4 => \FSM_onehot_state[2]_i_6_n_0\,
       I5 => \state_reg_n_0_[1]\,
       O => \state[1]_i_1_n_0\
     );
@@ -3368,6 +8734,22 @@ entity system_DigiLED_0_0_DigiLED_v1_0_S00_AXI is
 end system_DigiLED_0_0_DigiLED_v1_0_S00_AXI;
 
 architecture STRUCTURE of system_DigiLED_0_0_DigiLED_v1_0_S00_AXI is
+  signal HSV_convert_n_0 : STD_LOGIC;
+  signal HSV_convert_n_1 : STD_LOGIC;
+  signal HSV_convert_n_14 : STD_LOGIC;
+  signal HSV_convert_n_15 : STD_LOGIC;
+  signal HSV_convert_n_16 : STD_LOGIC;
+  signal HSV_convert_n_17 : STD_LOGIC;
+  signal HSV_convert_n_18 : STD_LOGIC;
+  signal HSV_convert_n_19 : STD_LOGIC;
+  signal HSV_convert_n_2 : STD_LOGIC;
+  signal HSV_convert_n_20 : STD_LOGIC;
+  signal HSV_convert_n_21 : STD_LOGIC;
+  signal HSV_convert_n_22 : STD_LOGIC;
+  signal HSV_convert_n_23 : STD_LOGIC;
+  signal HSV_convert_n_3 : STD_LOGIC;
+  signal HSV_convert_n_4 : STD_LOGIC;
+  signal HSV_convert_n_5 : STD_LOGIC;
   signal \^s_axi_arready\ : STD_LOGIC;
   signal \^s_axi_awready\ : STD_LOGIC;
   signal \^s_axi_wready\ : STD_LOGIC;
@@ -3412,12 +8794,23 @@ architecture STRUCTURE of system_DigiLED_0_0_DigiLED_v1_0_S00_AXI is
   signal axi_rvalid_i_1_n_0 : STD_LOGIC;
   signal axi_wready0 : STD_LOGIC;
   signal led_data_reg_i_10_n_0 : STD_LOGIC;
-  signal led_data_reg_i_1_n_0 : STD_LOGIC;
+  signal led_data_reg_i_2_n_0 : STD_LOGIC;
   signal led_data_reg_i_9_n_0 : STD_LOGIC;
-  signal led_driver_n_7 : STD_LOGIC;
+  signal led_driver_n_0 : STD_LOGIC;
+  signal led_driver_n_1 : STD_LOGIC;
+  signal led_driver_n_10 : STD_LOGIC;
+  signal led_driver_n_13 : STD_LOGIC;
+  signal led_driver_n_14 : STD_LOGIC;
+  signal led_driver_n_15 : STD_LOGIC;
+  signal led_driver_n_16 : STD_LOGIC;
+  signal led_driver_n_17 : STD_LOGIC;
+  signal led_driver_n_2 : STD_LOGIC;
+  signal led_driver_n_3 : STD_LOGIC;
   signal led_index : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal p_1_in : STD_LOGIC_VECTOR ( 5 downto 0 );
-  signal rgb_temp : STD_LOGIC_VECTOR ( 23 downto 0 );
+  signal preconvert_reg : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal read_data_flag : STD_LOGIC;
+  signal rgb_data_out : STD_LOGIC_VECTOR ( 19 downto 0 );
   signal \^s00_axi_bvalid\ : STD_LOGIC;
   signal \^s00_axi_rvalid\ : STD_LOGIC;
   signal sel0 : STD_LOGIC_VECTOR ( 6 downto 0 );
@@ -3458,49 +8851,48 @@ architecture STRUCTURE of system_DigiLED_0_0_DigiLED_v1_0_S00_AXI is
   signal \slv_reg0_reg_n_0_[8]\ : STD_LOGIC;
   signal \slv_reg0_reg_n_0_[9]\ : STD_LOGIC;
   signal \slv_reg_rden__0\ : STD_LOGIC;
-  signal NLW_led_data_reg_DOBDO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 8 );
   signal NLW_led_data_reg_DOPADOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_led_data_reg_DOPBDOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \axi_rdata[0]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \axi_rdata[10]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \axi_rdata[11]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \axi_rdata[12]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \axi_rdata[13]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \axi_rdata[14]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \axi_rdata[15]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \axi_rdata[16]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \axi_rdata[17]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \axi_rdata[18]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \axi_rdata[19]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \axi_rdata[1]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \axi_rdata[20]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \axi_rdata[21]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \axi_rdata[22]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \axi_rdata[23]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \axi_rdata[24]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \axi_rdata[25]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \axi_rdata[26]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \axi_rdata[27]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \axi_rdata[28]_i_1\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \axi_rdata[29]_i_1\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \axi_rdata[2]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \axi_rdata[30]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \axi_rdata[31]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \axi_rdata[3]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \axi_rdata[4]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \axi_rdata[5]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \axi_rdata[6]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \axi_rdata[7]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \axi_rdata[8]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \axi_rdata[9]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \axi_rdata[0]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \axi_rdata[10]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \axi_rdata[11]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \axi_rdata[12]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \axi_rdata[13]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \axi_rdata[14]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \axi_rdata[15]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \axi_rdata[16]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \axi_rdata[17]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \axi_rdata[18]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \axi_rdata[19]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \axi_rdata[1]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \axi_rdata[20]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \axi_rdata[21]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \axi_rdata[22]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \axi_rdata[23]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \axi_rdata[24]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \axi_rdata[25]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \axi_rdata[26]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \axi_rdata[27]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \axi_rdata[28]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \axi_rdata[29]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \axi_rdata[2]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \axi_rdata[30]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \axi_rdata[31]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \axi_rdata[3]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \axi_rdata[4]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \axi_rdata[5]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \axi_rdata[6]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \axi_rdata[7]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \axi_rdata[8]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \axi_rdata[9]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair34";
   attribute \MEM.PORTA.DATA_BIT_LAYOUT\ : string;
   attribute \MEM.PORTA.DATA_BIT_LAYOUT\ of led_data_reg : label is "p0_d32";
   attribute \MEM.PORTB.DATA_BIT_LAYOUT\ : string;
   attribute \MEM.PORTB.DATA_BIT_LAYOUT\ of led_data_reg : label is "p0_d32";
   attribute METHODOLOGY_DRC_VIOS : string;
-  attribute METHODOLOGY_DRC_VIOS of led_data_reg : label is "";
+  attribute METHODOLOGY_DRC_VIOS of led_data_reg : label is "{SYNTH-6 {cell *THIS*}}";
   attribute RTL_RAM_BITS : integer;
   attribute RTL_RAM_BITS of led_data_reg : label is 2048;
   attribute RTL_RAM_NAME : string;
@@ -3523,13 +8915,46 @@ architecture STRUCTURE of system_DigiLED_0_0_DigiLED_v1_0_S00_AXI is
   attribute ram_slice_begin of led_data_reg : label is 0;
   attribute ram_slice_end : integer;
   attribute ram_slice_end of led_data_reg : label is 31;
-  attribute SOFT_HLUTNM of led_data_reg_i_10 : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of led_data_reg_i_10 : label is "soft_lutpair34";
 begin
   S_AXI_ARREADY <= \^s_axi_arready\;
   S_AXI_AWREADY <= \^s_axi_awready\;
   S_AXI_WREADY <= \^s_axi_wready\;
   s00_axi_bvalid <= \^s00_axi_bvalid\;
   s00_axi_rvalid <= \^s00_axi_rvalid\;
+HSV_convert: entity work.system_DigiLED_0_0_HSV_to_RGB
+     port map (
+      D(7 downto 6) => rgb_data_out(19 downto 18),
+      D(5) => rgb_data_out(16),
+      D(4 downto 0) => rgb_data_out(4 downto 0),
+      S(0) => led_driver_n_10,
+      \internal_color_reg[12]\ => led_driver_n_16,
+      \internal_color_reg[12]_0\ => led_driver_n_13,
+      \internal_color_reg[16]\ => led_driver_n_3,
+      \internal_color_reg[1]\ => led_driver_n_2,
+      \internal_color_reg[1]_0\ => led_driver_n_17,
+      \internal_color_reg[5]\ => led_driver_n_1,
+      \internal_color_reg[9]\ => led_driver_n_15,
+      \internal_color_reg[9]_0\ => led_driver_n_0,
+      \internal_color_reg[9]_1\ => led_driver_n_14,
+      led_data_reg => HSV_convert_n_0,
+      led_data_reg_0 => HSV_convert_n_1,
+      led_data_reg_1 => HSV_convert_n_2,
+      led_data_reg_10 => HSV_convert_n_19,
+      led_data_reg_11 => HSV_convert_n_20,
+      led_data_reg_12 => HSV_convert_n_21,
+      led_data_reg_13 => HSV_convert_n_22,
+      led_data_reg_14 => HSV_convert_n_23,
+      led_data_reg_2 => HSV_convert_n_3,
+      led_data_reg_3 => HSV_convert_n_4,
+      led_data_reg_4 => HSV_convert_n_5,
+      led_data_reg_5 => HSV_convert_n_14,
+      led_data_reg_6 => HSV_convert_n_15,
+      led_data_reg_7 => HSV_convert_n_16,
+      led_data_reg_8 => HSV_convert_n_17,
+      led_data_reg_9 => HSV_convert_n_18,
+      preconvert_reg(31 downto 0) => preconvert_reg(31 downto 0)
+    );
 \axi_araddr_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => s00_axi_aclk,
@@ -4365,8 +9790,8 @@ axi_wready_reg: unisim.vcomponents.FDRE
     );
 led_data_reg: unisim.vcomponents.RAMB18E1
     generic map(
-      DOA_REG => 1,
-      DOB_REG => 1,
+      DOA_REG => 0,
+      DOB_REG => 0,
       INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -4469,14 +9894,13 @@ led_data_reg: unisim.vcomponents.RAMB18E1
       DIBDI(15 downto 0) => s00_axi_wdata(31 downto 16),
       DIPADIP(1 downto 0) => B"11",
       DIPBDIP(1 downto 0) => B"11",
-      DOADO(15 downto 0) => rgb_temp(15 downto 0),
-      DOBDO(15 downto 8) => NLW_led_data_reg_DOBDO_UNCONNECTED(15 downto 8),
-      DOBDO(7 downto 0) => rgb_temp(23 downto 16),
+      DOADO(15 downto 0) => preconvert_reg(15 downto 0),
+      DOBDO(15 downto 0) => preconvert_reg(31 downto 16),
       DOPADOP(1 downto 0) => NLW_led_data_reg_DOPADOP_UNCONNECTED(1 downto 0),
       DOPBDOP(1 downto 0) => NLW_led_data_reg_DOPBDOP_UNCONNECTED(1 downto 0),
-      ENARDEN => '1',
-      ENBWREN => led_data_reg_i_1_n_0,
-      REGCEAREGCE => led_driver_n_7,
+      ENARDEN => read_data_flag,
+      ENBWREN => led_data_reg_i_2_n_0,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4488,18 +9912,6 @@ led_data_reg: unisim.vcomponents.RAMB18E1
       WEBWE(1) => s00_axi_aresetn,
       WEBWE(0) => s00_axi_aresetn
     );
-led_data_reg_i_1: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"0F00FE00"
-    )
-        port map (
-      I0 => sel0(1),
-      I1 => sel0(0),
-      I2 => led_data_reg_i_9_n_0,
-      I3 => led_data_reg_i_10_n_0,
-      I4 => sel0(6),
-      O => led_data_reg_i_1_n_0
-    );
 led_data_reg_i_10: unisim.vcomponents.LUT4
     generic map(
       INIT => X"8000"
@@ -4510,6 +9922,18 @@ led_data_reg_i_10: unisim.vcomponents.LUT4
       I2 => s00_axi_awvalid,
       I3 => s00_axi_wvalid,
       O => led_data_reg_i_10_n_0
+    );
+led_data_reg_i_2: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"0F00FE00"
+    )
+        port map (
+      I0 => sel0(1),
+      I1 => sel0(0),
+      I2 => led_data_reg_i_9_n_0,
+      I3 => led_data_reg_i_10_n_0,
+      I4 => sel0(6),
+      O => led_data_reg_i_2_n_0
     );
 led_data_reg_i_3: unisim.vcomponents.LUT6
     generic map(
@@ -4587,11 +10011,41 @@ led_data_reg_i_9: unisim.vcomponents.LUT4
     );
 led_driver: entity work.system_DigiLED_0_0_led_driver
      port map (
-      \FSM_onehot_state_reg[0]_0\ => led_driver_n_7,
+      D(7 downto 6) => rgb_data_out(19 downto 18),
+      D(5) => rgb_data_out(16),
+      D(4 downto 0) => rgb_data_out(4 downto 0),
       Q(5 downto 0) => led_index(5 downto 0),
-      \frame_counter_div_reg[0]_0\(0) => \slv_reg0_reg_n_0_[0]\,
+      S(0) => led_driver_n_10,
+      \internal_color_reg[12]_0\ => HSV_convert_n_1,
+      \internal_color_reg[13]_0\ => HSV_convert_n_3,
+      \internal_color_reg[14]_0\ => HSV_convert_n_4,
+      \internal_color_reg[15]_0\ => HSV_convert_n_5,
+      \internal_color_reg[16]_0\ => HSV_convert_n_16,
+      \internal_color_reg[17]_0\ => HSV_convert_n_17,
+      \internal_color_reg[18]_0\ => HSV_convert_n_18,
+      \internal_color_reg[19]_0\ => HSV_convert_n_19,
+      \internal_color_reg[20]_0\ => HSV_convert_n_20,
+      \internal_color_reg[21]_0\(0) => \slv_reg0_reg_n_0_[0]\,
+      \internal_color_reg[21]_1\ => HSV_convert_n_21,
+      \internal_color_reg[22]_0\ => HSV_convert_n_22,
+      \internal_color_reg[23]_0\ => HSV_convert_n_23,
+      \internal_color_reg[5]_0\ => HSV_convert_n_2,
+      \internal_color_reg[6]_0\ => HSV_convert_n_14,
+      \internal_color_reg[7]_0\ => HSV_convert_n_15,
+      \internal_color_reg[9]_0\ => HSV_convert_n_0,
+      led_data_reg => led_driver_n_0,
+      led_data_reg_0 => led_driver_n_1,
+      led_data_reg_1 => led_driver_n_2,
+      led_data_reg_2 => led_driver_n_3,
+      led_data_reg_3 => led_driver_n_13,
+      led_data_reg_4 => led_driver_n_14,
+      led_data_reg_5 => led_driver_n_15,
+      led_data_reg_6 => led_driver_n_16,
+      led_data_reg_7 => led_driver_n_17,
       led_out => led_out,
-      rgb_temp(23 downto 0) => rgb_temp(23 downto 0),
+      preconvert_reg(15 downto 8) => preconvert_reg(31 downto 24),
+      preconvert_reg(7 downto 0) => preconvert_reg(7 downto 0),
+      read_data_flag => read_data_flag,
       s00_axi_aclk => s00_axi_aclk
     );
 \slv_reg0[15]_i_1\: unisim.vcomponents.LUT6

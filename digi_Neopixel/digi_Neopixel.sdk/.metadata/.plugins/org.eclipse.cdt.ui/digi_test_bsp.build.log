@@ -1,4 +1,4 @@
-17:33:06 **** Auto Build of project digi_test_bsp ****
+16:00:26 **** Auto Build of project digi_test_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
 make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -50,20 +50,20 @@ make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm
 "Running Make libs in ps7_cortexa9_0/libsrc/DigiLED_v1_0/src"
 make -C ps7_cortexa9_0/libsrc/DigiLED_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Compiling DigiLED..."
-In file included from DigiLED.c:14:
-DigiLED.h:21:10: fatal error: xgpio.h: No such file or directory
- #include "xgpio.h"
-          ^~~~~~~~~
-compilation terminated.
-In file included from DigiLED_selftest.c:3:
-DigiLED.h:21:10: fatal error: xgpio.h: No such file or directory
- #include "xgpio.h"
-          ^~~~~~~~~
+DigiLED_selftest.c: In function 'DIGILED_Reg_SelfTest':
+DigiLED_selftest.c:50:4: warning: implicit declaration of function 'DIGILED_mWriteReg'; did you mean 'XGpioPs_WriteReg'? [-Wimplicit-function-declaration]
+    DIGILED_mWriteReg (baseaddr, write_loop_index*4, (write_loop_index+1)*READ_WRITE_MUL_FACTOR);
+    ^~~~~~~~~~~~~~~~~
+    XGpioPs_WriteReg
+DigiLED_selftest.c:52:9: warning: implicit declaration of function 'DIGILED_mReadReg'; did you mean 'XGpioPs_ReadReg'? [-Wimplicit-function-declaration]
+    if ( DIGILED_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+         ^~~~~~~~~~~~~~~~
+         XGpioPs_ReadReg
+DigiLED_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
 "Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
-compilation terminated.
 make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-make[1]: *** [Makefile:18: libs] Error 1
-make: *** [Makefile:30: ps7_cortexa9_0/libsrc/DigiLED_v1_0/src/make.libs] Error 2
 "Compiling dmaps"
 "Running Make libs in ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src"
 make -C ps7_cortexa9_0/libsrc/freertos10_xilinx_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -96,3 +96,10 @@ make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm
 "Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
 make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+
+16:01:46 Build Finished (took 1m:20s.188ms)
+

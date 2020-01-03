@@ -15,10 +15,10 @@
 /****************** Include Files ********************/
 #include "xil_types.h"
 #include "xstatus.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include "xparameters.h"
-#include "xgpio.h"
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include "xparameters.h"
+#include "xgpiops.h"
 #include "xil_types.h"
 
 #define DIGILED_S00_AXI_SLV_REG0_OFFSET 0

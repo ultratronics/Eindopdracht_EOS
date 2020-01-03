@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Sun Dec  8 17:13:21 2019
+| Date             : Fri Jan  3 14:57:27 2020
 | Host             : Dennis running 64-bit major release  (build 9200)
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.301        |
+| Total On-Chip Power (W)  | 1.300        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.183        |
+| Dynamic (W)              | 1.182        |
 | Device Static (W)        | 0.118        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 70.0         |
@@ -53,19 +53,20 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.002 |        4 |       --- |             --- |
-| Slice Logic             |    <0.001 |     1576 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      488 |     14400 |            3.39 |
-|   CARRY4                |    <0.001 |       50 |      4400 |            1.14 |
-|   Register              |    <0.001 |      671 |     28800 |            2.33 |
+| Slice Logic             |    <0.001 |     1925 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |      744 |     14400 |            5.17 |
+|   CARRY4                |    <0.001 |       89 |      4400 |            2.02 |
+|   Register              |    <0.001 |      695 |     28800 |            2.41 |
 |   LUT as Shift Register |    <0.001 |       60 |      6000 |            1.00 |
 |   F7/F8 Muxes           |    <0.001 |        3 |     17600 |            0.02 |
-|   Others                |     0.000 |      145 |       --- |             --- |
-| Signals                 |     0.001 |     1164 |       --- |             --- |
+|   Others                |     0.000 |      148 |       --- |             --- |
+| Signals                 |     0.001 |     1504 |       --- |             --- |
 | Block RAM               |    <0.001 |      0.5 |        50 |            1.00 |
+| DSPs                    |     0.000 |        6 |        66 |            9.09 |
 | I/O                     |    <0.001 |        1 |        54 |            1.85 |
 | PS7                     |     1.178 |        1 |       --- |             --- |
 | Static Power            |     0.118 |          |           |                 |
-| Total                   |     1.301 |          |           |                 |
+| Total                   |     1.300 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.011 |       0.005 |      0.006 |
+| Vccint    |       1.000 |     0.010 |       0.004 |      0.006 |
 | Vccaux    |       1.800 |     0.007 |       0.000 |      0.007 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -151,10 +152,8 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| system_wrapper           |     1.183 |
-|   system_i               |     1.183 |
-|     DigiLED_0            |     0.001 |
-|       inst               |     0.001 |
+| system_wrapper           |     1.182 |
+|   system_i               |     1.182 |
 |     processing_system7_0 |     1.178 |
 |       inst               |     1.178 |
 |     ps7_0_axi_periph     |     0.003 |

@@ -1,23 +1,8 @@
-17:27:58 **** Auto Build of configuration Debug for project digi_test ****
+17:47:16 **** Incremental Build of configuration Debug for project digi_test ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
-Building file: ../src/freertos_hello_world.c
-Invoking: ARM v7 gcc compiler
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../digi_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
-Finished building: ../src/freertos_hello_world.c
- 
-Building target: digi_test.elf
-Invoking: ARM v7 gcc linker
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../digi_test_bsp/ps7_cortexa9_0/lib -o "digi_test.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
-Finished building target: digi_test.elf
- 
-Invoking: ARM v7 Print Size
-arm-none-eabi-size digi_test.elf  |tee "digi_test.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  77708	   3388	  89424	 170520	  29a18	digi_test.elf
-Finished building: digi_test.elf.size
- 
+make: Nothing to be done for 'main-build'.
 
-17:28:07 Build Finished (took 8s.809ms)
+17:47:16 Build Finished (took 282ms)
 

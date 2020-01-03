@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Sun Dec  8 17:07:33 2019
+// Date        : Fri Jan  3 14:52:51 2020
 // Host        : Dennis running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ip/system_DigiLED_0_0/system_DigiLED_0_0_stub.v
+//               C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ip/system_DigiLED_0_0/system_DigiLED_0_0_stub.v
 // Design      : system_DigiLED_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z007sclg225-1

@@ -1,186 +1,225 @@
-/*
-    Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
-    Copyright (C) 2012 - 2018 Xilinx, Inc. All Rights Reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy of
-    this software and associated documentation files (the "Software"), to deal in
-    the Software without restriction, including without limitation the rights to
-    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-    the Software, and to permit persons to whom the Software is furnished to do so,
-    subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software. If you wish to use our Amazon
-    FreeRTOS name, please do so in a fair use way that does not cause confusion.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-    http://www.FreeRTOS.org
-    http://aws.amazon.com/freertos
 
 
-    1 tab == 4 spaces!
-*/
-
-/* FreeRTOS includes. */
-#include "FreeRTOS.h"
-#include "task.h"
-#include "queue.h"
-#include "timers.h"
-/* Xilinx includes. */
-#include "xil_printf.h"
+#include <stdio.h>
+//#include "platform.h"
+//#include "DigiLED.h"
+#include <stdlib.h>
 #include "xparameters.h"
+#include "xgpiops.h"
+#include "xil_types.h"
+#include "xil_io.h"
+// #include "digiLED.h"
 
-#define TIMER_ID	1
-#define DELAY_10_SECONDS	10000UL
-#define DELAY_1_SECOND		1000UL
-#define TIMER_CHECK_THRESHOLD	9
-/*-----------------------------------------------------------*/
+#define led_num 30
+#define g_val 30
+#define num_patterns 3
 
-/* The Tx and Rx tasks as described at the top of this file. */
-static void prvTxTask( void *pvParameters );
-static void prvRxTask( void *pvParameters );
-static void vTimerCallback( TimerHandle_t pxTimer );
-/*-----------------------------------------------------------*/
+int color_index = 0;
+short rot_index = 0;
+short case_ID = 0;
+char initialized = 0;
+char prev_btn_st = 0;
+int fader = 0;
+char count_up;
 
-/* The queue used by the Tx and Rx tasks, as described at the top of this
-file. */
-static TaskHandle_t xTxTask;
-static TaskHandle_t xRxTask;
-static QueueHandle_t xQueue = NULL;
-static TimerHandle_t xTimer = NULL;
-char HWstring[15] = "Hello World";
-long RxtaskCntr = 0;
 
-int main( void )
-{
-	const TickType_t x10seconds = pdMS_TO_TICKS( DELAY_10_SECONDS );
+#define DIGILED_S00_AXI_SLV_REG0_OFFSET 0
+#define DIGILED_S00_AXI_SLV_REG1_OFFSET 4
+#define DIGILED_S00_AXI_SLV_REG2_OFFSET 8
+#define DIGILED_S00_AXI_SLV_REG3_OFFSET 12
 
-	xil_printf( "Hello from Freertos example main\r\n" );
-
-	/* Create the two tasks.  The Tx task is given a lower priority than the
-	Rx task, so the Rx task will leave the Blocked state and pre-empt the Tx
-	task as soon as the Tx task places an item in the queue. */
-	xTaskCreate( 	prvTxTask, 					/* The function that implements the task. */
-					( const char * ) "Tx", 		/* Text name for the task, provided to assist debugging only. */
-					configMINIMAL_STACK_SIZE, 	/* The stack allocated to the task. */
-					NULL, 						/* The task parameter is not used, so set to NULL. */
-					tskIDLE_PRIORITY,			/* The task runs at the idle priority. */
-					&xTxTask );
-
-	xTaskCreate( prvRxTask,
-				 ( const char * ) "GB",
-				 configMINIMAL_STACK_SIZE,
-				 NULL,
-				 tskIDLE_PRIORITY + 1,
-				 &xRxTask );
-
-	/* Create the queue used by the tasks.  The Rx task has a higher priority
-	than the Tx task, so will preempt the Tx task and remove values from the
-	queue as soon as the Tx task writes to the queue - therefore the queue can
-	never have more than one item in it. */
-	xQueue = xQueueCreate( 	1,						/* There is only one space in the queue. */
-							sizeof( HWstring ) );	/* Each space in the queue is large enough to hold a uint32_t. */
-
-	/* Check the queue was created. */
-	configASSERT( xQueue );
-
-	/* Create a timer with a timer expiry of 10 seconds. The timer would expire
-	 after 10 seconds and the timer call back would get called. In the timer call back
-	 checks are done to ensure that the tasks have been running properly till then.
-	 The tasks are deleted in the timer call back and a message is printed to convey that
-	 the example has run successfully.
-	 The timer expiry is set to 10 seconds and the timer set to not auto reload. */
-	xTimer = xTimerCreate( (const char *) "Timer",
-							x10seconds,
-							pdFALSE,
-							(void *) TIMER_ID,
-							vTimerCallback);
-	/* Check the timer was created. */
-	configASSERT( xTimer );
-
-	/* start the timer with a block time of 0 ticks. This means as soon
-	   as the schedule starts the timer will start running and will expire after
-	   10 seconds */
-	xTimerStart( xTimer, 0 );
-
-	/* Start the tasks and timer running. */
-	vTaskStartScheduler();
-
-	/* If all is well, the scheduler will now be running, and the following line
-	will never be reached.  If the following line does execute, then there was
-	insufficient FreeRTOS heap memory available for the idle and/or timer tasks
-	to be created.  See the memory management section on the FreeRTOS web site
-	for more details. */
-	for( ;; );
+void enable_LEDs(void){
+	Xil_Out32(XPAR_DIGILED_0_S00_AXI_BASEADDR, 1);
 }
 
-
-/*-----------------------------------------------------------*/
-static void prvTxTask( void *pvParameters )
-{
-const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
-
-	for( ;; )
-	{
-		/* Delay for 1 second. */
-		vTaskDelay( x1second );
-
-		/* Send the next value on the queue.  The queue should always be
-		empty at this point so a block time of 0 is used. */
-		xQueueSend( xQueue,			/* The queue being written to. */
-					HWstring, /* The address of the data being sent. */
-					0UL );			/* The block time. */
-	}
+void disable_LEDs(void){
+	Xil_Out32(XPAR_DIGILED_0_S00_AXI_BASEADDR, 0);
 }
 
-/*-----------------------------------------------------------*/
-static void prvRxTask( void *pvParameters )
-{
-char Recdstring[15] = "";
-
-	for( ;; )
-	{
-		/* Block to wait for data arriving on the queue. */
-		xQueueReceive( 	xQueue,				/* The queue being read. */
-						Recdstring,	/* Data is read into this address. */
-						portMAX_DELAY );	/* Wait without a timeout for data. */
-
-		/* Print the received data. */
-		xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
-		RxtaskCntr++;
-	}
+void SetLEDColor(int led, uint16_t hue, uint8_t sat, uint8_t val){
+	Xil_Out32((XPAR_DIGILED_0_S00_AXI_BASEADDR+(4*(led+1))), (hue<<16) | (sat<<8) | val);
 }
 
-/*-----------------------------------------------------------*/
-static void vTimerCallback( TimerHandle_t pxTimer )
-{
-	long lTimerId;
-	configASSERT( pxTimer );
+//void clearLEDs(int led_num){
+//	int i_clear;
+//
+//	for(i_clear=0; i_clear<led_num; i_clear++)
+//		Xil_Out32(XPAR_DIGILED_0_S00_AXI_BASEADDR+((i_clear+1)*4), 0);
+//}
 
-	lTimerId = ( long ) pvTimerGetTimerID( pxTimer );
 
-	if (lTimerId != TIMER_ID) {
-		xil_printf("FreeRTOS Hello World Example FAILED");
+
+typedef struct hsv_data{
+	uint16_t hue;
+	uint8_t sat;
+	uint8_t val;
+}HSV_DATA;
+
+HSV_DATA running_digi[15] = {
+	{510, 255, 180},	//green
+	{510, 255,  50},	//white
+	{510, 255,  45},	//yellow
+	{510, 255,  40},	//orange
+	{510, 255,  35},	//light-green
+	{510, 255,  30},	//white
+	{510, 255,  25},	//white
+	{510, 255,  20},	//white
+	{510, 255,  15},	//white
+	{510, 255,  10},	//white
+	{510, 255,   5},	//white
+	{510, 255,   5},	//white
+	{510, 255,   0},	//white
+	{510, 255,   0},	//white
+	{510, 255,   0},	//white
+};
+
+
+HSV_DATA color_array[led_num];
+
+HSV_DATA * arrayPtr = color_array;
+
+//XGpio Gpio;
+
+void merica(void){
+	int i=0;
+
+	if(count_up){
+		if(fader < 80)
+			fader += 1;
+		else{
+			fader = 80;
+			count_up = 0;
+		}
 	}
 
-	/* If the RxtaskCntr is updated every time the Rx task is called. The
-	 Rx task is called every time the Tx task sends a message. The Tx task
-	 sends a message every 1 second.
-	 The timer expires after 10 seconds. We expect the RxtaskCntr to at least
-	 have a value of 9 (TIMER_CHECK_THRESHOLD) when the timer expires. */
-	if (RxtaskCntr >= TIMER_CHECK_THRESHOLD) {
-		xil_printf("FreeRTOS Hello World Example PASSED");
-	} else {
-		xil_printf("FreeRTOS Hello World Example FAILED");
+	else{
+		if(fader > 20)
+			fader -= 1;
+		else{
+			fader = 20;
+			count_up = 1;
+		}
 	}
 
-	vTaskDelete( xRxTask );
-	vTaskDelete( xTxTask );
+	for(i=0; i<led_num; i++){
+		if(i<(led_num/3))
+			SetLEDColor(i, 1020, 255, fader);
+		else if(i<(2*led_num/3))
+			SetLEDColor(i, 0, 0, fader);
+		else
+			SetLEDColor(i, 1, 255, fader);
+	}
+
+	for(i=0; i<200000; i++);
 }
+
+void xmas_twinkle(void){
+	int i;
+
+	if(!initialized){
+		for(i=0; i<led_num; i++){
+			arrayPtr->hue = 0;
+			arrayPtr->sat = 0;
+			arrayPtr->val = 0;
+		}
+
+		//clearLEDs(led_num);
+		initialized = 1;
+	}
+
+	for(i=0; i<led_num; i++){
+		//led is on
+		if(arrayPtr[i].val > 0){
+			if(arrayPtr[i].val < 3)
+				arrayPtr[i].val = 0;
+			else
+				arrayPtr[i].val -= 3;
+		}
+
+		//led is off
+		else if(rand()%300 == 0){
+			if(rand()%2 == 0)
+				arrayPtr[i].hue = 0;
+			else
+				arrayPtr[i].hue = 510;
+
+			arrayPtr[i].sat = 255;
+			arrayPtr[i].val = 100;
+		}
+	}
+
+	for(i=0; i<led_num; i++)
+		SetLEDColor(i, arrayPtr[i].hue, arrayPtr[i].sat, arrayPtr[i].val);
+
+	for(i=0; i<100000; i++);
+}
+
+void running_digilent(void){
+	int i;
+
+	for(i=0; i<led_num; i++){
+		if(color_index == 15)
+			color_index = 0;
+
+
+		SetLEDColor(i,
+			running_digi[(color_index+rot_index)%15].hue,
+			running_digi[(color_index+rot_index)%15].sat,
+			running_digi[(color_index+rot_index)%15].val
+		);
+
+
+		color_index++;
+
+	}
+
+	if(rot_index == 15)
+		rot_index = 0;
+
+	rot_index++;
+	for(i=0; i<500000; i++);
+}
+
+//void print(char *str);
+
+int main(){
+
+	//XGpio_Initialize(&Gpio, 0);
+
+	//XGpio_SetDataDirection(&Gpio, 1, 0xFFFF);
+
+	//clearLEDs(led_num);
+
+	enable_LEDs();
+
+	while(1){
+
+		//if((XGpioPs_Read(&Gpio, 1) == 1) && !prev_btn_st){
+		//	prev_btn_st = 1;
+		//	initialized = 0;
+		//	if(case_ID < num_patterns-1)
+		//		case_ID++;
+		//	else
+		//		case_ID = 0;
+		//}
+
+		//else if((XGpio_DiscreteRead(&Gpio, 1) == 1) && prev_btn_st){
+			//clearLEDs(led_num);
+		//}
+
+		//else{
+			//prev_btn_st = 0;
+			//if(case_ID == 0)
+				merica();
+			//else if(case_ID == 1)
+				//xmas_twinkle();
+			//else if(case_ID == 2)
+				//running_digilent();
+		//}
+	}
+
+
+    return 0;
+}
+
 

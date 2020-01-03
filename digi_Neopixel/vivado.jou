@@ -2,13 +2,32 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Dec 31 12:08:14 2019
-# Process ID: 3812
-# Current directory: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11296 D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\digi_Neopixel\digi_Neopixel.xpr
-# Log file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel/vivado.log
-# Journal file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel\vivado.jou
+# Start of session at: Fri Jan  3 14:45:37 2020
+# Process ID: 19384
+# Current directory: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16012 C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\digi_Neopixel\digi_Neopixel.xpr
+# Log file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/vivado.log
+# Journal file: C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.xpr
+open_project C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.xpr
 update_compile_order -fileset sources_1
+open_bd_design {C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/system.bd}
+startgroup
+set_property -dict [list CONFIG.COLOR_MODE {HSV}] [get_bd_cells DigiLED_0]
+endgroup
+save_bd_design
+reset_run synth_1
+reset_run system_DigiLED_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+file copy -force C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.runs/impl_1/system_wrapper.sysdef C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.sdk/system_wrapper.hdf
+
+launch_sdk -workspace C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.sdk -hwspec C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.sdk/system_wrapper.hdf
+launch_sdk -workspace C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.sdk -hwspec C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.sdk/system_wrapper.hdf
+launch_sdk -workspace C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.sdk -hwspec C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.sdk/system_wrapper.hdf
+ipx::edit_ip_in_project -upgrade true -name DigiLED_v1_0_project -directory C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.tmp/DigiLED_v1_0_project c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/ip_repo_digi/DigiLED_1.0/component.xml
+update_compile_order -fileset sources_1
+set_property supported_families {zynq Pre-Production} [ipx::current_core]
+current_project digi_Neopixel
+close_project

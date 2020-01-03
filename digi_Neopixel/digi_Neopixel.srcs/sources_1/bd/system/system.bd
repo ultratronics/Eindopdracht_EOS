@@ -1207,6 +1207,9 @@
         "vlnv": "user.org:user:DigiLED:1.0",
         "xci_name": "system_DigiLED_0_0",
         "parameters": {
+          "COLOR_MODE": {
+            "value": "HSV"
+          },
           "NUMBER_OF_LEDS": {
             "value": "64"
           }
@@ -1414,12 +1417,6 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
@@ -1436,6 +1433,12 @@
         "interface_ports": [
           "processing_system7_0/M_AXI_GP0",
           "ps7_0_axi_periph/S00_AXI"
+        ]
+      },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       }
     },

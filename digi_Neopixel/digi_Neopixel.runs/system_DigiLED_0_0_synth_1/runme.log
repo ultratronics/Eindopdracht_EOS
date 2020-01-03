@@ -20,25 +20,27 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z007s'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z007s'
 INFO: [Device 21-403] Loading part xc7z007sclg225-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 22948 
+INFO: Helper process launched with PID 14776 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 697.398 ; gain = 176.879
+Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 697.813 ; gain = 177.637
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_DigiLED_0_0' [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ip/system_DigiLED_0_0/synth/system_DigiLED_0_0.v:56]
 INFO: [Synth 8-6157] synthesizing module 'DigiLED_v1_0' [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0.v:3]
 	Parameter NUMBER_OF_LEDS bound to: 64 - type: integer 
 	Parameter REFRESH_DELAY bound to: 2000 - type: integer 
-	Parameter COLOR_MODE bound to: RGB - type: string 
+	Parameter COLOR_MODE bound to: HSV - type: string 
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 9 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'DigiLED_v1_0_S00_AXI' [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0_S00_AXI.v:4]
 	Parameter NUMBER_OF_LEDS bound to: 64 - type: integer 
 	Parameter REFRESH_DELAY bound to: 2000 - type: integer 
-	Parameter COLOR_MODE bound to: RGB - type: string 
+	Parameter COLOR_MODE bound to: HSV - type: string 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
 	Parameter OPT_MEM_ADDR_BITS bound to: 6 - type: integer 
 	Parameter ADDR_LSB bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'HSV_to_RGB' [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/HSV_to_RGB.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'HSV_to_RGB' (1#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/HSV_to_RGB.v:3]
 INFO: [Synth 8-6157] synthesizing module 'led_driver' [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/led_driver.v:3]
 	Parameter number_of_leds bound to: 64 - type: integer 
 	Parameter time_to_delay bound to: 2000 - type: integer 
@@ -51,11 +53,10 @@ INFO: [Synth 8-6157] synthesizing module 'led_driver' [c:/Users/admin/Documents/
 	Parameter BITBANG2_ST bound to: 2'b10 
 	Parameter DELAY_ST bound to: 2'b11 
 WARNING: [Synth 8-5788] Register internal_color_reg in module led_driver is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/led_driver.v:51]
-INFO: [Synth 8-6155] done synthesizing module 'led_driver' (1#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/led_driver.v:3]
-WARNING: [Synth 8-3936] Found unconnected internal register 'rgb_temp_reg' and it is trimmed from '32' to '24' bits. [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0_S00_AXI.v:367]
-INFO: [Synth 8-6155] done synthesizing module 'DigiLED_v1_0_S00_AXI' (2#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0_S00_AXI.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'DigiLED_v1_0' (3#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'system_DigiLED_0_0' (4#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ip/system_DigiLED_0_0/synth/system_DigiLED_0_0.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'led_driver' (2#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/led_driver.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'DigiLED_v1_0_S00_AXI' (3#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'DigiLED_v1_0' (4#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'system_DigiLED_0_0' (5#1) [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ip/system_DigiLED_0_0/synth/system_DigiLED_0_0.v:56]
 WARNING: [Synth 8-3331] design DigiLED_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[2]
 WARNING: [Synth 8-3331] design DigiLED_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[1]
 WARNING: [Synth 8-3331] design DigiLED_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[0]
@@ -63,7 +64,7 @@ WARNING: [Synth 8-3331] design DigiLED_v1_0_S00_AXI has unconnected port S_AXI_A
 WARNING: [Synth 8-3331] design DigiLED_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[1]
 WARNING: [Synth 8-3331] design DigiLED_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 763.855 ; gain = 243.336
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 764.105 ; gain = 243.930
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -76,10 +77,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 763.855 ; gain = 243.336
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 764.105 ; gain = 243.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 763.855 ; gain = 243.336
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 764.105 ; gain = 243.930
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -87,28 +88,28 @@ Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 879.809 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 880.262 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.203 . Memory (MB): peak = 881.855 ; gain = 2.047
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.575 . Memory (MB): peak = 881.262 ; gain = 1.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:42 ; elapsed = 00:00:49 . Memory (MB): peak = 881.855 ; gain = 361.336
+Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 881.262 ; gain = 361.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z007sclg225-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:42 ; elapsed = 00:00:50 . Memory (MB): peak = 881.855 ; gain = 361.336
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 881.262 ; gain = 361.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:50 . Memory (MB): peak = 881.855 ; gain = 361.336
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 881.262 ; gain = 361.086
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'led_driver'
 INFO: [Synth 8-4471] merging register 'slv_reg2_reg[31:0]' into 'slv_reg1_reg[31:0]' [c:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.srcs/sources_1/bd/system/ipshared/936f/hdl/DigiLED_v1_0_S00_AXI.v:213]
@@ -122,7 +123,7 @@ INFO: [Synth 8-4471] merging register 'slv_reg3_reg[31:0]' into 'slv_reg1_reg[31
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'led_driver'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:53 . Memory (MB): peak = 881.855 ; gain = 361.336
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 881.262 ; gain = 361.086
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -135,22 +136,29 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     32 Bit       Adders := 5     
 	   2 Input     11 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 7     
+	   3 Input      8 Bit       Adders := 1     
+	   4 Input      8 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
-	               24 Bit    Registers := 2     
+	               32 Bit    Registers := 4     
+	               24 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
 	                9 Bit    Registers := 2     
 	                6 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
 	                1 Bit    Registers := 6     
++---Multipliers : 
+	                 8x32  Multipliers := 5     
 +---RAMs : 
 	               2K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 3     
 	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 7     
 	   3 Input      6 Bit        Muxes := 1     
 	   3 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 3     
@@ -164,6 +172,17 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module HSV_to_RGB 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input      8 Bit       Adders := 7     
+	   3 Input      8 Bit       Adders := 1     
+	   4 Input      8 Bit       Adders := 1     
++---Multipliers : 
+	                 8x32  Multipliers := 5     
++---Muxes : 
+	   2 Input     24 Bit        Muxes := 7     
 Module led_driver 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -188,8 +207,7 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      6 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
-	               24 Bit    Registers := 1     
+	               32 Bit    Registers := 4     
 	                9 Bit    Registers := 2     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 5     
@@ -215,6 +233,18 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+DSP Report: Generating DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2, operation Mode is: A*B.
+DSP Report: operator inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2 is absorbed into DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2.
+DSP Report: Generating DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2, operation Mode is: A*B.
+DSP Report: operator inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2 is absorbed into DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2.
+DSP Report: Generating DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2, operation Mode is: A*B.
+DSP Report: operator inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2 is absorbed into DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2.
+DSP Report: Generating DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2, operation Mode is: A*B.
+DSP Report: operator inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2 is absorbed into DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2.
+DSP Report: Generating DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2, operation Mode is: A*B.
+DSP Report: operator inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2 is absorbed into DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2.
+DSP Report: Generating DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2, operation Mode is: A*B.
+DSP Report: operator inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2 is absorbed into DSP inst/DigiLED_v1_0_S00_AXI_inst/HSV_convert/rgb_data_out2.
 WARNING: [Synth 8-3331] design system_DigiLED_0_0 has unconnected port s00_axi_awprot[2]
 WARNING: [Synth 8-3331] design system_DigiLED_0_0 has unconnected port s00_axi_awprot[1]
 WARNING: [Synth 8-3331] design system_DigiLED_0_0 has unconnected port s00_axi_awprot[0]
@@ -258,7 +288,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/Dig
 INFO: [Synth 8-3886] merging instance 'inst/DigiLED_v1_0_S00_AXI_inst/axi_bresp_reg[0]' (FDRE) to 'inst/DigiLED_v1_0_S00_AXI_inst/axi_bresp_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/DigiLED_v1_0_S00_AXI_inst/axi_bresp_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:08 . Memory (MB): peak = 881.855 ; gain = 361.336
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 881.262 ; gain = 361.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -268,13 +298,28 @@ Block RAM: Preliminary Mapping  Report (see note below)
 +----------------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 |Module Name           | RTL Object   | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +----------------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|DigiLED_v1_0_S00_AXI: | led_data_reg | 64 x 32(READ_FIRST)    | W |   | 64 x 24(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DigiLED_v1_0_S00_AXI: | led_data_reg | 64 x 32(READ_FIRST)    | W |   | 64 x 32(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 +----------------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping  Report (see note below)
++-------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name        | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|system_DigiLED_0_0 | A*B         | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_DigiLED_0_0 | A*B         | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_DigiLED_0_0 | A*B         | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_DigiLED_0_0 | A*B         | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|system_DigiLED_0_0 | A*B         | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|HSV_to_RGB         | A*B         | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance DigiLED_v1_0_S00_AXI_insti_0/inst/DigiLED_v1_0_S00_AXI_inst/led_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -285,13 +330,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:30 ; elapsed = 00:02:01 . Memory (MB): peak = 881.855 ; gain = 361.336
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:04 ; elapsed = 00:01:08 . Memory (MB): peak = 904.141 ; gain = 383.965
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:02:01 . Memory (MB): peak = 881.855 ; gain = 361.336
+Finished Timing Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:08 . Memory (MB): peak = 904.734 ; gain = 384.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -301,7 +346,7 @@ Block RAM: Final Mapping  Report
 +----------------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 |Module Name           | RTL Object   | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +----------------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|DigiLED_v1_0_S00_AXI: | led_data_reg | 64 x 32(READ_FIRST)    | W |   | 64 x 24(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DigiLED_v1_0_S00_AXI: | led_data_reg | 64 x 32(READ_FIRST)    | W |   | 64 x 32(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 +----------------------+--------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 ---------------------------------------------------------------------------------
@@ -316,8 +361,9 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance inst/DigiLED_v1_0_S00_AXI_inst/led_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:30 ; elapsed = 00:02:02 . Memory (MB): peak = 884.219 ; gain = 363.699
+Finished Technology Mapping : Time (s): cpu = 00:01:05 ; elapsed = 00:01:09 . Memory (MB): peak = 929.418 ; gain = 409.242
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -341,7 +387,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:36 ; elapsed = 00:02:07 . Memory (MB): peak = 889.996 ; gain = 369.477
+Finished IO Insertion : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -354,7 +400,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:36 ; elapsed = 00:02:07 . Memory (MB): peak = 889.996 ; gain = 369.477
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -366,25 +412,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:36 ; elapsed = 00:02:07 . Memory (MB): peak = 889.996 ; gain = 369.477
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:36 ; elapsed = 00:02:07 . Memory (MB): peak = 889.996 ; gain = 369.477
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:36 ; elapsed = 00:02:07 . Memory (MB): peak = 889.996 ; gain = 369.477
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:36 ; elapsed = 00:02:07 . Memory (MB): peak = 889.996 ; gain = 369.477
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -397,61 +443,63 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----------+------+
-|      |Cell       |Count |
-+------+-----------+------+
-|1     |CARRY4     |    32|
-|2     |LUT1       |     9|
-|3     |LUT2       |    82|
-|4     |LUT3       |    10|
-|5     |LUT4       |    52|
-|6     |LUT5       |    13|
-|7     |LUT6       |    31|
-|8     |MUXF7      |     3|
-|9     |RAMB18E1_1 |     1|
-|10    |FDCE       |    10|
-|11    |FDPE       |     1|
-|12    |FDRE       |   159|
-+------+-----------+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    71|
+|2     |DSP48E1  |     6|
+|3     |LUT1     |    56|
+|4     |LUT2     |   161|
+|5     |LUT3     |    34|
+|6     |LUT4     |    84|
+|7     |LUT5     |    41|
+|8     |LUT6     |   104|
+|9     |MUXF7    |     3|
+|10    |RAMB18E1 |     1|
+|11    |FDCE     |    10|
+|12    |FDPE     |     1|
+|13    |FDRE     |   183|
++------+---------+------+
 
 Report Instance Areas: 
 +------+------------------------------+---------------------+------+
 |      |Instance                      |Module               |Cells |
 +------+------------------------------+---------------------+------+
-|1     |top                           |                     |   403|
-|2     |  inst                        |DigiLED_v1_0         |   403|
-|3     |    DigiLED_v1_0_S00_AXI_inst |DigiLED_v1_0_S00_AXI |   403|
-|4     |      led_driver              |led_driver           |   266|
+|1     |top                           |                     |   755|
+|2     |  inst                        |DigiLED_v1_0         |   755|
+|3     |    DigiLED_v1_0_S00_AXI_inst |DigiLED_v1_0_S00_AXI |   755|
+|4     |      HSV_convert             |HSV_to_RGB           |   323|
+|5     |      led_driver              |led_driver           |   295|
 +------+------------------------------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:36 ; elapsed = 00:02:07 . Memory (MB): peak = 889.996 ; gain = 369.477
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:07 ; elapsed = 00:02:04 . Memory (MB): peak = 889.996 ; gain = 251.477
-Synthesis Optimization Complete : Time (s): cpu = 00:01:36 ; elapsed = 00:02:08 . Memory (MB): peak = 889.996 ; gain = 369.477
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:01:05 . Memory (MB): peak = 935.195 ; gain = 297.863
+Synthesis Optimization Complete : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 935.195 ; gain = 415.020
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 36 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 81 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 910.570 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 935.195 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-62 Infos, 16 Warnings, 0 Critical Warnings and 0 Errors encountered.
+66 Infos, 15 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:47 ; elapsed = 00:02:23 . Memory (MB): peak = 910.570 ; gain = 616.168
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 910.570 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:21 ; elapsed = 00:01:28 . Memory (MB): peak = 935.195 ; gain = 640.867
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 935.195 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.runs/system_DigiLED_0_0_synth_1/system_DigiLED_0_0.dcp' has been generated.
 WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_DigiLED_0_0, cache-ID = bd816013421eb277
-INFO: [Coretcl 2-1174] Renamed 3 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 910.570 ; gain = 0.000
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_DigiLED_0_0, cache-ID = a671ff44074328ee
+INFO: [Coretcl 2-1174] Renamed 4 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 935.195 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.runs/system_DigiLED_0_0_synth_1/system_DigiLED_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_DigiLED_0_0_utilization_synth.rpt -pb system_DigiLED_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Dec  8 17:07:33 2019...
+INFO: [Common 17-206] Exiting Vivado at Fri Jan  3 14:52:52 2020...

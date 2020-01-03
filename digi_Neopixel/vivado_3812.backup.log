@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Dec 31 12:08:14 2019
+# Process ID: 3812
+# Current directory: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11296 D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\digi_Neopixel\digi_Neopixel.xpr
+# Log file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel/vivado.log
+# Journal file: D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.ip_user_files', nor could it be found using path 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/digi_Neopixel/digi_Neopixel.ip_user_files'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/ip_repo_digi'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 873.883 ; gain = 203.398
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 31 12:09:47 2019...
