@@ -267,3 +267,17 @@ con
 11:34:22 INFO  : Successfully done setting SDK workspace  
 11:34:22 INFO  : Processing command line option -hwspec D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper.hdf.
 11:34:22 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_1.
+16:34:41 INFO  : Registering command handlers for SDK TCF services
+16:34:42 INFO  : Launching XSCT server: xsct.bat -interactive D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\temp_xsdb_launch_script.tcl
+16:34:49 INFO  : XSCT server has started successfully.
+16:34:49 INFO  : Successfully done setting XSCT server connection channel  
+16:34:49 INFO  : Successfully done setting SDK workspace  
+16:34:49 INFO  : Processing command line option -hwspec D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper.hdf.
+16:34:50 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_1.
+16:42:12 INFO  : Registering command handlers for SDK TCF services
+16:42:13 INFO  : Launching XSCT server: xsct.bat -interactive D:\Vivado_Projecten\EindOpdracht1\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\temp_xsdb_launch_script.tcl
+16:42:18 INFO  : XSCT server has started successfully.
+16:42:19 INFO  : Successfully done setting XSCT server connection channel  
+16:42:19 INFO  : Successfully done setting SDK workspace  
+16:42:19 INFO  : Processing command line option -hwspec D:/Vivado_Projecten/EindOpdracht1/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper.hdf.
+16:42:19 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_1.
