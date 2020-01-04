@@ -44,6 +44,7 @@
 #include "task.h"
 #include "queue.h"
 #include "timers.h"
+#include "timers.c"
 #include "stdlib.h"
 #include "stdio.h"
 /* Xilinx includes. */
@@ -56,8 +57,8 @@
 #include "xil_io.h"
 /*-----------------------------------------------------------*/
 
-#define TIMER_ID	1
-#define TIMER_ID_KNOP 2
+#define TIMER_ID	0
+#define TIMER_ID_KNOP 0
 #define DELAY_10_SECONDS	10000UL
 #define DELAY_1_SECOND		1000UL
 #define DELAY_0_5_SECOND 500UL
@@ -100,8 +101,8 @@ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop );
 void set_obj(u32 Y);
 void game_over();
 void next_frame();
-void set_player_position(int positie);
-void set_player_2_position(int PS_button);
+void set_player_position(u32 positie);
+void set_player_2_position(u32 PS_button);
 //void set_obj_group();
 /*-----------------------------------------------------------*/
 
@@ -202,10 +203,10 @@ int main( void )
 	queue as soon as the Tx task writes to the queue - therefore the queue can
 	never have more than one item in it. */
 	xQueue = xQueueCreate( 	1,						/* There is only one space in the queue. */
-							sizeof( HWstring ) );	/* Each space in the queue is large enough to hold a uint32_t. */
+							sizeof( int ) );	/* Each space in the queue is large enough to hold a uint32_t. */
 
 	xQueue2 = xQueueCreate(1, sizeof( HWstring ));
-  xQueue3 = xQueueCreate(1, sizeof( HWstring ));
+    xQueue3 = xQueueCreate(1, sizeof( int ));
 
 	/* Check the queue was created. */
 	configASSERT( xQueue );
@@ -230,6 +231,8 @@ int main( void )
 							(void *) TIMER_ID_KNOP,
 							vTimerCallbackKnop);
 
+  vTimerSetReloadMode(xTimer, pdTRUE);
+  vTimerSetReloadMode(xTimerKnop, pdTRUE);
 	/* Check the timer was created. */
 	configASSERT( xTimer );
 	configASSERT( xTimerKnop );
@@ -237,7 +240,7 @@ int main( void )
 	   as the schedule starts the timer will start running and will expire after
 	   0.5 seconds */
 	xTimerStart( xTimer, 0 );
-  xTimerStart( xTimerKnop, 0 );
+    xTimerStart( xTimerKnop, 0 );
 	/* Start the tasks and timer running. */
 	vTaskStartScheduler();
 
@@ -246,11 +249,12 @@ int main( void )
 	insufficient FreeRTOS heap memory available for the idle and/or timer tasks
 	to be created.  See the memory management section on the FreeRTOS web site
 	for more details. */
+  xil_printf("Heap memory overflow!!!\n\r");
 	for( ;; );
 }
 /*-----------------------------------------------------------*/
 
-static void prvSensor( void *pvParameters )
+static void prvSensor( void *pvParameters ) //Werkt ....
 {
 	const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 	xil_printf("Ultrasonic test.\n\r");
@@ -304,15 +308,18 @@ static void prvKnop( void *pvParameters )
 		if((NewSwData != OldSwData) && (NewSwData == 1))
 		{
 			xil_printf("Read pin\r\n");
+      // Send the next value on the queue.  The queue should always be
+			// empty at this point so a block time of 0 is used.
+
 		}
 		OldSwData = NewSwData;
     KnopValue = OldSwData;
+    xQueueSend( xQueue3,			// The queue being written to.
+								&KnopValue, 	// The address of the data being sent.
+								0UL );			// The block time.
+    xil_printf("KnopWaarde: %d", KnopValue);
 	}
-  // Send the next value on the queue.  The queue should always be
-	// empty at this point so a block time of 0 is used.
-	xQueueSend( xQueue3,			// The queue being written to.
-							&KnopValue, 	// The address of the data being sent.
-							0UL );			// The block time.
+
 }
 /*-----------------------------------------------------------*/
 
@@ -345,59 +352,13 @@ static void prvUartRead( void *pvParameters )
 }
 /*-----------------------------------------------------------*/
 
-static void prvTxTask( void *pvParameters )
-{
-	//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 
-	//for( ;; )
-	//{
-		// Delay for 1 second.
-		//vTaskDelay( x1second );
-
-		//b10 -> 	overschrijven
-		//b9 -> stage klaarzetten
-		//b8 - b6 -> kleur
-		//b5 -> b0 -> welke led
-		//
-		//0b 000100 000 1 0
-		/*
-		 *
-		 *  x"000000", -- 0: black
-    		x"005500", -- 1: red
-    		x"550000", -- 2: green
-    		x"555500", -- 3: yellow
-    		x"0000FF", -- 4: blue
-    		x"0055FF", -- 5: magenta
-    		x"5500FF", -- 6: cyan
-    		x"FFFFFF", -- 7: white
-		 *
-		 *
-		 *
-		 *//*
-
-
-		/*groen in derde led
-		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
-		//klaarzetten in stage
-		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
-		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
-		//buffer overschrijven
-		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b10010000010);
-		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);*/
-		/*
-		//Send the next value on the queue.  The queue should always be
-		//empty at this point so a block time of 0 is used.
-		//xQueueSend( xQueue,		// The queue being written to.
-		//			HWstring, 		// The address of the data being sent.
-		//			0UL );			// The block time.
-	}*/
-}
-/*-----------------------------------------------------------*/
 
 static void prvRxTask( void *pvParameters )
 {
+	xil_printf( "In prvRxTask \r\n" );
 	int AfstandReceived;
-  int KnopReceived;
+	int KnopReceived;
 	//int RGBvalue;
 	/*int Temp;
 	char rood = 255;
@@ -415,11 +376,11 @@ static void prvRxTask( void *pvParameters )
 	for( ;; )
 	{
     		/* Block to wait for data arriving on the queue. */
-		xQueueReceive( 	xQueue3,				/* The queue being read. */
-						&KnopReceived,	/* Data is read into this address. */
-						portMAX_DELAY );	/* Wait without a timeout for data. */
+		//xQueueReceive( 	xQueue3,				/* The queue being read. */
+		//				&KnopReceived,	/* Data is read into this address. */
+		//				portMAX_DELAY );	/* Wait without a timeout for data. */
 		/* Print the received data. */
-    xil_printf( "Knop waarde: %d \r\n", KnopReceived );
+    //xil_printf( "Knop waarde: %d \r\n", KnopReceived );
 
 		/* Block to wait for data arriving on the queue. */
 		xQueueReceive( 	xQueue,				/* The queue being read. */
@@ -430,16 +391,13 @@ static void prvRxTask( void *pvParameters )
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
 		// game toeveogen
-		void set_obj(u32 Y);
-		void game_over();
-		void next_frame();
-		int get_player_position();
+		set_player_position(AfstandReceived);
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 
-		if(AfstandReceived <= 15)
+		/*if(AfstandReceived <= 15)
 		{
 			//groen in derde led
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
@@ -452,8 +410,8 @@ static void prvRxTask( void *pvParameters )
 		}
 		else if(AfstandReceived > 15)
 		{
-			xil_printf("Wrong Data Received: -1 \r\n");
-		}
+			xil_printf("Afstand te groot \r\n");
+		}*/
 
 		//sleep_A9(1);
 		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
@@ -466,10 +424,11 @@ static void prvRxTask( void *pvParameters )
 //updaten van de matrix
 static void vTimerCallback( TimerHandle_t pxTimer )
 {
-	xil_printf("\n 0.5 zijn voorbij past. \r\n");
-	next_frame();
-	/*
-	long lTimerId;
+	xil_printf("0.5s voorbij. \r\n");
+	configASSERT( pxTimer );
+  next_frame();
+
+	/*long lTimerId;
 	configASSERT( pxTimer );
 
 	lTimerId = ( long ) pvTimerGetTimerID( pxTimer );
@@ -497,11 +456,13 @@ static void vTimerCallback( TimerHandle_t pxTimer )
 
 static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
 {
+  xil_printf("0.2 zijn voorbij \r\n");
+  configASSERT( pxTimerKnop );
   int KnopValueRecv;
-  xQueueReceive( 	xQueue3,			/* The queue being read. */
+  xQueueReceive( 		xQueue3,			/* The queue being read. */
 						&KnopValueRecv,			/* Data is read into this address. */
 						portMAX_DELAY);	/* Wait without a timeout for data. */
-  set_player_2_button(KnopValueRecv);
+  set_player_2_position(KnopValueRecv);
 }
 
 void set_obj(u32 Y) // Y 0-14
@@ -516,23 +477,23 @@ void set_obj(u32 Y) // Y 0-14
 
 void game_over()
 {
-
-	for(int j = 9; j == 0; j--)
-	{
-		for(int i = 8; i == 0; i--)
-		{
-			buffer_pos[j][i] = 0;
-			buffer_type[j][i] = 0;
-		}
-	}
-
-  xTimerStop( xTimer, 5 );
+	xil_printf("game over");
+//	for(int j = 9; j == 0; j--)
+//	{
+//		for(int i = 8; i == 0; i--)
+//		{
+//			buffer_pos[j][i] = 0;
+//			buffer_type[j][i] = 0;
+//		}
+//	}
+//
+ // xTimerStop( xTimer, 5 );
 }
 /*-----------------------------------------------------------*/
 
 void next_frame()
 {
-  int count;
+  static int count = 0;
 	for( int j = 0; j > 7; j++ )
 	{
 		for( int i = 0; i > 7; i++ )
@@ -553,6 +514,7 @@ void next_frame()
   if( count >= 4 )
   {
     r = rand() % 15;
+    xil_printf("random %d\n",r);
     set_obj( r );
     count = 0;
   }
@@ -562,13 +524,13 @@ void next_frame()
 		for( u32 i = 8; i == 0; i-- )
 		{
 			// updates the position on the matrix
-			int kleurtmp = 0b00011000000 && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
-			int klaarzettentmp1 = 0b01011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
-			int klaarzettentmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
-			int overschrijventmp1 = 0b10011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
-			int overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
-			int kleur_extracted_tmp = (kleurtmp && 0b00111000000) >> 6;
-			xil_printf( "%s",kleur_extracted_tmp );
+			u32 kleurtmp = 0b00011000000 && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || (j-1) << 4)||(0xFFFFFFFF || (i-1) << 0));
+			u32 klaarzettentmp1 = 0b01011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || (j-1) << 4)||(0xFFFFFFFF || (i-1) << 0));
+			u32 klaarzettentmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || (j-1) << 4)||(0xFFFFFFFF || (i-1) << 0));
+			u32 overschrijventmp1 = 0b10011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || (j-1) << 4)||(0xFFFFFFFF || (i-1) << 0));
+			u32 overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || (j-1) << 4)||(0xFFFFFFFF || (i-1) << 0));
+			u32 kleur_extracted_tmp = (kleurtmp && 0b00111000000) >> 6;
+			xil_printf( "%d\n",kleur_extracted_tmp );
 
 			// zend de color values naar een array om de displayen in een terminal
 			xQueueSend( xQueue2,		// The queue being written to.
@@ -588,13 +550,13 @@ void next_frame()
 	count ++;
 }
 /*-----------------------------------------------------------*/
-void set_player_2_button( int PS_button )
+void set_player_2_position( u32 PS_button )
 {
-  int player_pos;
+  static u32 player_pos = 0;
 
   if( PS_button )
   {
-    player_pos ++;
+    player_pos++;
 
     if( player_pos > 7 )
     {
@@ -621,7 +583,7 @@ void set_player_2_button( int PS_button )
   buffer_type[0][ player_pos ] = 3;
 }
 
-void set_player_position( int positie )
+void set_player_position( u32 positie )
 {
 	switch( positie )
   {
