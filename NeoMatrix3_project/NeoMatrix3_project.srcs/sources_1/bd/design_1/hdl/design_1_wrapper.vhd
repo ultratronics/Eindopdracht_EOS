@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Tue Dec 31 11:20:11 2019
+--Date        : Sat Jan  4 10:53:31 2020
 --Host        : DESKTOP-5O617LN running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -44,6 +44,14 @@ architecture STRUCTURE of design_1_wrapper is
   component design_1 is
   port (
     dout_0 : out STD_LOGIC;
+    sonar_echo_0 : in STD_LOGIC;
+    sonar_trig_0 : out STD_LOGIC;
+    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 31 downto 0 );
+    FIXED_IO_ddr_vrn : inout STD_LOGIC;
+    FIXED_IO_ddr_vrp : inout STD_LOGIC;
+    FIXED_IO_ps_srstb : inout STD_LOGIC;
+    FIXED_IO_ps_clk : inout STD_LOGIC;
+    FIXED_IO_ps_porb : inout STD_LOGIC;
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -58,15 +66,7 @@ architecture STRUCTURE of design_1_wrapper is
     DDR_dm : inout STD_LOGIC_VECTOR ( 1 downto 0 );
     DDR_dq : inout STD_LOGIC_VECTOR ( 15 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 1 downto 0 );
-    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 1 downto 0 );
-    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 31 downto 0 );
-    FIXED_IO_ddr_vrn : inout STD_LOGIC;
-    FIXED_IO_ddr_vrp : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
-    sonar_echo_0 : in STD_LOGIC;
-    sonar_trig_0 : out STD_LOGIC
+    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   end component design_1;
 begin

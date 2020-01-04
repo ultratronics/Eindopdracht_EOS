@@ -319,7 +319,7 @@ static void prvUartRead( void *pvParameters )
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
-	//char RGBvalue;
+	char RGBvalue;
 	/*int Temp;
 	char rood = 255;
 	char blauw =255;
@@ -340,7 +340,7 @@ static void prvRxTask( void *pvParameters )
 						&AfstandReceived,	/* Data is read into this address. */
 						portMAX_DELAY );	/* Wait without a timeout for data. */
 
-		AfstandReceived = AfstandReceived % 10;
+
 
 		/* Print the received data. */
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
@@ -368,7 +368,7 @@ static void prvRxTask( void *pvParameters )
 
 		// Leest de RGB value in.
 		//RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
-
+		//RGBvalue = 1;
 		// schrijf de RGB values weg naar UART.
 		//xQueueSend( xQueue2,		// The queue being written to.
 		//			&RGBvalue, 		// The address of the data being sent.
@@ -389,7 +389,7 @@ static void prvRxTask( void *pvParameters )
 /*-----------------------------------------------------------*/
 
 static void vTimerCallback( TimerHandle_t pxTimer )
-{
+{/*
 	long lTimerId;
 	configASSERT( pxTimer );
 
@@ -397,21 +397,21 @@ static void vTimerCallback( TimerHandle_t pxTimer )
 
 	if (lTimerId != TIMER_ID) {
 		xil_printf("FreeRTOS Hello World Example FAILED");
-	}
+	}*/
 
 	/* If the RxtaskCntr is updated every time the Rx task is called. The
 	 Rx task is called every time the Tx task sends a message. The Tx task
 	 sends a message every 1 second.
 	 The timer expires after 10 seconds. We expect the RxtaskCntr to at least
 	 have a value of 9 (TIMER_CHECK_THRESHOLD) when the timer expires. */
-	if (RxtaskCntr >= TIMER_CHECK_THRESHOLD) {
+	/*if (RxtaskCntr >= TIMER_CHECK_THRESHOLD) {
 		xil_printf("10 sec counter finished");
 	} else {
 		xil_printf("FreeRTOS Hello World Example FAILED");
 	}
 
 	vTaskDelete( xRxTask );
-	vTaskDelete( xTxTask );
+	vTaskDelete( xTxTask );*/
 }
 /*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/

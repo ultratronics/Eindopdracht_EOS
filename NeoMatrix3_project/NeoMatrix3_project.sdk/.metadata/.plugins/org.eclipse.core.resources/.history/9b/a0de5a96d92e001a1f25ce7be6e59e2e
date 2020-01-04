@@ -33,7 +33,10 @@
  GND:  GND Pin
  Trig: F13 (AD1)
  Echo: F14 (AD0)
-*/
+ Neomatrix : pin 2 van PMOD 1
+ Vcc -> Pin 6/12 van PMOD 1
+ GND -> pin 5/11 van PMOD 1
+ */
 
 
 /* FreeRTOS includes. */
@@ -46,7 +49,7 @@
 #include "xparameters.h"
 #include "xgpiops.h"
 
-// #include "Ultrasoon.h"
+#include "Ultrasoon.h"
 #include "NeoMatix64.h"
 #include "xil_io.h"
 /*-----------------------------------------------------------*/
@@ -64,19 +67,26 @@
 #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
 #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
 
-#define NEON_ADDR XPAR_NEOMATIX64_0_S00_AXI_BASEADDR
+#define NEON_ADDR XPAR_NEOMATIX64_0_S00_AXI_BASEADDR /* 0x43C00000 */
 #define NEON_REG0 NEOMATIX64_S00_AXI_SLV_REG0_OFFSET
-#define NEON__REG1 NEOMATIX64_S00_AXI_SLV_REG1_OFFSET
+#define NEON_REG1 NEOMATIX64_S00_AXI_SLV_REG1_OFFSET
 /*-----------------------------------------------------------*/
 
 /* The Tx and Rx tasks as described at the top of this file. */
-static void prvTxTask( void *pvParameters );
+//static void prvTxTask( void *pvParameters );
 static void prvRxTask( void *pvParameters );
 
 static void prvSensor( void *pvParameters );
 static void prvUartRead( void *pvParameters );
 
 static void vTimerCallback( TimerHandle_t pxTimer );
+
+// game functies
+void set_obj(u32 Y);
+int get_player_position();
+void game_over();
+void next_frame();
+
 /*-----------------------------------------------------------*/
 
 /* The queue used by the Tx and Rx tasks, as described at the top of this
@@ -87,6 +97,7 @@ static TaskHandle_t xSensor;
 static TaskHandle_t xUartRead;
 
 static QueueHandle_t xQueue = NULL;
+static QueueHandle_t xQueue2 = NULL;
 static TimerHandle_t xTimer = NULL;
 
 char HWstring[15] = "Hello World";
@@ -97,21 +108,25 @@ int Afstand;
 int SegmentValue(int number);
 int Status;
 
+u32 buffer_pos[9][8];
+u32 buffer_type[9][8]; // 0 = nothing, 1 = object, 2 = check, 3 = player (changes the color)
+u32 buffer_obj[15][8]; // object buffer, elke 15 frames wordt gezien als een lvl.
+
 int main( void )
 {
 
 	const TickType_t x10seconds = pdMS_TO_TICKS( DELAY_10_SECONDS );
-	xil_printf( "Hello from Freertos example main\r\n" );
+	xil_printf( "Welkom in het spel.\r\n" );
 
 	/* Create the two tasks.  The Tx task is given a lower priority than the
 	Rx task, so the Rx task will leave the Blocked state and pre-empt the Tx
 	task as soon as the Tx task places an item in the queue. */
-	xTaskCreate( 	prvTxTask, 					/* The function that implements the task. */
-					( const char * ) "Tx", 		/* Text name for the task, provided to assist debugging only. */
-					configMINIMAL_STACK_SIZE, 	/* The stack allocated to the task. */
-					NULL, 						/* The task parameter is not used, so set to NULL. */
-					tskIDLE_PRIORITY,			/* The task runs at the idle priority. */
-					&xTxTask );
+	//xTaskCreate( 	prvTxTask, 					/* The function that implements the task. */
+	//				( const char * ) "Tx", 		/* Text name for the task, provided to assist debugging only. */
+	//				configMINIMAL_STACK_SIZE, 	/* The stack allocated to the task. */
+	//				NULL, 						/* The task parameter is not used, so set to NULL. */
+	//				tskIDLE_PRIORITY,			/* The task runs at the idle priority. */
+	//				&xTxTask );
 
 	xTaskCreate( prvRxTask,
 				 ( const char * ) "GB",
@@ -125,7 +140,7 @@ int main( void )
 				 configMINIMAL_STACK_SIZE,
 				 NULL,
 				 tskIDLE_PRIORITY,
-				 &xUartRead );
+				 &xSensor );
 
 	xTaskCreate( prvUartRead,
 				 ( const char * ) "UART",
@@ -135,13 +150,6 @@ int main( void )
 				 &xUartRead );
 
 
-
-
-
-
-
-
-
 	/* Create the queue used by the tasks.  The Rx task has a higher priority
 	than the Tx task, so will preempt the Tx task and remove values from the
 	queue as soon as the Tx task writes to the queue - therefore the queue can
@@ -149,8 +157,11 @@ int main( void )
 	xQueue = xQueueCreate( 	1,						/* There is only one space in the queue. */
 							sizeof( HWstring ) );	/* Each space in the queue is large enough to hold a uint32_t. */
 
+	xQueue2 = xQueueCreate(1, sizeof( HWstring ));
 	/* Check the queue was created. */
 	configASSERT( xQueue );
+	configASSERT( xQueue2 );
+
 
 	/* Create a timer with a timer expiry of 10 seconds. The timer would expire
 	 after 10 seconds and the timer call back would get called. In the timer call back
@@ -194,62 +205,69 @@ static void prvSensor( void *pvParameters )
 		vTaskDelay( x1second );
 		Afstand = 0u;
 
-		//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
-		//Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
+		// Lees de gemeten afstand van de sensor in.
+		Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000001);
+		Afstand = Xil_In32(ULTRASOON_ADDR + ULTRASOON_REG0);
 
+		// Controleer of de afstand meetbaar is of niet.
     	if(CHECKOOB(Afstand))
     	{
     		xil_printf("Object is too far away.\r\n");
     	}
 
-		/* ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 1);
-		Afstand = ULTRASOON_mReadReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET);
-		xil_printf("Afstand Gemeten: [ %d ] \r\n", Afstand); */
-
-    	//xil_printf("Raw data: 0x%08x\r\n", Afstand);
-    	//Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
+    	// controle om de gemeten waarde te zien.
+    	xil_printf("Raw data: 0x%08x\r\n", Afstand);
+    	Xil_Out32(ULTRASOON_ADDR + ULTRASOON_REG1, 0x00000000);
 
 		// Send the next value on the queue.  The queue should always be
 		// empty at this point so a block time of 0 is used.
 		xQueueSend( xQueue,			// The queue being written to.
 					&Afstand, 		// The address of the data being sent.
 					0UL );			// The block time.
-
-		//ULTRASOON_mWriteReg(XPAR_ULTRASOON_0_S00_AXI_BASEADDR, ULTRASOON_S00_AXI_SLV_REG0_OFFSET, 0);
 	}
 }
 /*-----------------------------------------------------------*/
 
 static void prvUartRead( void *pvParameters )
 {
+	int ArrayRGB[64];
+	int i;
+	char NeonData;
+
 
 	xil_printf("In UartRead. \r\n");
 
 	for(;;)
 	{
 		/* Block to wait for data arriving on the queue. */
-		xQueueReceive( 	xQueue,				/* The queue being read. */
-						&Afstand,	/* Data is read into this address. */
+		xQueueReceive( 	xQueue2,			/* The queue being read. */
+						&NeonData,			/* Data is read into this address. */
 						portMAX_DELAY );	/* Wait without a timeout for data. */
 
 
-		int TestChar = Afstand;
+		for(i = 0; i < 63; i++)
+		{
+			ArrayRGB[i] = NeonData;
+			xil_printf("LED positie[%d]: Color value(%s)",i , ArrayRGB[i]);
+		}
 
+
+		/*int TestChar = NeonData;
 		TestChar = getchar();
 		putchar(TestChar);
-		xil_printf("UART READ: %s \r\n", TestChar);
+		xil_printf("UART READ: %s \r\n", TestChar);*/
 	}
 }
 /*-----------------------------------------------------------*/
 
-static void prvTxTask( void *pvParameters )
-{
-const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+//static void prvTxTask( void *pvParameters )
+//{
+//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 
-	for( ;; )
-	{
+	//for( ;; )
+	//{
 		/* Delay for 1 second. */
-		vTaskDelay( x1second );
+		//vTaskDelay( x1second );
 
 
 
@@ -260,7 +278,7 @@ const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 		//b8 - b6 -> kleur
 		//b5 -> b0 -> welke led
 		//
-		//
+		//0b 000100 000 1 0
 		/*
 		 *
 		 *  x"000000", -- 0: black
@@ -278,38 +296,42 @@ const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 
 
 		//groen in derde led
-		NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//klaarzetten in stage
-		NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b01010000010);
-		NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//buffer overschrijven
-		NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b10010000010);
-		NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b10010000010);
+		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
 		//
 
 
 
 		/* Send the next value on the queue.  The queue should always be
 		empty at this point so a block time of 0 is used. */
-		xQueueSend( xQueue,			/* The queue being written to. */
-					HWstring, /* The address of the data being sent. */
-					0UL );			/* The block time. */
-	}
-}
+		//xQueueSend( xQueue,			/* The queue being written to. */
+		//			HWstring, /* The address of the data being sent. */
+		//			0UL );			/* The block time. */
+	//}
+//}
 /*-----------------------------------------------------------*/
 
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
+	//char RGBvalue;
 	/*int Temp;
 	char rood = 255;
 	char blauw =255;
 	char groen = 255;*/
 
-	int cars[64];
-	int Value;
 
-
+	//b10 -> 	overschrijven
+	//b9 -> stage klaarzetten
+	//b8 - b6 -> kleur
+	//b5 -> b0 -> welke led
+	//
+	//0b 000100 000 1 0
 
 	for( ;; )
 	{
@@ -321,14 +343,7 @@ static void prvRxTask( void *pvParameters )
 		AfstandReceived = AfstandReceived % 10;
 
 		/* Print the received data. */
-		xil_printf( "Display Value: %d \r\n", AfstandReceived );
-
-		for(Value = 0; Value < 63; Value++)
-		{
-			cars[Value] = Value;
-			xil_printf("values: %d", cars[Value]);
-		}
-
+		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
@@ -337,18 +352,27 @@ static void prvRxTask( void *pvParameters )
 		if(AfstandReceived <= 7)
 		{
 			//groen in derde led
-			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
 			//klaarzetten in stage
-			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
-			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01010000010);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
 			//buffer overschrijven
-			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b10010000010);
-			NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10010000010);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
 		}
 		else if(AfstandReceived > 15)
 		{
 			xil_printf("-1");
 		}
+
+
+		// Leest de RGB value in.
+		//RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
+
+		// schrijf de RGB values weg naar UART.
+		//xQueueSend( xQueue2,		// The queue being written to.
+		//			&RGBvalue, 		// The address of the data being sent.
+		//			0UL );			// The block time.
 
 
 	    /*int distance_data = AfstandReceived & 0x00FFFFFF;
@@ -358,6 +382,8 @@ static void prvRxTask( void *pvParameters )
 		//sleep_A9(1);
 		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
 		//RxtaskCntr++;
+		next_frame();
+		//get_player_position();
 	}
 }
 /*-----------------------------------------------------------*/
@@ -379,7 +405,7 @@ static void vTimerCallback( TimerHandle_t pxTimer )
 	 The timer expires after 10 seconds. We expect the RxtaskCntr to at least
 	 have a value of 9 (TIMER_CHECK_THRESHOLD) when the timer expires. */
 	if (RxtaskCntr >= TIMER_CHECK_THRESHOLD) {
-		xil_printf("FreeRTOS Hello World Example PASSED");
+		xil_printf("10 sec counter finished");
 	} else {
 		xil_printf("FreeRTOS Hello World Example FAILED");
 	}
@@ -387,4 +413,193 @@ static void vTimerCallback( TimerHandle_t pxTimer )
 	vTaskDelete( xRxTask );
 	vTaskDelete( xTxTask );
 }
+/*-----------------------------------------------------------*/
+/*-----------------------------------------------------------*/
 
+void set_obj(u32 Y) // Y 0-14   X 0-7
+{
+	for(int i = 0; i > 7; i++ )
+	{
+		buffer_pos[i][7] = buffer_obj[Y][i];
+		buffer_type[i][7] = 1;
+	}
+}
+/*-----------------------------------------------------------*/
+
+void game_over()
+{
+
+	for(int j = 9; j == 0; j--)
+	{
+		for(int i = 8; i == 0; i--)
+		{
+			buffer_pos[j][i] = 0;
+			buffer_type[j][i] = 0;
+		}
+	}
+
+	for(int j = 15; j == 0; j--)
+	{
+		for(int i = 8; i == 0; i--)
+		{
+			buffer_obj[j][i] = 0;
+		}
+	}
+
+}
+/*-----------------------------------------------------------*/
+
+void next_frame()
+{
+	for(int j = 0; j > 7; j++)
+	{
+		for(int i = 0; i > 7; i++)
+		{
+			buffer_pos[i+1][j] = buffer_pos[i][j];
+			buffer_pos[i][j] = 0;
+
+			buffer_type[i+1][j] = buffer_type[i][j];
+			buffer_type[i][j] = 0;
+		}
+
+	}
+
+	for(u32 j = 8; j == 0; j--)
+	{
+		for(u32 i = 8; i == 0; i--)
+		{
+			// updates the position on the matrix
+			int kleurtmp = 0b00011000000 && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int klaarzettentmp1 = 0b01011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int klaarzettentmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int overschrijventmp1 = 0b10011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
+			int kleur_extracted_tmp = (kleurtmp && 0b00111000000) >> 6;
+			xil_printf("%s",kleur_extracted_tmp);
+			xQueueSend( xQueue2,		// The queue being written to.
+						&kleur_extracted_tmp, 		// The address of the data being sent.
+						0UL );			// The block time.
+
+
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, kleurtmp);
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, klaarzettentmp1);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, klaarzettentmp2);
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, overschrijventmp1);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, overschrijventmp2);
+
+		}
+
+	}
+}
+/*-----------------------------------------------------------*/
+
+int get_player_position()
+{
+	int position;
+
+	// player pos 0
+	//y 0 x 0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+
+	buffer_type[0][0] = 3;
+	position = 0;
+
+	//player pos 1
+	//y1 x0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011001000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011001000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	buffer_type[0][1] = 3;
+	position = 1;
+
+	//player pos 2
+	//y2 x0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011010000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011010000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	buffer_type[0][2] = 3;
+	position = 2;
+
+	//player pos 3
+	//y3 x0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011011000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011011000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	buffer_type[0][3] = 3;
+	position = 3;
+
+	//player pos 4
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011100000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011100000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	buffer_type[0][4] = 3;
+	position = 4;
+
+	//player pos 5
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011101000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011101000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	buffer_type[0][5] = 3;
+	position = 5;
+
+	//player pos 6
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011110000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011110000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	buffer_type[0][6] = 3;
+	position = 6;
+
+	//player pos 7
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011111000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011111000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	position = 7;
+	buffer_type[0][7] = 3;
+
+	return position;
+}
