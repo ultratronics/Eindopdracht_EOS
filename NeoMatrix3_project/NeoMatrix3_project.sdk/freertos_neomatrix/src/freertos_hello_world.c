@@ -89,7 +89,7 @@ void set_obj(u32 Y);
 int get_player_position();
 void game_over();
 void next_frame();
-
+void set_player_position(int positie);
 /*-----------------------------------------------------------*/
 
 /* The queue used by the Tx and Rx tasks, as described at the top of this
@@ -365,7 +365,7 @@ static void prvRxTask( void *pvParameters )
 		//sleep_A9(1);
 		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
 		//RxtaskCntr++;
-		next_frame();
+		//next_frame();
 		//get_player_position();
 	}
 }
@@ -589,4 +589,114 @@ int get_player_position()
 	buffer_type[0][7] = 3;
 
 	return position;
+}
+
+void set_player_position(int positie)
+{
+	switch(positie){
+
+
+	    case 0:
+	      // statements
+
+
+	    	// player pos 0
+	    		//y 0 x 0
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+
+
+	      break;
+	    case 1:
+
+	      // statements
+
+	    	//player pos 1
+	    		//y1 x0
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011001000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011001000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	    case 2:
+
+	    	//player pos 2
+	    		//y2 x0
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011010000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011010000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	    case 3:
+
+	    	//player pos 3
+	    		//y3 x0
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011011000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011011000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	    case 4:
+	    	//player pos 4
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011100000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011100000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	    case 5:
+	    	//player pos 5
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011101000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011101000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+	    case 6:
+
+	    	//player pos 6
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011110000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011110000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	    case 7:
+
+	    	//player pos 7
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011111000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011111000);
+    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	      break;
+	      // default statements
+
+
+
+
+	}
 }
