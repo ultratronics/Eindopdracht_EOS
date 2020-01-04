@@ -336,12 +336,10 @@ static void prvRxTask( void *pvParameters )
 		/* Print the received data. */
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
-		// game toeveogen
 		void set_obj(u32 Y);
 		void game_over();
 		void next_frame();
 		int get_player_position();
-
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/

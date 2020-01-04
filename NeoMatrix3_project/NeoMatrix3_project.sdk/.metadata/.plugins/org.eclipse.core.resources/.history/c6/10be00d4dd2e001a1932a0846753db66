@@ -59,17 +59,14 @@
 #define DELAY_1_SECOND		1000UL
 #define TIMER_CHECK_THRESHOLD	9
 
-// Sensor check afstand
 #define CHECKBIT(var, pos)  ((var) & (1<<(pos)))
 #define CHECKRDY(var) (CHECKBIT(var, 31))
 #define CHECKOOB(var) (CHECKBIT(var, 30))
 
-// Sensor adressen
 #define ULTRASOON_ADDR XPAR_ULTRASOON_0_S00_AXI_BASEADDR
 #define ULTRASOON_REG0 ULTRASOON_S00_AXI_SLV_REG0_OFFSET
 #define ULTRASOON_REG1 ULTRASOON_S00_AXI_SLV_REG1_OFFSET
 
-// Neonpixel adressen
 #define NEON_ADDR XPAR_NEOMATIX64_0_S00_AXI_BASEADDR /* 0x43C00000 */
 #define NEON_REG0 NEOMATIX64_S00_AXI_SLV_REG0_OFFSET
 #define NEON_REG1 NEOMATIX64_S00_AXI_SLV_REG1_OFFSET
@@ -233,8 +230,10 @@ static void prvSensor( void *pvParameters )
 
 static void prvUartRead( void *pvParameters )
 {
-	int ArrayRGB[7][7];
+	int ArrayRGB[64];
+	int i;
 	char NeonData;
+
 
 	xil_printf("In UartRead. \r\n");
 
@@ -247,28 +246,34 @@ static void prvUartRead( void *pvParameters )
 
 		xil_printf("NeonData [%d]", NeonData);
 
-		for(int j = 0; j < 8; j++)
+		/*for(i = 0; i < 63; i++)
 		{
-			for(int i = 0; i < 8; i++)
-			{
-				ArrayRGB[i+1][j] = ArrayRGB[i][j];
-				ArrayRGB[i][j] = NeonData;
-			}
-		}
+			ArrayRGB[i] = NeonData;
+			xil_printf("LED positie[%d]: Color value(%s)",i , ArrayRGB[i]);
+		}*/
 
+
+		/*int TestChar = NeonData;
+		TestChar = getchar();
+		putchar(TestChar);
+		xil_printf("UART READ: %s \r\n", TestChar);*/
 	}
 }
 /*-----------------------------------------------------------*/
 
-static void prvTxTask( void *pvParameters )
-{
-	//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+//static void prvTxTask( void *pvParameters )
+//{
+//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 
 	//for( ;; )
 	//{
-		// Delay for 1 second.
+		/* Delay for 1 second. */
 		//vTaskDelay( x1second );
 
+
+
+
+		//
 		//b10 -> 	overschrijven
 		//b9 -> stage klaarzetten
 		//b8 - b6 -> kleur
@@ -288,43 +293,46 @@ static void prvTxTask( void *pvParameters )
 		 *
 		 *
 		 *
-		 *//*
+		 */
 
 
-		/*groen in derde led
+		//groen in derde led
 		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//klaarzetten in stage
 		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
 		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//buffer overschrijven
 		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b10010000010);
-		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);*/
-		/*
-		//Send the next value on the queue.  The queue should always be
-		//empty at this point so a block time of 0 is used.
-		//xQueueSend( xQueue,		// The queue being written to.
-		//			HWstring, 		// The address of the data being sent.
-		//			0UL );			// The block time.
-	}*/
-}
+		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
+		//
+
+
+
+		/* Send the next value on the queue.  The queue should always be
+		empty at this point so a block time of 0 is used. */
+		//xQueueSend( xQueue,			/* The queue being written to. */
+		//			HWstring, /* The address of the data being sent. */
+		//			0UL );			/* The block time. */
+	//}
+//}
 /*-----------------------------------------------------------*/
 
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
-	//int RGBvalue;
+	int RGBvalue;
 	/*int Temp;
 	char rood = 255;
 	char blauw =255;
 	char groen = 255;*/
 
 
-	/* b10 -> 	overschrijven
-	 * b9 -> stage klaarzetten
-	 * b8 - b6 -> kleur
-	 * b5 -> b0 -> welke led
-	 *
-	 * 0b 000100 000 1 0 */
+	//b10 -> 	overschrijven
+	//b9 -> stage klaarzetten
+	//b8 - b6 -> kleur
+	//b5 -> b0 -> welke led
+	//
+	//0b 000100 000 1 0
 
 	for( ;; )
 	{
@@ -333,20 +341,16 @@ static void prvRxTask( void *pvParameters )
 						&AfstandReceived,	/* Data is read into this address. */
 						portMAX_DELAY );	/* Wait without a timeout for data. */
 
+
+
 		/* Print the received data. */
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
-
-		// game toeveogen
-		void set_obj(u32 Y);
-		void game_over();
-		void next_frame();
-		int get_player_position();
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 
-		if(AfstandReceived <= 15)
+		if(AfstandReceived <= 7)
 		{
 			//groen in derde led
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
@@ -359,8 +363,22 @@ static void prvRxTask( void *pvParameters )
 		}
 		else if(AfstandReceived > 15)
 		{
-			xil_printf("Wrong Data Received: -1 \r\n");
+			xil_printf("-1");
 		}
+
+
+		// Leest de RGB value in.
+		//RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
+		RGBvalue = 1;
+		// schrijf de RGB values weg naar UART.
+		xQueueSend( xQueue2,		// The queue being written to.
+					&RGBvalue, 		// The address of the data being sent.
+					0UL );			// The block time.
+
+
+	    /*int distance_data = AfstandReceived & 0x00FFFFFF;
+	    int dist_cm = (distance_data / 50) / 58;
+	    xil_printf("Distance in cm: %d\r\n", dist_cm);*/
 
 		//sleep_A9(1);
 		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
@@ -372,10 +390,7 @@ static void prvRxTask( void *pvParameters )
 /*-----------------------------------------------------------*/
 
 static void vTimerCallback( TimerHandle_t pxTimer )
-{
-	xil_printf("\n 10 seconds past. \r\n");
-
-	/*
+{/*
 	long lTimerId;
 	configASSERT( pxTimer );
 
@@ -447,6 +462,7 @@ void next_frame()
 			buffer_type[i+1][j] = buffer_type[i][j];
 			buffer_type[i][j] = 0;
 		}
+
 	}
 
 	for(u32 j = 8; j == 0; j--)
@@ -461,8 +477,6 @@ void next_frame()
 			int overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
 			int kleur_extracted_tmp = (kleurtmp && 0b00111000000) >> 6;
 			xil_printf("%s",kleur_extracted_tmp);
-
-			// zend de RGB values naar een array om de displayen in een terminal
 			xQueueSend( xQueue2,		// The queue being written to.
 						&kleur_extracted_tmp, 		// The address of the data being sent.
 						0UL );			// The block time.
@@ -478,8 +492,8 @@ void next_frame()
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, overschrijventmp2);
 
 		}
-	}
 
+	}
 }
 /*-----------------------------------------------------------*/
 

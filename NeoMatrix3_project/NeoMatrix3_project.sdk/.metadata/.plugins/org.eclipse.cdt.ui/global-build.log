@@ -3528,3 +3528,724 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
+11:30:43 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:234:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+../src/freertos_hello_world.c:233:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:7: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  char RGBvalue;
+       ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:94:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79900	   3388	  90528	 173816	  2a6f8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:31:34 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:234:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+../src/freertos_hello_world.c:233:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:94:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79964	   3388	  90528	 173880	  2a738	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:32:23 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+11:34:46 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:94:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80044	   3388	  90528	 173960	  2a788	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:36:58 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:322:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:94:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79980	   3388	  90528	 173896	  2a748	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:39:37 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:234:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+../src/freertos_hello_world.c:233:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:322:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:94:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79900	   3388	  90528	 173816	  2a6f8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:41:20 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+11:44:02 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:234:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+../src/freertos_hello_world.c:233:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:322:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:94:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79924	   3388	  90528	 173840	  2a710	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+11:44:20 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+11:49:09 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvUartRead':
+../src/freertos_hello_world.c:237:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+../src/freertos_hello_world.c:236:6: warning: unused variable 'ArrayRGB' [-Wunused-variable]
+  int ArrayRGB[64];
+      ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:325:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  79924	   3388	  90528	 173840	  2a710	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:39:02 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80116	   3388	  90528	 174032	  2a7d0	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+12:48:02 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80116	   3388	  90528	 174032	  2a7d0	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:08:42 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80140	   3388	  90528	 174056	  2a7e8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:08:55 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80140	   3388	  90528	 174056	  2a7e8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:09:19 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80140	   3388	  90528	 174056	  2a7e8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:09:28 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80140	   3388	  90528	 174056	  2a7e8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:09:40 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+13:09:47 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+13:10:08 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+13:11:40 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80140	   3388	  90528	 174056	  2a7e8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:15:10 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:323:6: warning: unused variable 'RGBvalue' [-Wunused-variable]
+  int RGBvalue;
+      ^~~~~~~~
+At top level:
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80140	   3388	  90528	 174056	  2a7e8	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:18:09 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:299:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:264:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80204	   3388	  90528	 174120	  2a828	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:18:32 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+13:19:13 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:295:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:264:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80204	   3388	  90528	 174120	  2a828	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:20:28 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:294:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:339:3: error: too few arguments to function 'set_obj'
+   set_obj();
+   ^~~~~~~
+../src/freertos_hello_world.c:88:6: note: declared here
+ void set_obj(u32 Y);
+      ^~~~~~~
+At top level:
+../src/freertos_hello_world.c:263:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+13:21:03 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:294:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:339:11: error: expected expression before 'u32'
+   set_obj(u32 Y);
+           ^~~
+At top level:
+../src/freertos_hello_world.c:263:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+13:21:19 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:294:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:263:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80204	   3388	  90528	 174120	  2a828	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:22:31 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:294:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:263:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80204	   3388	  90528	 174120	  2a828	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:22:42 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:294:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:263:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80204	   3388	  90528	 174120	  2a828	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:22:45 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:294:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:263:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:97:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: freertos_neomatrix.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: freertos_neomatrix.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80204	   3388	  90528	 174120	  2a828	freertos_neomatrix.elf
+'Finished building: freertos_neomatrix.elf.size'
+' '
+13:23:40 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.

@@ -3,9 +3,12 @@
 <instance id="xilinx.gnu.armv7.exe.debug.1638125266;xilinx.gnu.armv7.exe.debug.1638125266.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include"/>
+<includePath path="#undef __ARM_FEATURE_DOTPROD" removed="true"/>
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include-fixed"/>
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/include"/>
+<includePath path="#undef __ARM_FEATURE_CMSE" removed="true"/>
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
+<includePath path="#undef __ARM_FEATURE_LDREX" removed="true"/>
 <includePath path="c:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include"/>
 <includePath path="#undef __ARM_FEATURE_SAT" removed="true"/>
 <includePath path="c:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include-fixed"/>
@@ -15,6 +18,7 @@
 <includePath path="#undef __ARM_FEATURE_DSP" removed="true"/>
 <includePath path="c:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
 <includePath path="#undef __ARM_FEATURE_QRDMX" removed="true"/>
+<includePath path="#undef __ARM_FEATURE_CRC32" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_QBIT" removed="true"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_VERSION__=201710L"/>
@@ -844,10 +848,17 @@
 </instance>
 <instance id="xilinx.gnu.armv7.exe.debug.1638125266;xilinx.gnu.armv7.exe.debug.1638125266.;xilinx.gnu.armv7.c.toolchain.compiler.debug.1032693707;xilinx.gnu.armv7.c.compiler.input.737611741">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="#undef __ARM_FEATURE_CMSE" removed="true"/>
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include"/>
+<includePath path="#undef __ARM_FEATURE_LDREX" removed="true"/>
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include-fixed"/>
+<includePath path="#undef __ARM_FEATURE_CLZ" removed="true"/>
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/include"/>
+<includePath path="#undef __ARM_FEATURE_NUMERIC_MAXMIN" removed="true"/>
+<includePath path="#undef __ARM_FEATURE_QRDMX" removed="true"/>
 <includePath path="d:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
+<includePath path="#undef __ARM_FEATURE_SIMD32" removed="true"/>
+<includePath path="#undef __ARM_FEATURE_CRC32" removed="true"/>
 <includePath path="c:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include"/>
 <includePath path="c:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/8.2.0/include-fixed"/>
 <includePath path="#undef __ARM_FEATURE_QBIT" removed="true"/>

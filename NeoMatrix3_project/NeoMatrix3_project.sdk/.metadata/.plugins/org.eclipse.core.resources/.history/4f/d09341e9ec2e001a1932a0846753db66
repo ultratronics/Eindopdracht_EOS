@@ -342,7 +342,6 @@ static void prvRxTask( void *pvParameters )
 		void next_frame();
 		int get_player_position();
 
-
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 

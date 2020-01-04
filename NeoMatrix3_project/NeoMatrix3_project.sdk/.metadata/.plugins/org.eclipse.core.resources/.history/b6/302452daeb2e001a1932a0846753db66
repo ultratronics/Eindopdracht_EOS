@@ -236,6 +236,7 @@ static void prvUartRead( void *pvParameters )
 	int ArrayRGB[7][7];
 	char NeonData;
 
+
 	xil_printf("In UartRead. \r\n");
 
 	for(;;)
@@ -260,15 +261,19 @@ static void prvUartRead( void *pvParameters )
 }
 /*-----------------------------------------------------------*/
 
-static void prvTxTask( void *pvParameters )
-{
-	//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+//static void prvTxTask( void *pvParameters )
+//{
+//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 
 	//for( ;; )
 	//{
-		// Delay for 1 second.
+		/* Delay for 1 second. */
 		//vTaskDelay( x1second );
 
+
+
+
+		//
 		//b10 -> 	overschrijven
 		//b9 -> stage klaarzetten
 		//b8 - b6 -> kleur
@@ -288,31 +293,34 @@ static void prvTxTask( void *pvParameters )
 		 *
 		 *
 		 *
-		 *//*
+		 */
 
 
-		/*groen in derde led
+		//groen in derde led
 		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//klaarzetten in stage
 		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b01010000010);
 		//NEOMATIX64_mWriteReg(0x43c00000, NEON_REG0, 0b00010000010);
 		//buffer overschrijven
 		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b10010000010);
-		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);*/
-		/*
-		//Send the next value on the queue.  The queue should always be
-		//empty at this point so a block time of 0 is used.
-		//xQueueSend( xQueue,		// The queue being written to.
-		//			HWstring, 		// The address of the data being sent.
-		//			0UL );			// The block time.
-	}*/
-}
+		//NEOMATIX64_mWriteReg(0x43c00000, NEOMATIX64_S00_AXI_SLV_REG0_OFFSET, 0b00010000010);
+		//
+
+
+
+		/* Send the next value on the queue.  The queue should always be
+		empty at this point so a block time of 0 is used. */
+		//xQueueSend( xQueue,			/* The queue being written to. */
+		//			HWstring, /* The address of the data being sent. */
+		//			0UL );			/* The block time. */
+	//}
+//}
 /*-----------------------------------------------------------*/
 
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
-	//int RGBvalue;
+	int RGBvalue;
 	/*int Temp;
 	char rood = 255;
 	char blauw =255;
@@ -336,11 +344,7 @@ static void prvRxTask( void *pvParameters )
 		/* Print the received data. */
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
-		// game toeveogen
-		void set_obj(u32 Y);
-		void game_over();
-		void next_frame();
-		int get_player_position();
+
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
@@ -361,6 +365,20 @@ static void prvRxTask( void *pvParameters )
 		{
 			xil_printf("Wrong Data Received: -1 \r\n");
 		}
+
+
+		// Leest de RGB value in.
+		//RGBvalue = NEOMATIX64_mReadReg(NEON_ADDR, NEON_REG0);
+		//RGBvalue = 1;
+		// schrijf de RGB values weg naar UART.
+		//xQueueSend( xQueue2,		// The queue being written to.
+		//			&RGBvalue, 		// The address of the data being sent.
+		//			0UL );			// The block time.
+
+
+	    /*int distance_data = AfstandReceived & 0x00FFFFFF;
+	    int dist_cm = (distance_data / 50) / 58;
+	    xil_printf("Distance in cm: %d\r\n", dist_cm);*/
 
 		//sleep_A9(1);
 		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );

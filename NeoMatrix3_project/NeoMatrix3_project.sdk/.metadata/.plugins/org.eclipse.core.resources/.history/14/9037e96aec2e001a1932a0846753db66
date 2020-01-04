@@ -236,6 +236,7 @@ static void prvUartRead( void *pvParameters )
 	int ArrayRGB[7][7];
 	char NeonData;
 
+
 	xil_printf("In UartRead. \r\n");
 
 	for(;;)
@@ -266,9 +267,13 @@ static void prvTxTask( void *pvParameters )
 
 	//for( ;; )
 	//{
-		// Delay for 1 second.
+		/* Delay for 1 second. */
 		//vTaskDelay( x1second );
 
+
+
+
+		//
 		//b10 -> 	overschrijven
 		//b9 -> stage klaarzetten
 		//b8 - b6 -> kleur
@@ -336,11 +341,7 @@ static void prvRxTask( void *pvParameters )
 		/* Print the received data. */
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
-		// game toeveogen
-		void set_obj(u32 Y);
-		void game_over();
-		void next_frame();
-		int get_player_position();
+
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
