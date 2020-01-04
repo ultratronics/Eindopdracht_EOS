@@ -44,30 +44,20 @@
 #include "task.h"
 #include "queue.h"
 #include "timers.h"
-#include "stdlib.h"
-#include "stdio.h"
 /* Xilinx includes. */
 #include "xil_printf.h"
 #include "xparameters.h"
 #include "xgpiops.h"
-/* includes for own IP and hardware */
+
 #include "Ultrasoon.h"
 #include "NeoMatix64.h"
 #include "xil_io.h"
 /*-----------------------------------------------------------*/
 
 #define TIMER_ID	1
-#define TIMER_ID_KNOP 2
 #define DELAY_10_SECONDS	10000UL
 #define DELAY_1_SECOND		1000UL
-#define DELAY_0_5_SECOND 500UL
-#define DELAY_0_2_SECOND 200UL
 #define TIMER_CHECK_THRESHOLD	9
-
-// Player2 knop
-#define GPIO_DEVICE_ID XPAR_XGPIOPS_0_DEVICE_ID
-#define Knop 0
-#define KnopData 0x00
 
 // Sensor check afstand
 #define CHECKBIT(var, pos)  ((var) & (1<<(pos)))
@@ -88,21 +78,18 @@
 /* The Tx and Rx tasks as described at the top of this file. */
 //static void prvTxTask( void *pvParameters );
 static void prvRxTask( void *pvParameters );
-//tasks
+
 static void prvSensor( void *pvParameters );
 static void prvUartRead( void *pvParameters );
-static void prvKnop(void *pvParameters);
-//functies voor de timers
+
 static void vTimerCallback( TimerHandle_t pxTimer );
-static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop );
 
 // game functies
 void set_obj(u32 Y);
+int get_player_position();
 void game_over();
 void next_frame();
 void set_player_position(int positie);
-void set_player_2_position(int PS_button);
-//void set_obj_group();
 /*-----------------------------------------------------------*/
 
 /* The queue used by the Tx and Rx tasks, as described at the top of this
@@ -111,14 +98,10 @@ static TaskHandle_t xTxTask;
 static TaskHandle_t xRxTask;
 static TaskHandle_t xSensor;
 static TaskHandle_t xUartRead;
-static TaskHandle_t xKnop;
 
 static QueueHandle_t xQueue = NULL;
 static QueueHandle_t xQueue2 = NULL;
-static QueueHandle_t xQueue3 = NULL;
-
 static TimerHandle_t xTimer = NULL;
-static TimerHandle_t xTimerKnop = NULL;
 
 char HWstring[15] = "Hello World";
 long RxtaskCntr = 0;
@@ -127,35 +110,16 @@ XGpioPs Gpio;
 int Afstand;
 int SegmentValue(int number);
 int Status;
-int r;
 
 u32 buffer_pos[9][8];
 u32 buffer_type[9][8]; // 0 = nothing, 1 = object, 2 = check, 3 = player (changes the color)
-u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
-                          { 1, 0, 0, 0, 1, 1, 1, 1 },
-                          { 1, 1, 0, 0, 0, 1, 1, 1 },
-                          { 1, 1, 1, 1, 0, 0, 0, 1 },
-                          { 1, 1, 1, 1, 1, 0, 0, 0 },
-                          { 0, 0, 0, 1, 1, 1, 1, 1 },
-                          { 1, 1, 0, 0, 1, 1, 0, 0 },
-                          { 1, 0, 0, 1, 1, 0, 0, 1 },
-                          { 0, 0, 1, 1, 0, 0, 1, 1 },
-                          { 0, 0, 1, 1, 1, 0, 0, 0 },
-                          { 0, 1, 1, 1, 0, 0, 0, 0 },
-                          { 1, 1, 1, 0, 0, 0, 0, 0 },
-                          { 0, 0, 0, 1, 1, 1, 0, 0 },
-                          { 0, 0, 0, 0, 1, 1, 1, 0 },
-                          { 0, 0, 0, 0, 0, 1, 1, 1 } };
-// object buffer, elke 15 frames wordt gezien als een lvl.
+u32 buffer_obj[15][8]; // object buffer, elke 15 frames wordt gezien als een lvl.
 
 int main( void )
 {
 
-	const TickType_t x0_5seconds = pdMS_TO_TICKS( DELAY_0_5_SECOND ); // timer loopt af na een halve seconde
-	const TickType_t x0_2seconds = pdMS_TO_TICKS( DELAY_0_2_SECOND ); // timer loopt af na 0.2
-
-  xil_printf( "Welkom in het spel.\r\n" );
-
+	const TickType_t x10seconds = pdMS_TO_TICKS( DELAY_10_SECONDS );
+	xil_printf( "Welkom in het spel.\r\n" );
 
 	/* Create the two tasks.  The Tx task is given a lower priority than the
 	Rx task, so the Rx task will leave the Blocked state and pre-empt the Tx
@@ -181,13 +145,6 @@ int main( void )
 				 tskIDLE_PRIORITY,
 				 &xSensor );
 
-  	xTaskCreate( prvKnop,
-				 ( const char * ) "Knop",
-				 configMINIMAL_STACK_SIZE,
-				 NULL,
-				 tskIDLE_PRIORITY,
-				 &xKnop );
-
 	xTaskCreate( prvUartRead,
 				 ( const char * ) "UART",
 				 configMINIMAL_STACK_SIZE,
@@ -195,7 +152,6 @@ int main( void )
 				 tskIDLE_PRIORITY + 1,
 				 &xUartRead );
 
-	srand( 0 );
 
 	/* Create the queue used by the tasks.  The Rx task has a higher priority
 	than the Tx task, so will preempt the Tx task and remove values from the
@@ -205,39 +161,30 @@ int main( void )
 							sizeof( HWstring ) );	/* Each space in the queue is large enough to hold a uint32_t. */
 
 	xQueue2 = xQueueCreate(1, sizeof( HWstring ));
-  xQueue3 = xQueueCreate(1, sizeof( HWstring ));
-
 	/* Check the queue was created. */
 	configASSERT( xQueue );
 	configASSERT( xQueue2 );
-	configASSERT( xQueue3 );
+
 
 	/* Create a timer with a timer expiry of 10 seconds. The timer would expire
 	 after 10 seconds and the timer call back would get called. In the timer call back
 	 checks are done to ensure that the tasks have been running properly till then.
 	 The tasks are deleted in the timer call back and a message is printed to convey that
 	 the example has run successfully.
-	 The timer expiry is set to 0.5 seconds and the timer set to not auto reload. */
+	 The timer expiry is set to 10 seconds and the timer set to not auto reload. */
 	xTimer = xTimerCreate( (const char *) "Timer",
-							x0_5seconds,
-							pdTRUE,
+							x10seconds,
+							pdFALSE,
 							(void *) TIMER_ID,
 							vTimerCallback);
-
-  xTimerKnop = xTimerCreate( (const char *) "TimerKnop",
-							x0_2seconds,
-							pdTRUE,
-							(void *) TIMER_ID_KNOP,
-							vTimerCallbackKnop);
-
 	/* Check the timer was created. */
 	configASSERT( xTimer );
-	configASSERT( xTimerKnop );
+
 	/* start the timer with a block time of 0 ticks. This means as soon
 	   as the schedule starts the timer will start running and will expire after
-	   0.5 seconds */
+	   10 seconds */
 	xTimerStart( xTimer, 0 );
-  xTimerStart( xTimerKnop, 0 );
+
 	/* Start the tasks and timer running. */
 	vTaskStartScheduler();
 
@@ -281,38 +228,6 @@ static void prvSensor( void *pvParameters )
 					&Afstand, 		// The address of the data being sent.
 					0UL );			// The block time.
 	}
-}
-/*-----------------------------------------------------------*/
-
-static void prvKnop( void *pvParameters )
-{
-  u8 NewSwData = 0;
-	u8 OldSwData = 0;
-  int KnopValue;
-
-	const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
-	xil_printf("In Functie Knop.\n\r");
-
-  XGpioPs_Config *ConfigPtr;
-	ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
-	XGpioPs_CfgInitialize(&Gpio, ConfigPtr, ConfigPtr -> BaseAddr);
-  XGpioPs_SetDirectionPin(&Gpio, Knop, KnopData);
-
-  for(;;)
-	{
-		NewSwData = XGpioPs_ReadPin(&Gpio, Knop);
-		if((NewSwData != OldSwData) && (NewSwData == 1))
-		{
-			xil_printf("Read pin\r\n");
-		}
-		OldSwData = NewSwData;
-    KnopValue = OldSwData;
-	}
-  // Send the next value on the queue.  The queue should always be
-	// empty at this point so a block time of 0 is used.
-	xQueueSend( xQueue3,			// The queue being written to.
-							&KnopValue, 	// The address of the data being sent.
-							0UL );			// The block time.
 }
 /*-----------------------------------------------------------*/
 
@@ -397,7 +312,6 @@ static void prvTxTask( void *pvParameters )
 static void prvRxTask( void *pvParameters )
 {
 	int AfstandReceived;
-  int KnopReceived;
 	//int RGBvalue;
 	/*int Temp;
 	char rood = 255;
@@ -414,13 +328,6 @@ static void prvRxTask( void *pvParameters )
 
 	for( ;; )
 	{
-    		/* Block to wait for data arriving on the queue. */
-		xQueueReceive( 	xQueue3,				/* The queue being read. */
-						&KnopReceived,	/* Data is read into this address. */
-						portMAX_DELAY );	/* Wait without a timeout for data. */
-		/* Print the received data. */
-    xil_printf( "Knop waarde: %d \r\n", KnopReceived );
-
 		/* Block to wait for data arriving on the queue. */
 		xQueueReceive( 	xQueue,				/* The queue being read. */
 						&AfstandReceived,	/* Data is read into this address. */
@@ -463,11 +370,11 @@ static void prvRxTask( void *pvParameters )
 	}
 }
 /*-----------------------------------------------------------*/
-//updaten van de matrix
+
 static void vTimerCallback( TimerHandle_t pxTimer )
 {
-	xil_printf("\n 0.5 zijn voorbij past. \r\n");
-	next_frame();
+	xil_printf("\n 10 seconds past. \r\n");
+
 	/*
 	long lTimerId;
 	configASSERT( pxTimer );
@@ -495,16 +402,7 @@ static void vTimerCallback( TimerHandle_t pxTimer )
 /*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/
 
-static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
-{
-  int KnopValueRecv;
-  xQueueReceive( 	xQueue3,			/* The queue being read. */
-						&KnopValueRecv,			/* Data is read into this address. */
-						portMAX_DELAY);	/* Wait without a timeout for data. */
-  set_player_2_button(KnopValueRecv);
-}
-
-void set_obj(u32 Y) // Y 0-14
+void set_obj(u32 Y) // Y 0-14   X 0-7
 {
 	for(int i = 0; i > 7; i++ )
 	{
@@ -526,40 +424,34 @@ void game_over()
 		}
 	}
 
-  xTimerStop( xTimer, 5 );
+	for(int j = 15; j == 0; j--)
+	{
+		for(int i = 8; i == 0; i--)
+		{
+			buffer_obj[j][i] = 0;
+		}
+	}
+
 }
 /*-----------------------------------------------------------*/
 
 void next_frame()
 {
-  int count;
-	for( int j = 0; j > 7; j++ )
+	for(int j = 0; j > 7; j++)
 	{
-		for( int i = 0; i > 7; i++ )
+		for(int i = 0; i > 7; i++)
 		{
 			buffer_pos[i+1][j] = buffer_pos[i][j];
 			buffer_pos[i][j] = 0;
-
-      if( buffer_type[0][i+1] == 3 && buffer_type[1][i] == 1 )
-      {
-        game_over();
-      }
 
 			buffer_type[i+1][j] = buffer_type[i][j];
 			buffer_type[i][j] = 0;
 		}
 	}
 
-  if( count >= 4 )
-  {
-    r = rand() % 15;
-    set_obj( r );
-    count = 0;
-  }
-
-	for( u32 j = 8; j == 0; j-- )
+	for(u32 j = 8; j == 0; j--)
 	{
-		for( u32 i = 8; i == 0; i-- )
+		for(u32 i = 8; i == 0; i--)
 		{
 			// updates the position on the matrix
 			int kleurtmp = 0b00011000000 && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
@@ -568,229 +460,243 @@ void next_frame()
 			int overschrijventmp1 = 0b10011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
 			int overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j][i] << 6)||(0xFFFFFFFF || j << 4)||(0xFFFFFFFF || i << 0));
 			int kleur_extracted_tmp = (kleurtmp && 0b00111000000) >> 6;
-			xil_printf( "%s",kleur_extracted_tmp );
+			xil_printf("%s",kleur_extracted_tmp);
 
-			// zend de color values naar een array om de displayen in een terminal
+			// zend de RGB values naar een array om de displayen in een terminal
 			xQueueSend( xQueue2,		// The queue being written to.
 						&kleur_extracted_tmp, 		// The address of the data being sent.
 						0UL );			// The block time.
 
-			NEOMATIX64_mWriteReg( NEON_ADDR, NEON_REG0, kleurtmp );
 
-			NEOMATIX64_mWriteReg( NEON_ADDR, NEON_REG0, klaarzettentmp1 );
-			NEOMATIX64_mWriteReg( NEON_ADDR, NEON_REG0, klaarzettentmp2 );
 
-			NEOMATIX64_mWriteReg( NEON_ADDR, NEON_REG0, overschrijventmp1 );
-			NEOMATIX64_mWriteReg( NEON_ADDR, NEON_REG0, overschrijventmp2 );
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, kleurtmp);
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, klaarzettentmp1);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, klaarzettentmp2);
+
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, overschrijventmp1);
+			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, overschrijventmp2);
 
 		}
 	}
-	count ++;
+
 }
 /*-----------------------------------------------------------*/
-void set_player_2_button( int PS_button )
+
+int get_player_position()
 {
-  int player_pos;
+	int position;
 
-  if( PS_button )
-  {
-    player_pos ++;
+	// player pos 0
+	//y 0 x 0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
 
-    if( player_pos > 7 )
-    {
-      player_pos = 7;
-    }
-  }
-  else
-  {
-    player_pos --;
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
 
-    if( player_pos < 0 )
-    {
-      player_pos = 0;
-    }
-  }
-  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
 
-  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
-  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+	buffer_type[0][0] = 3;
+	position = 0;
 
-  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
-  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+	//player pos 1
+	//y1 x0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
 
-  buffer_type[0][ player_pos ] = 3;
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011001000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011001000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+
+	buffer_type[0][1] = 3;
+	position = 1;
+
+	//player pos 2
+	//y2 x0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011010000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011010000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+	buffer_type[0][2] = 3;
+	position = 2;
+
+	//player pos 3
+	//y3 x0
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011011000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011011000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+	buffer_type[0][3] = 3;
+	position = 3;
+
+	//player pos 4
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011100000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011100000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+	buffer_type[0][4] = 3;
+	position = 4;
+
+	//player pos 5
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011101000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011101000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+	buffer_type[0][5] = 3;
+	position = 5;
+
+	//player pos 6
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011110000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011110000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+	buffer_type[0][6] = 3;
+	position = 6;
+
+	//player pos 7
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011111000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011111000);
+	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+	position = 7;
+	buffer_type[0][7] = 3;
+
+	return position;
 }
 
-void set_player_position( int positie )
+void set_player_position(int positie)
 {
-	switch( positie )
-  {
+	switch(positie){
 
 
 	    case 0:
 	      // statements
 
+
 	    	// player pos 0
 	    		//y 0 x 0
-					if(buffer_type[0][0] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
 
-            buffer_type[0][0] = 3;
-          }
-	        else
-          {
-            game_over();
-          }
-      	break;
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000);
+
+
+	      break;
 	    case 1:
 
 	      // statements
 
 	    	//player pos 1
 	    		//y1 x0
-      		if(buffer_type[0][1] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011001000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011001000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011001000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011001000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011001000);
 
-            buffer_type[0][1] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
-      	break;
 	    case 2:
 
 	    	//player pos 2
 	    		//y2 x0
-      		if(buffer_type[0][2] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011010000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011010000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011010000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011010000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
 
-            buffer_type[0][2] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
-      	break;
 	    case 3:
 
 	    	//player pos 3
 	    		//y3 x0
-     			if(buffer_type[0][3] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011011000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011011000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011011000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011011000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
 
-            buffer_type[0][3] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
-      	break;
 	    case 4:
 	    	//player pos 4
-					if(buffer_type[0][4] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011100000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011100000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011100000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
 
-            buffer_type[0][4] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
-      	break;
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011100000);
+	    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
 	    case 5:
 	    	//player pos 5
-      		if(buffer_type[0][5] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011101000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011101000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011101000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
-
-            buffer_type[0][5] = 3;
-          }
-          else
-          {
-            game_over();
-          }
-      	break;
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011101000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
 	    case 6:
 
 	    	//player pos 6
-          if(buffer_type[0][6] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011110000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011110000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011110000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011110000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
 
-            buffer_type[0][6] = 3;
-          }
-          else
-          {
-            game_over();
-          }
-      	break;
 	    case 7:
 
 	    	//player pos 7
-          if(buffer_type[0][7] != 1)
-          {
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
 
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011111000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011111000);
-            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011111000);
+	    	NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011111000);
+    		NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
 
-            buffer_type[0][7] = 3;
-          }
-          else
-          {
-            game_over();
-          }
-      	break;
+	      break;
 	      // default statements
+
+
+
+
 	}
 }

@@ -4643,3 +4643,2289 @@ make pre-build main-build
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
+17:45:53 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:94:13: error: storage class specified for parameter 'vTimerCallback'
+ static void vTimerCallback( TimerHandle_t pxTimer );
+             ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:95:13: error: storage class specified for parameter 'vTimerCallback'
+ static void vTimerCallback( TimerHandle_t pxTimerKnop );
+             ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:95:13: error: redefinition of parameter 'vTimerCallback'
+../src/freertos_hello_world.c:94:13: note: previous definition of 'vTimerCallback' was here
+ static void vTimerCallback( TimerHandle_t pxTimer );
+             ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:108:21: error: storage class specified for parameter 'xTxTask'
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c:109:21: error: storage class specified for parameter 'xRxTask'
+ static TaskHandle_t xRxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c:110:21: error: storage class specified for parameter 'xSensor'
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+../src/freertos_hello_world.c:111:21: error: storage class specified for parameter 'xUartRead'
+ static TaskHandle_t xUartRead;
+                     ^~~~~~~~~
+../src/freertos_hello_world.c:112:21: error: storage class specified for parameter 'xKnop'
+ static TaskHandle_t xKnop;
+                     ^~~~~
+../src/freertos_hello_world.c:114:22: error: storage class specified for parameter 'xQueue'
+ static QueueHandle_t xQueue = NULL;
+                      ^~~~~~
+../src/freertos_hello_world.c:114:1: error: parameter 'xQueue' is initialized
+ static QueueHandle_t xQueue = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:115:22: error: storage class specified for parameter 'xQueue2'
+ static QueueHandle_t xQueue2 = NULL;
+                      ^~~~~~~
+../src/freertos_hello_world.c:115:1: error: parameter 'xQueue2' is initialized
+ static QueueHandle_t xQueue2 = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:116:22: error: storage class specified for parameter 'xQueue3'
+ static QueueHandle_t xQueue3 = NULL;
+                      ^~~~~~~
+../src/freertos_hello_world.c:116:1: error: parameter 'xQueue3' is initialized
+ static QueueHandle_t xQueue3 = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:118:22: error: storage class specified for parameter 'xTimer'
+ static TimerHandle_t xTimer = NULL;
+                      ^~~~~~
+../src/freertos_hello_world.c:118:1: error: parameter 'xTimer' is initialized
+ static TimerHandle_t xTimer = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:119:22: error: storage class specified for parameter 'xTimerKnop'
+ static TimerHandle_t xTimerKnop = NULL;
+                      ^~~~~~~~~~
+../src/freertos_hello_world.c:119:1: error: parameter 'xTimerKnop' is initialized
+ static TimerHandle_t xTimerKnop = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:121:1: error: parameter 'HWstring' is initialized
+ char HWstring[15] = "Hello World";
+ ^~~~
+../src/freertos_hello_world.c:122:1: error: parameter 'RxtaskCntr' is initialized
+ long RxtaskCntr = 0;
+ ^~~~
+../src/freertos_hello_world.c:132:1: error: parameter 'buffer_obj' is initialized
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+ ^~~
+../src/freertos_hello_world.c:132:1: warning: braces around scalar initializer
+../src/freertos_hello_world.c:132:1: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                             ^
+../src/freertos_hello_world.c:132:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:32: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:132:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:35: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:132:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:38: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:132:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:41: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:132:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:44: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:132:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:47: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:132:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:50: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:132:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:27: warning: braces around scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:133:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                             ^
+../src/freertos_hello_world.c:133:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:32: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:133:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:35: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:133:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:38: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:133:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:41: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:133:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:44: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:133:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:47: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:133:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:50: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:133:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:27: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:133:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:27: warning: braces around scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:134:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                             ^
+../src/freertos_hello_world.c:134:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:32: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:134:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:35: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:134:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:38: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:134:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:41: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:134:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:44: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:134:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:47: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:134:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:50: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:134:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:27: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:134:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:27: warning: braces around scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:135:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                             ^
+../src/freertos_hello_world.c:135:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:32: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                ^
+../src/freertos_hello_world.c:135:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:35: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                   ^
+../src/freertos_hello_world.c:135:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:38: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                      ^
+../src/freertos_hello_world.c:135:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:41: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                         ^
+../src/freertos_hello_world.c:135:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:44: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                            ^
+../src/freertos_hello_world.c:135:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:47: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                               ^
+../src/freertos_hello_world.c:135:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:50: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                                  ^
+../src/freertos_hello_world.c:135:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:27: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:135:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:27: warning: braces around scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:136:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                             ^
+../src/freertos_hello_world.c:136:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:32: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:136:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:35: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:136:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:38: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:136:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:41: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:136:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:44: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:136:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:47: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:136:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:50: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:136:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:27: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:136:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:137:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:137:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:137:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:137:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:137:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:137:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:137:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:137:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:137:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:27: warning: braces around scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:138:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                             ^
+../src/freertos_hello_world.c:138:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:32: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:138:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:35: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:138:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:38: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:138:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:41: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:138:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:44: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:138:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:47: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:138:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:50: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:138:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:27: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:138:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:27: warning: braces around scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:139:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                             ^
+../src/freertos_hello_world.c:139:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:32: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                ^
+../src/freertos_hello_world.c:139:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:35: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                   ^
+../src/freertos_hello_world.c:139:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:38: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                      ^
+../src/freertos_hello_world.c:139:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:41: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                         ^
+../src/freertos_hello_world.c:139:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:44: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                            ^
+../src/freertos_hello_world.c:139:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:47: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                               ^
+../src/freertos_hello_world.c:139:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:50: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                                  ^
+../src/freertos_hello_world.c:139:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:27: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:139:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:27: warning: braces around scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:140:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:32: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:140:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:35: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:140:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:38: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:140:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:41: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:140:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:44: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:140:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:47: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:140:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:50: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:140:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:27: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:140:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:27: warning: braces around scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:141:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:32: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:141:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:35: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:141:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:38: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:141:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:41: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:141:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:44: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:141:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:47: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:141:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:50: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:141:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:27: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:141:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:27: warning: braces around scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:142:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:32: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:142:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:35: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:142:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:38: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:142:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:41: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:142:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:44: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:142:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:47: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:142:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:50: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:142:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:27: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:142:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:27: warning: braces around scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:143:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                             ^
+../src/freertos_hello_world.c:143:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:32: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:143:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:35: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:143:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:38: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:143:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:41: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:143:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:44: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:143:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:47: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:143:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:50: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:143:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:27: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:143:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:144:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:144:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:144:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:144:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:144:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:144:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:144:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:144:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:144:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                           ^
+../src/freertos_hello_world.c:145:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                ^
+../src/freertos_hello_world.c:145:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                   ^
+../src/freertos_hello_world.c:145:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                      ^
+../src/freertos_hello_world.c:145:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                         ^
+../src/freertos_hello_world.c:145:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                            ^
+../src/freertos_hello_world.c:145:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                               ^
+../src/freertos_hello_world.c:145:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                                  ^
+../src/freertos_hello_world.c:145:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                           ^
+../src/freertos_hello_world.c:145:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                           ^
+../src/freertos_hello_world.c:146:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                ^
+../src/freertos_hello_world.c:146:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                   ^
+../src/freertos_hello_world.c:146:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                      ^
+../src/freertos_hello_world.c:146:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                         ^
+../src/freertos_hello_world.c:146:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                            ^
+../src/freertos_hello_world.c:146:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                               ^
+../src/freertos_hello_world.c:146:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                                  ^
+../src/freertos_hello_world.c:146:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                           ^
+../src/freertos_hello_world.c:146:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:150:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:252:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:286:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:318:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:347:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:377:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c:396:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:466:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:497:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:506:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:516:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:532:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:590:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:623:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:92:13: error: old-style parameter declarations in prototyped function definition
+ static void prvKnop(void *pvParameters)
+             ^~~~~~~
+../src/freertos_hello_world.c:794: error: expected '{' at end of input
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:88:13: warning: 'prvRxTask' declared 'static' but never defined [-Wunused-function]
+ static void prvRxTask( void *pvParameters );
+             ^~~~~~~~~
+../src/freertos_hello_world.c:90:13: warning: 'prvSensor' declared 'static' but never defined [-Wunused-function]
+ static void prvSensor( void *pvParameters );
+             ^~~~~~~~~
+../src/freertos_hello_world.c:91:13: warning: 'prvUartRead' declared 'static' but never defined [-Wunused-function]
+ static void prvUartRead( void *pvParameters );
+             ^~~~~~~~~~~
+../src/freertos_hello_world.c:92:13: warning: 'prvKnop' defined but not used [-Wunused-function]
+ static void prvKnop(void *pvParameters)
+             ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+17:49:15 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:128:5: error: 'rand' redeclared as different kind of symbol
+ int rand;
+     ^~~~
+In file included from ../src/freertos_hello_world.c:47:
+c:\xilinx\sdk\2019.1\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\libc\usr\include\stdlib.h:140:5: note: previous declaration of 'rand' was here
+ int rand (void);
+     ^~~~
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:196:9: warning: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+  srand( time( NULL ) );
+         ^~~~
+../src/freertos_hello_world.c:229:8: error: 'vTimerCallbackKnop' undeclared (first use in this function); did you mean 'vTimerCallback'?
+        vTimerCallbackKnop);
+        ^~~~~~~~~~~~~~~~~~
+        vTimerCallback
+../src/freertos_hello_world.c:229:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:295:35: error: 'GPIO_DEVICE_ID' undeclared (first use in this function)
+  ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+                                   ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:301:38: error: 'SWITCH_PS' undeclared (first use in this function)
+   NewSwData = XGpioPs_ReadPin(&Gpio, SWITCH_PS);
+                                      ^~~~~~~~~
+../src/freertos_hello_world.c:307:5: error: 'Knopvalue' undeclared (first use in this function); did you mean 'KnopValue'?
+     Knopvalue = OldSwData;
+     ^~~~~~~~~
+     KnopValue
+../src/freertos_hello_world.c:291:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:377:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:502:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:12: error: called object 'rand' is not a function or function pointer
+     rand = rand() % 15;
+            ^~~~
+../src/freertos_hello_world.c:128:5: note: declared here
+ int rand;
+     ^~~~
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:589:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:502:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:54:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:611:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:614:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:617:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:496:13: warning: 'vTimerCallbackKnop' defined but not used [-Wunused-function]
+ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
+             ^~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:346:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:108:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+17:55:06 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:229:8: error: 'vTimerCallbackKnop' undeclared (first use in this function); did you mean 'vTimerCallback'?
+        vTimerCallbackKnop);
+        ^~~~~~~~~~~~~~~~~~
+        vTimerCallback
+../src/freertos_hello_world.c:229:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:295:35: error: 'GPIO_DEVICE_ID' undeclared (first use in this function)
+  ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+                                   ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:301:38: error: 'SWITCH_PS' undeclared (first use in this function)
+   NewSwData = XGpioPs_ReadPin(&Gpio, SWITCH_PS);
+                                      ^~~~~~~~~
+../src/freertos_hello_world.c:307:5: error: 'Knopvalue' undeclared (first use in this function); did you mean 'KnopValue'?
+     Knopvalue = OldSwData;
+     ^~~~~~~~~
+     KnopValue
+../src/freertos_hello_world.c:291:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:377:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:502:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:589:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:502:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:54:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:611:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:614:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:617:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:496:13: warning: 'vTimerCallbackKnop' defined but not used [-Wunused-function]
+ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
+             ^~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:346:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:108:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+17:57:00 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:94:13: error: storage class specified for parameter 'vTimerCallback'
+ static void vTimerCallback( TimerHandle_t pxTimer );
+             ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:95:13: error: storage class specified for parameter 'vTimerCallback'
+ static void vTimerCallback( TimerHandle_t pxTimerKnop );
+             ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:95:13: error: redefinition of parameter 'vTimerCallback'
+../src/freertos_hello_world.c:94:13: note: previous definition of 'vTimerCallback' was here
+ static void vTimerCallback( TimerHandle_t pxTimer );
+             ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:108:21: error: storage class specified for parameter 'xTxTask'
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c:109:21: error: storage class specified for parameter 'xRxTask'
+ static TaskHandle_t xRxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c:110:21: error: storage class specified for parameter 'xSensor'
+ static TaskHandle_t xSensor;
+                     ^~~~~~~
+../src/freertos_hello_world.c:111:21: error: storage class specified for parameter 'xUartRead'
+ static TaskHandle_t xUartRead;
+                     ^~~~~~~~~
+../src/freertos_hello_world.c:112:21: error: storage class specified for parameter 'xKnop'
+ static TaskHandle_t xKnop;
+                     ^~~~~
+../src/freertos_hello_world.c:114:22: error: storage class specified for parameter 'xQueue'
+ static QueueHandle_t xQueue = NULL;
+                      ^~~~~~
+../src/freertos_hello_world.c:114:1: error: parameter 'xQueue' is initialized
+ static QueueHandle_t xQueue = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:115:22: error: storage class specified for parameter 'xQueue2'
+ static QueueHandle_t xQueue2 = NULL;
+                      ^~~~~~~
+../src/freertos_hello_world.c:115:1: error: parameter 'xQueue2' is initialized
+ static QueueHandle_t xQueue2 = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:116:22: error: storage class specified for parameter 'xQueue3'
+ static QueueHandle_t xQueue3 = NULL;
+                      ^~~~~~~
+../src/freertos_hello_world.c:116:1: error: parameter 'xQueue3' is initialized
+ static QueueHandle_t xQueue3 = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:118:22: error: storage class specified for parameter 'xTimer'
+ static TimerHandle_t xTimer = NULL;
+                      ^~~~~~
+../src/freertos_hello_world.c:118:1: error: parameter 'xTimer' is initialized
+ static TimerHandle_t xTimer = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:119:22: error: storage class specified for parameter 'xTimerKnop'
+ static TimerHandle_t xTimerKnop = NULL;
+                      ^~~~~~~~~~
+../src/freertos_hello_world.c:119:1: error: parameter 'xTimerKnop' is initialized
+ static TimerHandle_t xTimerKnop = NULL;
+ ^~~~~~
+../src/freertos_hello_world.c:121:1: error: parameter 'HWstring' is initialized
+ char HWstring[15] = "Hello World";
+ ^~~~
+../src/freertos_hello_world.c:122:1: error: parameter 'RxtaskCntr' is initialized
+ long RxtaskCntr = 0;
+ ^~~~
+../src/freertos_hello_world.c:132:1: error: parameter 'buffer_obj' is initialized
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+ ^~~
+../src/freertos_hello_world.c:132:1: warning: braces around scalar initializer
+../src/freertos_hello_world.c:132:1: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                             ^
+../src/freertos_hello_world.c:132:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:32: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:132:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:35: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:132:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:38: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:132:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:41: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:132:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:44: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:132:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:47: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:132:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:132:50: warning: excess elements in scalar initializer
+ u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:132:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:27: warning: braces around scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:133:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                             ^
+../src/freertos_hello_world.c:133:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:32: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:133:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:35: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:133:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:38: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:133:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:41: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:133:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:44: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:133:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:47: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:133:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:50: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:133:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:133:27: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 0, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:133:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:27: warning: braces around scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:134:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                             ^
+../src/freertos_hello_world.c:134:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:32: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:134:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:35: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:134:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:38: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:134:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:41: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:134:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:44: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:134:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:47: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:134:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:50: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:134:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:134:27: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 0, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:134:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:27: warning: braces around scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:135:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                             ^
+../src/freertos_hello_world.c:135:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:32: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                ^
+../src/freertos_hello_world.c:135:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:35: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                   ^
+../src/freertos_hello_world.c:135:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:38: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                      ^
+../src/freertos_hello_world.c:135:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:41: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                         ^
+../src/freertos_hello_world.c:135:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:44: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                            ^
+../src/freertos_hello_world.c:135:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:47: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                               ^
+../src/freertos_hello_world.c:135:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:50: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                                                  ^
+../src/freertos_hello_world.c:135:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:135:27: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 0, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:135:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:27: warning: braces around scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:136:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                             ^
+../src/freertos_hello_world.c:136:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:32: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:136:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:35: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:136:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:38: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:136:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:41: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:136:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:44: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:136:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:47: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:136:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:50: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:136:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:136:27: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:136:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:137:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:137:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:137:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:137:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:137:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:137:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:137:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:137:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:137:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:137:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:27: warning: braces around scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:138:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                             ^
+../src/freertos_hello_world.c:138:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:32: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:138:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:35: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:138:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:38: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:138:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:41: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:138:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:44: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:138:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:47: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:138:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:50: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:138:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:138:27: warning: excess elements in scalar initializer
+                           { 1, 1, 0, 0, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:138:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:27: warning: braces around scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:139:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                             ^
+../src/freertos_hello_world.c:139:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:32: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                ^
+../src/freertos_hello_world.c:139:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:35: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                   ^
+../src/freertos_hello_world.c:139:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:38: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                      ^
+../src/freertos_hello_world.c:139:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:41: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                         ^
+../src/freertos_hello_world.c:139:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:44: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                            ^
+../src/freertos_hello_world.c:139:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:47: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                               ^
+../src/freertos_hello_world.c:139:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:50: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                                                  ^
+../src/freertos_hello_world.c:139:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:139:27: warning: excess elements in scalar initializer
+                           { 1, 0, 0, 1, 1, 0, 0, 1 },
+                           ^
+../src/freertos_hello_world.c:139:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:27: warning: braces around scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:140:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:32: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                ^
+../src/freertos_hello_world.c:140:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:35: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                   ^
+../src/freertos_hello_world.c:140:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:38: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                      ^
+../src/freertos_hello_world.c:140:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:41: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                         ^
+../src/freertos_hello_world.c:140:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:44: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                            ^
+../src/freertos_hello_world.c:140:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:47: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                               ^
+../src/freertos_hello_world.c:140:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:50: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                                                  ^
+../src/freertos_hello_world.c:140:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:140:27: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 0, 0, 1, 1 },
+                           ^
+../src/freertos_hello_world.c:140:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:27: warning: braces around scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:141:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:32: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:141:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:35: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:141:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:38: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:141:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:41: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:141:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:44: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:141:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:47: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:141:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:50: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:141:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:141:27: warning: excess elements in scalar initializer
+                           { 0, 0, 1, 1, 1, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:141:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:27: warning: braces around scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:142:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:32: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:142:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:35: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:142:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:38: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:142:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:41: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:142:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:44: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:142:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:47: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:142:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:50: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:142:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:142:27: warning: excess elements in scalar initializer
+                           { 0, 1, 1, 1, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:142:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:27: warning: braces around scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:143:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:29: warning: initialization of 'u32 (*)[8]' {aka 'long unsigned int (*)[8]'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                             ^
+../src/freertos_hello_world.c:143:29: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:32: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:143:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:35: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:143:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:38: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:143:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:41: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:143:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:44: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:143:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:47: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:143:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:50: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:143:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:143:27: warning: excess elements in scalar initializer
+                           { 1, 1, 1, 0, 0, 0, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:143:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:144:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                ^
+../src/freertos_hello_world.c:144:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                   ^
+../src/freertos_hello_world.c:144:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                      ^
+../src/freertos_hello_world.c:144:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                         ^
+../src/freertos_hello_world.c:144:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                            ^
+../src/freertos_hello_world.c:144:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                               ^
+../src/freertos_hello_world.c:144:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                                                  ^
+../src/freertos_hello_world.c:144:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:144:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 1, 1, 1, 0, 0 },
+                           ^
+../src/freertos_hello_world.c:144:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                           ^
+../src/freertos_hello_world.c:145:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                ^
+../src/freertos_hello_world.c:145:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                   ^
+../src/freertos_hello_world.c:145:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                      ^
+../src/freertos_hello_world.c:145:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                         ^
+../src/freertos_hello_world.c:145:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                            ^
+../src/freertos_hello_world.c:145:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                               ^
+../src/freertos_hello_world.c:145:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                                                  ^
+../src/freertos_hello_world.c:145:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:145:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 1, 1, 1, 0 },
+                           ^
+../src/freertos_hello_world.c:145:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:27: warning: braces around scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                           ^
+../src/freertos_hello_world.c:146:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:32: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                ^
+../src/freertos_hello_world.c:146:32: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:35: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                   ^
+../src/freertos_hello_world.c:146:35: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:38: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                      ^
+../src/freertos_hello_world.c:146:38: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:41: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                         ^
+../src/freertos_hello_world.c:146:41: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:44: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                            ^
+../src/freertos_hello_world.c:146:44: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:47: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                               ^
+../src/freertos_hello_world.c:146:47: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:50: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                                                  ^
+../src/freertos_hello_world.c:146:50: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:146:27: warning: excess elements in scalar initializer
+                           { 0, 0, 0, 0, 0, 1, 1, 1 } };
+                           ^
+../src/freertos_hello_world.c:146:27: note: (near initialization for 'buffer_obj')
+../src/freertos_hello_world.c:150:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:252:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:286:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:318:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:347:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:377:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c:396:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:466:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:497:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:506:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:516:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:532:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:590:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:623:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+../src/freertos_hello_world.c:92:13: error: old-style parameter declarations in prototyped function definition
+ static void prvKnop(void *pvParameters)
+             ^~~~~~~
+../src/freertos_hello_world.c:795: error: expected '{' at end of input
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:88:13: warning: 'prvRxTask' declared 'static' but never defined [-Wunused-function]
+ static void prvRxTask( void *pvParameters );
+             ^~~~~~~~~
+../src/freertos_hello_world.c:90:13: warning: 'prvSensor' declared 'static' but never defined [-Wunused-function]
+ static void prvSensor( void *pvParameters );
+             ^~~~~~~~~
+../src/freertos_hello_world.c:91:13: warning: 'prvUartRead' declared 'static' but never defined [-Wunused-function]
+ static void prvUartRead( void *pvParameters );
+             ^~~~~~~~~~~
+../src/freertos_hello_world.c:92:13: warning: 'prvKnop' defined but not used [-Wunused-function]
+ static void prvKnop(void *pvParameters)
+             ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+17:58:20 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:196:9: warning: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+  srand( time( NULL ) );
+         ^~~~
+../src/freertos_hello_world.c:229:8: error: 'vTimerCallbackKnop' undeclared (first use in this function); did you mean 'vTimerCallback'?
+        vTimerCallbackKnop);
+        ^~~~~~~~~~~~~~~~~~
+        vTimerCallback
+../src/freertos_hello_world.c:229:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:295:35: error: 'GPIO_DEVICE_ID' undeclared (first use in this function)
+  ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+                                   ^~~~~~~~~~~~~~
+../src/freertos_hello_world.c:307:5: error: 'Knopvalue' undeclared (first use in this function); did you mean 'KnopValue'?
+     Knopvalue = OldSwData;
+     ^~~~~~~~~
+     KnopValue
+../src/freertos_hello_world.c:291:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:377:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:502:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:589:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:502:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:54:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:611:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:614:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:617:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:496:13: warning: 'vTimerCallbackKnop' defined but not used [-Wunused-function]
+ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
+             ^~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:346:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:108:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+18:02:54 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:197:9: warning: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+  srand( time( NULL ) );
+         ^~~~
+../src/freertos_hello_world.c:230:8: error: 'vTimerCallbackKnop' undeclared (first use in this function); did you mean 'vTimerCallback'?
+        vTimerCallbackKnop);
+        ^~~~~~~~~~~~~~~~~~
+        vTimerCallback
+../src/freertos_hello_world.c:230:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:296:14: error: too few arguments to function 'XGpioPs_LookupConfig'
+  ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:51:
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/xgpiops.h:277:17: note: declared here
+ XGpioPs_Config *XGpioPs_LookupConfig(u16 DeviceId);
+                 ^~~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:292:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:378:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:503:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:590:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:503:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:54:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:612:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:614:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:617:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:497:13: warning: 'vTimerCallbackKnop' defined but not used [-Wunused-function]
+ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
+             ^~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:347:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:109:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+18:06:48 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:197:9: warning: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+  srand( time( NULL ) );
+         ^~~~
+../src/freertos_hello_world.c:230:8: error: 'vTimerCallbackKnop' undeclared (first use in this function); did you mean 'vTimerCallback'?
+        vTimerCallbackKnop);
+        ^~~~~~~~~~~~~~~~~~
+        vTimerCallback
+../src/freertos_hello_world.c:230:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:292:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:378:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:503:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:590:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:503:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:54:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:612:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:614:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:617:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:497:13: warning: 'vTimerCallbackKnop' defined but not used [-Wunused-function]
+ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
+             ^~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:347:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:109:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+18:07:52 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:197:9: warning: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+  srand( time( NULL ) );
+         ^~~~
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:292:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:378:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:503:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:590:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:503:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:54:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:612:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:614:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:617:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:347:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:109:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:552:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:596:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../arm-none-eabi/libc/usr/lib/thumb/v7-a+fp/hard\libc.a(lib_a-gettimeofdayr.o): in function `_gettimeofday_r':
+gettimeofdayr.c:(.text+0x16): undefined reference to `_gettimeofday'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+18:12:30 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:198:9: warning: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+  srand( time() );
+         ^~~~
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:504:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:591:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:504:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:55:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:619:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../arm-none-eabi/libc/usr/lib/thumb/v7-a+fp/hard\libc.a(lib_a-gettimeofdayr.o): in function `_gettimeofday_r':
+gettimeofdayr.c:(.text+0x16): undefined reference to `_gettimeofday'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+18:14:18 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:504:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:591:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:504:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:55:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:619:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88328	   3872	  90064	 182264	  2c7f8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+18:26:59 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:504:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:591:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:504:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:55:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:619:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88328	   3872	  90064	 182264	  2c7f8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+18:27:14 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+18:28:02 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+18:30:40 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:504:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:591:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:504:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:55:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:619:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88328	   3872	  90064	 182264	  2c7f8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+18:30:59 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.

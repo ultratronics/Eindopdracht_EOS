@@ -45,7 +45,6 @@
 #include "queue.h"
 #include "timers.h"
 #include "stdlib.h"
-#include "stdio.h"
 /* Xilinx includes. */
 #include "xil_printf.h"
 #include "xparameters.h"
@@ -195,7 +194,7 @@ int main( void )
 				 tskIDLE_PRIORITY + 1,
 				 &xUartRead );
 
-	srand( 0 );
+	srand( time( NULL ) );
 
 	/* Create the queue used by the tasks.  The Rx task has a higher priority
 	than the Tx task, so will preempt the Tx task and remove values from the
@@ -224,7 +223,7 @@ int main( void )
 							(void *) TIMER_ID,
 							vTimerCallback);
 
-  xTimerKnop = xTimerCreate( (const char *) "TimerKnop",
+  xTimer = xTimerCreate( (const char *) "TimerKnop",
 							x0_2seconds,
 							pdTRUE,
 							(void *) TIMER_ID_KNOP,

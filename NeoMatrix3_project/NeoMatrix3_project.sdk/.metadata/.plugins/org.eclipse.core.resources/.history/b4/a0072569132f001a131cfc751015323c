@@ -45,7 +45,6 @@
 #include "queue.h"
 #include "timers.h"
 #include "stdlib.h"
-#include "stdio.h"
 /* Xilinx includes. */
 #include "xil_printf.h"
 #include "xparameters.h"
@@ -65,7 +64,6 @@
 #define TIMER_CHECK_THRESHOLD	9
 
 // Player2 knop
-#define GPIO_DEVICE_ID XPAR_XGPIOPS_0_DEVICE_ID
 #define Knop 0
 #define KnopData 0x00
 
@@ -91,10 +89,10 @@ static void prvRxTask( void *pvParameters );
 //tasks
 static void prvSensor( void *pvParameters );
 static void prvUartRead( void *pvParameters );
-static void prvKnop(void *pvParameters);
+static void prvKnop(void *pvParameters)
 //functies voor de timers
 static void vTimerCallback( TimerHandle_t pxTimer );
-static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop );
+static void vTimerCallback( TimerHandle_t pxTimerKnop );
 
 // game functies
 void set_obj(u32 Y);
@@ -195,7 +193,7 @@ int main( void )
 				 tskIDLE_PRIORITY + 1,
 				 &xUartRead );
 
-	srand( 0 );
+	srand( time( NULL ) );
 
 	/* Create the queue used by the tasks.  The Rx task has a higher priority
 	than the Tx task, so will preempt the Tx task and remove values from the
@@ -224,7 +222,7 @@ int main( void )
 							(void *) TIMER_ID,
 							vTimerCallback);
 
-  xTimerKnop = xTimerCreate( (const char *) "TimerKnop",
+  xTimer = xTimerCreate( (const char *) "TimerKnop",
 							x0_2seconds,
 							pdTRUE,
 							(void *) TIMER_ID_KNOP,
@@ -306,7 +304,7 @@ static void prvKnop( void *pvParameters )
 			xil_printf("Read pin\r\n");
 		}
 		OldSwData = NewSwData;
-    KnopValue = OldSwData;
+    Knopvalue = OldSwData;
 	}
   // Send the next value on the queue.  The queue should always be
 	// empty at this point so a block time of 0 is used.

@@ -224,7 +224,7 @@ int main( void )
 							(void *) TIMER_ID,
 							vTimerCallback);
 
-  xTimerKnop = xTimerCreate( (const char *) "TimerKnop",
+  xTimer = xTimerCreate( (const char *) "TimerKnop",
 							x0_2seconds,
 							pdTRUE,
 							(void *) TIMER_ID_KNOP,
