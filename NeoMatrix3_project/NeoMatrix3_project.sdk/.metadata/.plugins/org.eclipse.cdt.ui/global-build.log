@@ -6929,3 +6929,1572 @@ make pre-build main-build
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
+18:41:00 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:504:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:565:97: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int kleurtmp = 0b00011000000 && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                ~^~
+../src/freertos_hello_world.c:565:123: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int kleurtmp = 0b00011000000 && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                                          ~^~
+../src/freertos_hello_world.c:566:105: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int klaarzettentmp1 = 0b01011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                        ~^~
+../src/freertos_hello_world.c:566:131: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int klaarzettentmp1 = 0b01011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                                                  ~^~
+../src/freertos_hello_world.c:567:105: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int klaarzettentmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                        ~^~
+../src/freertos_hello_world.c:567:131: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int klaarzettentmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                                                  ~^~
+../src/freertos_hello_world.c:568:107: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int overschrijventmp1 = 0b10011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                          ~^~
+../src/freertos_hello_world.c:568:133: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int overschrijventmp1 = 0b10011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                                                    ~^~
+../src/freertos_hello_world.c:569:107: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                          ~^~
+../src/freertos_hello_world.c:569:133: warning: suggest parentheses around '-' inside '<<' [-Wparentheses]
+    int overschrijventmp2 = 0b00011000000  && ((0xFFFFFFFF || buffer_type[j-1][i-1] << 6)||(0xFFFFFFFF || j-1 << 4)||(0xFFFFFFFF || i-1 << 0));
+                                                                                                                                    ~^~
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:591:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:504:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:55:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:619:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88328	   3872	  90064	 182264	  2c7f8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+18:41:09 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+18:43:46 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:504:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:591:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( int PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:504:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+In file included from ../src/freertos_hello_world.c:55:
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:613:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:615:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:616:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:618:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+../src/freertos_hello_world.c:619:89: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+   NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+                                                                              ~~~~~~~~~~~^~~~
+../../freertos_neomatrix_bsp/ps7_cortexa9_0/include/NeoMatix64.h:35:49: note: in definition of macro 'NEOMATIX64_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^~~~
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88328	   3872	  90064	 182264	  2c7f8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+18:44:03 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+18:45:25 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+18:49:36 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+18:50:33 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+18:57:51 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:434:3: warning: implicit declaration of function 'get_player_position'; did you mean 'set_player_position'? [-Wimplicit-function-declaration]
+   get_player_position();
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_position
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:502:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+../src/freertos_hello_world.c: At top level:
+../src/freertos_hello_world.c:589:6: warning: conflicting types for 'set_player_2_button'
+ void set_player_2_button( u32 PS_button )
+      ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:502:3: note: previous implicit declaration of 'set_player_2_button' was here
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:551:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_button':
+../src/freertos_hello_world.c:595:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `prvRxTask':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:434: undefined reference to `get_player_position'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+19:00:06 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:434:23: error: 'AftsandRecieved' undeclared (first use in this function); did you mean 'AfstandReceived'?
+   set_player_position(AftsandRecieved);
+                       ^~~~~~~~~~~~~~~
+                       AfstandReceived
+../src/freertos_hello_world.c:434:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:502:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+19:00:52 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:434:23: error: 'AfstandRecieved' undeclared (first use in this function); did you mean 'AfstandReceived'?
+   set_player_position(AfstandRecieved);
+                       ^~~~~~~~~~~~~~~
+                       AfstandReceived
+../src/freertos_hello_world.c:434:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:502:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+19:01:00 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'vTimerCallbackKnop':
+../src/freertos_hello_world.c:502:3: warning: implicit declaration of function 'set_player_2_button'; did you mean 'set_player_2_position'? [-Wimplicit-function-declaration]
+   set_player_2_button(KnopValueRecv);
+   ^~~~~~~~~~~~~~~~~~~
+   set_player_2_position
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:551:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_position':
+../src/freertos_hello_world.c:595:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `vTimerCallbackKnop':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:502: undefined reference to `set_player_2_button'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+19:01:38 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `vTimerCallbackKnop':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:502: undefined reference to `set_player_2_button'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+19:02:59 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:551:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_position':
+../src/freertos_hello_world.c:595:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88328	   3872	  90064	 182264	  2c7f8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:03:46 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+19:11:08 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+19:16:19 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:399:35: error: expected ';' before 'int'
+  xil_printf( "In prvRxTask \r\n" )
+                                   ^
+                                   ;
+  int AfstandReceived;
+  ~~~                               
+../src/freertos_hello_world.c:427:8: error: 'AfstandReceived' undeclared (first use in this function); did you mean 'KnopReceived'?
+       &AfstandReceived, /* Data is read into this address. */
+        ^~~~~~~~~~~~~~~
+        KnopReceived
+../src/freertos_hello_world.c:427:8: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+19:16:21 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:552:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_position':
+../src/freertos_hello_world.c:596:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88344	   3872	  90064	 182280	  2c808	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:16:28 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+19:16:47 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+19:21:34 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_position':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88360	   3872	  90064	 182296	  2c818	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:22:24 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:553:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_position':
+../src/freertos_hello_world.c:597:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88424	   3872	  90064	 182360	  2c858	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:22:38 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+../src/freertos_hello_world.c: In function 'next_frame':
+../src/freertos_hello_world.c:554:5: warning: 'count' is used uninitialized in this function [-Wuninitialized]
+   if( count >= 4 )
+     ^
+../src/freertos_hello_world.c: In function 'set_player_2_position':
+../src/freertos_hello_world.c:598:16: warning: 'player_pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     player_pos ++;
+     ~~~~~~~~~~~^~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88424	   3872	  90064	 182360	  2c858	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:36:47 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88552	   3872	  90080	 182504	  2c8e8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:40:40 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88368	   3872	  90080	 182320	  2c830	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:41:26 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+19:42:41 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+19:45:56 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88384	   3872	  90080	 182336	  2c840	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:58:37 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvTxTask':
+../src/freertos_hello_world.c:379:3: warning: "/*" within comment [-Wcomment]
+   /*groen in derde led
+    
+At top level:
+../src/freertos_hello_world.c:348:13: warning: 'prvTxTask' defined but not used [-Wunused-function]
+ static void prvTxTask( void *pvParameters )
+             ^~~~~~~~~
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88376	   3872	  90080	 182328	  2c838	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+19:59:43 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+20:11:05 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:354:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88296	   3872	  90080	 182248	  2c7e8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:11:18 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+20:19:14 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:354:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88288	   3872	  90080	 182240	  2c7e0	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:23:47 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:354:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88288	   3872	  90080	 182240	  2c7e0	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:24:12 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:354:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88288	   3872	  90080	 182240	  2c7e0	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:28:12 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:355:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88288	   3872	  90080	 182240	  2c7e0	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:29:45 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:355:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88288	   3872	  90080	 182240	  2c7e0	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:31:03 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:356:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88376	   3872	  90080	 182328	  2c838	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:32:16 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+20:35:24 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+20:42:01 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:356:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88376	   3872	  90080	 182328	  2c838	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:49:40 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:356:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88400	   3872	  90080	 182352	  2c850	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+20:50:32 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+21:14:43 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:293:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:356:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88400	   3872	  90080	 182352	  2c850	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+21:17:39 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:355:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88400	   3872	  90064	 182336	  2c840	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+21:18:10 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+21:23:43 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+21:34:54 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:233:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:296:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:360:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:233: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:35:22 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:233: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:36:53 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:234:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimerKnop, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:296:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:360:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:37:17 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:233:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:296:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:360:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:233: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:38:09 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:47:10: fatal error: timers.c: No such file or directory
+ #include "timers.c"
+          ^~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+21:43:50 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:234:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:297:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:361:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:111:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building file: ../src/timers.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/timers.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/timers.d" -MT"src/timers.o" -o "src/timers.o" "../src/timers.c"
+Finished building: ../src/timers.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o ./src/timers.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreateTimerTask':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: multiple definition of `xTimerCreateTimerTask'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreate':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: multiple definition of `xTimerCreate'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGenericCommand':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: multiple definition of `xTimerGenericCommand'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetTimerDaemonTaskHandle':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: multiple definition of `xTimerGetTimerDaemonTaskHandle'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetPeriod':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: multiple definition of `xTimerGetPeriod'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetExpiryTime':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: multiple definition of `xTimerGetExpiryTime'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pcTimerGetName':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: multiple definition of `pcTimerGetName'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerIsTimerActive':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: multiple definition of `xTimerIsTimerActive'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pvTimerGetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: multiple definition of `pvTimerGetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: multiple definition of `vTimerSetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCallFromISR':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: multiple definition of `xTimerPendFunctionCallFromISR'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCall':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: multiple definition of `xTimerPendFunctionCall'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `uxTimerGetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: multiple definition of `uxTimerGetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: multiple definition of `vTimerSetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:235: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:44:11 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:234:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:297:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:361:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:111:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o ./src/timers.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:235: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:44:42 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:234:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:297:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:361:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:111:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o ./src/timers.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreateTimerTask':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: multiple definition of `xTimerCreateTimerTask'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreate':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: multiple definition of `xTimerCreate'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGenericCommand':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: multiple definition of `xTimerGenericCommand'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetTimerDaemonTaskHandle':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: multiple definition of `xTimerGetTimerDaemonTaskHandle'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetPeriod':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: multiple definition of `xTimerGetPeriod'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetExpiryTime':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: multiple definition of `xTimerGetExpiryTime'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pcTimerGetName':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: multiple definition of `pcTimerGetName'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerIsTimerActive':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: multiple definition of `xTimerIsTimerActive'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pvTimerGetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: multiple definition of `pvTimerGetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: multiple definition of `vTimerSetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCallFromISR':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: multiple definition of `xTimerPendFunctionCallFromISR'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCall':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: multiple definition of `xTimerPendFunctionCall'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `uxTimerGetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: multiple definition of `uxTimerGetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: multiple definition of `vTimerSetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:235: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:46:06 **** Clean-only build of configuration Debug for project freertos_neomatrix ****
+make clean 
+rm -rf  ./src/freertos_hello_world.o ./src/timers.o  ./src/freertos_hello_world.d ./src/timers.d  freertos_neomatrix.elf.size  freertos_neomatrix.elf
+ 
+21:46:13 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:47:10: fatal error: timers.c: No such file or directory
+ #include "timers.c"
+          ^~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+21:46:22 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:233:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:296:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:360:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:233: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:46:33 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:355:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88400	   3872	  90064	 182336	  2c840	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
