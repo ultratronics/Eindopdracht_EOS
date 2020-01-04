@@ -1,16 +1,8 @@
-<<<<<<< Updated upstream
 13:23:40 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
-=======
-12:24:34 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
->>>>>>> Stashed changes
 make pre-build main-build 
 a9-linaro-pre-build-step
- 
+' '
 make: Nothing to be done for 'main-build'.
 
-<<<<<<< Updated upstream
 13:23:41 Build Finished (took 227ms)
-=======
-12:24:34 Build Finished (took 336ms)
->>>>>>> Stashed changes
 
