@@ -56,8 +56,8 @@
 #include "xil_io.h"
 /*-----------------------------------------------------------*/
 
-#define TIMER_ID	1
-#define TIMER_ID_KNOP 1
+#define TIMER_ID	0
+#define TIMER_ID_KNOP 0
 #define DELAY_10_SECONDS	10000UL
 #define DELAY_1_SECOND		1000UL
 #define DELAY_0_5_SECOND 500UL
@@ -107,6 +107,7 @@ void set_player_2_position(u32 PS_button);
 
 /* The queue used by the Tx and Rx tasks, as described at the top of this
 file. */
+static TaskHandle_t xTxTask;
 static TaskHandle_t xRxTask;
 static TaskHandle_t xSensor;
 static TaskHandle_t xUartRead;
@@ -201,10 +202,10 @@ int main( void )
 	queue as soon as the Tx task writes to the queue - therefore the queue can
 	never have more than one item in it. */
 	xQueue = xQueueCreate( 	1,						/* There is only one space in the queue. */
-							sizeof( HWstring ) );	/* Each space in the queue is large enough to hold a uint32_t. */
+							sizeof( int ) );	/* Each space in the queue is large enough to hold a uint32_t. */
 
 	xQueue2 = xQueueCreate(1, sizeof( HWstring ));
-    xQueue3 = xQueueCreate(1, sizeof( HWstring ));
+    xQueue3 = xQueueCreate(1, sizeof( int ));
 
 	/* Check the queue was created. */
 	configASSERT( xQueue );
@@ -229,6 +230,8 @@ int main( void )
 							(void *) TIMER_ID_KNOP,
 							vTimerCallbackKnop);
 
+  vTimerSetReloadMode(xTimer, pdTRUE);
+  vTimerSetReloadMode(xTimerKnop, pdTRUE);
 	/* Check the timer was created. */
 	configASSERT( xTimer );
 	configASSERT( xTimerKnop );
@@ -245,6 +248,7 @@ int main( void )
 	insufficient FreeRTOS heap memory available for the idle and/or timer tasks
 	to be created.  See the memory management section on the FreeRTOS web site
 	for more details. */
+  xil_printf("Heap memory overflow!!!\n\r");
 	for( ;; );
 }
 /*-----------------------------------------------------------*/
@@ -289,7 +293,7 @@ static void prvKnop( void *pvParameters )
 	u8 OldSwData = 0;
   int KnopValue;
 
-	//const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+	const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
 	xil_printf("In Functie Knop.\n\r");
 
   XGpioPs_Config *ConfigPtr;
@@ -303,17 +307,18 @@ static void prvKnop( void *pvParameters )
 		if((NewSwData != OldSwData) && (NewSwData == 1))
 		{
 			xil_printf("Read pin\r\n");
+      // Send the next value on the queue.  The queue should always be
+			// empty at this point so a block time of 0 is used.
+
 		}
 		OldSwData = NewSwData;
-		KnopValue = OldSwData;
-
-  	xil_printf("Queue -> KnopWaarde: %d\n", KnopValue);
-  	// Send the next value on the queue.  The queue should always be
-	// empty at this point so a block time of 0 is used.
-	xQueueSend( xQueue3,			// The queue being written to.
-				&KnopValue, 	// The address of the data being sent.
-				0UL );			// The block time.
+    KnopValue = OldSwData;
+    xQueueSend( xQueue3,			// The queue being written to.
+								&KnopValue, 	// The address of the data being sent.
+								0UL );			// The block time.
+    xil_printf("KnopWaarde: %d", KnopValue);
 	}
+
 }
 /*-----------------------------------------------------------*/
 
@@ -385,14 +390,13 @@ static void prvRxTask( void *pvParameters )
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
 		// game toeveogen
-		next_frame();
 		set_player_position(AfstandReceived);
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 
-		if(AfstandReceived <= 15)
+		/*if(AfstandReceived <= 15)
 		{
 			//groen in derde led
 			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
@@ -406,7 +410,7 @@ static void prvRxTask( void *pvParameters )
 		else if(AfstandReceived > 15)
 		{
 			xil_printf("Afstand te groot \r\n");
-		}
+		}*/
 
 		//sleep_A9(1);
 		//xil_printf( "Rx task received string from Tx task: %s\r\n", Recdstring );
@@ -420,8 +424,9 @@ static void prvRxTask( void *pvParameters )
 static void vTimerCallback( TimerHandle_t pxTimer )
 {
 	xil_printf("0.5s voorbij. \r\n");
-	next_frame();
 	configASSERT( pxTimer );
+  next_frame();
+
 	/*long lTimerId;
 	configASSERT( pxTimer );
 
@@ -456,7 +461,6 @@ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
   xQueueReceive( 		xQueue3,			/* The queue being read. */
 						&KnopValueRecv,			/* Data is read into this address. */
 						portMAX_DELAY);	/* Wait without a timeout for data. */
-  xil_printf("KnopValueRecv: %d\n",KnopValueRecv);
   set_player_2_position(KnopValueRecv);
 }
 
@@ -582,6 +586,7 @@ void set_player_position( u32 positie )
 {
 	switch( positie )
   {
+
 
 	    case 0:
 	      // statements

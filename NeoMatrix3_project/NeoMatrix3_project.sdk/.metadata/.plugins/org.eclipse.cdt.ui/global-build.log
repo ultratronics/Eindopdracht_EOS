@@ -8261,3 +8261,240 @@ arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_wor
           ^~~~~~~~~~
 compilation terminated.
 make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+21:43:50 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:234:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:297:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:361:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:111:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building file: ../src/timers.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/timers.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/timers.d" -MT"src/timers.o" -o "src/timers.o" "../src/timers.c"
+Finished building: ../src/timers.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o ./src/timers.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreateTimerTask':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: multiple definition of `xTimerCreateTimerTask'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreate':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: multiple definition of `xTimerCreate'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGenericCommand':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: multiple definition of `xTimerGenericCommand'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetTimerDaemonTaskHandle':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: multiple definition of `xTimerGetTimerDaemonTaskHandle'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetPeriod':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: multiple definition of `xTimerGetPeriod'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetExpiryTime':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: multiple definition of `xTimerGetExpiryTime'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pcTimerGetName':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: multiple definition of `pcTimerGetName'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerIsTimerActive':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: multiple definition of `xTimerIsTimerActive'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pvTimerGetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: multiple definition of `pvTimerGetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: multiple definition of `vTimerSetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCallFromISR':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: multiple definition of `xTimerPendFunctionCallFromISR'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCall':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: multiple definition of `xTimerPendFunctionCall'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `uxTimerGetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: multiple definition of `uxTimerGetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: multiple definition of `vTimerSetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:235: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:44:11 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:234:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:297:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:361:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:111:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o ./src/timers.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:235: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:44:42 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:234:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:297:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:361:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:111:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o ./src/timers.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreateTimerTask':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: multiple definition of `xTimerCreateTimerTask'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:227: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerCreate':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: multiple definition of `xTimerCreate'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:286: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGenericCommand':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: multiple definition of `xTimerGenericCommand'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:386: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetTimerDaemonTaskHandle':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: multiple definition of `xTimerGetTimerDaemonTaskHandle'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:429: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetPeriod':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: multiple definition of `xTimerGetPeriod'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:438: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerGetExpiryTime':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: multiple definition of `xTimerGetExpiryTime'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:447: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pcTimerGetName':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: multiple definition of `pcTimerGetName'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:458: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerIsTimerActive':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: multiple definition of `xTimerIsTimerActive'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:950: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `pvTimerGetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: multiple definition of `pvTimerGetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:978: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerID':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: multiple definition of `vTimerSetTimerID'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:995: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCallFromISR':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: multiple definition of `xTimerPendFunctionCallFromISR'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1011: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `xTimerPendFunctionCall':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: multiple definition of `xTimerPendFunctionCall'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1035: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `uxTimerGetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: multiple definition of `uxTimerGetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1064: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/timers.o: in function `vTimerSetTimerNumber':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: multiple definition of `vTimerSetTimerNumber'; ./src/freertos_hello_world.o:C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/timers.c:1074: first defined here
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:235: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:46:06 **** Clean-only build of configuration Debug for project freertos_neomatrix ****
+make clean 
+rm -rf  ./src/freertos_hello_world.o ./src/timers.o  ./src/freertos_hello_world.d ./src/timers.d  freertos_neomatrix.elf.size  freertos_neomatrix.elf
+ 
+21:46:13 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c:47:10: fatal error: timers.c: No such file or directory
+ #include "timers.c"
+          ^~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:23: src/freertos_hello_world.o] Error 1
+21:46:22 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'main':
+../src/freertos_hello_world.c:233:3: warning: implicit declaration of function 'vTimerSetReloadMode'; did you mean 'xTimerGetPeriod'? [-Wimplicit-function-declaration]
+   vTimerSetReloadMode(xTimer, pdTRUE);
+   ^~~~~~~~~~~~~~~~~~~
+   xTimerGetPeriod
+../src/freertos_hello_world.c: In function 'prvKnop':
+../src/freertos_hello_world.c:296:19: warning: unused variable 'x1second' [-Wunused-variable]
+  const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
+                   ^~~~~~~~
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:360:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+At top level:
+../src/freertos_hello_world.c:110:21: warning: 'xTxTask' defined but not used [-Wunused-variable]
+ static TaskHandle_t xTxTask;
+                     ^~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/freertos_hello_world.o: in function `main':
+C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:233: undefined reference to `vTimerSetReloadMode'
+c:/xilinx/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\freertos_neomatrix\Debug/../src/freertos_hello_world.c:234: undefined reference to `vTimerSetReloadMode'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: freertos_neomatrix.elf] Error 1
+21:46:33 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:355:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88400	   3872	  90064	 182336	  2c840	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
