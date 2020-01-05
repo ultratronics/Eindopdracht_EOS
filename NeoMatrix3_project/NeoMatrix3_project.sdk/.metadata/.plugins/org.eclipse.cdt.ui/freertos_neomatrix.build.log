@@ -1,8 +1,8 @@
-14:43:00 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+15:34:17 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
 
-14:43:00 Build Finished (took 279ms)
+15:34:17 Build Finished (took 306ms)
 
