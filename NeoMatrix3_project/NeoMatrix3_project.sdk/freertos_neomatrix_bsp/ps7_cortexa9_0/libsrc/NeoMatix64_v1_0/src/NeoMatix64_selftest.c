@@ -33,7 +33,7 @@ XStatus NEOMATIX64_Reg_SelfTest(void * baseaddr_p)
 	u32 baseaddr;
 	int write_loop_index;
 	int read_loop_index;
-	int Index;
+	//int Index;
 
 	baseaddr = (u32) baseaddr_p;
 

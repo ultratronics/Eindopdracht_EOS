@@ -90,7 +90,6 @@
 static void prvRxTask( void *pvParameters );
 //tasks
 static void prvSensor( void *pvParameters );
-static void prvUartRead( void *pvParameters );
 static void prvKnop(void *pvParameters);
 //functies voor de timers
 static void vTimerCallback( TimerHandle_t pxTimer );
@@ -103,6 +102,8 @@ void next_frame();
 void set_player_position(u32 positie);
 void set_player_2_position(u32 PS_button);
 void drawScreen(int x,int y,int colorLED);
+void clearScreen(void);
+void drawArray(void);
 //void set_obj_group();
 /*-----------------------------------------------------------*/
 
@@ -110,7 +111,7 @@ void drawScreen(int x,int y,int colorLED);
 file. */
 static TaskHandle_t xRxTask;
 static TaskHandle_t xSensor;
-static TaskHandle_t xUartRead;
+//static TaskHandle_t xUartRead;
 static TaskHandle_t xKnop;
 
 static QueueHandle_t xQueue = NULL;
@@ -129,32 +130,22 @@ int SegmentValue(int number);
 int Status;
 int r;
 
-u32 buffer_pos[9][8];
-u32 buffer_type[9][8]; // 0 = nothing, 1 = object, 2 = check, 3 = player (changes the color)
-u32 buffer_obj[15][8] = { { 1, 1, 1, 0, 0, 0, 1, 1 },
-                          { 1, 0, 0, 0, 1, 1, 1, 1 },
-                          { 1, 1, 0, 0, 0, 1, 1, 1 },
-                          { 1, 1, 1, 1, 0, 0, 0, 1 },
-                          { 1, 1, 1, 1, 1, 0, 0, 0 },
-                          { 0, 0, 0, 1, 1, 1, 1, 1 },
-                          { 1, 1, 0, 0, 1, 1, 0, 0 },
-                          { 1, 0, 0, 1, 1, 0, 0, 1 },
-                          { 0, 0, 1, 1, 0, 0, 1, 1 },
-                          { 0, 0, 1, 1, 1, 0, 0, 0 },
-                          { 0, 1, 1, 1, 0, 0, 0, 0 },
-                          { 1, 1, 1, 0, 0, 0, 0, 0 },
-                          { 0, 0, 0, 1, 1, 1, 0, 0 },
-                          { 0, 0, 0, 0, 1, 1, 1, 0 },
-                          { 0, 0, 0, 0, 0, 1, 1, 1 } };
-// object buffer, elke 15 frames wordt gezien als een lvl.
+u32 buffer_display[8][8] ={	{1, 1, 1, 1, 1, 1, 1, 1},
+                          {  0, 0, 0, 0, 0, 0, 0, 0},
+                          {  0, 0, 0, 0, 0, 0, 0, 0},
+                          {  0, 0, 0, 0, 0, 0, 0, 0},
+                          {  0, 0, 0, 0, 0, 0, 0, 0},
+                          {  0, 0, 0, 0, 0, 0, 0, 0},
+                          {  0, 0, 0, 0, 0, 0, 0, 0},
+                          {  1, 1, 1, 1, 1, 1, 1, 1}};
 
 int main( void )
 {
-
+	drawArray();
 	const TickType_t x0_5seconds = pdMS_TO_TICKS( DELAY_0_5_SECOND ); // timer loopt af na een halve seconde
 	const TickType_t x0_2seconds = pdMS_TO_TICKS( DELAY_0_2_SECOND ); // timer loopt af na 0.2
 
-  xil_printf( "Welkom in het spel.\r\n" );
+	xil_printf( "Welkom in het spel.\r\n" );
 
 
 	/* Create the two tasks.  The Tx task is given a lower priority than the
@@ -187,13 +178,6 @@ int main( void )
 				 NULL,
 				 tskIDLE_PRIORITY,
 				 &xKnop );
-
-	xTaskCreate( prvUartRead,
-				 ( const char * ) "UART",
-				 configMINIMAL_STACK_SIZE,
-				 NULL,
-				 tskIDLE_PRIORITY + 1,
-				 &xUartRead );
 
 	srand( 0 );
 
@@ -253,7 +237,7 @@ int main( void )
 static void prvSensor( void *pvParameters ) //Werkt ....
 {
 	const TickType_t x1second = pdMS_TO_TICKS( DELAY_1_SECOND );
-	xil_printf("Ultrasonic test.\n\r");
+	//xil_printf("Ultrasonic test.\n\r");
 
 	for( ;; )
 	{
@@ -294,8 +278,8 @@ static void prvKnop( void *pvParameters )
 	xil_printf("In Functie Knop.\n\r");
 
   XGpioPs_Config *ConfigPtr;
-	ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
-	XGpioPs_CfgInitialize(&Gpio, ConfigPtr, ConfigPtr -> BaseAddr);
+  ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+  XGpioPs_CfgInitialize(&Gpio, ConfigPtr, ConfigPtr -> BaseAddr);
   XGpioPs_SetDirectionPin(&Gpio, Knop, KnopData);
 
   for(;;)
@@ -303,7 +287,11 @@ static void prvKnop( void *pvParameters )
 		NewSwData = XGpioPs_ReadPin(&Gpio, Knop);
 		if((NewSwData != OldSwData) && (NewSwData == 1))
 		{
-			xil_printf("Read pin\r\n");
+			xil_printf("Button Pressed\r\n");
+		}
+		else if((NewSwData != OldSwData) && (NewSwData == 0))
+		{
+			xil_printf("Button Released\r\n");
 		}
 		OldSwData = NewSwData;
 		KnopValue = OldSwData;
@@ -314,57 +302,14 @@ static void prvKnop( void *pvParameters )
   	xQueueOverwrite(xQueue3, // Zelfs als er al iets in de queue zit gewoon deze waarde overschrijven
   					&KnopValue);
   	//xil_printf("Verzonden\n");
-
-	//xQueueSend( xQueue3,			// The queue being written to.
-	//			&KnopValue, 	// The address of the data being sent.
-	//			0UL );			// The block time.
-
-
-  	// Send the next value on the queue.  The queue should always be
-	// empty at this point so a block time of 0 is used.
-	//xQueueSend( xQueue3,			// The queue being written to.
-	//			&KnopValue, 	// The address of the data being sent.
-	//			0UL );			// The block time.
 	}
 }
 /*-----------------------------------------------------------*/
-
-static void prvUartRead( void *pvParameters )
-{
-	int ArrayRGB[7][7];
-	char NeonData;
-
-	xil_printf("In UartRead. \r\n");
-
-	for(;;)
-	{
-		/* Block to wait for data arriving on the queue. */
-		xQueueReceive( 	xQueue2,			/* The queue being read. */
-						&NeonData,			/* Data is read into this address. */
-						portMAX_DELAY );	/* Wait without a timeout for data. */
-
-		xil_printf("NeonData [%d]", NeonData);
-
-		for(int j = 0; j < 8; j++)
-		{
-			for(int i = 0; i < 8; i++)
-			{
-				ArrayRGB[i+1][j] = ArrayRGB[i][j];
-				ArrayRGB[i][j] = NeonData;
-			}
-		}
-
-	}
-}
-/*-----------------------------------------------------------*/
-
-
-
 static void prvRxTask( void *pvParameters )
 {
 	xil_printf( "In prvRxTask \r\n" );
 	int AfstandReceived;
-	int KnopReceived;
+	//int KnopReceived;
 	//int RGBvalue;
 	/*int Temp;
 	char rood = 255;
@@ -396,26 +341,17 @@ static void prvRxTask( void *pvParameters )
 		/* Print the received data. */
 		xil_printf( "Afstand waarde: %d \r\n", AfstandReceived );
 
-		// game toeveogen
-		next_frame();
-		set_player_position(AfstandReceived);
 
 
 		/*NEONIP_mWriteReg(0x43c10000, NEON_REG0, 0b0);
 		Temp = NEONIP_mReadReg(0x43c10000, NEON_REG0);*/
 
-		if(AfstandReceived <= 15)
+		if(AfstandReceived <= 7)
 		{
-			//groen in derde led
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
-			//klaarzetten in stage
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01010000010);
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
-			//buffer overschrijven
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10010000010);
-			NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00010000010);
+			xil_printf("Afstand zit in de range \r\n");
+			set_player_position(AfstandReceived);
 		}
-		else if(AfstandReceived > 15)
+		else if(AfstandReceived > 7)
 		{
 			xil_printf("Afstand te groot \r\n");
 		}
@@ -432,33 +368,10 @@ static void prvRxTask( void *pvParameters )
 static void vTimerCallback( TimerHandle_t pxTimer )
 {
 	xil_printf("0.5s voorbij. \r\n");
-	next_frame();
+	//next_frame;
+	//drawArray();
 	configASSERT( pxTimer );
-	/*long lTimerId;
-	configASSERT( pxTimer );
-
-	lTimerId = ( long ) pvTimerGetTimerID( pxTimer );
-
-	if (lTimerId != TIMER_ID) {
-		xil_printf("FreeRTOS Hello World Example FAILED");
-	}*/
-
-	/* If the RxtaskCntr is updated every time the Rx task is called. The
-	 Rx task is called every time the Tx task sends a message. The Tx task
-	 sends a message every 1 second.
-	 The timer expires after 10 seconds. We expect the RxtaskCntr to at least
-	 have a value of 9 (TIMER_CHECK_THRESHOLD) when the timer expires. */
-	/*if (RxtaskCntr >= TIMER_CHECK_THRESHOLD) {
-		xil_printf("10 sec counter finished");
-	} else {
-		xil_printf("FreeRTOS Hello World Example FAILED");
-	}
-
-	vTaskDelete( xRxTask );
-	vTaskDelete( xTxTask );*/
 }
-/*-----------------------------------------------------------*/
-/*-----------------------------------------------------------*/
 
 static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
 {
@@ -474,19 +387,10 @@ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
   }
 }
 
-void set_obj(u32 Y) // Y 0-14
-{
-	for(int i = 0; i > 7; i++ )
-	{
-		buffer_pos[i][7] = buffer_obj[Y][i];
-		buffer_type[i][7] = 1;
-	}
-}
-/*-----------------------------------------------------------*/
-
 void game_over()
 {
 	xil_printf("game over");
+	drawArray();
 //	for(int j = 9; j == 0; j--)
 //	{
 //		for(int i = 8; i == 0; i--)
@@ -499,62 +403,16 @@ void game_over()
  // xTimerStop( xTimer, 5 );
 }
 /*-----------------------------------------------------------*/
-
-void next_frame()
-{
-  static int count = 0;
-	for( int j = 0; j > 7; j++ )
-	{
-		for( int i = 0; i > 7; i++ )
-		{
-			buffer_pos[i+1][j] = buffer_pos[i][j];
-			buffer_pos[i][j] = 0;
-
-      if( buffer_type[0][i+1] == 3 && buffer_type[1][i] == 1 )
-      {
-        game_over();
-      }
-
-			buffer_type[i+1][j] = buffer_type[i][j];
-			buffer_type[i][j] = 0;
-		}
-	}
-
-  if( count >= 4 )
-  {
-    r = rand() % 15;
-    xil_printf("random %d\n",r);
-    set_obj( r );
-    count = 0;
-  }
-
-	for( u32 j = 8; j == 0; j-- )
-	{
-		for( u32 i = 8; i == 0; i-- )
-		{
-			// updates the position on the matrix
-			drawScreen((i-1),(j-1),buffer_type[j-1][i-1]);
-			u32 kleur_extracted_tmp = buffer_type[j-1][i-1];
-			xil_printf( "%d\n",kleur_extracted_tmp );
-
-			// zend de color values naar een array om de displayen in een terminal
-			xQueueSend( xQueue2,		// The queue being written to.
-						&kleur_extracted_tmp, 		// The address of the data being sent.
-						0UL );			// The block time.
-		}
-	}
-	count ++;
-}
-/*-----------------------------------------------------------*/
 void set_player_2_position( u32 PS_button )
 {
-  static u32 player_pos = 0;
+  static u32 player_pos = 1;
+  static u32 old_player_pos = 7;
   xil_printf("PS button %d\n",PS_button);
   if( PS_button == 1 )
   {
 
 
-    if( player_pos < 7 )
+    if( player_pos < 6 )
     {
     	player_pos++;
     }
@@ -563,7 +421,7 @@ void set_player_2_position( u32 PS_button )
   {
 
 
-    if( player_pos > 0 )
+    if( player_pos > 1 )
     {
     	player_pos --;
     }
@@ -572,9 +430,11 @@ void set_player_2_position( u32 PS_button )
 	xil_printf("%d",player_pos);
   }
   xil_printf("spelerspositie %d",player_pos);
-  drawScreen(3,player_pos,2);
-  //drawScreen(3,player_pos,0);
-  buffer_type[0][ player_pos ] = 3;
+  if (old_player_pos != player_pos){
+	  drawScreen(3,old_player_pos,0);
+	  drawScreen(3,player_pos,2);
+	  old_player_pos = player_pos;
+  }
   xil_printf("set player 2 position done\n");
 }
 
@@ -603,8 +463,8 @@ void drawScreen(int x,int y,int colorLED){
 			 *
 			 *
 			 */
-	xil_printf("positieled: %d\n", positieLED);
-	xil_printf("colorled: %d\n", (uint )colorLED << 6);
+	//xil_printf("positieled: %d\n", positieLED);
+	//xil_printf("colorled: %d\n", (uint )colorLED << 6);
 
 	uint sturen = (uint) positieLED | ((uint) colorLED << 6);
 
@@ -614,137 +474,115 @@ void drawScreen(int x,int y,int colorLED){
 	u32 send4 = 0b10000000000;
 	u32 send5 = 0b00000000000;
 
-	xil_printf("sturen: %x\n", sturen);
+	//xil_printf("sturen: %x\n", sturen);
 
 	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send1 | sturen);
-	 xil_printf("send 1: %x\n", send1);
+	 //xil_printf("send 1: %x\n", send1);
 	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send2 | sturen);
-	 xil_printf("%x\n", send2 | sturen);
+	 //xil_printf("%x\n", send2 | sturen);
 	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send3| sturen);
-	 xil_printf("%x\n", send3| sturen);
+	 //xil_printf("%x\n", send3| sturen);
 	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send4 | sturen);
-	 xil_printf("%x\n",send4 | sturen);
+	 //xil_printf("%x\n",send4 | sturen);
 	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send5 | sturen);
-	 xil_printf("send 5: %x\n",send5 | sturen);
+	 //xil_printf("send 5: %x\n",send5 | sturen);
 }
 
 
 
+void drawArray(void){
+
+	for(int i = 0; i< 8 ; i++){
+
+		for(int j =0; j<8 ; j++){
+
+		drawScreen(j,i,buffer_display[i][j]);
+
+
+
+		}
+
+
+
+	}
+
+
+
+}
+
+void clearScreen(void){
+
+	for(int i = 0; i< 8 ; i++){
+
+		for(int j =0; j<8 ; j++){
+
+		drawScreen(i,j,0);
+
+
+
+		}
+
+
+
+	}
+
+
+
+}
+
+
 void set_player_position( u32 positie )
 {
+	//static u32 lastPosition = 0;
+	for(int i = 1; i< 7 ; i++){
+
+		drawScreen(0,i,0);
+
+	}
+	xil_printf("positie sturen : %d\n", positie);
 	switch( positie )
   {
 
 	    case 0:
 	      // statements
-
-	    	// player pos 0
-	    		//y 0 x 0
-					if(buffer_type[0][0] != 1)
-          {
             drawScreen(0,0,2);
-            buffer_type[0][0] = 3;
-          }
-	        else
-          {
-            game_over();
-          }
       	break;
 	    case 1:
-
 	      // statements
 
 	    	//player pos 1
 	    		//y1 x0
-      		if(buffer_type[0][1] != 1)
-          {
-            drawScreen(0,1,3);
-            buffer_type[0][1] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
+	    	xil_printf("case 1 : %d\n", positie);
+	    	drawScreen(1,0,2);
+            drawScreen(0,2,2);
+            drawScreen(0,3,2);
+            drawScreen(0,4,2);
       	break;
 	    case 2:
 
 	    	//player pos 2
-	    		//y2 x0
-      		if(buffer_type[0][2] != 1)
-          {
-            drawScreen(0,2,3);
-            buffer_type[0][2] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
+            drawScreen(0,2,2);
       	break;
 	    case 3:
-
 	    	//player pos 3
 	    		//y3 x0
-     			if(buffer_type[0][3] != 1)
-          {
-     	    drawScreen(0,3,3);
-            buffer_type[0][3] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
+     	    drawScreen(0,3,2);
       	break;
 	    case 4:
-	    	//player pos 4
-					if(buffer_type[0][4] != 1)
-          {
-			drawScreen(0,4,3);
-            buffer_type[0][4] = 3;
-          }
-      		else
-          {
-            game_over();
-          }
+			drawScreen(0,4,2);
       	break;
 	    case 5:
 	    	//player pos 5
-      		if(buffer_type[0][5] != 1)
-          {
-      		drawScreen(0,5,3);
-            buffer_type[0][5] = 3;
-          }
-          else
-          {
-            game_over();
-          }
+      		drawScreen(0,5,2);
       	break;
 	    case 6:
-
-	    	//player pos 6
-          if(buffer_type[0][6] != 1)
-          {
-        	drawScreen(0,6,3);
-            buffer_type[0][6] = 3;
-          }
-          else
-          {
-            game_over();
-          }
+        	drawScreen(0,6,2);
       	break;
 	    case 7:
-
-	    	//player pos 7
-          if(buffer_type[0][7] != 1)
-          {
-        	drawScreen(0,7,3);
-            buffer_type[0][7] = 3;
-          }
-          else
-          {
-            game_over();
-          }
+        	drawScreen(0,7,2);
       	break;
 	      // default statements
+    //lastPosition = positie;
 	}
 }
 
