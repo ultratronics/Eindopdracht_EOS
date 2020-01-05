@@ -626,7 +626,7 @@ void drawScreen(int x,int y,int colorLED){
 
 	xil_printf("sturen: %x\n", sturen);
 
-	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send1 | sturen);
+	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send1);
 	 xil_printf("send 1: %x\n", send1);
 	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send2 | sturen);
 	 xil_printf("%x\n", send2 | sturen);
