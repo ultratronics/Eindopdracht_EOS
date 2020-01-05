@@ -614,9 +614,9 @@ void drawScreen(int x,int y,int colorLED){
 			 *
 			 */
 	xil_printf("positieled: %d\n", positieLED);
-	xil_printf("colorled: %d\n", (uint )colorLED << 6);
+	xil_printf("colorled: %d\n", colorLED);
 
-	uint sturen = (uint) positieLED | ((uint) colorLED << 6);
+	uint sturen = (uint) positieLED || ((uint) colorLED << 6);
 
 	u32 send1 = 0b00000000000;
     u32 send2 = 0b01000000000;
@@ -628,14 +628,14 @@ void drawScreen(int x,int y,int colorLED){
 
 	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send1);
 	 xil_printf("%d\n", send1);
-	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send2 | sturen);
-	 xil_printf("%d\n", send2 | sturen);
-	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send3| sturen);
-	 xil_printf("%d\n", send3| sturen);
-	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send4 | sturen);
-	 xil_printf("%d\n",send4 | sturen);
-	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send5 | sturen);
-	 xil_printf("%d\n",send5 | sturen);
+	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send2 || sturen);
+	 xil_printf("%d\n", send2 || sturen);
+	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send3|| sturen);
+	 xil_printf("%d\n", send3|| sturen);
+	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send4 || sturen);
+	 xil_printf("%d\n",send4 || sturen);
+	 NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, send5 || sturen);
+	 xil_printf("%d\n",send5 || sturen);
 }
 
 
