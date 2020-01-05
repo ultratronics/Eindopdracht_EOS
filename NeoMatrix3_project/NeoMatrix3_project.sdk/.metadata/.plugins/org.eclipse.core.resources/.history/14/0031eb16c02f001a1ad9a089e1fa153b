@@ -237,7 +237,7 @@ int main( void )
 	   as the schedule starts the timer will start running and will expire after
 	   0.5 seconds */
 	xTimerStart( xTimer, 0 );
-    //xTimerStart( xTimerKnop, 0 );
+    xTimerStart( xTimerKnop, 0 );
 	/* Start the tasks and timer running. */
 	vTaskStartScheduler();
 
@@ -308,12 +308,12 @@ static void prvKnop( void *pvParameters )
 		OldSwData = NewSwData;
 		KnopValue = OldSwData;
 
-  	//xil_printf("Queue -> KnopWaarde: %d\n", KnopValue);
+  	xil_printf("Queue -> KnopWaarde: %d\n", KnopValue);
 
 
   	xQueueOverwrite(xQueue3, // Zelfs als er al iets in de queue zit gewoon deze waarde overschrijven
   					&KnopValue);
-  	//xil_printf("Verzonden\n");
+  	xil_printf("Verzonden\n");
 
 	//xQueueSend( xQueue3,			// The queue being written to.
 	//			&KnopValue, 	// The address of the data being sent.
@@ -464,14 +464,12 @@ static void vTimerCallbackKnop( TimerHandle_t pxTimerKnop )
 {
   xil_printf("0.2 zijn voorbij \r\n");
   configASSERT( pxTimerKnop );
-  int KnopValueRecv = -1;
+  int KnopValueRecv;
   xQueueReceive( 		xQueue3,			/* The queue being read. */
 						&KnopValueRecv,			/* Data is read into this address. */
-						20);//portMAX_DELAY);	/* Wait without a timeout for data. */
-  if (KnopValueRecv != -1){
+						portMAX_DELAY);	/* Wait without a timeout for data. */
   xil_printf("KnopValueRecv: %d\n",KnopValueRecv);
   set_player_2_position(KnopValueRecv);
-  }
 }
 
 void set_obj(u32 Y) // Y 0-14

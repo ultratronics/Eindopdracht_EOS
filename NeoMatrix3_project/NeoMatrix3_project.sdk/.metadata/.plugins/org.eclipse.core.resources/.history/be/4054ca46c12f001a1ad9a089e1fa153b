@@ -237,7 +237,7 @@ int main( void )
 	   as the schedule starts the timer will start running and will expire after
 	   0.5 seconds */
 	xTimerStart( xTimer, 0 );
-    //xTimerStart( xTimerKnop, 0 );
+    xTimerStart( xTimerKnop, 0 );
 	/* Start the tasks and timer running. */
 	vTaskStartScheduler();
 

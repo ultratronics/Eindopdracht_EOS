@@ -9758,3 +9758,230 @@ make pre-build main-build
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
+14:29:39 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88616	   3872	  90064	 182552	  2c918	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:29:45 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+14:30:08 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88616	   3872	  90064	 182552	  2c918	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:30:12 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+14:30:26 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88552	   3872	  90064	 182488	  2c8d8	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:30:31 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+14:34:25 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88488	   3872	  90064	 182424	  2c898	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:34:31 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+14:35:14 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88448	   3872	  90064	 182384	  2c870	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:35:24 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+14:41:45 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88448	   3872	  90064	 182384	  2c870	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:42:06 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88512	   3872	  90064	 182448	  2c8b0	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:42:13 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+14:42:55 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/freertos_hello_world.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+../src/freertos_hello_world.c: In function 'prvRxTask':
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+  int KnopReceived;
+      ^~~~~~~~~~~~
+Finished building: ../src/freertos_hello_world.c
+ 
+Building target: freertos_neomatrix.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos_neomatrix_bsp/ps7_cortexa9_0/lib -o "freertos_neomatrix.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: freertos_neomatrix.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88448	   3872	  90064	 182384	  2c870	freertos_neomatrix.elf
+Finished building: freertos_neomatrix.elf.size
+ 
+14:43:00 **** Incremental Build of configuration Debug for project freertos_neomatrix ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.

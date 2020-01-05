@@ -3917,3 +3917,318 @@ con
 ----------------End of Script----------------
 
 14:14:10 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
+14:29:49 INFO  : Disconnected from the channel tcfchan#22.
+14:29:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0} -index 1' command is executed.
+14:29:51 INFO  : 'fpga -state' command is executed.
+14:29:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:29:53 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+14:29:53 INFO  : 'jtag frequency' command is executed.
+14:29:53 INFO  : Sourcing of 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+14:29:53 INFO  : Context for 'APU' is selected.
+14:29:56 INFO  : Hardware design information is loaded from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+14:29:56 INFO  : 'configparams force-mem-access 1' command is executed.
+14:29:56 INFO  : Context for 'APU' is selected.
+14:29:56 INFO  : 'stop' command is executed.
+14:29:56 INFO  : 'ps7_init' command is executed.
+14:29:56 INFO  : 'ps7_post_config' command is executed.
+14:29:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:29:56 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:29:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:29:57 INFO  : The application 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:29:57 INFO  : 'configparams force-mem-access 0' command is executed.
+14:29:57 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+loadhw -hw C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+dow C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:29:57 INFO  : Memory regions updated for context APU
+14:29:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:29:57 INFO  : 'con' command is executed.
+14:29:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+con
+----------------End of Script----------------
+
+14:29:57 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
+14:30:14 INFO  : Disconnected from the channel tcfchan#23.
+14:30:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0} -index 1' command is executed.
+14:30:15 INFO  : 'fpga -state' command is executed.
+14:30:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:30:16 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+14:30:16 INFO  : 'jtag frequency' command is executed.
+14:30:16 INFO  : Sourcing of 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+14:30:16 INFO  : Context for 'APU' is selected.
+14:30:19 INFO  : Hardware design information is loaded from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+14:30:19 INFO  : 'configparams force-mem-access 1' command is executed.
+14:30:19 INFO  : Context for 'APU' is selected.
+14:30:19 INFO  : 'stop' command is executed.
+14:30:19 INFO  : 'ps7_init' command is executed.
+14:30:19 INFO  : 'ps7_post_config' command is executed.
+14:30:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:19 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:30:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:20 INFO  : The application 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:30:20 INFO  : 'configparams force-mem-access 0' command is executed.
+14:30:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+loadhw -hw C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+dow C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:30:20 INFO  : Memory regions updated for context APU
+14:30:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:20 INFO  : 'con' command is executed.
+14:30:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+con
+----------------End of Script----------------
+
+14:30:20 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
+14:30:34 INFO  : Disconnected from the channel tcfchan#24.
+14:30:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0} -index 1' command is executed.
+14:30:35 INFO  : 'fpga -state' command is executed.
+14:30:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:30:35 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+14:30:36 INFO  : 'jtag frequency' command is executed.
+14:30:36 INFO  : Sourcing of 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+14:30:36 INFO  : Context for 'APU' is selected.
+14:30:38 INFO  : Hardware design information is loaded from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+14:30:38 INFO  : 'configparams force-mem-access 1' command is executed.
+14:30:38 INFO  : Context for 'APU' is selected.
+14:30:39 INFO  : 'stop' command is executed.
+14:30:39 INFO  : 'ps7_init' command is executed.
+14:30:39 INFO  : 'ps7_post_config' command is executed.
+14:30:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:39 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:30:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:39 INFO  : The application 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:30:39 INFO  : 'configparams force-mem-access 0' command is executed.
+14:30:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+loadhw -hw C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+dow C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:30:39 INFO  : Memory regions updated for context APU
+14:30:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:40 INFO  : 'con' command is executed.
+14:30:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+con
+----------------End of Script----------------
+
+14:30:40 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
+14:34:33 INFO  : Disconnected from the channel tcfchan#25.
+14:34:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0} -index 1' command is executed.
+14:34:34 INFO  : 'fpga -state' command is executed.
+14:34:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:34:35 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+14:34:35 INFO  : 'jtag frequency' command is executed.
+14:34:35 INFO  : Sourcing of 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+14:34:35 INFO  : Context for 'APU' is selected.
+14:34:38 INFO  : Hardware design information is loaded from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+14:34:38 INFO  : 'configparams force-mem-access 1' command is executed.
+14:34:38 INFO  : Context for 'APU' is selected.
+14:34:38 INFO  : 'stop' command is executed.
+14:34:39 INFO  : 'ps7_init' command is executed.
+14:34:39 INFO  : 'ps7_post_config' command is executed.
+14:34:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:34:39 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:34:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:34:39 INFO  : The application 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:34:39 INFO  : 'configparams force-mem-access 0' command is executed.
+14:34:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+loadhw -hw C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+dow C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:34:39 INFO  : Memory regions updated for context APU
+14:34:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:34:40 INFO  : 'con' command is executed.
+14:34:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+con
+----------------End of Script----------------
+
+14:34:40 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
+14:35:27 INFO  : Disconnected from the channel tcfchan#26.
+14:35:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0} -index 1' command is executed.
+14:35:28 INFO  : 'fpga -state' command is executed.
+14:35:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:35:28 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+14:35:28 INFO  : 'jtag frequency' command is executed.
+14:35:28 INFO  : Sourcing of 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+14:35:28 INFO  : Context for 'APU' is selected.
+14:35:31 INFO  : Hardware design information is loaded from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+14:35:31 INFO  : 'configparams force-mem-access 1' command is executed.
+14:35:31 INFO  : Context for 'APU' is selected.
+14:35:31 INFO  : 'stop' command is executed.
+14:35:32 INFO  : 'ps7_init' command is executed.
+14:35:32 INFO  : 'ps7_post_config' command is executed.
+14:35:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:35:32 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:35:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:35:32 INFO  : The application 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:35:32 INFO  : 'configparams force-mem-access 0' command is executed.
+14:35:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+loadhw -hw C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+dow C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:35:32 INFO  : Memory regions updated for context APU
+14:35:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:35:33 INFO  : 'con' command is executed.
+14:35:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+con
+----------------End of Script----------------
+
+14:35:33 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
+14:42:15 INFO  : Disconnected from the channel tcfchan#27.
+14:42:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0} -index 1' command is executed.
+14:42:16 INFO  : 'fpga -state' command is executed.
+14:42:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:42:17 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+14:42:17 INFO  : 'jtag frequency' command is executed.
+14:42:17 INFO  : Sourcing of 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+14:42:17 INFO  : Context for 'APU' is selected.
+14:42:20 INFO  : Hardware design information is loaded from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+14:42:20 INFO  : 'configparams force-mem-access 1' command is executed.
+14:42:20 INFO  : Context for 'APU' is selected.
+14:42:20 INFO  : 'stop' command is executed.
+14:42:21 INFO  : 'ps7_init' command is executed.
+14:42:21 INFO  : 'ps7_post_config' command is executed.
+14:42:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:42:21 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:42:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:42:21 INFO  : The application 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:42:21 INFO  : 'configparams force-mem-access 0' command is executed.
+14:42:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+loadhw -hw C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+dow C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:42:21 INFO  : Memory regions updated for context APU
+14:42:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:42:21 INFO  : 'con' command is executed.
+14:42:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+con
+----------------End of Script----------------
+
+14:42:21 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
+14:43:02 INFO  : Disconnected from the channel tcfchan#28.
+14:43:03 INFO  : 'targets -set -filter {jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A" && level==0} -index 1' command is executed.
+14:43:03 INFO  : 'fpga -state' command is executed.
+14:43:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:43:03 INFO  : Jtag cable 'Avnet MiniZed V1 1234-oj1A' is selected.
+14:43:03 INFO  : 'jtag frequency' command is executed.
+14:43:03 INFO  : Sourcing of 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+14:43:04 INFO  : Context for 'APU' is selected.
+14:43:06 INFO  : Hardware design information is loaded from 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+14:43:06 INFO  : 'configparams force-mem-access 1' command is executed.
+14:43:06 INFO  : Context for 'APU' is selected.
+14:43:07 INFO  : 'stop' command is executed.
+14:43:07 INFO  : 'ps7_init' command is executed.
+14:43:07 INFO  : 'ps7_post_config' command is executed.
+14:43:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:43:07 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+14:43:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:43:07 INFO  : The application 'C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:43:07 INFO  : 'configparams force-mem-access 0' command is executed.
+14:43:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+loadhw -hw C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+dow C:/Users/admin/Documents/pxl/3dejaar/embedded_os/Eindopdracht_EOS/NeoMatrix3_project/NeoMatrix3_project.sdk/freertos_neomatrix/Debug/freertos_neomatrix.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:43:07 INFO  : Memory regions updated for context APU
+14:43:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:43:08 INFO  : 'con' command is executed.
+14:43:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Avnet MiniZed V1 1234-oj1A"} -index 0
+con
+----------------End of Script----------------
+
+14:43:08 INFO  : Launch script is exported to file 'C:\Users\admin\Documents\pxl\3dejaar\embedded_os\Eindopdracht_EOS\NeoMatrix3_project\NeoMatrix3_project.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_freertos_neomatrix.elf_on_local.tcl'
