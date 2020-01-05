@@ -579,8 +579,14 @@ void set_player_2_position( u32 PS_button )
       player_pos = 0;
     }
   }
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
 
-  drawScreen(3,player_pos,1);
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+
   buffer_type[0][ player_pos ] = 3;
 }
 
@@ -659,6 +665,7 @@ void set_player_position( u32 positie )
       		if(buffer_type[0][1] != 1)
           {
             drawScreen(0,1,3);
+
             buffer_type[0][1] = 3;
           }
       		else
@@ -672,7 +679,14 @@ void set_player_position( u32 positie )
 	    		//y2 x0
       		if(buffer_type[0][2] != 1)
           {
-            drawScreen(0,2,3);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011010000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011010000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011010000);
+
             buffer_type[0][2] = 3;
           }
       		else
@@ -686,7 +700,14 @@ void set_player_position( u32 positie )
 	    		//y3 x0
      			if(buffer_type[0][3] != 1)
           {
-     	    drawScreen(0,3,3);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011011000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011011000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011011000);
+
             buffer_type[0][3] = 3;
           }
       		else
@@ -698,7 +719,14 @@ void set_player_position( u32 positie )
 	    	//player pos 4
 					if(buffer_type[0][4] != 1)
           {
-			drawScreen(0,4,3);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011100000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011100000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011100000);
+
             buffer_type[0][4] = 3;
           }
       		else
@@ -710,7 +738,14 @@ void set_player_position( u32 positie )
 	    	//player pos 5
       		if(buffer_type[0][5] != 1)
           {
-      		drawScreen(0,5,3);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011101000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011101000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011101000);
+
             buffer_type[0][5] = 3;
           }
           else
@@ -723,7 +758,14 @@ void set_player_position( u32 positie )
 	    	//player pos 6
           if(buffer_type[0][6] != 1)
           {
-        	drawScreen(0,6,3);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011110000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011110000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011110000);
+
             buffer_type[0][6] = 3;
           }
           else
@@ -736,7 +778,13 @@ void set_player_position( u32 positie )
 	    	//player pos 7
           if(buffer_type[0][7] != 1)
           {
-        	drawScreen(0,7,3);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011111000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011111000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
             buffer_type[0][7] = 3;
           }
           else

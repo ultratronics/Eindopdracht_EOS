@@ -579,8 +579,14 @@ void set_player_2_position( u32 PS_button )
       player_pos = 0;
     }
   }
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
 
-  drawScreen(3,player_pos,1);
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011000000 && (0xFFFFFFFF || player_pos << 3));
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011000000 && (0xFFFFFFFF || player_pos << 3));
+  NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011000000 && (0xFFFFFFFF || player_pos << 3));
+
   buffer_type[0][ player_pos ] = 3;
 }
 
@@ -736,7 +742,13 @@ void set_player_position( u32 positie )
 	    	//player pos 7
           if(buffer_type[0][7] != 1)
           {
-        	drawScreen(0,7,3);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b01011111000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b10011111000);
+            NEOMATIX64_mWriteReg(NEON_ADDR, NEON_REG0, 0b00011111000);
+
             buffer_type[0][7] = 3;
           }
           else

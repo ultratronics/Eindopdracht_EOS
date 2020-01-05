@@ -1,4 +1,4 @@
-21:46:33 **** Auto Build of configuration Debug for project freertos_neomatrix ****
+12:51:41 **** Auto Build of configuration Debug for project freertos_neomatrix ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
@@ -6,9 +6,13 @@ Building file: ../src/freertos_hello_world.c
 Invoking: ARM v7 gcc compiler
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos_neomatrix_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
 ../src/freertos_hello_world.c: In function 'prvRxTask':
-../src/freertos_hello_world.c:355:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
+../src/freertos_hello_world.c:367:6: warning: unused variable 'KnopReceived' [-Wunused-variable]
   int KnopReceived;
       ^~~~~~~~~~~~
+../src/freertos_hello_world.c: In function 'drawScreen':
+../src/freertos_hello_world.c:612:39: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+  u32 sturen = positieLED || (colorLED << 6);
+                             ~~~~~~~~~~^~~~~
 Finished building: ../src/freertos_hello_world.c
  
 Building target: freertos_neomatrix.elf
@@ -19,9 +23,9 @@ Finished building target: freertos_neomatrix.elf
 Invoking: ARM v7 Print Size
 arm-none-eabi-size freertos_neomatrix.elf  |tee "freertos_neomatrix.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  88400	   3872	  90064	 182336	  2c840	freertos_neomatrix.elf
+  88216	   3872	  90064	 182152	  2c788	freertos_neomatrix.elf
 Finished building: freertos_neomatrix.elf.size
  
 
-21:46:42 Build Finished (took 9s.45ms)
+12:51:42 Build Finished (took 1s.292ms)
 
