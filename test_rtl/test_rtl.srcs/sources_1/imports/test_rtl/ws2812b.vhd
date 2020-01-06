@@ -11,19 +11,18 @@ entity ws2812b is
     --  t0h 400+-150 ns, t0l 850+-150 ns  ----_________
     --  t1h 800+-150 ns, t1l 450+-150 ns  --------_____
     --  tres > 50 us
-    -- simplified timing within tolerance (equal 0/1)
-    t0h: integer := 400; -- ns
-    t1h: integer := 800; -- ns
-    t0l: integer := 850;
-    t1l: integer := 450;
-    tbit: integer := 1250; -- ns
-    tres: integer := 60; -- us
-    bpp: integer := 24 -- bits per LED pixel (don't touch)
+    --timing
+    t0h: integer := 400; -- time for 0 high ns
+    t1h: integer := 800; -- time for 1 high ns
+    t0l: integer := 850; -- time for 0 low
+    t1l: integer := 450; -- time for 1 high
+    tbit: integer := 1250; -- total time per bit ns
+    tres: integer := 60; -- reset time us
+    bpp: integer := 24 -- bits per LED pixel
   );
   port
   (
-    nLed: in STD_LOGIC_VECTOR(5 downto 0);
-    color: in STD_logic_vector(2 downto 0);
+    
     stage_write: in STD_LOGIC;
     overwrite: in STD_LOGIC;
     clk: in STD_Logic;
@@ -64,6 +63,12 @@ signal stage_leds_ram : T_leds_ram :=
  (
  others => (others => '0')
  );
+ 
+ signal compare_ram : T_leds_ram :=
+ (
+ others => (others => '0')
+ );
+ 
   --constant sequence_len: integer := 8;
   type T_sequence_rom is array(0 to 7) of std_logic_vector(23 downto 0);
   constant sequence_rom: T_sequence_rom := 
@@ -82,18 +87,23 @@ signal stage_leds_ram : T_leds_ram :=
     others => (others => '0')
   );
 
+
+
+ signal  nLed: STD_LOGIC_VECTOR(5 downto 0) := B"000001";
+  signal  color: STD_logic_vector(2 downto 0) := B"111";
   --signal rom_addr      : integer range 0 to sequence_len*striplen*(bpp/8)-1;
-  signal count         : integer range 0 to 2500; -- protocol timer
-  signal data_ram          : std_logic_vector(2 downto 0);
-  signal data :             std_logic_vector (23 downto 0);
+  signal count         : integer range 0 to 2500 := 0; -- protocol timer
+  signal data_ram      : std_logic_vector(2 downto 0);
+  signal data          : std_logic_vector (23 downto 0);
   signal bit_count     : integer range 0 to 1536; --bpp*striplen-1;
   signal led_bit       : integer range 0 to 23 := 23;
-  signal state         : integer range 0 to 5 := 0; -- protocol state
+  signal state         : integer range 0 to 6 := 0; -- protocol state
   --signal led_array_i :integer range 0 to 63 := 0;
   signal bitOut : std_logic := '0';
   signal nLedi : integer range 0 to 63;
   --signal timerOverwrite : integer range 0 to 63;
-  signal extract_n_led : integer range 0 to 63;
+  signal extract_n_led : integer range 0 to 63 := 0;
+  signal update : std_logic := '0';
  begin
  
  
@@ -102,7 +112,7 @@ signal stage_leds_ram : T_leds_ram :=
   begin
   if (rising_edge(stage_write)) then
       nLedi <= to_integer(unsigned(nLed));
-      stage_leds_ram(nLedi) <= color;
+      stage_leds_ram(nLedi+1) <= color;
       end if;
  
  
@@ -113,7 +123,8 @@ signal stage_leds_ram : T_leds_ram :=
   if (rising_edge(overwrite)) then
       --timerOverwrite <= 0;
       leds_ram <= stage_leds_ram;
-      end if;
+  end if;
+      
   end process;
   
   
@@ -125,27 +136,30 @@ signal stage_leds_ram : T_leds_ram :=
       
       
       
-      data_ram <= leds_ram(extract_n_led);
-      data <= sequence_rom(to_integer(unsigned(data_ram)));
       
-      bitOut <= data(led_bit);
 
-      if state = 0 then 
-        bit_count <= bit_count + 1;
+      if state = 0 then
+        -- bits voor kleur ophalen van een bepaalde led
+        data_ram <= leds_ram(extract_n_led);
+        data <= sequence_rom(to_integer(unsigned(data_ram)));
+        bitOut <= data(led_bit);
         
-        if bitOut = '0' then
+        bit_count <= bit_count + 1;
+        if bit_count = 1537 then --striplen*24
+        state <= 5;
+        bit_count <= 0;
+        count <= 0;
+        -- end if;
+        elsif bitOut = '0' then
             state <= 1;
             count <= 0;
-        else
+        elsif bitOut = '1' then
             state <= 3;
             count <= 0;
         end if;
         
         
-        if bit_count = 1536 then --striplen*24
-        state <= 5;
-        bit_count <= 0;
-        end if;
+        
         
         
         
@@ -159,6 +173,8 @@ signal stage_leds_ram : T_leds_ram :=
                 extract_n_led <= extract_n_led +1;
             end if;
         end if;
+        
+        
       elsif state = 1 then
       
         if count = 20  then --clk_Hz*t0h/ns then
@@ -182,11 +198,17 @@ signal stage_leds_ram : T_leds_ram :=
         count <= 0;
         end if;
       elsif state = 5 then
-        if count = 2500 then --clk_Hz*tres/us then
-        state <= 0;
+        if count >= 2500 then --clk_Hz*tres/us then
+        state <= 6;
         count <= 0;
         led_bit <= 23;
         end if;
+      elsif state = 6 then
+        --if NOT (compare_ram = leds_ram) then
+        --compare_ram <= leds_ram;
+        --state <= 0; 
+        --count <= 0;
+        --end if;
       end if;
       
    end if;
@@ -198,6 +220,7 @@ signal stage_leds_ram : T_leds_ram :=
     else '1' when state = 3
     else '0' when state = 4
     else '0' when state = 5
+    else '0' when state = 6
     else '0';
 
 end Behavioral;

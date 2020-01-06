@@ -396,7 +396,7 @@ static void vTimerCallback( TimerHandle_t pxTimer )
       InputToPlayer = 1;
     }
   }
-  else if(InputToPlayer == 1)
+  else
   {
     if( i_show_array < level )
     {
@@ -528,34 +528,6 @@ void set_player_color( u32 positie )
 {
 	//static u32 lastPosition = 0;
 	//xil_printf("positie sturen : %d", positie);
-
-	if (positie >= 0 && positie < 5){
-
-		NextColorScreen(5);
-		player_color_buffer = 5;
-
-	}else if (positie >= 5 && positie < 10){
-
-		NextColorScreen(7);
-		player_color_buffer = 7;
-
-	}else if (positie >= 10 && positie < 15){
-
-		NextColorScreen(3);
-	    player_color_buffer = 3;
-
-
-	}else if(positie >= 15 && positie < 20){
-
-		NextColorScreen(2);
-		player_color_buffer = 2;
-
-
-	}
-
-
-
-/*
 	switch( positie )
   {
 	    case 0:
@@ -607,9 +579,6 @@ void set_player_color( u32 positie )
 
       default: break;
 	}
-
-
-	*/
 }
 
 void gameOver(void)
