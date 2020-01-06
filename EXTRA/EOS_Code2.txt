@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int level = 1;
+int InputToPlayer = 0;
+int array[30];
+int i_show_array;
+int player_color_buffer;
+int colors[4] = {5, 7, 3, 2};
+
+
+int main(void)
+{
+  srand(5);
+while(1)
+{
+    printf("0.5s voorbij. \r\n");
+  if (InputToPlayer == 0)
+  {
+
+    if(i_show_array < level)
+    {
+      //NextColorScreen(array[i_show_array]);
+      for (int i = 0 ; i < level; i++)
+      {
+        int randomkleur = rand() % 3;
+        array[i_show_array]= colors[randomkleur];
+      }
+
+      printf("%d\n", array[i_show_array]);
+      i_show_array++;
+    }
+    else
+    {
+      i_show_array = 0;
+      InputToPlayer = 1;
+    }
+  }
+  else
+  {
+    if(i_show_array < level)
+    {
+      scanf("%d", &player_color_buffer);
+
+        if(array[i_show_array] == player_color_buffer)
+        {
+          i_show_array++;
+        }
+        else
+        {
+          break;
+        }
+      }
+
+    else
+    {
+      InputToPlayer = 0;
+      i_show_array = 0;
+      level++;
+      printf("\n\n");
+    }
+  }
+
+}
+  return 0;
+}
